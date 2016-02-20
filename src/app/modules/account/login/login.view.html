@@ -1,0 +1,25 @@
+<div class="logged-out login" ng-controller="AccountLoginController as vm">
+  <div class="container">
+    <div class="container-alignment">
+      <h1 class="logo">eCondos</h1>
+
+      <div class="container-block">
+        <div class="form-group form-group-label">
+          <input class="form-control floating-label" type="email" placeholder="E-mail"
+                 ng-model="vm.account.login">
+        </div>
+        <div class="form-group form-group-label">
+          <input class="form-control floating-label" type="password" placeholder="Senha"
+                 ng-model="vm.account.password">
+        </div>
+        <button class="btn btn-primary btn-raised" ng-click="vm.login()">
+          Entrar
+        </button>
+        <a href="pages/sign-in/forgot-password.php" class="btn btn-flat btn-default">
+          Esqueci minha senha
+        </a>
+      </div>
+      <a href="pages/sign-up/" title="Criar minha conta" class="link">Criar minha conta</a>
+    </div>
+  </div>
+</div>

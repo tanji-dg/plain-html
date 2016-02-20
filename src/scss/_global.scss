@@ -1,0 +1,616 @@
+/********************************
+/* BASIC HTML */
+/********************************/
+
+html, body {
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+
+a, button, i, li {
+	transition: .20s ease-in-out;
+	-webkit-transition: .20s ease-in-out;
+	-moz-transition: .20s ease-in-out;
+	-o-transition: .20s ease-in-out;
+	opacity: 1 !important;
+}
+
+a, a:hover, a:focus {
+    color: $color-primary;
+}
+
+h1, h2, h3, h4 {
+	i {
+		display: inline-block;
+		margin-right: 5px;
+		opacity: 0.2;
+	}
+}
+
+/********************************
+/* Bootstrap */
+/********************************/
+
+.form-control {
+	width: 100%;
+}
+
+.form-group-label {
+	padding-top: 20px;
+	padding-bottom: 10px;
+
+	input {
+		font-size: 16px;
+	}
+
+	.floating-label {
+		font-size: 16px;
+		top: 0px;
+	}
+
+	.form-control-wrapper .form-control:focus~.floating-label, .form-control-wrapper .form-control:not(.empty)~.floating-label {
+	    top: -15px;
+	    font-size: 14px;
+	    opacity: 1;
+	    color: $color-primary !important;
+	}
+}
+
+.form-group .form-control:focus, .form-group-default .form-control:focus {
+    background-image: linear-gradient($color-primary,$color-primary),linear-gradient(#d2d2d2,#d2d2d2);
+}
+
+.btn {
+	font-size: 14px;
+    padding: 15px 20px;
+
+	&.btn.btn-flat.btn-default {
+		color: #999;
+
+		&:hover {
+			background: #eee;
+		}
+	}
+
+	&.btn-primary {
+		background: $color-primary !important;
+	}
+}
+
+.panel {
+	.panel-heading {
+		h4 {
+			margin: 10px 0;
+		}
+	}
+}
+
+.list-group-item-text {
+	.btn {
+		margin: 0px !important;
+	}
+}
+
+.label {
+	font-weight: normal;
+    padding-top: 5px;
+
+	&.label-primary {
+		background: $color-primary;
+	}
+}
+
+.carousel-control {
+	background: transparent !important;
+}
+
+/********************************
+/* Fontawesome */
+/********************************/
+
+.fa-circled {
+	background: $color-primary;
+	color: #fff;
+	opacity: 1;
+	padding: 10px 10px 10px 10px;
+	min-width: 40px;
+	text-align: center;
+	border-radius: 100px;
+	margin-right: 5px;
+}
+
+.panel {
+	box-shadow: 0 1px 5px 0 rgba(0,0,0,.25),0 1px 5px 0 rgba(0,0,0,.25);
+}
+
+/********************************
+/* Global */
+/********************************/
+
+.inline {
+	display: inline-block;
+}
+
+/********************************
+/* Logged Out */
+/********************************/
+
+.logged-out {
+	background: $color-secundary;
+	width: 100%;
+	height: 100%;
+	display: table;
+
+	/********************************
+	/* General */
+	/********************************/
+
+	.container {
+		display: table !important;
+		margin-top: 50px;
+
+		.logo {
+			width: 100%;
+			max-width: 200px;
+			height: 100px;
+			background: url('../assets/images/logo.png') center no-repeat;
+			margin: 0 auto;
+			background-size: 100%;
+			color: transparent;
+			margin-bottom: 30px;
+		}
+
+		.container-block {
+			padding: 40px;
+			background: white;
+		}
+
+		.link {
+		    display: block;
+		    margin: 30px auto;
+		    text-align: center;
+		    text-decoration: none;
+		    color: $color-primary;
+
+		    &:hover {
+		   		color: $color-primary;
+		    }
+		}
+
+		.buttons {
+			margin: 20px 0 0 0;
+		}
+	}
+
+	.container-alignment {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 450px;
+	}
+
+	/********************************
+	/* Steps */
+	/********************************/
+
+	.steps {
+		display: table;
+		width: 100%;
+		margin: 0px;
+	    padding: 0;
+	    table-layout: fixed;
+	    border-collapse: separate;
+	    margin-bottom: 30px;
+
+		li {
+			list-style: none;
+			float: none;
+			display: table-cell;
+		    position: relative;
+			border-radius: 5px;
+
+			a {
+				text-decoration: none;
+				display: block;
+				vertical-align: middle;
+				width: 100%;
+				padding: 15px;
+				font-size: 14px;
+
+				.icon {
+					display: inline-block;
+					width: 40px;
+					height: 40px;
+					background: $color-primary;
+					vertical-align: middle;
+					border-radius: 100px;
+					margin-right: 10px;
+					text-align: center;
+
+					i {
+						color: white;
+						font-size: 20px;
+						margin-top: 10px;
+					}
+				}
+
+				.title {
+					display: inline-block;
+					width: 50px;
+					vertical-align: middle;
+					line-height: 20px;
+					color: $color-secundary;
+				}
+			}
+
+			&.active, &:hover {
+				background: #eee;
+
+				a {
+					.title {
+						color: black;
+					}
+				}
+			}
+
+			&.active {
+
+				a {
+					cursor: default;
+				}
+			}
+		}
+	}
+
+	/********************************
+	/* Sign In - Login */
+	/********************************/
+
+	&.login {
+
+	}
+
+	/********************************
+	/* Sign In - Forgot Password */
+	/********************************/
+
+	&.forgot-password {
+	}
+
+	/********************************
+	/* Sign Up */
+	/********************************/
+
+	&.sign-up {
+		h4 {
+			margin-top: 0px;
+		}
+
+		.container-alignment {
+			width: 100%;
+			max-width: 800px;
+		}
+
+	}
+
+	&.pre-step {
+
+		.container-alignment {
+			width: 100%;
+			max-width: 450px;
+		}
+
+	}
+
+	&.second-step {
+
+		.condos-search-response,
+		.selected-condos, {
+			margin-top: 30px;
+		}
+
+	}
+
+	&.third-step {
+
+	}
+}
+
+
+/********************************
+/* Logged In */
+/********************************/
+
+.logged-in {
+	background: #ddd;
+	width: 100%;
+	height: 100%;
+	display: table;
+
+	.dropdown-menu {
+		padding: 0px;
+		min-width: 100%;
+		border-radius: 0px;
+
+		a {
+		    padding: 15px 25px;
+
+			&:hover {
+				background: #eee;
+			}
+		}
+	}
+
+	.container-sm {
+		max-width: 960px;
+	}
+
+	.new-event {
+		max-width: 960px;
+	}
+
+	.nav-tabs {
+		background: transparent;
+		padding-bottom: 1px;
+
+		li{
+
+			a {
+				border: 1px solid #fff !important;
+			    color: #555 !important;
+			    font-weight: normal;
+			    border-radius: 0px !important;
+			    padding: 15px 20px;
+			}
+
+			&.active {
+				a {
+					border: 1px solid #ddd !important;
+					border-bottom: 1px solid #fff !important;
+				}
+			}
+		}
+	}
+
+	.navbar-default {
+		background: $color-secundary;
+
+		.navbar-brand {
+			color: transparent;
+			width: 70px;
+			min-width: inherit;
+		    height: 40px;
+			background: url('../assets/images/logo.png') center no-repeat;
+			background-size: 100%;
+			padding: 0;
+			display: table;
+			margin: 10px;
+		}
+
+		.navbar-nav {
+			& > li > a {
+				padding: 20px;
+			}
+
+			.btn-sm {
+				padding: 10px 16px;
+   				text-transform: none;
+			}
+
+			.btn-success.btn-sm:focus {
+				background-color: #59b75c;
+			}
+
+			.profile-image {
+			    width: 30px;
+			    height: 30px;
+			    margin-right: 10px;
+			    margin-top: -5px;
+			    margin-bottom: -5px;
+			}
+
+			.dropdown-menu {
+
+				.profile-image {
+			    	margin-top: -25px;
+				}
+			}
+		}
+	}
+
+	.btn-group {
+		display: inline-block;
+	}
+
+	.btn-category {
+		display: inline-block;
+
+		.btn {
+		    border-right: 1px solid #eee;
+		}
+	}
+
+	.marginless {
+		margin: 0 !important;
+	}
+
+	.notice {
+		h4 {
+			margin: 5px 0;
+			line-height: 25px;
+		}
+
+		.close {
+			color: $color-secundary;
+			opacity: 0.6 !important;
+		}
+
+		.author {
+			display: inline-block;
+			margin: 0 0 0 5px;
+			font-size: 14px;
+			font-weight: bold;
+			color: $color-secundary;
+		}
+	}
+
+	.comments {
+		.form-control {
+			padding: 16px;
+			background: white;
+		}
+
+		.toggle {
+			font-size: 12px;
+			color: $color-secundary;
+		}
+	}
+
+	.comment {
+
+		.list-group-item-heading{
+			font-size: 14px;
+			font-weight: bold;
+			margin: 0;
+		}
+
+		.list-group-item-text {
+			font-size: 14px;
+		}
+	}
+
+	.post {
+		header {
+			width: 100%;
+			display: table;
+			margin-top: 5px;
+
+			.icon {
+				width: 50px;
+
+				i {
+					width: 50px;
+					height: 50px;
+					font-size: 25px;
+					padding: 13px;
+					text-align: center;
+					color: #fff;
+					background: $color-primary;
+					display: inline-block;
+				}
+			}
+
+			.title {
+				vertical-align: middle;
+				padding-left: 15px;
+
+				h4 {
+					font-weight: bold;
+					margin-top: 5px;
+					color: $color-secundary;
+				}
+
+				.info {
+					margin-bottom: 10px;
+				}
+
+				.label {
+					font-size: 12px;
+				}
+
+				.author {
+					font-weight: bold;
+				}
+			}
+
+			& > div {
+				display: table-cell;
+			}
+		}
+
+		.description {
+			margin: 1px 0 20px 0;
+			font-size: 14px;
+			line-height: 22px;
+
+			.options {
+				margin-left: 20px;
+
+				.btn-gray {
+				    background: #eee;
+				    color: $color-secundary;
+				    border-right: 1px solid #ccc;
+				}
+
+				.btn-gray:last-child {
+					border: 0;
+				}
+			}
+		}
+	}
+
+	.condo-search {
+		margin: 0px 0 20px 0;
+	}
+
+	.panel .panel {
+		box-shadow: none;
+		border: 1px solid #ddd;
+	}
+
+	.section-title {
+		margin: 20px 0 30px 0;
+		font-weight: 300;
+
+		& > .fa {
+			font-size: 20px;
+			padding: 15px;
+			margin-right: 10px;
+			text-align: center;
+		}
+
+		.btn {
+			margin-top: -5px;
+		}
+	}
+
+	.form-post {
+		h5 {
+			padding: 10px 0;
+			font-weight: bold;
+		}
+
+		form {
+			padding-top: 15px;
+		}
+		.form-control {
+			padding: 25px 15px;
+		}
+
+		.form-file,
+		.form-image {
+			width: 89px;
+			height: 89px;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 10px;
+			margin-bottom: 10px;
+		}
+
+		.form-file {
+			background: $color-primary;
+			text-align: center;
+			color: white;
+			background: #FFA90C;
+			text-align: center;
+			color: #fff;
+			padding: 30px;
+			font-size: 27px;
+			cursor: pointer;
+		}
+
+		.form-image {
+			object-fit: cover;
+		}
+	}
+}

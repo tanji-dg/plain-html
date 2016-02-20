@@ -1,0 +1,152 @@
+<div class="logged-out sign-up third-step" ng-controller="AccountSignupStep3Controller as vm">
+  <div class="container">
+    <div class="container-alignment">
+      <h1 class="logo">eCondos</h1>
+      <div class="container-block">
+        <ul class="steps">
+          <li>
+            <a href="first-step.php">
+              <span class="icon"><i class="fa fa-account"></i></span>
+              <span class="title">Informações Pessoais</span>
+            </a>
+          </li>
+          <li>
+            <a href="second-step.php">
+              <span class="icon"><i class="fa fa-building"></i></span>
+              <span class="title">Meus Condomínios</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="third-step.php">
+              <span class="icon"><i class="fa fa-accounts"></i></span>
+              <span class="title">Minha Família</span>
+            </a>
+          </li>
+        </ul>
+        <form action="../feed/" method="GET">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>The View - Residence Club</h4>
+              <div class="form-group">
+                <input class="form-control input-lg" type="text" id="inputLarge" placeholder="Digite o identificador (casa, apto...)">
+              </div>
+            </div>
+            <div class="panel-body">
+              <h4>Integrantes &nbsp; <button type="button" data-toggle="modal" data-target="#addAccount" class="btn btn-default btn-success btn-xs">adicionar</button> </h4>
+              <hr />
+              <div class="list-group">
+                <div class="list-group-item">
+                  <div class="row-picture">
+                    <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+                  </div>
+                  <div class="row-content">
+                    <h4 class="list-group-item-heading"><i class="fa fa-star"></i> Fulanod de Tal</h4>
+                    <p class="list-group-item-text">
+                      <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> excluir</span></a>
+                      <a href="" class="btn btn-default btn-info btn-xs"><i class="fa fa-star"></i><span class="hidden-xs"> representante</span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group">
+                <div class="list-group-item">
+                  <div class="row-picture">
+                    <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+                  </div>
+                  <div class="row-content">
+                    <h4 class="list-group-item-heading">Fulanod de Tal</h4>
+                    <p class="list-group-item-text">
+                      <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> excluir</span></a>
+                      <a href="" class="btn btn-default btn-info btn-xs"><i class="fa fa-star"></i><span class="hidden-xs"> representante</span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group">
+                <div class="list-group-item">
+                  <div class="row-picture">
+                    <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+                  </div>
+                  <div class="row-content">
+                    <h4 class="list-group-item-heading">Fulanod de Tal</h4>
+                    <p class="list-group-item-text">
+                      <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> excluir</span></a>
+                      <a href="" class="btn btn-default btn-info btn-xs"><i class="fa fa-star"></i><span class="hidden-xs"> representante</span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-raised">
+            Finalizar Cadastro
+          </button>
+          <a href="" class="btn btn-flat btn-default">
+            Voltar
+          </a>
+        </form>
+      </div>
+      <a href="" title="Acessar minha conta" class="link">Acessar minha conta</a>
+    </div>
+  </div>
+
+  <div class="modal modal-vcenter fade" id="addAccount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"><strong><i class="fa fa-plus fa-circled"></i>Adicionar Integrante</strong></h4>
+        </div>
+        <div class="modal-body">
+          <br />
+          <div class="input-group">
+            <span class="input-group-addon"><i class='fa fa-search'></i></span>
+            <input type="text" class="form-control" placeholder="Pesquisar pelo e-mail">
+          </div>
+          <br />
+          <div class="list-group">
+            <div class="list-group-item">
+              <div class="row-picture">
+                <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+              </div>
+              <div class="row-content">
+                <h4 class="list-group-item-heading">Fulano de Tal</h4>
+                <p class="list-group-item-text">
+                  <a href="" class="btn btn-default btn-success btn-xs"><i class="fa fa-plus"></i> adicionar</a>
+                </p>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <div class="row-picture">
+                <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+              </div>
+              <div class="row-content">
+                <h4 class="list-group-item-heading">Fulano de Tal</h4>
+                <p class="list-group-item-text">
+                  <a href="" class="btn btn-default btn-success btn-xs"><i class="fa fa-plus"></i> adicionar</a>
+                </p>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <div class="row-picture">
+                <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+              </div>
+              <div class="row-content">
+                <h4 class="list-group-item-heading">Fulano de Tal</h4>
+                <p class="list-group-item-text">
+                  <a href="" class="btn btn-default btn-success btn-xs"><i class="fa fa-plus"></i> adicionar</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <h4>Não encontrou?</h4>
+          <input type="text" class="form-control" placeholder="Convide através do e-mail">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

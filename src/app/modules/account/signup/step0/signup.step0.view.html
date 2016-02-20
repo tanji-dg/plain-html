@@ -1,0 +1,46 @@
+<div class="logged-out sign-up pre-step" ng-controller="AccountSignupStep0Controller as vm">
+  <div class="container">
+    <div class="container-alignment">
+      <h1 class="logo">eCondos</h1>
+
+      <div class="container-block">
+        <form name="account" ng-hide="vm.success">
+          <h3>Vamos começar?</h3>
+
+          <div class="form-group form-group-label">
+            <input class="form-control floating-label" type="email"
+                   ng-model="vm.account.login" name="login"
+                   ng-minlength="5" ng-maxlength="100"
+                   placeholder="E-mail"
+                   required>
+          </div>
+          <div class="form-group form-group-label">
+            <input class="form-control floating-label" type="password"
+                   ng-model="vm.account.password" name="password"
+                   ng-minlength="5" ng-maxlength="100"
+                   placeholder="Senha"
+                   required>
+          </div>
+          <div class="form-group form-group-label">
+            <input class="form-control floating-label" type="password"
+                   ng-model="vm.account.passwordConfirm" name="passwordConfirm"
+                   match="vm.account.password" ng-minlength="5" ng-maxlength="100"
+                   placeholder="Confirmar senha"
+                   required>
+            <small class="text-danger" ng-if="account.passwordConfirm.$error.match">
+              A confirmação da senha está incorreta
+            </small>
+          </div>
+          <button ng-disabled="account.$invalid" ng-click="vm.save()" class="btn btn-primary btn-raised">
+            Criar minha conta
+          </button>
+        </form>
+        <div ng-show="vm.success">
+          Obrigado por se cadastrar!<br/>
+          Verifique seu e-mail para ativar sua conta.
+        </div>
+      </div>
+      <a href="#/login" title="Acessar minha conta" class="link">Acessar minha conta</a>
+    </div>
+  </div>
+</div>

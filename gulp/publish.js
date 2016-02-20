@@ -1,0 +1,21 @@
+'use strict';
+
+var path = require('path');
+var gulp = require('gulp');
+var conf = require('./conf');
+
+var s3 = require('gulp-s3');
+
+var nconf = require('nconf');
+
+gulp.task('publish', ['bower', 'build'], function () {
+  var awsProperties = {
+    'key'    : conf.environment.AWS_KEY,
+    'secret' : conf.environment.AWS_SECRET,
+    'bucket' : conf.environment.AWS_BUCKET,
+    'region' : conf.environment.AWS_REGION
+  };
+
+  return gulp.src(path.join(conf.paths.dist, '/**'))
+    .pipe(s3(awsProperties));
+});

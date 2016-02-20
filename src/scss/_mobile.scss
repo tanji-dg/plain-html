@@ -1,0 +1,59 @@
+@media only screen and (max-width : 767px) {
+	.steps {
+		li {
+			a {
+				.icon {
+					display: inherit !important;
+					margin: 0 auto; 
+				}
+			}
+		}
+
+		.title {
+			display: none !important;
+		}
+	}
+
+	.logged-in {
+
+		.nav-tabs {
+			border-bottom: 0;
+			
+			li {
+				width: 100%;
+				display: block;
+
+				a {
+					border: 1px solid #ddd !important;
+				}
+
+				&.active {
+					a {
+						border-bottom: 1px solid #ddd !important;
+						background: #eee !important;
+					}
+				}
+			}
+		}
+
+		.form-post{
+
+			.form-file,
+			.form-image {
+				width: 74px;
+				height: 74px;
+			}
+
+			.form-file {
+			    padding: 21px;
+			}
+		}
+
+		.btn-category {
+
+			.btn {
+				width: 100%;
+			}
+		}
+	}
+}

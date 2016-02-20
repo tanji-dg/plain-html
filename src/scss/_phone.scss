@@ -1,0 +1,89 @@
+@media (max-width: 768px) {
+
+	.row-picture {
+		display: none !important;
+	}
+
+	.row-content {
+		width: 100% !important;
+	}
+
+	.list-group-item-heading {
+		font-size: 24px;
+    	font-size: 15px !important;
+    	line-height: 20px;
+	}
+
+	.logged-out {
+
+		.container {
+		    width: 100%;
+		    margin-top: 30px;
+
+			.container-block {
+				padding: 20px;
+			}
+
+			.logo {
+				max-width: 130px;
+    			height: 70px;
+			}
+		}
+
+		.steps {
+			margin-bottom: 20px; 
+		}
+
+		h3 {
+		    font-size: 18px;
+		}
+
+		.form-control {
+			font-size: 14px;
+		}
+
+		&.sign-up {
+			h4 {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.logged-in {
+
+		.section-title {
+			font-size: 20px;
+			margin-bottom: 10px;
+			display: table; 
+
+			.btn {
+				display: table;
+				width: 100%;
+				margin-top: 10px;
+			}
+		}
+
+		.post {
+			header {
+				.title {
+					.info {
+					    display: table;
+    					margin-bottom: 0px;
+					}
+
+					small,
+					.label-danger {
+						float: left !important;
+					    margin: 10px 0px 0px 0px;
+					    display: block;
+				        width: 100%;
+					}
+
+					h4 {
+						line-height: 20px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,142 @@
+<div class="logged-out sign-up second-step" ng-controller="AccountSignupStep2Controller as vm">
+  <div class="container">
+    <div class="container-alignment">
+      <h1 class="logo">eCondos</h1>
+
+      <div class="container-block">
+        <ul class="steps">
+          <li>
+            <a href="first-step.php">
+              <span class="icon"><i class="fa fa-account"></i></span>
+              <span class="title">Informações Pessoais</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="second-step.php">
+              <span class="icon"><i class="fa fa-building"></i></span>
+              <span class="title">Meus Condomínios</span>
+            </a>
+          </li>
+          <li>
+            <a href="third-step.php">
+              <span class="icon"><i class="fa fa-accounts"></i></span>
+              <span class="title">Minha Família</span>
+            </a>
+          </li>
+        </ul>
+        <h3>Encontre o seu condomínio</h3>
+
+        <form action="./third-step.php" method="GET">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class='fa fa-search'></i></span>
+              <input type="text" class="form-control mask-cep" placeholder="Pesquisar pelo CEP">
+            </div>
+          </div>
+          <div class="condos-search-response">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <strong>The View - Residence Club</strong>
+              </div>
+              <div class="panel-body">
+                <h5>Avenida Maria José alpina, 53 - Bom Retiro</h5>
+
+                <p>São José dos Campos - SP</p>
+                <a href="" class=" btn btn-default btn-success btn-xs"><i class="fa fa-plus"></i><span
+                  class="hidden-xs"> Adicionar</span></a>
+              </div>
+            </div>
+          </div>
+          <p>
+            <button class="btn btn-material-grey-200" data-toggle="modal" data-target="#newCondo" type="button">
+              Não encontrou?
+            </button>
+          </p>
+          <h3>Meus Condomínios</h3>
+
+          <div class="selected-condos">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <strong>The View - Residence Club</strong>
+              </div>
+              <div class="panel-body">
+                <h5>Avenida Maria José alpina, 53 - Bom Retiro</h5>
+
+                <p>São José dos Campos - SP</p>
+                <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> Remover</span></a>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-raised">
+            Próximo passo
+          </button>
+          <a href="" class="btn btn-flat btn-default">
+            Voltar
+          </a>
+        </form>
+      </div>
+      <a href="<?php echo $path; ?>pages/sign-in/" title="Acessar minha conta" class="link">Acessar minha conta</a>
+    </div>
+  </div>
+
+  <div class="modal modal-vcenter fade" id="newCondo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"><strong><i class="fa fa-plus fa-circled"></i>Adicionar
+            Condomínio</strong></h4>
+        </div>
+        <div class="modal-body">
+          <br/>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group form-group-label">
+                <input class="form-control floating-label" type="text" placeholder="Nome do condomínio">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group form-group-label">
+                <input class="form-control floating-label mask-cep" type="text" placeholder="CEP">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="form-group form-group-label">
+                <input class="form-control floating-label" type="text" placeholder="Endereço" value="Rua Teste"
+                       readonly>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group form-group-label">
+                <input class="form-control floating-label" type="text" placeholder="Número">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10">
+              <div class="form-group form-group-label">
+                <input class="form-control floating-label" type="text" placeholder="Cidade" value="São José dos Campos"
+                       readonly>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group form-group-label">
+                <input class="form-control floating-label" type="text" placeholder="Estado" value="SP" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

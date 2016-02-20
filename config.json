@@ -1,0 +1,9 @@
+{
+  "ENV"        : "development",
+  "BACKEND_URL": "http://localhost:8080",
+  "APP_SECRET" : "Bx522vYx66b30pX190Ug2odY5AKgJ9p3",
+  "AWS_KEY"    : "",
+  "AWS_SECRET" : "",
+  "AWS_BUCKET" : "",
+  "AWS_REGION" : ""
+}

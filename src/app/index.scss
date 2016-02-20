@@ -1,0 +1,22 @@
+// Author: V.Smolucha
+// Project: Econdos
+/**
+ *  Do not remove the comments below. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+/**
+ *  Do not remove the comments below. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector
+
+@import '../scss/variables';
+@import '../scss/mixins';
+@import '../scss/global';
+@import '../scss/desktop';
+@import '../scss/mobile';
+@import '../scss/tablet';
+@import '../scss/phone';
