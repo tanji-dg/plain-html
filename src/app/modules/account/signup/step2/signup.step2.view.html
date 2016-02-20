@@ -34,16 +34,17 @@
             </div>
           </div>
           <div class="condos-search-response">
-            <div class="panel panel-default">
+            <div class="panel panel-default" ng-repeat="condo in vm.condos">
               <div class="panel-heading">
-                <strong>The View - Residence Club</strong>
+                <strong>{{:: condo.name }}</strong>
               </div>
               <div class="panel-body">
-                <h5>Avenida Maria José alpina, 53 - Bom Retiro</h5>
+                <h5>{{:: condo.address1 }}</h5>
 
-                <p>São José dos Campos - SP</p>
-                <a href="" class=" btn btn-default btn-success btn-xs"><i class="fa fa-plus"></i><span
-                  class="hidden-xs"> Adicionar</span></a>
+                <p>{{:: condo.city }}/{{:: condo.state }}</p>
+                <a href="" class=" btn btn-default btn-success btn-xs" ng-click="vm.addCondoUser(condo)">
+                  <i class="fa fa-plus"></i><span class="hidden-xs"> Adicionar</span>
+                </a>
               </div>
             </div>
           </div>
@@ -55,17 +56,18 @@
           <h3>Meus Condomínios</h3>
 
           <div class="selected-condos">
-            <div class="panel panel-default">
+            <div class="panel panel-default" ng-repeat="condo in vm.myCondos">
               <div class="panel-heading">
-                <strong>The View - Residence Club</strong>
+                <strong>{{:: condo.name }}</strong>
               </div>
               <div class="panel-body">
-                <h5>Avenida Maria José alpina, 53 - Bom Retiro</h5>
+                <h5>{{:: condo.address1  }}</h5>
 
-                <p>São José dos Campos - SP</p>
+                <p>{{:: condo.city }}/{{:: condo.state }}</p>
                 <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> Remover</span></a>
               </div>
             </div>
+            <span ng-hide="vm.myCondos.length">Você ainda não faz parte de nenhum condomínio!</span>
           </div>
           <button class="btn btn-primary btn-raised">
             Próximo passo
@@ -83,8 +85,8 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-            aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel"><strong><i class="fa fa-plus fa-circled"></i>Adicionar
             Condomínio</strong></h4>
         </div>

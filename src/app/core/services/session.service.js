@@ -25,7 +25,6 @@ export class SessionService {
     };
 
     let onError = (error) => {
-      console.log(this.location.path());
       if (['/login', '/activate', '/signup'].indexOf(this.location.path()) === -1) {
         this.location.url('/login');
       }
@@ -33,12 +32,12 @@ export class SessionService {
       defer.reject(error);
     };
 
-    if (this.token) {
-      this.account.get().$promise.then(onSuccess, onError);
-    } else if (username && password) {
+    if (username && password) {
       this.auth.login(username, password).then(() => {
         this.account.get().$promise.then(onSuccess, onError);
       }, onError);
+    } else if (this.token) {
+      this.account.get().$promise.then(onSuccess, onError);
     } else {
       onError('Not Authorized');
     }

@@ -1,6 +1,6 @@
 export class ErrorInterceptor {
 
-  constructor($window, $q, $location, localStorageService) {
+  constructor($window, $q, $location) {
     'ngInject';
 
     this.responseError = (rejection) => {

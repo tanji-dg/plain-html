@@ -5,7 +5,6 @@ export class AccountSignupStep0Controller {
 
     this.account = new AccountResource();
     this.location = $location;
-    this.success = false;
   }
 
   save() {

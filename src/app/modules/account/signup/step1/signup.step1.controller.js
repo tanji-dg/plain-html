@@ -1,6 +1,16 @@
 export class AccountSignupStep1Controller {
 
-  constructor() {
+  constructor(Session, $location) {
     'ngInject';
+
+    this.account = Session.get();
+    this.location = $location;
+  }
+
+  save() {
+    this.account.signupStep = 2;
+    this.account.$save().then(() => {
+      this.location.path('/signup/2');
+    });
   }
 }

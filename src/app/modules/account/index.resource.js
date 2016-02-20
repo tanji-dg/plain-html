@@ -3,7 +3,7 @@ export let AccountResource = ($resource, config) => {
 
   let baseUrl = `${config.backendUrl}/api/account`;
 
-  return $resource(baseUrl, {'id' : '@id'}, {
+  return $resource(baseUrl, {'userId' : '@userId'}, {
 
     // register the user
     'register' : {

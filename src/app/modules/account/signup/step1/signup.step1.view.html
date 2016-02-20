@@ -6,53 +6,59 @@
       <div class="container-block">
         <ul class="steps">
           <li class="active">
-            <a href="first-step.php">
+            <a href="">
               <span class="icon"><i class="fa fa-account"></i></span>
               <span class="title">Informações Pessoais</span>
             </a>
           </li>
           <li>
-            <a href="second-step.php">
+            <a href="">
               <span class="icon"><i class="fa fa-building"></i></span>
               <span class="title">Meus Condomínios</span>
             </a>
           </li>
           <li>
-            <a href="third-step.php">
+            <a href="">
               <span class="icon"><i class="fa fa-accounts"></i></span>
               <span class="title">Minha Família</span>
             </a>
           </li>
         </ul>
-        <form action="./second-step.php" method="GET">
+        <form name="account" method="GET">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group form-group-label">
-                <input class="form-control floating-label" type="text" placeholder="Nome">
+                <input class="form-control floating-label"
+                       ng-model="vm.account.firstName"
+                       type="text" placeholder="Nome" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group form-group-label">
-                <input class="form-control floating-label" type="text" placeholder="Sobrenome">
+                <input class="form-control floating-label"
+                       ng-model="vm.account.lastName"
+                       type="text" placeholder="Sobrenome" required>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group form-group-label">
-                <input class="form-control floating-label mask-date" type="text" placeholder="Data de nascimento">
+                <input class="form-control floating-label mask-date" ng-model="vm.account.birthDate"
+                       type="text" placeholder="Data de nascimento" ui-date-mask required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group form-group-label">
-                <input class="form-control floating-label mask-mobile" type="text" placeholder="Celular">
+                <input class="form-control floating-label mask-mobile" ng-model="vm.account.phone"
+                       type="text" placeholder="Celular" ui-br-phone-number>
               </div>
             </div>
           </div>
-          <button class="btn btn-primary btn-raised">
-            Próximo passo
+          <button ng-disabled="account.$invalid" ng-click="vm.save()" class="btn btn-primary btn-raised">
+            Próximo Passo
           </button>
-          <a href="" class="btn btn-flat btn-default">
+          <a href="#/signup/0" class="btn btn-flat btn-default">
             Voltar
           </a>
         </form>

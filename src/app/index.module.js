@@ -16,6 +16,7 @@ angular
     'toastr',
     'validation.match',
     'LocalStorageModule',
+    'ui.utils.masks',
     'ui.router',
     'ui.bootstrap',
     'ui.select',
