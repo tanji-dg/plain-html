@@ -1,0 +1,53 @@
+<div class="modal-header">
+  <h3 class="modal-title">Adicionar Condomínio</h3>
+</div>
+<form name="condo" class="modal-body">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group form-group-label">
+        <input class="form-control floating-label" type="text" placeholder="Nome do condomínio*"
+               ng-model="vm.condo.name" required>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group form-group-label">
+        <input class="form-control floating-label" type="text" placeholder="CEP"
+               ng-model="vm.condo.cep" ui-br-cep-mask>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="form-group form-group-label">
+        <input class="form-control floating-label" type="text" placeholder="Endereço"
+               ng-model="vm.condo.address1">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group form-group-label">
+        <input class="form-control floating-label" type="text" placeholder="Número"
+               ng-model="vm.condo.number">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="form-group form-group-label">
+        <input class="form-control floating-label" type="text" placeholder="Cidade*"
+               ng-model="vm.model.city" required>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group form-group-label">
+        <input class="form-control floating-label" type="text" placeholder="Estado*" maxlength="2"
+               ng-model="vm.model.state" required>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$dismiss()">Cancelar</button>
+  <button type="button" class="btn btn-primary" ng-disabled="condo.$invalid" ng-click="vm.save()">Salvar</button>
+</div>

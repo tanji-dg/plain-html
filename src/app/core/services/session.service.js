@@ -1,6 +1,6 @@
 export class SessionService {
 
-  constructor(Auth, AccountResource, $q, $location, localStorageService) {
+  constructor(Auth, AccountResource, $q, $location, $rootScope, localStorageService) {
     'ngInject';
 
     this.logged = null;
@@ -10,6 +10,12 @@ export class SessionService {
     this.token = localStorageService.get('token');
     this.account = AccountResource;
     this.location = $location;
+
+    this.resolve = () => {
+      $rootScope.$resolved = true;
+      if (!$rootScope.$$phase) $rootScope.$apply();
+    }
+
   }
 
   create(username, password) {
@@ -21,6 +27,8 @@ export class SessionService {
 
       this.logged = account;
       this.location.url(url);
+      this.resolve();
+
       defer.resolve(account);
     };
 
@@ -29,6 +37,7 @@ export class SessionService {
         this.location.url('/login');
       }
 
+      this.resolve();
       defer.reject(error);
     };
 
