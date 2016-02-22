@@ -1,4 +1,4 @@
-export let CondoUserResource = ($resource, config) => {
+export let CondoEntityResource = ($resource, config) => {
   'ngInject';
 
   let baseUrl = `${config.backendUrl}/api/condoUsers`;
