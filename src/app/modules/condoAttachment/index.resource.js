@@ -1,7 +1,7 @@
 export let CondoAttachmentResource = ($resource, config) => {
   'ngInject';
 
-  let baseUrl = `${config.backendUrl}/api/condoUsers`;
+  let baseUrl = `${config.backendUrl}/api/condoAttachment'`;
 
   return $resource(baseUrl, {}, {
     'remove' : {
