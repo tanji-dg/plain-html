@@ -5,6 +5,7 @@ import HomeModule from './home/index.module';
 import NotificationModule from './notification/index.module';
 import UserModule from './user/index.module';
 import CondoEntityModule from './CondoEntity/index.module';
+import CondoAttachmentModule from './CondoAttachment/index.module';
 
 export default angular.module('econdos.modules', [
   AccountModule.name,
@@ -13,5 +14,6 @@ export default angular.module('econdos.modules', [
   HomeModule.name,
   NotificationModule.name,
   UserModule.name,
-  CondoEntityModule.name
+  CondoEntityModule.name,
+  CondoAttachmentModule.name
 ]);
