@@ -13,7 +13,7 @@ export class SessionService {
 
     this.resolve = () => {
       $rootScope.$resolved = true;
-      if (!$rootScope.$$phase) $rootScope.$apply();
+      $rootScope.$apply();
     }
 
   }
