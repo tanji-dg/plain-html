@@ -41,15 +41,15 @@ export class AccountSignupStep2Controller {
   }
 
   createCondo() {
-    this.CondoModals.create().then((condo) => {
+      this.CondoModals.create().then((condo) => {
       this.myCondos.unshift(condo);
       this.swal('Adicionado com Sucesso!', `Agora você faz parte do condomínio ${condo.name}`, 'success');
     });
   }
 
   save() {
-    this.account.signupStep = 3;
-    this.account.$save().then(() => {
+      this.account.signupStep = 3;
+      this.account.$save().then(() => {
       this.location.path('/signup/3');
     });
   }
