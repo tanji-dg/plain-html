@@ -1,6 +1,6 @@
 export class AccountSignupStep3Controller {
 
-constructor(Session, $location, HouseResource, houseResidentResource, HouseModals) {
+constructor(Session, $location, $window, HouseResource, houseResidentResource, HouseModals) {
 	'ngInject';
 
 	this.swal = $window.swal;
@@ -40,8 +40,8 @@ removeHouseResident(house, index) {
 }
   
 createHouseResident() {
-	this.HouseModals.create().then((condo) => {
-		this.myHouses.unshift(condo);
+	this.HouseModals.create().then((house) => {
+		this.myHouses.unshift(house);
 		this.swal('Adicionado com Sucesso!', `Morador adcionado a unidade: ${house.numero}`, 'success');
 	});
 }
