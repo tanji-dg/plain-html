@@ -1,4 +1,4 @@
-describe('CondoModalCreateController', () => {
+describe('HouseModalCreateController', () => {
   let controller;
 
   beforeEach(angular.mock.module('econdos'));

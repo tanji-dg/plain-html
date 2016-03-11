@@ -6,7 +6,7 @@ import { HouseModalsCreateController } from './modals/create/create.controller';
 export default angular.module('econdos.modules.house', [])
   .config(routerConfig)
   .service('HouseResource', HouseResource)
-  .service('HouseModals', CondoModals)
+  .service('HouseModals', HouseModals)
   .controller('HouseModalsCreateController', HouseModalsCreateController)
 
 

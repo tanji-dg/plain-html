@@ -12,7 +12,7 @@ import CommentLikerModule from './commentLiker/index.module';
 import CondoAdminModule from './condoAdmin/index.module';
 import CustomAuditEventModule from './customAuditEvent/index.module';
 import CustomJpaModule from './customJpa/index.module';
-import HouseModule from './customJpa/index.module';
+import HouseModule from './house/index.module';
 import HouseResidentModule from './houseResident/index.module';
 import OccurrenceModule from './occurrence/index.module';
 import OccurrenceAgainstVoteModule from './occurrenceAgainstVote/index.module';
