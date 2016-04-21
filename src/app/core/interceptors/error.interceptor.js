@@ -1,6 +1,6 @@
 export class ErrorInterceptor {
 
-  constructor($window, $q, $location) {
+  constructor($window, $q) {
     'ngInject';
 
     this.responseError = (rejection) => {
@@ -12,8 +12,8 @@ export class ErrorInterceptor {
       };
 
       let error401 = () => {
-        $location.url('/login');
-        $window.swal('Ops...', 'Not authorized!', 'error');
+        // $location.url('/login');
+        // $window.swal('Ops...', 'Not authorized!', 'error');
       };
 
       switch (rejection.status) {

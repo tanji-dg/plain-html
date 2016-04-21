@@ -20,7 +20,7 @@
     "arrive": "~2.3.0",
     "ui-select": "angular-ui-select#~0.13.2",
     "html5shiv": "~3.7.2",
-    "fontawesome": "~4.2.0",
+    "fontawesome": "~4.6.0",
     "lodash": "~3.10.1",
     "bootstrap": "3.3.6",
     "bootstrap-sass": "3.3.6",
