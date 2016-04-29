@@ -21,7 +21,7 @@
     "ui-select": "angular-ui-select#~0.13.2",
     "html5shiv": "~3.7.2",
     "fontawesome": "~4.6.0",
-    "lodash": "~3.10.1",
+    "lodash": "~4.0.0",
     "bootstrap": "3.3.6",
     "bootstrap-material-design": "0.4.4",
     "angular-validation-match": "^1.7.1",
