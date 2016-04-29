@@ -1,6 +1,5 @@
-export let RunBlock = ($timeout, $rootScope) => {
+export let RunBlock = ($timeout, Session) => {
   'ngInject';
-  // Session.create();
-  $rootScope.$resolved = true;
+  Session.create();
   $timeout($.material.init);
 };
