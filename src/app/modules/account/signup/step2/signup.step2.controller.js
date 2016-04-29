@@ -10,6 +10,9 @@ export class AccountSignupStep2Controller {
     this.account = Session.get();
     this.condos = CondoResource.query();
     this.myCondos = CondoResource.query({'userId' : this.account.userId});
+    this.myCondos.$promise.then((myCondos) => {
+      this.condos = _.xorBy(this.condos, myCondos, 'id');
+    });
 
     this.CondoModals = CondoModals;
     this.CondoUserResource = CondoUserResource;
@@ -24,8 +27,10 @@ export class AccountSignupStep2Controller {
     });
 
     condoUser.$save().then(() => {
-      this.myCondos.unshift(condo);
-      this.swal('Adicionado com Sucesso!', `Agora você faz parte do condomínio ${condo.name}`, 'success');
+      let condoIndex = _.findIndex(this.condos, { 'id': condo.id });
+      this.condos.splice(condoIndex, 1);
+      this.myCondos.push(condo);
+      this.swal('Adicionado!', `Agora você faz parte do condomínio ${condo.name}`, 'success');
     });
   }
 
@@ -36,13 +41,16 @@ export class AccountSignupStep2Controller {
     });
 
     condoUser.$remove().then(() => {
-      this.myCondos.splice(index, 1);
+      let myCondoIndex = _.findIndex(this.myCondos, { 'id': condo.id });
+      this.myCondos.splice(myCondoIndex, 1);
+      this.condos.push(condo);
+      this.swal('Removido!', `Você não faz parte mais do condomínio ${condo.name}`, 'error');
     });
   }
 
   createCondo() {
       this.CondoModals.create().then((condo) => {
-      this.myCondos.unshift(condo);
+      this.myCondos.push(condo);
       this.swal('Adicionado com Sucesso!', `Agora você faz parte do condomínio ${condo.name}`, 'success');
     });
   }
