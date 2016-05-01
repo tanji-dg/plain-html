@@ -30,17 +30,16 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class='fa fa-search'></i></span>
-              <input type="text" class="form-control mask-cep" placeholder="Pesquisar pelo CEP">
+              <input type="text" ng-model="searchCondo.name" class="form-control mask-cep" placeholder="Pesquisar pelo CEP">
             </div>
           </div>
-          <div class="condos-search-response">
-            <div class="panel panel-default" ng-repeat="condo in vm.condos">
+          <div class="condos-search-response" ng-show="filteredCondos.length">
+            <div class="panel panel-default" ng-repeat="condo in filteredCondos = (vm.condos | filter:searchCondo)">
               <div class="panel-heading">
                 <strong>{{:: condo.name }}</strong>
               </div>
               <div class="panel-body">
                 <h5>{{:: condo.address1 }}</h5>
-
                 <p>{{:: condo.city }}/{{:: condo.state }}</p>
                 <a href="" class=" btn btn-default btn-success btn-xs" ng-click="vm.addCondoUser(condo)">
                   <i class="fa fa-plus"></i><span class="hidden-xs"> Adicionar</span>
