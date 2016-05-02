@@ -24,15 +24,15 @@
           </li>
         </ul>
         <form ng-submit="vm.save()">
-          <div class="panel panel-default">
+          <div class="panel panel-default" ng-repeat="condo in vm.myCondos">
             <div class="panel-heading">
-              <h4>The View - Residence Club</h4>
+              <h4>{{ condo.name }}</h4>
               <div class="form-group">
                 <input class="form-control input-lg" type="text" id="inputLarge" placeholder="Digite o identificador (casa, apto...)">
               </div>
             </div>
             <div class="panel-body">
-              <h4>Integrantes &nbsp; <button type="button" class="btn btn-default btn-success btn-xs" ng-click="createHouseResidet()">adicionar</button> </h4>
+              <h4>Integrantes &nbsp; <button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.createHouseResident()">adicionar</button> </h4>
               <hr />
               <div class="list-group">
                 <div class="list-group-item">
@@ -41,34 +41,6 @@
                   </div>
                   <div class="row-content">
                     <h4 class="list-group-item-heading"><i class="fa fa-star"></i> Fulanod de Tal</h4>
-                    <p class="list-group-item-text">
-                      <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> excluir</span></a>
-                      <a href="" class="btn btn-default btn-info btn-xs"><i class="fa fa-star"></i><span class="hidden-xs"> representante</span></a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="list-group">
-                <div class="list-group-item">
-                  <div class="row-picture">
-                    <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                  </div>
-                  <div class="row-content">
-                    <h4 class="list-group-item-heading">Fulanod de Tal</h4>
-                    <p class="list-group-item-text">
-                      <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> excluir</span></a>
-                      <a href="" class="btn btn-default btn-info btn-xs"><i class="fa fa-star"></i><span class="hidden-xs"> representante</span></a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="list-group">
-                <div class="list-group-item">
-                  <div class="row-picture">
-                    <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                  </div>
-                  <div class="row-content">
-                    <h4 class="list-group-item-heading">Fulanod de Tal</h4>
                     <p class="list-group-item-text">
                       <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> excluir</span></a>
                       <a href="" class="btn btn-default btn-info btn-xs"><i class="fa fa-star"></i><span class="hidden-xs"> representante</span></a>

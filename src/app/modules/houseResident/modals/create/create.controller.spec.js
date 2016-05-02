@@ -1,11 +1,11 @@
-describe('HouseResidentModalCreateController', () => {
+describe('HouseResidentModalsCreateController', () => {
   let controller;
 
   beforeEach(angular.mock.module('econdos'));
 
   beforeEach(inject(($injector) => {
     controller = () => {
-      return $injector.get('$controller')('HouseResidentModalCreateController', {
+      return $injector.get('$controller')('HouseResidentModalsCreateController', {
         '$scope' : $injector.get('$rootScope').$new()
       });
     };
