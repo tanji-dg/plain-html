@@ -34,7 +34,7 @@ export class AccountSignupStep2Controller {
     });
   }
 
-  removeCondoUser(condo, index) {
+  removeCondoUser(condo) {
     let condoUser = new this.CondoUserResource({
       'condoId' : condo.id,
       'userId'  : this.account.userId
@@ -56,8 +56,8 @@ export class AccountSignupStep2Controller {
   }
 
   save() {
-      this.account.signupStep = 3;
-      this.account.$save().then(() => {
+    this.account.signupStep = 3;
+    this.account.$save().then(() => {
       this.location.path('/signup/3');
     });
   }
