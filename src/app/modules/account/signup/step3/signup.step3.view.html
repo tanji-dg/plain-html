@@ -23,7 +23,7 @@
             </a>
           </li>
         </ul>
-        <form action="../feed/" method="GET">
+        <form ng-submit="vm.save()">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4>The View - Residence Club</h4>
@@ -32,7 +32,7 @@
               </div>
             </div>
             <div class="panel-body">
-              <h4>Integrantes &nbsp; <button type="button" data-toggle="modal" data-target="#addAccount" class="btn btn-default btn-success btn-xs">adicionar</button> </h4>
+              <h4>Integrantes &nbsp; <button type="button" class="btn btn-default btn-success btn-xs" ng-click="createHouseResidet()">adicionar</button> </h4>
               <hr />
               <div class="list-group">
                 <div class="list-group-item">

@@ -1,6 +1,6 @@
 export class AccountSignupStep3Controller {
 
-constructor(Session, $location, $window, HouseResource, houseResidentResource, HouseModals) {
+constructor(Session, $location, $window, HouseResource, HouseResidentResource, HouseModals) {
 	'ngInject';
 
 	this.swal = $window.swal;
@@ -11,11 +11,11 @@ constructor(Session, $location, $window, HouseResource, houseResidentResource, H
 	this.myHouses = HouseResource.query({'userId' : this.account.userId});
 
     this.HouseModals = HouseModals;
-    this.houseResidentResource = houseResidentResource;
+    this.HouseResidentResource = HouseResidentResource;
 }
   
 addHouseResident(house) {
-	let houseResident = new this.houseResidentResource({
+	let houseResident = new this.HouseResidentResource({
 	'id' : {
 			'houseId' : house.id,
 			'houseResidentId'  : this.account.houseResidentId
@@ -29,7 +29,7 @@ addHouseResident(house) {
 }
   
 removeHouseResident(house, index) {
-	let houseResident = new this.houseResidentResource({
+	let houseResident = new this.HouseResidentResource({
 			'houseId' : house.id,
 			'houseResidentId'  : this.account.houseResidentId
 	});
