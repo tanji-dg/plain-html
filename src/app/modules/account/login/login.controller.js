@@ -7,7 +7,7 @@ export class AccountLoginController {
   }
 
   login() {
-    this.session.create(this.account.login, this.account.password);
+    return this.session.create(this.account.login, this.account.password);
   }
 }
 

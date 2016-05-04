@@ -20,6 +20,7 @@ angular
     'ui.router',
     'ui.bootstrap',
     'ui.select',
+    'angularPromiseButtons',
 
     Core.name,
     Modules.name

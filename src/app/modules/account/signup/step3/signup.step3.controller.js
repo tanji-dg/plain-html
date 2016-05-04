@@ -1,13 +1,13 @@
 export class AccountSignupStep3Controller {
 
-constructor(Session, $location, $window, CondoResource, HouseResidentModals) {
+constructor(Session, $location, $window, CondoResource, HouseResource, HouseResidentModals) {
 	'ngInject';
 
 	this.swal = $window.swal;
 	this.location = $location;
 
 	this.account = Session.get();
-	// this.houses = HouseResource.query();
+	this.houses = HouseResource.query();
   this.myCondos = CondoResource.query({'userId' : this.account.userId});
 
   this.HouseResidentModals = HouseResidentModals;

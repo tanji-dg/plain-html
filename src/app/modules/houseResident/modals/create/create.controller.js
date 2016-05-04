@@ -6,8 +6,6 @@ export class HouseResidentModalsCreateController {
     this.account = Session.get();
 
     this.houseResident = new HouseResidentResource();
-    this.houseResidents = HouseResidentResource.query({'userId' : this.account.userId});
-    console.log(this.houseResidents);
     this.modalInstance = $uibModalInstance;
   }
 
