@@ -24,7 +24,7 @@
             </a>
           </li>
         </ul>
-        <form name="account" ng-submit="vm.save()">
+        <form name="account" ng-submit="vm.save()" promise-btn>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group form-group-label">
@@ -46,7 +46,7 @@
               <div class="form-group form-group-label">
                 <input class="form-control floating-label mask-date"
                        type="text" placeholder="Data de Nascimento*"
-                       ng-model="vm.account.birthDate" ui-date-mask required>
+                       ng-model="vm.account.birthDate" uib-datepicker-popup="dd/MM/yyyy" on-open-focus="true" required>
               </div>
             </div>
             <div class="col-md-6">
@@ -57,7 +57,7 @@
               </div>
             </div>
           </div>
-          <button ng-disabled="account.$invalid" ng-click="vm.save()" class="btn btn-primary btn-raised">
+          <button ng-disabled="account.$invalid" class="btn btn-primary btn-raised" type="submit">
             Próximo Passo
           </button>
           <a href="#/signup" class="btn btn-flat btn-default">
