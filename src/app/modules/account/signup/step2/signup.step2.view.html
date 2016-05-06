@@ -6,72 +6,56 @@
       <div class="container-block">
         <ul class="steps">
           <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-account"></i></span>
+            <a ng-href="#/signup/1" title="Informações Pessoais">
+              <span class="icon"><i class="fa fa fa-user"></i></span>
               <span class="title">Informações Pessoais</span>
             </a>
           </li>
           <li class="active">
-            <a href="">
+            <a ng-href="#/signup/2" title="Meus Condomínios">
               <span class="icon"><i class="fa fa-building"></i></span>
               <span class="title">Meus Condomínios</span>
             </a>
           </li>
           <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-accounts"></i></span>
+            <a ng-href="#/signup/3" title="Minha Família">
+              <span class="icon"><i class="fa fa fa-users"></i></span>
               <span class="title">Minha Família</span>
             </a>
           </li>
         </ul>
-        <h3>Encontre o seu condomínio</h3>
+        <h3>Encontre o seu condomínio</h3><br />
 
-        <form action="./third-step.php" method="GET">
+        <form ng-submit="vm.save()" promise-btn>
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class='fa fa-search'></i></span>
-              <input type="text" class="form-control mask-cep" placeholder="Pesquisar pelo CEP">
+              <input type="text" ng-model="vm.filterTerm" ng-model-options="{ debounce: 1000 }" ng-change="vm.filterCondos()" class="form-control mask-cep" placeholder="Pesquisar pelo nome, cidade ou cep">
             </div>
           </div>
-          <div class="condos-search-response">
+          <div class="condos-search-response" ng-show="vm.condos.length">
             <div class="panel panel-default" ng-repeat="condo in vm.condos">
               <div class="panel-heading">
                 <strong>{{:: condo.name }}</strong>
               </div>
               <div class="panel-body">
                 <h5>{{:: condo.address1 }}</h5>
-
                 <p>{{:: condo.city }}/{{:: condo.state }}</p>
                 <a href="" class=" btn btn-default btn-success btn-xs" ng-click="vm.addCondoUser(condo)">
-                  <i class="fa fa-plus"></i><span class="hidden-xs"> Adicionar</span>
+                  <i class="fa fa-plus"></i><span class="hidden-xs">&nbsp; &nbsp;Selecionar</span>
                 </a>
               </div>
             </div>
           </div>
-          <p>
+          <p class="text-center" ng-show="vm.loading">
+            <span class="btn btn-material-grey-200"><i class="fa fa-spin fa-spinner"></i>&nbsp; Carregando</span>
+          </p>
+          <p ng-show="vm.condos.length || vm.filterTerm">
             <button class="btn btn-material-grey-200" type="button" ng-click="vm.createCondo()">
               Não encontrou?
             </button>
-          </p>
-          <h3>Meus Condomínios</h3>
-
-          <div class="selected-condos">
-            <div class="panel panel-default" ng-repeat="condo in vm.myCondos">
-              <div class="panel-heading">
-                <strong>{{:: condo.name }}</strong>
-              </div>
-              <div class="panel-body">
-                <h5>{{:: condo.address1  }}</h5>
-
-                <p>{{:: condo.city }}/{{:: condo.state }}</p>
-                <a href="" ng-click="vm.removeCondoUser(condo)" class="btn btn-default btn-danger btn-xs">
-                  <i class="fa fa-trash"></i><span class="hidden-xs"> Remover</span>
-                </a>
-              </div>
-            </div>
-            <span ng-hide="vm.myCondos.length">Você ainda não faz parte de nenhum condomínio!</span>
-          </div>
-          <button class="btn btn-primary btn-raised" ng-click="vm.save()">
+          </p>  
+          <button class="btn btn-primary btn-raised" type="submit">
             Próximo Passo
           </button>
           <a href="#/signup/1" class="btn btn-flat btn-default">

@@ -2,23 +2,24 @@
   <div class="container">
     <div class="container-alignment">
       <h1 class="logo">eCondos</h1>
-
-      <div class="container-block">
-        <div class="form-group form-group-label">
-          <input class="form-control floating-label" type="email" placeholder="E-mail"
-                 ng-model="vm.account.login">
+      <form ng-submit="vm.login()" promise-btn>
+        <div class="container-block">
+          <div class="form-group form-group-label">
+            <input class="form-control floating-label" type="email" placeholder="E-mail"
+                   ng-model="vm.account.login">
+          </div>
+          <div class="form-group form-group-label">
+            <input class="form-control floating-label" type="password" placeholder="Senha"
+                   ng-model="vm.account.password">
+          </div>
+          <button type="submit" class="btn btn-primary btn-raised">
+            Entrar
+          </button>
+          <a href="" class="btn btn-flat btn-default">
+            Esqueci minha senha
+          </a>
         </div>
-        <div class="form-group form-group-label">
-          <input class="form-control floating-label" type="password" placeholder="Senha"
-                 ng-model="vm.account.password">
-        </div>
-        <button class="btn btn-primary btn-raised" ng-click="vm.login()">
-          Entrar
-        </button>
-        <a href="" class="btn btn-flat btn-default">
-          Esqueci minha senha
-        </a>
-      </div>
+      </form>
       <a href="/#/signup" title="Criar minha conta" class="link">Criar minha conta</a>
     </div>
   </div>

@@ -1,7 +1,7 @@
 export let HouseResidentResource = ($resource, config) => {
   'ngInject';
 
-  let baseUrl = `${config.backendUrl}/houseResident`;
+  let baseUrl = `${config.backendUrl}/api/houseResident`;
 
   return $resource(baseUrl, {'id' : '@id'}, {
     'login'  : {

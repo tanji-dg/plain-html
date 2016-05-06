@@ -6,25 +6,25 @@
       <div class="container-block">
         <ul class="steps">
           <li class="active">
-            <a href="">
-              <span class="icon"><i class="fa fa-account"></i></span>
+            <a ng-href="#/signup/1" title="Informações Pessoais">
+              <span class="icon"><i class="fa fa fa-user"></i></span>
               <span class="title">Informações Pessoais</span>
             </a>
           </li>
           <li>
-            <a href="">
+            <a ng-href="#/signup/2" title="Meus Condomínios">
               <span class="icon"><i class="fa fa-building"></i></span>
               <span class="title">Meus Condomínios</span>
             </a>
           </li>
           <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-accounts"></i></span>
+            <a ng-href="#/signup/3" title="Minha Família">
+              <span class="icon"><i class="fa fa fa-users"></i></span>
               <span class="title">Minha Família</span>
             </a>
           </li>
         </ul>
-        <form name="account" method="GET">
+        <form name="account" ng-submit="vm.save()" promise-btn>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group form-group-label">
@@ -46,7 +46,7 @@
               <div class="form-group form-group-label">
                 <input class="form-control floating-label mask-date"
                        type="text" placeholder="Data de Nascimento*"
-                       ng-model="vm.account.birthDate" ui-date-mask required>
+                       ng-model="vm.account.birthDate" uib-datepicker-popup="dd/MM/yyyy" on-open-focus="true" required>
               </div>
             </div>
             <div class="col-md-6">
@@ -57,7 +57,7 @@
               </div>
             </div>
           </div>
-          <button ng-disabled="account.$invalid" ng-click="vm.save()" class="btn btn-primary btn-raised">
+          <button ng-disabled="account.$invalid" class="btn btn-primary btn-raised" type="submit">
             Próximo Passo
           </button>
           <a href="#/signup" class="btn btn-flat btn-default">

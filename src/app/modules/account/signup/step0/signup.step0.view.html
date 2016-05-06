@@ -4,7 +4,7 @@
       <h1 class="logo">eCondos</h1>
 
       <div class="container-block">
-        <form name="account" ng-hide="vm.success">
+        <form name="account" ng-hide="vm.success" ng-submit="vm.save()" promise-btn>
           <h3>Vamos começar?</h3>
 
           <div class="form-group form-group-label">
@@ -31,12 +31,12 @@
               A confirmação da senha está incorreta
             </small>
           </div>
-          <button ng-disabled="account.$invalid" ng-click="vm.save()" class="btn btn-primary btn-raised">
+          <button type="submit" ng-disabled="account.$invalid" class="btn btn-primary btn-raised">
             Criar minha conta
           </button>
         </form>
-        <div ng-show="vm.success">
-          Obrigado por se cadastrar!<br/>
+        <div class="text-center" ng-show="vm.success">
+          <h3><strong>Obrigado por se cadastrar!</strong></h3>
           Verifique seu e-mail para ativar sua conta.
         </div>
       </div>

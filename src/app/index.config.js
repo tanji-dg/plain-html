@@ -1,4 +1,7 @@
-export let ConfigBlock = ($logProvider, $uiViewScrollProvider, $urlRouterProvider, $httpProvider, localStorageServiceProvider) => {
+export let ConfigBlock = (
+    $logProvider, $uiViewScrollProvider, $urlRouterProvider, $httpProvider, 
+    localStorageServiceProvider, angularPromiseButtonsProvider
+  ) => {
   'ngInject';
 
   $.material.init();
@@ -14,4 +17,12 @@ export let ConfigBlock = ($logProvider, $uiViewScrollProvider, $urlRouterProvide
   $logProvider.debugEnabled(true);
   $uiViewScrollProvider.useAnchorScroll();
   $urlRouterProvider.otherwise('/');
+
+  angularPromiseButtonsProvider.extendConfig({
+    spinnerTpl: '<i class="fa fa-spinner fa-spin margin-bottom fa-promise-button"></i>',
+    disableBtn: true,
+    btnLoadingClass: 'is-loading',
+    addClassToCurrentBtnOnly: false,
+    disableCurrentBtnOnly: false
+  });
 };

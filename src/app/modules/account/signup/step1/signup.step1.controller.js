@@ -9,7 +9,7 @@ export class AccountSignupStep1Controller {
 
   save() {
     this.account.signupStep = 2;
-    this.account.$save().then(() => {
+    return this.account.$save().then(() => {
       this.location.path('/signup/2');
     });
   }

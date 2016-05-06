@@ -5,14 +5,21 @@ export class AccountSignupStep2Controller {
 
     this.swal = $window.swal;
     this.location = $location;
-
+    this.loading = false;
 
     this.account = Session.get();
     this.condos = CondoResource.query();
-    this.myCondos = CondoResource.query({'userId' : this.account.userId});
-
     this.CondoModals = CondoModals;
     this.CondoUserResource = CondoUserResource;
+    this.CondoResource = CondoResource;
+  }
+
+  filterCondos(){
+    this.loading = true;
+    this.condos = this.CondoResource.query({'name': this.filterTerm});
+    this.condos.$promise.then(() => {
+      this.loading = false;
+    });
   }
 
   addCondoUser(condo) {
@@ -23,34 +30,21 @@ export class AccountSignupStep2Controller {
       }
     });
 
+    this.account.signupStep = 3;
     condoUser.$save().then(() => {
-      this.myCondos.unshift(condo);
-      this.swal('Adicionado com Sucesso!', `Agora você faz parte do condomínio ${condo.name}`, 'success');
-    });
-  }
-
-  removeCondoUser(condo, index) {
-    let condoUser = new this.CondoUserResource({
-      'condoId' : condo.id,
-      'userId'  : this.account.userId
-    });
-
-    condoUser.$remove().then(() => {
-      this.myCondos.splice(index, 1);
+      this.location.path('/signup/3');
     });
   }
 
   createCondo() {
       this.CondoModals.create().then((condo) => {
-      this.myCondos.unshift(condo);
-      this.swal('Adicionado com Sucesso!', `Agora você faz parte do condomínio ${condo.name}`, 'success');
+      this.condos.push(condo);
+      this.swal('Adicionado com Sucesso!', '', 'success');
     });
   }
 
   save() {
-      this.account.signupStep = 3;
-      this.account.$save().then(() => {
-      this.location.path('/signup/3');
-    });
+    this.account.signupStep = 3;
+    this.location.path('/signup/3');
   }
 }
