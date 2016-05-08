@@ -43,6 +43,12 @@
         "dist/css/ripples.css"
       ]
     },
+    "angular-bootstrap": {
+      "main": [
+        "./ui-bootstrap-tpls.js",
+        "./ui-bootstrap-csp.css"
+      ]
+    },
     "angular-i18n": {
       "main": [
         "angular-locale_pt-br.js"

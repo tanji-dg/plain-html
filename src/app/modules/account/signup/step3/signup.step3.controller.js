@@ -1,29 +1,25 @@
 export class AccountSignupStep3Controller {
 
-constructor(Session, $q, $location, $window, CondoResource, HouseResource, UserResource, HouseResidentModals) {
+constructor(Session, $q, $location, $window, $rootScope, 
+						CondoResource, HouseResource, UserResource, HouseResidentModals) {
 	'ngInject';
 
 	this.swal = $window.swal;
 	this.location = $location;
+	this.rootScope = $rootScope;
+	this.condo = this.rootScope.condo;
 
 	this.account = Session.get();
-  this.condo = CondoResource.query({'userId' : this.account.userId});
-	this.condo.$promise.then((condos) => {
-		this.condo = _.last(condos);
-		this.house = HouseResource.query({'condoId': this.condo.id});
-		this.house.$promise.then((house) => {
-			this.house = _.last(house);
-			if(!this.house) {
-				this.user = UserResource.query({'id': this.account.userId});
-				this.user.$promise.then(() => {
-					this.house = new HouseResource({'condo': this.condo, 'voter': this.account});
-					this.house.$save().then(() => {
-						alert();
-					});
-				});
-			}
-		});
-	});
+	this.house = HouseResource.query({'condoId': this.condo.id});
+	// this.house.$promise.then((house) => {
+	// 	this.house = _.last(house);
+	// 	if(!this.house) {
+	// 		this.house = new HouseResource({'condoId': this.condo.id, 'voterId': this.account.userId, 'number': 0});
+	// 		this.house.$save().then(() => {
+	// 			alert();
+	// 		});
+	// 	}
+	// });
 
   this.HouseResidentModals = HouseResidentModals;
   // this.HouseResidentResource = HouseResidentResource;

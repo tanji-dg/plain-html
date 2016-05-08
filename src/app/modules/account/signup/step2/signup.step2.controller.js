@@ -1,6 +1,6 @@
 export class AccountSignupStep2Controller {
 
-  constructor(Session, $location, $window, CondoResource, CondoUserResource, CondoModals) {
+  constructor(Session, $rootScope, $location, $window, CondoResource, CondoUserResource, CondoModals) {
     'ngInject';
 
     this.swal = $window.swal;
@@ -12,6 +12,7 @@ export class AccountSignupStep2Controller {
     this.CondoModals = CondoModals;
     this.CondoUserResource = CondoUserResource;
     this.CondoResource = CondoResource;
+    this.rootScope = $rootScope;
   }
 
   filterCondos(){
@@ -30,6 +31,7 @@ export class AccountSignupStep2Controller {
       }
     });
 
+    this.rootScope.condo = condo;
     this.account.signupStep = 3;
     condoUser.$save().then(() => {
       this.location.path('/signup/3');
@@ -45,6 +47,6 @@ export class AccountSignupStep2Controller {
 
   save() {
     this.account.signupStep = 3;
-    this.location.path('/signup/3');
+    this.location.path('/signup/3/');
   }
 }
