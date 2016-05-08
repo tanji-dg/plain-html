@@ -6,7 +6,7 @@ export class ErrorInterceptor {
     this.responseError = (rejection) => {
 
       let error400 = () => {
-        let defaultMessage = 'Sorry! An error has ocurred, please try again or contact us.';
+        let defaultMessage = 'Desculpe, tivemos um problema! Tente novamente ou entre em contato conosco.';
         let message = rejection.data ? rejection.data.error_description || rejection.data : defaultMessage;
         $window.swal('Ops...', message, 'error');
       };
