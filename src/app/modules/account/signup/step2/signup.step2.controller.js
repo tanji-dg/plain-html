@@ -1,6 +1,6 @@
 export class AccountSignupStep2Controller {
 
-  constructor(Session, $rootScope, $location, $window, CondoResource, CondoUserResource, CondoModals) {
+  constructor (Session, $rootScope, $location, $window, CondoResource, CondoUserResource, CondoModals) {
     'ngInject';
 
     this.swal = $window.swal;
@@ -15,7 +15,7 @@ export class AccountSignupStep2Controller {
     this.rootScope = $rootScope;
   }
 
-  filterCondos(){
+  filterCondos () {
     this.loading = true;
     this.condos = this.CondoResource.query({'name': this.filterTerm});
     this.condos.$promise.then(() => {
@@ -23,11 +23,14 @@ export class AccountSignupStep2Controller {
     });
   }
 
-  addCondoUser(condo) {
+  addCondoUser (condo) {
+    let user = Session.get();
+    this.account.
+    console.log(user)
     let condoUser = new this.CondoUserResource({
-      'id' : {
-        'condoId' : condo.id,
-        'userId'  : this.account.userId
+      'id': {
+        'condoId': condo.id,
+        'userId' : this.account.userId
       }
     });
 
@@ -38,14 +41,15 @@ export class AccountSignupStep2Controller {
     });
   }
 
-  createCondo() {
-      this.CondoModals.create().then((condo) => {
+  createCondo () {
+    this.CondoModals.create().then((condo) => {
       this.condos.push(condo);
       this.swal('Adicionado com Sucesso!', '', 'success');
+      this.location.path('/signup/3');
     });
   }
 
-  save() {
+  save () {
     this.account.signupStep = 3;
     this.location.path('/signup/3/');
   }

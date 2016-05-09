@@ -42,11 +42,9 @@ export class SessionService {
     };
 
     if (username && password) {
-      this.auth.login(username, password).then(() => {
-        this.account.get().$promise.then(onSuccess, onError);
-      }, onError);
+      this.auth.login(username, password).then(onSuccess, onError);
     } else if (this.token) {
-      this.account.get().$promise.then(onSuccess, onError);
+      this.account.authenticate().$promise.then(onSuccess, onError);
     } else {
       onError('Not Authorized');
     }

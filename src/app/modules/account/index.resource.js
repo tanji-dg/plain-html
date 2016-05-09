@@ -1,46 +1,51 @@
 export let AccountResource = ($resource, config) => {
   'ngInject';
 
-  let baseUrl = `${config.backendUrl}/api/account`;
+  let baseUrl = `${config.backendUrl}/users/:_id`;
 
-  return $resource(baseUrl, {'userId' : '@userId'}, {
+  return $resource(baseUrl, {'_id' : '@_id'}, {
 
     // register the user
     'register' : {
       'method' : 'POST',
-      'url'    : `${config.backendUrl}/api/register`,
-      'params' : {'baseUrl' : '@baseUrl'}
+      'url'    : `${baseUrl}`
+    },
+
+    // update the user
+    'update' : {
+      'method' : 'PUT',
+      'url'    : `${baseUrl}`
     },
 
     // activate the registered user
     'activate' : {
       'method' : 'GET',
-      'url'    : `${config.backendUrl}/api/activate`,
-      'params' : {'key' : '@key'}
+      'url'    : `${baseUrl}/:id/activate`,
+      'params' : {'activationKey' : '@key'}
     },
 
     // check if the user is authenticated, and return its
     'authenticate' : {
       'method' : 'GET',
-      'url'    : `${config.backendUrl}/api/authenticate`
+      'url'    : `${baseUrl}/me`
     },
 
     // changes the current user's password
     'changePassword' : {
-      'method' : 'POST',
-      'url'    : `${baseUrl}/change_password`
+      'method' : 'PUT',
+      'url'    : `${baseUrl}`
     },
 
     // reset user's password request
     'resetPasswordInit' : {
-      'method' : 'POST',
-      'url'    : `${baseUrl}/reset_password/init`
+      'method' : 'PUT',
+      'url'    : `${baseUrl}/reset`
     },
 
     // reset user's password finish
     'resetPasswordFinish' : {
-      'method' : 'POST',
-      'url'    : `${baseUrl}/reset_password/finish`
+      'method' : 'PUT',
+      'url'    : `${baseUrl}/reset`
     }
   });
 };

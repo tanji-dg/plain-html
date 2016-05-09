@@ -10,6 +10,7 @@ export class CondoModalsCreateController {
   save() {
     this.condo.$save().then((response) => {
       this.modalInstance.close(response);
+      this.location.path('/signup/3');
     });
   }
 }
