@@ -1,73 +1,39 @@
 export class AccountSignupStep3Controller {
 
-constructor(Session, $q, $location, $window, $rootScope, 
-						CondoResource, HouseResource, UserResource, HouseResidentModals) {
-	'ngInject';
+  constructor ($location, $window, $q, $cookies, 
+							Session, CondoResource) {
+		'ngInject';
 
-	this.swal = $window.swal;
-	this.location = $location;
-	this.rootScope = $rootScope;
-	this.condo = this.rootScope.condo;
+		this.swal = $window.swal;
+		this.location = $location;
+		this.cookies = $cookies;
+		this.CondoResource = CondoResource;
 
-	this.account = Session.get();
-	this.house = HouseResource.query({'condoId': this.condo.id});
-	// this.house.$promise.then((house) => {
-	// 	this.house = _.last(house);
-	// 	if(!this.house) {
-	// 		this.house = new HouseResource({'condoId': this.condo.id, 'voterId': this.account.userId, 'number': 0});
-	// 		this.house.$save().then(() => {
-	// 			alert();
-	// 		});
-	// 	}
-	// });
+		this.account = Session.get();
 
-  this.HouseResidentModals = HouseResidentModals;
-  // this.HouseResidentResource = HouseResidentResource;
-}
-  
-// addHouseResident(house) {
-// 	let houseResident = new this.HouseResidentResource({
-// 	'id' : {
-// 			'houseId' : house.id,
-// 			'houseResidentId'  : this.account.houseResidentId
-// 			}
-// 	});
+		this.setUpCondo();
+	}
 
-// 	houseResident.$save().then(() => {
-// 		this.myHouses.unshift(house);
-// 		this.swal('Adicionado com Sucesso!', `Morador adcionado a unidade: ${house.name}`, 'success');
-// 	});
-// }
-  
-// removeHouseResident(house, index) {
-// 	let houseResident = new this.HouseResidentResource({
-// 			'houseId' : house.id,
-// 			'houseResidentId'  : this.account.houseResidentId
-// 	});
-	
-// 	houseResident.$remove().then(() => {
-// 		this.myHouses.splice(index, 1);
-// 	});
-// }
-  
-createHouseResident() {
-	this.HouseResidentModals.create().then((house) => {
-		this.myHouses.unshift(house);
-		this.swal('Adicionado com Sucesso!', `Morador adcionado a unidade: ${house.numero}`, 'success');
-	});
-}
-  
-save() {
-	// if(!this.house.id) this.house = new HouseResource();
-	// $q.all([
+	setUpCondo () {
+		this.condo = this.cookies.getObject('condo');
+		if (this.condo._id && _.isUndefined(this.condo.name)) {
+			this.condoResource = this.CondoResource.get({'_id': this.condo._id});
+			this.condoResource.$promise.then((condo) => {
+				this.condo = condo;
+				this.cookies.putObject('condo', this.condo);
+				this.setUpResidence();
+			});
+		} else {
+			this.setUpResidence();
+		}
+	}
 
-	// ]).then(() => {
-
-	// });
-	// this.account.signupStep = 0;
-	// this.account.$save().then(() => {
-	// 	this.location.path('/signup/0');
-	// });
-}
-
+	setUpResidence () {
+		this.condoUser = this.CondoResource.addUser({'_id': this.condo._id, 'userId' : this.account._id});
+		let residences = this.condoUser.$promise.then(() =>
+	    this.CondoResource.getResidences({
+	      '_id': this.condo._id
+	    }).$promise
+		);
+	}
 }

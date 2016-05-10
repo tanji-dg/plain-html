@@ -1,11 +1,10 @@
 export class AccountSignupStep0Controller {
 
-  constructor(AccountResource, $location, $q) {
+  constructor(AccountResource, $location) {
     'ngInject';
 
     this.account = new AccountResource();
     this.location = $location;
-    this.q = $q;
   }
 
   save() {
@@ -16,6 +15,7 @@ export class AccountSignupStep0Controller {
 
     return this.account.$register().then(() => {
       this.success = true;
+      this.location.path('/signup/1');
     });
   }
 }

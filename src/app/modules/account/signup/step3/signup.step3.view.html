@@ -5,19 +5,19 @@
       <div class="container-block">
         <ul class="steps">
           <li>
-            <a ng-href="#/signup/1" title="Informações Pessoais">
+            <a href="#/signup/1" title="Informações Pessoais">
               <span class="icon"><i class="fa fa fa-user"></i></span>
               <span class="title">Informações Pessoais</span>
             </a>
           </li>
           <li>
-            <a ng-href="#/signup/2" title="Meus Condomínios">
+            <a href="#/signup/2" title="Meus Condomínios">
               <span class="icon"><i class="fa fa-building"></i></span>
               <span class="title">Meus Condomínios</span>
             </a>
           </li>
           <li class="active">
-            <a ng-href="#/signup/3" title="Minha Família">
+            <a href="#/signup/3" title="Minha Família">
               <span class="icon"><i class="fa fa fa-users"></i></span>
               <span class="title">Minha Família</span>
             </a>
@@ -28,11 +28,11 @@
             <div class="panel-heading">
               <h4>{{ vm.condo.name }}</h4>
               <div class="form-group">
-                <input class="form-control" ng-model="vm.house.nr" type="text" placeholder="Digite o identificador (número da casa, apto...)">
+                <input class="form-control" ng-model="vm.residence.nr" type="text" placeholder="Digite o identificador (número da casa, apto...)">
               </div>
             </div>
             <div class="panel-body">
-              <h4>Integrantes &nbsp; <button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.createHouseResident()">adicionar</button> </h4>
+              <h4>Integrantes &nbsp; <button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.createresidenceUser()">adicionar</button> </h4>
               <hr />
               <div class="list-group">
                 <div class="list-group-item">
@@ -42,8 +42,7 @@
                   <div class="row-content">
                     <h4 class="list-group-item-heading"><i class="fa fa-star"></i> Fulanod de Tal</h4>
                     <p class="list-group-item-text">
-                      <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> excluir</span></a>
-                      <a href="" class="btn btn-default btn-info btn-xs"><i class="fa fa-star"></i><span class="hidden-xs"> representante</span></a>
+                      <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> remover</span></a>
                     </p>
                   </div>
                 </div>

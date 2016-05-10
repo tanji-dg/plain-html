@@ -8,8 +8,8 @@ export class CondoModals {
 
   create() {
     return this.modal.open({
-      'templateUrl'  : 'app/modules/house/modals/create/create.view.html',
-      'controller'   : 'HouseModalsCreateController',
+      'templateUrl'  : 'app/modules/residence/modals/create/create.view.html',
+      'controller'   : 'ResidenceModalsCreateController',
       'controllerAs' : 'vm'
     }).result;
   }
