@@ -13,4 +13,12 @@ export class CondoModals {
       'controllerAs' : 'vm'
     }).result;
   }
+
+  createUser() {
+    return this.modal.open({
+      'templateUrl'  : 'app/modules/condo/modals/createUser/create.view.html',
+      'controller'   : 'CondoModalsCreateUserController',
+      'controllerAs' : 'vm'
+    }).result;
+  }
 }

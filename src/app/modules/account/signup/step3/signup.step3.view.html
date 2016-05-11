@@ -23,36 +23,31 @@
             </a>
           </li>
         </ul>
-        <form ng-submit="vm.save()">
+        <form ng-submit="vm.save()" promise-btn>
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4>{{ vm.condo.name }}</h4>
               <div class="form-group">
-                <input class="form-control" ng-model="vm.residence.nr" type="text" placeholder="Digite o identificador (número da casa, apto...)">
+                <input class="form-control" ng-model="vm.residence.identification" type="text" placeholder="Digite o identificador (número da casa, apto...)" required>
               </div>
             </div>
             <div class="panel-body">
-              <h4>Integrantes &nbsp; <button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.createresidenceUser()">adicionar</button> </h4>
+              <h4>Integrantes &nbsp; <button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.addUser()">adicionar</button> </h4>
               <hr />
               <div class="list-group">
-                <div class="list-group-item">
-                  <div class="row-picture">
-                    <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                  </div>
-                  <div class="row-content">
-                    <h4 class="list-group-item-heading"><i class="fa fa-star"></i> Fulanod de Tal</h4>
-                    <p class="list-group-item-text">
-                      <a href="" class="btn btn-default btn-danger btn-xs"><i class="fa fa-trash"></i><span class="hidden-xs"> remover</span></a>
-                    </p>
-                  </div>
+                <div class="list-group-item" ng-repeat="user in vm.residence.users">
+                  <h4 class="list-group-item-heading">{{ user.firstName }} {{ user.lastName }}</h4>
+                  <p class="list-group-item-text">
+                    <button type="button" class="btn btn-default btn-danger btn-xs" ng-click="vm.removeUser(user)" ng-show="vm.account._id !== user._id"><i class="fa fa-trash"></i><span class="hidden-xs"> remover</span></button>
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-          <button class="btn btn-primary btn-raised">
+          <button class="btn btn-primary btn-raised" type="submit">
             Finalizar Cadastro
           </button>
-          <a href="" class="btn btn-flat btn-default">
+          <a href="#/signup/2" class="btn btn-flat btn-default">
             Voltar
           </a>
         </form>
@@ -60,64 +55,3 @@
       <a href="" title="Acessar minha conta" class="link">Acessar minha conta</a>
     </div>
   </div>
-
-  <div class="modal modal-vcenter fade" id="addAccount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel"><strong><i class="fa fa-plus fa-circled"></i>Adicionar Integrante</strong></h4>
-        </div>
-        <div class="modal-body">
-          <br />
-          <div class="input-group">
-            <span class="input-group-addon"><i class='fa fa-search'></i></span>
-            <input type="text" class="form-control" placeholder="Pesquisar pelo e-mail">
-          </div>
-          <br />
-          <div class="list-group">
-            <div class="list-group-item">
-              <div class="row-picture">
-                <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-              </div>
-              <div class="row-content">
-                <h4 class="list-group-item-heading">Fulano de Tal</h4>
-                <p class="list-group-item-text">
-                  <a href="" class="btn btn-default btn-success btn-xs"><i class="fa fa-plus"></i> adicionar</a>
-                </p>
-              </div>
-            </div>
-            <div class="list-group-item">
-              <div class="row-picture">
-                <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-              </div>
-              <div class="row-content">
-                <h4 class="list-group-item-heading">Fulano de Tal</h4>
-                <p class="list-group-item-text">
-                  <a href="" class="btn btn-default btn-success btn-xs"><i class="fa fa-plus"></i> adicionar</a>
-                </p>
-              </div>
-            </div>
-            <div class="list-group-item">
-              <div class="row-picture">
-                <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-              </div>
-              <div class="row-content">
-                <h4 class="list-group-item-heading">Fulano de Tal</h4>
-                <p class="list-group-item-text">
-                  <a href="" class="btn btn-default btn-success btn-xs"><i class="fa fa-plus"></i> adicionar</a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <h4>Não encontrou?</h4>
-          <input type="text" class="form-control" placeholder="Convide através do e-mail">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default">Cancelar</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

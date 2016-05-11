@@ -1,7 +1,7 @@
 export class AccountSignupStep2Controller {
 
-  constructor ($location, $window, $q, $cookies, 
-              Session, CondoResource, CondoModals) {
+  constructor ($location, $window, $q, 
+              Session, CondoResource, CondoModals, CondoService) {
     'ngInject';
 
     this.swal = $window.swal;
@@ -13,9 +13,9 @@ export class AccountSignupStep2Controller {
 
     this.q = $q;
     this.Session = Session;
-    this.cookies = $cookies;
     this.CondoResource = CondoResource;
     this.CondoModals = CondoModals;
+    this.CondoService = CondoService;
   }
 
   filterCondos () {
@@ -27,7 +27,7 @@ export class AccountSignupStep2Controller {
   }
 
   chooseCondo (condo) {
-    this.cookies.putObject('condo', condo);
+    this.CondoService.set(condo);
     this.account.signupStep = 3;
     this.account.$update().then(() => {
       this.location.path('/signup/3');

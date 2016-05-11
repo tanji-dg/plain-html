@@ -1,13 +1,14 @@
 export class AccountSignupStep3Controller {
 
-  constructor ($location, $window, $q, $cookies, 
-							Session, CondoResource) {
+  constructor ($location, $window, $q,
+							Session, CondoResource, CondoService, CondoModals) {
 		'ngInject';
 
 		this.swal = $window.swal;
 		this.location = $location;
-		this.cookies = $cookies;
 		this.CondoResource = CondoResource;
+    this.CondoService = CondoService;
+    this.CondoModals = CondoModals;
 
 		this.account = Session.get();
 
@@ -15,12 +16,11 @@ export class AccountSignupStep3Controller {
 	}
 
 	setUpCondo () {
-		this.condo = this.cookies.getObject('condo');
+		this.condo = this.CondoService.get('condo');
 		if (this.condo._id && _.isUndefined(this.condo.name)) {
-			this.condoResource = this.CondoResource.get({'_id': this.condo._id});
-			this.condoResource.$promise.then((condo) => {
+			this.CondoResource.get({'_id': this.condo._id}).$promise.then((condo) => {
 				this.condo = condo;
-				this.cookies.putObject('condo', this.condo);
+				this.CondoService.set(this.condo);
 				this.setUpResidence();
 			});
 		} else {
@@ -29,11 +29,36 @@ export class AccountSignupStep3Controller {
 	}
 
 	setUpResidence () {
-		this.condoUser = this.CondoResource.addUser({'_id': this.condo._id, 'userId' : this.account._id});
-		let residences = this.condoUser.$promise.then(() =>
-	    this.CondoResource.getResidences({
-	      '_id': this.condo._id
-	    }).$promise
-		);
+		this.CondoResource.addLoggedUser({'_id': this.condo._id, 'userId' : this.account._id}).$promise.then(() =>
+			this.CondoResource.getResidences({'_id': this.condo._id}).$promise
+		).then((residences) => {
+      if(residences.length === 0) {
+        this.residence = this.CondoResource.addResidence({'_id': this.condo._id}, {'identification': 0}).$promise.then((residence) =>
+         this.CondoResource.getResidence({'_id': this.condo._id, 'residenceId': residence._id})
+        );
+      } else {
+        this.residence = _.first(residences);
+        this.residence.users = [];
+      }
+    });
 	}
+
+  addUser () {
+    this.CondoModals.createUser().then((user) => {
+      this.CondoResource.updateResidence({'_id': this.condo._id, 'residenceId' : this.residence._id}, {uerId: user._id}).$promise.then(() => {
+        if(!_.some(this.residence.users, {'_id': user._id})) this.residence.users.push(user)
+      })
+    });
+  }
+
+  removeUser (user) {
+    let userIndex = _.findIndex(this.residence.users, {'_id': user._id});
+    this.residence.users.splice(userIndex, 1);
+  }
+
+  save () {
+    return this.CondoResource.updateResidence({'_id': this.condo._id, 'residenceId' : this.residence._id}, this.residence).$promise.then(() => {
+      this.location.path('/feed');
+    })
+  }
 }
