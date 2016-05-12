@@ -29,7 +29,7 @@ export class AccountSignupStep3Controller {
 	}
 
 	setUpResidence () {
-		this.CondoResource.addLoggedUser({'_id': this.condo._id, 'userId' : this.account._id}).$promise.then(() =>
+		this.CondoResource.addUser({'_id': this.condo._id, 'userId' : this.account._id}).$promise.then(() =>
 			this.CondoResource.getResidences({'_id': this.condo._id}).$promise
 		).then((residences) => {
       if(residences.length === 0) {
@@ -38,22 +38,22 @@ export class AccountSignupStep3Controller {
         );
       } else {
         this.residence = _.first(residences);
-        this.residence.users = [];
+        this.residence.residents = [];
       }
     });
 	}
 
   addUser () {
     this.CondoModals.createUser().then((user) => {
-      this.CondoResource.updateResidence({'_id': this.condo._id, 'residenceId' : this.residence._id}, {uerId: user._id}).$promise.then(() => {
-        if(!_.some(this.residence.users, {'_id': user._id})) this.residence.users.push(user)
+      this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, userId: user._id}).$promise.then(() => {
+        if(!_.some(this.residence.residents, {'_id': user._id})) this.residence.residents.push(user)
       })
     });
   }
 
   removeUser (user) {
-    let userIndex = _.findIndex(this.residence.users, {'_id': user._id});
-    this.residence.users.splice(userIndex, 1);
+    let userIndex = _.findIndex(this.residence.residents, {'_id': user._id});
+    this.residence.residents.splice(userIndex, 1);
   }
 
   save () {

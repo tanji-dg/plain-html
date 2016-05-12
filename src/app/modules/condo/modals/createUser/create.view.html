@@ -10,7 +10,7 @@
   <br />
   <div class="list-group" ng-show="vm.users.length">
     <div class="list-group-item" ng-repeat="user in vm.users">
-      <h5 class="list-roup-item-heading">{{ user.firstName }} {{ user.lastName }} <button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.chooseUser(user)"><i class="fa fa-plus"></i> adicionar</button></h5>
+      <h5 class="list-roup-item-heading">{{ (user.firstName) ? user.firstName + ' ' + user.lastName : vm.filterTerm }} <button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.chooseUser(user)"><i class="fa fa-plus"></i> adicionar</button></h5>
     </div>
   </div>
   <div ng-show="vm.users.length || (!vm.users.length && vm.filterTerm)">

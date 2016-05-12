@@ -1,6 +1,6 @@
 export class AccountSignupStep2Controller {
 
-  constructor ($location, $window, $q, 
+  constructor ($location, $window, $q,
               Session, CondoResource, CondoModals, CondoService) {
     'ngInject';
 

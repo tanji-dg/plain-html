@@ -1,21 +1,22 @@
 export let CondoResource = ($resource, config) => {
   'ngInject';
 
-  let baseUrl = `${config.backendUrl}/api/condos`;
+  let baseUrl = `${config.backendUrl}/condos`;
 
-  return $resource(`${baseUrl}/:_id`, {'_id' : '@_id', 'userId' : '@userId', 'residenceId' : '@residenceId'}, {
+  return $resource(`${baseUrl}/:_id`, {'_id' : '@_id'}, {
     'search' : {
       'method'             : 'GET',
       'isArray'            : true,
-      'url'                : `${config.backendUrl}/api/_search/condos/:query`
+      'url'                : `${config.backendUrl}/_search/condos/:query`
+    },
+    'createUser'           : {
+      'method'             : 'POST',
+      'url'                : `${baseUrl}/:_id/users`
     },
     'addUser'              : {
       'method'             : 'PUT',
-      'url'                : `${baseUrl}/:_id/users`
-    },
-    'addLoggedUser'        : {
-      'method'             : 'PUT',
-      'url'                : `${baseUrl}/:_id/users/:userId`
+      'url'                : `${baseUrl}/:_id/users/:userId`,
+      'params'             : {'userId' : '@userId'}
     },
     'getResidences'        : {
       'method'             : 'GET',
@@ -26,21 +27,29 @@ export let CondoResource = ($resource, config) => {
     'getResidence'         : {
       'method'             : 'GET',
       'url'                : `${baseUrl}/:_id/residences/:residenceId`,
+      'params'             : {'residenceId' : '@residenceId'},
       'transformResponse'  : transformSingleResidenceResponse
     },
     'addResidence'         : {
       'method'             : 'POST',
       'url'                : `${baseUrl}/:_id/residences`
     },
+    'addUserToResidence'      : {
+      'method'             : 'PUT',
+      'url'                : `${baseUrl}/:_id/residences/:residenceId/users/:userId`,
+      'params'             : {'residenceId' : '@residenceId', 'userId' : '@userId'}
+    },
     'updateResidence'      : {
       'method'             : 'PUT',
-      'url'                : `${baseUrl}/:_id/residences/:residenceId`
+      'url'                : `${baseUrl}/:_id/residences/:residenceId`,
+      'params'             : {'residenceId' : '@residenceId'}
     }
   });
 
   function transformSingleResidenceResponse(response) {
     var residence = (response instanceof Object) ? response : angular.fromJson(response);
     residence.identification = (residence.identification === 0) ? '' : residence.identification;
+    residence.residents = residence.users.concat(residence.requesters);
     return residence;
   }
 
