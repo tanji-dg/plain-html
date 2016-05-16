@@ -1,0 +1,48 @@
+<div class="logged-in" ng-controller="FeedUserController as vm">
+
+  <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
+
+  <div class="container">
+    <h2 class="section-title">
+      <i class="fa fa-user fa-circled"></i>Editar Dados
+      <a href="#/" ></a>
+    </h2>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Informações Pessoais</h4>
+      </div>
+      <div class="panel-body">
+        <form ng-submit="vm.save()" promise-btn>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group form-group-label">
+                <div class="form-control-wrapper"><input class="form-control" type="text" ng-model="vm.user.firstName" placeholder="Nome" required></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group form-group-label">
+                <div class="form-control-wrapper"><input class="form-control" type="text" ng-model="vm.user.lastName" placeholder="Sobrenome" required></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group form-group-label">
+                <div class="form-control-wrapper"><input class="form-control" type="text" ng-model="vm.user.birthDate" placeholder="Data de nascimento" ui-date-mask required></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group form-group-label">
+                <div class="form-control-wrapper"><input class="form-control" type="text" ng-model="vm.user.phone" placeholder="Celular" ui-br-phone-number></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-raised pull-right" type="submit">
+            Salvar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
