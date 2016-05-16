@@ -1,0 +1,24 @@
+<div class="logged-out sign-up pre-step" ng-controller="AccountActivateController as vm">
+  <div class="container">
+    <div class="container-alignment">
+      <h1 class="logo">eCondos</h1>
+
+
+      <div class="container-block">
+        <div ng-show="vm.account.$resolved">
+          <div ng-show="vm.success">
+            <h3>Obrigado!</h3> Sua conta foi ativada com sucesso!<br/>
+            <p><a href="#/login" class="link">Agora você já pode acessar sua conta clicando aqui!</a></p>
+          </div>
+          <div ng-hide="vm.success">
+            Ops...<br/>
+            Não foi possível ativar sua conta! Por favor tente novamente.
+          </div>
+        </div>
+        <div ng-hide="vm.account.$resolved" class="text-center">
+          Aguarde...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

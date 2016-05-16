@@ -40,7 +40,7 @@ h1, h2, h3, h4 {
 
 .form-group {
 	margin-top: 0;
-	margin-bottom: 15px;	
+	margin-bottom: 15px;
 }
 
 .form-control {
@@ -77,7 +77,7 @@ h1, h2, h3, h4 {
 
 .btn {
 	font-size: 14px;
-  padding: 15px 20px;	
+  padding: 15px 20px;
   border: none;
 
 	&.btn.btn-flat.btn-default {
@@ -95,8 +95,8 @@ h1, h2, h3, h4 {
 }
 
 .panel {
-
-	border-color: transparent;
+  box-shadow: none !important;
+  border: 1px solid #ddd;
 
 	.panel-heading {
 		h4 {
@@ -106,6 +106,7 @@ h1, h2, h3, h4 {
 }
 
 .list-group-item-text {
+
 	.btn {
 		margin: 0px !important;
 	}
@@ -165,6 +166,51 @@ h1, h2, h3, h4 {
 /********************************
 /* Logged Out */
 /********************************/
+
+.modal-body-condoCreateUser {
+
+  .invite {
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    h5 {
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+
+  .input-group-addon {
+    padding-left: 0;
+  }
+
+  h5 {
+    font-weight: normal;
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .list-group {
+    margin-bottom: 0;
+
+    .list-group-item {
+      border-bottom: 1px solid #ddd;
+      padding: 15px;
+
+      .btn {
+        margin: 0 0 0 10px !important;
+      }
+
+      .list-group-item-heading {
+        font-size: 16px;
+      }
+
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+}
 
 .logged-out {
 	background: $color-secundary;
@@ -419,11 +465,16 @@ h1, h2, h3, h4 {
 		.navbar-nav {
 			& > li > a {
 				padding: 20px;
+        color: #eee;
+
+        &:hover {
+          color: #eee;
+        }
 			}
 
 			.btn-sm {
 				padding: 10px 16px;
-   				text-transform: none;
+        text-transform: none;
 			}
 
 			.btn-success.btn-sm:focus {

@@ -1,0 +1,60 @@
+<div class="logged-in" ng-controller="FeedCondosController as vm">
+
+  <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
+
+  <div class="container">
+    <h2 class="section-title"><i class="fa fa-building fa-circled"></i>Meu Condomínios <button class="btn btn-primary pull-right"><i class="fa fa-plus"></i>Adicionar Condomínio</button></h2>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Adicionar Condomínio</h4>
+      </div>
+      <div class="panel-body">
+        <div class="form-group condo-search">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            <input type="text" ng-model="vm.filterTerm" ng-model-options="{ debounce: 1000 }" ng-change="vm.filterCondos()" class="form-control mask-cep" placeholder="Pesquisar pelo nome, cidade ou cep">
+          </div>
+        </div>
+        <div class="condos-search-response" ng-show="vm.condos.length">
+          <div class="panel panel-default" ng-repeat="condo in vm.condos">
+            <div class="panel-heading">
+              <strong>{{:: condo.name }}</strong>
+            </div>
+            <div class="panel-body">
+              <h5>{{:: condo.address }}</h5>
+              <p>{{:: condo.city }}/{{:: condo.state }}</p>
+              <a href="" class=" btn btn-default btn-success btn-xs" ng-click="vm.addCondo(condo)">
+                <i class="fa fa-plus"></i><span class="hidden-xs">&nbsp; &nbsp;Adicionar</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p ng-show="vm.loading">
+          <span class="btn btn-material-grey-200"><i class="fa fa-spin fa-spinner"></i>&nbsp; Carregando</span>
+        </p>
+        <p ng-show="vm.condos.length || vm.filterTerm">
+          <button class="btn btn-material-grey-200" type="button" ng-click="vm.createCondo()">
+            Não encontrou?
+          </button>
+        </p>
+      </div>
+    </div>
+
+    <div class="selected-condos">
+      <div class="panel panel-default" ng-repeat="vm.user.condos">
+        <div class="panel-heading">
+          <strong>{{:: condo.name }}</strong>
+        </div>
+        <div class="panel-body">
+            <h5>{{:: condo.address }}</h5>
+            <p>{{:: condo.city }}/{{:: condo.state }}</p>
+            <a href="" class=" btn btn-default btn-success btn-xs" ng-click="vm.addCondo(condo)">
+              <i class="fa fa-plus"></i><span class="hidden-xs">&nbsp; &nbsp;Adicionar</span>
+            </a>
+            <a href="" class="btn btn-default btn-warning btn-xs"><i class="fa fa-user"></i>&nbsp; Moradores</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
