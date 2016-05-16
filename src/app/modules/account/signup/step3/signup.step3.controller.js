@@ -1,6 +1,6 @@
 export class AccountSignupStep3Controller {
 
-  constructor ($location, $window, $q,
+  constructor ($location, $window,
 							Session, CondoResource, CondoService, CondoModals) {
 		'ngInject';
 
@@ -29,15 +29,15 @@ export class AccountSignupStep3Controller {
 	}
 
 	setUpResidence () {
-		this.CondoResource.addUser({'_id': this.condo._id, 'userId' : this.account._id}).$promise.then(() =>
-			this.CondoResource.getResidences({'_id': this.condo._id}).$promise
+		this.CondoResource.addUser({'_id': this.condo._id, 'userId': this.account._id}).$promise.then(() =>
+			this.CondoResource.getResidences({'_id': this.condo._id, 'populate': 'users'}).$promise
 		).then((residences) => {
       if(residences.length === 0) {
         this.residence = this.CondoResource.addResidence({'_id': this.condo._id}, {'identification': 0}).$promise.then((residence) =>
-         this.CondoResource.getResidence({'_id': this.condo._id, 'residenceId': residence._id})
+         this.CondoResource.getResidence({'_id': this.condo._id, 'residenceId': residence._id, 'populate': 'users'})
         );
       } else {
-        this.residence = _.first(residences);
+        this.residence = residences[0];
         this.residence.residents = [];
       }
     });

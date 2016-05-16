@@ -1,19 +1,19 @@
-export class AccountSignupStep2Controller {
+export class FeedCondosController {
 
   constructor ($location, $window, $q,
-              Session, CondoResource, CondoModals, CondoService) {
+               Session, CondoResource, CondoModals, CondoService, UserResource) {
     'ngInject';
 
-    this.swal = $window.swal;
-    this.location = $location;
-    this.q = $q;
     this.Session = Session;
+    this.location = $location;
     this.CondoResource = CondoResource;
     this.CondoModals = CondoModals;
     this.CondoService = CondoService;
+    this.UserResource = UserResource;
 
-    this.account = Session.get();
-    this.condos = CondoResource.query();
+    this.user = this.UserResource.authenticate().$promise.then((user) => {
+      console.log(user);
+    });
 
     this.loading = false;
   }
@@ -26,22 +26,13 @@ export class AccountSignupStep2Controller {
     });
   }
 
-  chooseCondo (condo) {
+  addCondo (condo) {
     this.CondoService.set(condo);
-    this.account.signupStep = 3;
-    this.account.$update().then(() => {
-      this.location.path('/signup/3');
-    });
   }
 
   createCondo () {
     return this.CondoModals.create().then((condo) => {
-      this.chooseCondo(condo);
+      //this.chooseCondo(condo);
     });
-  }
-
-  save () {
-    this.account.signupStep = 3;
-    this.location.path('/signup/3/');
   }
 }

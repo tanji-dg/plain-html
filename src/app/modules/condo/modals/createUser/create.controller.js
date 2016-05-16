@@ -19,11 +19,13 @@ export class CondoModalsCreateUserController {
     return this.CondoResource.addUser({'_id': this.condo._id, 'userId': user._id}, {email: this.filterTerm}).$promise.then(() => {
       this.modalInstance.close(user);
     });
-
   }
 
   createUser() {
-    return this.CondoResource.createUser({'_id': this.condo._id}, {email: this.filterTerm}).$promise.then((user) => {
+    return this.CondoResource.createUser({'_id': this.condo._id}, {firstname: this.user.firstname, lastname: this.user.lastname,email: this.filterTerm}).$promise.then((user) => {
+      user.firstname = this.user.firstname;
+      user.lastname = this.user.lastname;
+      user.email = this.filterTerm;
       this.modalInstance.close(user);
     });
   }

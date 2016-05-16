@@ -169,6 +169,17 @@ h1, h2, h3, h4 {
 
 .modal-body-condoCreateUser {
 
+  .invite {
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    h5 {
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+
   .input-group-addon {
     padding-left: 0;
   }
