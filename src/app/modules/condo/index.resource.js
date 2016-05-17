@@ -22,13 +22,13 @@ export let CondoResource = ($resource, config) => {
       'method'             : 'GET',
       'isArray'            : true,
       'url'                : `${baseUrl}/:_id/residences`,
-      'params'             : {'populate' : '@populate'},
+      'params'             : {'populate' : '@$populate'},
       'transformResponse'  : transformMultipleResidencesResponse
     },
     'getResidence'         : {
       'method'             : 'GET',
       'url'                : `${baseUrl}/:_id/residences/:residenceId`,
-      'params'             : {'residenceId' : '@residenceId', 'populate' : '@populate'},
+      'params'             : {'residenceId' : '@residenceId', 'populate' : '@$populate'},
       'transformResponse'  : transformSingleResidenceResponse
     },
     'addResidence'         : {

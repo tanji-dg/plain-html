@@ -7,7 +7,7 @@ export let routerConfig = ($stateProvider) => {
   });
 
   $stateProvider.state('feedUser', {
-    'url'         : '/editar-dados',
+    'url'         : '/meus-dados',
     'templateUrl' : 'app/modules/feed/user/user.view.html'
   });
 
