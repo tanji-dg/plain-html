@@ -22,9 +22,10 @@ export class SessionService {
     let defer = this.q.defer();
 
     let onSuccess = (account) => {
-      let step = account.signupStep;
+      let step = account.signupStep || 1;
+      let url = (step === 0) ? '/feed' : `/signup/${step}`;
       this.logged = account;
-      if(step !== 0) this.location.url(`/signup/${step}`);
+      this.location.url(url);
       this.resolve();
 
       defer.resolve(account);

@@ -11,9 +11,7 @@ export class FeedCondosController {
     this.CondoService = CondoService;
     this.UserResource = UserResource;
 
-    this.user = this.UserResource.authenticate().$promise.then((user) => {
-      console.log(user);
-    });
+    this.user = this.UserResource.authenticate();
 
     this.loading = false;
   }
@@ -31,7 +29,7 @@ export class FeedCondosController {
   }
 
   createCondo () {
-    return this.CondoModals.create().then((condo) => {
+    return this.CondoModals.create().then(() => {
       //this.chooseCondo(condo);
     });
   }

@@ -24,7 +24,7 @@ export let UserResource = ($resource, config) => {
     'authenticate' : {
       'method' : 'GET',
       'url'    : `${baseUrl}/me`,
-      'params' : {'populate' : '@populate'}
+      'params' : {'populate' : '@$populate'}
     },
 
     'changePassword' : {
