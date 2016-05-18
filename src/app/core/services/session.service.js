@@ -1,6 +1,6 @@
 export class SessionService {
 
-  constructor(Auth, AccountResource, $q, $location, $rootScope, localStorageService) {
+  constructor(Auth, UserResource, $q, $location, $rootScope, localStorageService) {
     'ngInject';
 
     this.logged = null;
@@ -8,7 +8,7 @@ export class SessionService {
     this.q = $q;
     this.auth = Auth;
     this.token = localStorageService.get('token');
-    this.account = AccountResource;
+    this.user = UserResource;
     this.location = $location;
 
     this.resolve = () => {
@@ -21,14 +21,14 @@ export class SessionService {
   create(username, password) {
     let defer = this.q.defer();
 
-    let onSuccess = (account) => {
-      let step = account.signupStep || 1;
+    let onSuccess = (user) => {
+      let step = user.signupStep || 1;
       let url = (step === 0) ? '/feed' : `/signup/${step}`;
-      this.logged = account;
+      this.logged = user;
       this.location.url(url);
       this.resolve();
 
-      defer.resolve(account);
+      defer.resolve(user);
     };
 
     let onError = (error) => {
@@ -43,7 +43,7 @@ export class SessionService {
     if (username && password) {
       this.auth.login(username, password).then(onSuccess, onError);
     } else if (this.token) {
-      this.account.authenticate().$promise.then(onSuccess, onError);
+      this.user.authenticate().$promise.then(onSuccess, onError);
     } else {
       onError('Not Authorized');
     }
