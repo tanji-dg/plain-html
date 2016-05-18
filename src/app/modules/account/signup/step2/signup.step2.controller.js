@@ -4,15 +4,15 @@ export class AccountSignupStep2Controller {
               Session, CondoResource, CondoModals, CondoService) {
     'ngInject';
 
+    this.q = $q;
     this.swal = $window.swal;
     this.location = $location;
-    this.q = $q;
     this.Session = Session;
     this.CondoResource = CondoResource;
     this.CondoModals = CondoModals;
     this.CondoService = CondoService;
 
-    this.account = Session.get();
+    this.user = Session.get();
     this.condos = CondoResource.query();
 
     this.loading = false;
@@ -20,7 +20,12 @@ export class AccountSignupStep2Controller {
 
   filterCondos () {
     this.loading = true;
-    this.condos = this.CondoResource.query({'name': this.filterTerm});
+    this.condos = this.CondoResource.query({
+      '[$or][0][name][$regex]': this.filterTerm,
+      '[$or][1][street][$regex]': this.filterTerm,
+      '[$or][2][cep][$regex]': this.filterTerm,
+      '[$or][3][city][$regex]': this.filterTerm
+    });
     this.condos.$promise.then(() => {
       this.loading = false;
     });
@@ -28,10 +33,11 @@ export class AccountSignupStep2Controller {
 
   chooseCondo (condo) {
     this.CondoService.set(condo);
-    this.account.signupStep = 3;
-    this.account.$update().then(() => {
-      this.location.path('/signup/3');
-    });
+    this.location.path('/signup/3');
+    //this.user.signupStep = 3;
+    //this.user.$update().then(() => {
+    //  this.location.path('/signup/3');
+    //});
   }
 
   createCondo () {
@@ -41,7 +47,7 @@ export class AccountSignupStep2Controller {
   }
 
   save () {
-    this.account.signupStep = 3;
+    this.user.signupStep = 3;
     this.location.path('/signup/3/');
   }
 }

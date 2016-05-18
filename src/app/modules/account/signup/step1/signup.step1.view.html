@@ -24,19 +24,19 @@
             </a>
           </li>
         </ul>
-        <form name="account" ng-submit="vm.save()" promise-btn>
+        <form name="user" ng-submit="vm.save()" promise-btn>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group form-group-label">
                 <input class="form-control floating-label"
-                       ng-model="vm.account.firstName"
+                       ng-model="vm.user.firstName"
                        type="text" placeholder="Nome" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group form-group-label">
                 <input class="form-control floating-label"
-                       ng-model="vm.account.lastName"
+                       ng-model="vm.user.lastName"
                        type="text" placeholder="Sobrenome" required>
               </div>
             </div>
@@ -46,18 +46,18 @@
               <div class="form-group form-group-label">
                 <input class="form-control floating-label mask-date"
                        type="text" placeholder="Data de Nascimento*"
-                       ng-model="vm.account.birthDate" ui-date-mask required>
+                       ng-model="vm.user.birthDate" ui-date-mask required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group form-group-label">
                 <input class="form-control floating-label mask-mobile"
                        type="text" placeholder="Celular"
-                       ng-model="vm.account.phone" ui-br-phone-number>
+                       ng-model="vm.user.phone" ui-br-phone-number>
               </div>
             </div>
           </div>
-          <button ng-disabled="account.$invalid" class="btn btn-primary btn-raised" type="submit">
+          <button ng-disabled="user.$invalid" class="btn btn-primary btn-raised" type="submit">
             Próximo Passo
           </button>
           <a href="#/signup" class="btn btn-flat btn-default">

@@ -1,21 +1,22 @@
 export class AccountSignupStep0Controller {
 
-  constructor(AccountResource, $location) {
+  constructor(UserResource, $location, Session) {
     'ngInject';
 
-    this.account = new AccountResource();
+    this.user = new UserResource();
     this.location = $location;
+    this.Session = Session;
   }
 
   save() {
-    this.account.langKey = 'pt';
-    this.account.email = this.account.login;
-    this.account.baseUrl = this.location.absUrl().split('/#')[0];
-    this.account.signupStep = 1;
+    this.user.langKey = 'pt';
+    this.user.email = this.user.login;
+    this.user.baseUrl = this.location.absUrl().split('/#')[0];
+    this.user.signupStep = 1;
 
     return this.account.$register().then(() => {
+      this.Session.create(this.user.login, this.user.password);
       this.success = true;
-      this.location.path('/signup/1');
     });
   }
 }

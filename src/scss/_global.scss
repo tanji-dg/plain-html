@@ -411,7 +411,9 @@ h1, h2, h3, h4 {
 		    padding: 15px 25px;
 
 			&:hover {
-				background: #eee;
+				color: #eee;
+        background-color: #717171;
+        font-size: 14px;
 			}
 		}
 	}
@@ -447,6 +449,16 @@ h1, h2, h3, h4 {
 		}
 	}
 
+  .navbar.navbar .dropdown-menu li > a {
+    font-size: 14px;
+    color: $color-secundary;
+  }
+
+  .navbar.navbar .dropdown-menu li > a:hover, .navbar-default.navbar .dropdown-menu li > a:hover, .navbar.navbar .dropdown-menu li > a:focus, .navbar-default.navbar .dropdown-menu li > a:focus {
+    background-color: #eee;
+    color: $color-secundary;
+  }
+
 	.navbar-default {
 		background: $color-secundary;
 
@@ -454,7 +466,7 @@ h1, h2, h3, h4 {
 			color: transparent;
 			width: 70px;
 			min-width: inherit;
-		    height: 40px;
+      height: 40px;
 			background: url('../assets/images/logo.png') center no-repeat;
 			background-size: 100%;
 			padding: 0;
@@ -471,6 +483,13 @@ h1, h2, h3, h4 {
           color: #eee;
         }
 			}
+
+      & > .open > a,
+      & > .open > a:hover,
+      & > .open > a:focus {
+        background: $color-secundary-light;
+        color: #eee;
+      }
 
 			.btn-sm {
 				padding: 10px 16px;
