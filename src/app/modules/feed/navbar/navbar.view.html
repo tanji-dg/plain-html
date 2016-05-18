@@ -46,10 +46,10 @@
         </li>
         <li class="dropdown" uib-dropdown>
           <a href="" class="dropdown-toggle" uib-dropdown-toggle>
-            Condo 1 <b class="caret"></b>
+            {{ vm.condo.name }} <b class="caret"></b>
           </a>
           <ul class="dropdown-menu" uib-dropdown-menu>
-            <li><a href="#/">Condo 2</a></li>
+            <li ng-repeat="condo in vm.user.condos" ng-if="condo._id != vm.condo._id"><a href="" ng-click="vm.chooseCondo(condo)">{{ condo.name }}</a></li>
           </ul>
         </li>
         <li class="dropdown" uib-dropdown>
@@ -58,7 +58,7 @@
           </a>
           <ul class="dropdown-menu" uib-dropdown-menu>
             <li><a href="#/meus-dados">Meus dados</a></li>
-            <li><a href="#/meus-condomínios">Meus Condomínios</a></li>
+            <li><a href="#/meus-condominios">Meus Condomínios</a></li>
           </ul>
         </li>
       </ul>

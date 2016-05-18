@@ -10,13 +10,13 @@ export class AccountSignupStep3Controller {
     this.CondoService = CondoService;
     this.CondoModals = CondoModals;
 
-		this.account = Session.get();
+		this.user = Session.get();
 
 		this.setUpCondo();
 	}
 
 	setUpCondo () {
-		this.condo = this.CondoService.get('condo');
+		this.condo = this.CondoService.get();
 		if (this.condo._id && _.isUndefined(this.condo.name)) {
 			this.CondoResource.get({'_id': this.condo._id}).$promise.then((condo) => {
 				this.condo = condo;
@@ -29,13 +29,17 @@ export class AccountSignupStep3Controller {
 	}
 
 	setUpResidence () {
-		this.CondoResource.addUser({'_id': this.condo._id, 'userId': this.account._id}).$promise.then(() =>
+		this.CondoResource.addUser({'_id': this.condo._id, 'userId': this.user._id}).$promise.then(() =>
 			this.CondoResource.getResidences({'_id': this.condo._id, 'populate': 'users'}).$promise
 		).then((residences) => {
       if(residences.length === 0) {
-        this.residence = this.CondoResource.addResidence({'_id': this.condo._id}, {'identification': 0}).$promise.then((residence) =>
-         this.CondoResource.getResidence({'_id': this.condo._id, 'residenceId': residence._id, 'populate': 'users'})
-        );
+        this.CondoResource.addResidence({'_id': this.condo._id}, {'identification': 0}).$promise.then((residence) => {
+          this.residence = this.CondoResource.getResidence({
+            '_id' : this.condo._id,
+            'residenceId' : residence._id,
+            'populate' : 'users'
+          });
+        });
       } else {
         this.residence = residences[0];
         this.residence.residents = [];
@@ -57,7 +61,7 @@ export class AccountSignupStep3Controller {
   }
 
   save () {
-    return this.CondoResource.updateResidence({'_id': this.condo._id, 'residenceId' : this.residence._id}, this.residence).$promise.then(() => {
+    return this.CondoResource.updateResidence({'_id': this.condo._id, 'residenceId' : this.residence._id}, {'identification': this.residence.identification}).$promise.then(() => {
       this.location.path('/feed');
     })
   }

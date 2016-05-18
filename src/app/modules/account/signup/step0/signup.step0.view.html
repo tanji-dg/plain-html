@@ -4,34 +4,34 @@
       <h1 class="logo">eCondos</h1>
 
       <div class="container-block">
-        <form name="account" ng-hide="vm.success" ng-submit="vm.save()" promise-btn>
+        <form name="user" ng-hide="vm.success" ng-submit="vm.save()" promise-btn>
           <h3>Vamos começar?</h3>
 
           <div class="form-group form-group-label">
             <input class="form-control floating-label" type="email"
-                   ng-model="vm.account.login" name="login"
+                   ng-model="vm.user.login" name="login"
                    ng-minlength="5" ng-maxlength="100"
                    placeholder="E-mail"
                    required>
           </div>
           <div class="form-group form-group-label">
             <input class="form-control floating-label" type="password"
-                   ng-model="vm.account.password" name="password"
+                   ng-model="vm.user.password" name="password"
                    ng-minlength="5" ng-maxlength="100"
                    placeholder="Senha"
                    required>
           </div>
           <div class="form-group form-group-label">
             <input class="form-control floating-label" type="password"
-                   ng-model="vm.account.passwordConfirm" name="passwordConfirm"
-                   match="vm.account.password" ng-minlength="5" ng-maxlength="100"
+                   ng-model="vm.user.passwordConfirm" name="passwordConfirm"
+                   match="vm.user.password" ng-minlength="5" ng-maxlength="100"
                    placeholder="Confirmar senha"
                    required>
-            <small class="text-danger" ng-if="account.passwordConfirm.$error.match">
+            <small class="text-danger" ng-if="user.passwordConfirm.$error.match">
               A confirmação da senha está incorreta
             </small>
           </div>
-          <button type="submit" ng-disabled="account.$invalid" class="btn btn-primary btn-raised">
+          <button type="submit" ng-disabled="user.$invalid" class="btn btn-primary btn-raised">
             Criar minha conta
           </button>
         </form>
