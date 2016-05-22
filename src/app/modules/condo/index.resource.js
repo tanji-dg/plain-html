@@ -22,7 +22,7 @@ export let CondoResource = ($resource, config) => {
       'method'             : 'GET',
       'isArray'            : true,
       'url'                : `${baseUrl}/:_id/residences`,
-      'params'             : {'populate' : '@$populate'},
+      'params'             : {'$populate' : '@$populate'},
       'transformResponse'  : transformMultipleResidencesResponse
     },
     'getResidence'         : {
@@ -50,7 +50,7 @@ export let CondoResource = ($resource, config) => {
   function transformSingleResidenceResponse(response) {
     var residence = (response instanceof Object) ? response : angular.fromJson(response);
     residence.identification = (residence.identification === 0) ? '' : residence.identification;
-    residence.residents = residence.users.concat(residence.requesters);
+    residence.residents = _.unionBy(residence.users, residence.requesters, "_id");
     return residence;
   }
 

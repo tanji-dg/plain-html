@@ -4,12 +4,13 @@ export class AccountSignupStep1Controller {
     'ngInject';
 
     this.user = Session.get();
+    console.log(this.user);
     this.location = $location;
   }
 
   save() {
     this.user.signupStep = 2;
-    return this.user.$update().then(() => {
+    return _.clone(this.user).$update().then(() => {
       this.location.path('/signup/2');
     });
   }

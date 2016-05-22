@@ -10,6 +10,6 @@ export class FeedUserController {
   }
 
   save() {
-    return this.user.$update();
+    return _.clone(this.user).$update();
   }
 }

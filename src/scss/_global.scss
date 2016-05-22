@@ -387,7 +387,19 @@ h1, h2, h3, h4 {
 	}
 
 	&.third-step {
+    .list-group-item-heading {
+      font-size: 16px;
 
+      .label {
+        display: inline-block;
+        margin-left: 5px;
+      }
+
+      .btn {
+        margin-top: 0px;
+        margin-left: 5px;
+      }
+    }
 	}
 }
 

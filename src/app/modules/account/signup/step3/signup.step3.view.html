@@ -36,10 +36,10 @@
               <hr />
               <div class="list-group">
                 <div class="list-group-item" ng-repeat="user in vm.residence.residents">
-                  <h4 class="list-group-item-heading">{{ (user.firstName) ? user.firstName + ' ' + user.lastName : vm.filterTerm }}</h4>
-                  <p class="list-group-item-text">
-                    <button type="button" class="btn btn-default btn-danger btn-xs" ng-click="vm.removeUser(user)" ng-show="vm.account._id !== user._id"><i class="fa fa-trash"></i><span class="hidden-xs"> remover</span></button>
-                  </p>
+                  <h4 class="list-group-item-heading">
+                    {{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}
+                    <button type="button" class="btn btn-default btn-danger btn-xs" ng-click="vm.removeUser(user)" ng-hide="vm.user._id == user._id"><i class="fa fa-trash"></i><span class="hidden-xs"> remover</span></button>
+                 </h4>
                 </div>
               </div>
             </div>
