@@ -32,12 +32,11 @@ export class AccountSignupStep2Controller {
   }
 
   chooseCondo (condo) {
-    this.CondoService.set(condo);
-    this.location.path('/signup/3');
-    //this.user.signupStep = 3;
-    //this.user.$update().then(() => {
-    //  this.location.path('/signup/3');
-    //});
+    this.user.signupStep = 3;
+    _.clone(this.user).$update().then(() => {
+      this.CondoService.set(condo);
+      this.location.path('/signup/3');
+    });
   }
 
   createCondo () {

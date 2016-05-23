@@ -30,19 +30,18 @@ export class AccountSignupStep3Controller {
 
 	setUpResidence () {
 		this.CondoResource.addUser({'_id': this.condo._id, 'userId': this.user._id}).$promise.then(() =>
-			this.CondoResource.getResidences({'_id': this.condo._id, 'populate': 'users'}).$promise
+			this.CondoResource.getResidences({'_id': this.condo._id, '$populate': 'users requesters'}).$promise
 		).then((residences) => {
       if(residences.length === 0) {
         this.CondoResource.addResidence({'_id': this.condo._id}, {'identification': 0}).$promise.then((residence) => {
           this.residence = this.CondoResource.getResidence({
             '_id' : this.condo._id,
             'residenceId' : residence._id,
-            'populate' : 'users'
+            '$populate' : 'users requesters'
           });
         });
       } else {
         this.residence = residences[0];
-        this.residence.residents = [];
       }
     });
 	}
@@ -62,7 +61,10 @@ export class AccountSignupStep3Controller {
 
   save () {
     return this.CondoResource.updateResidence({'_id': this.condo._id, 'residenceId' : this.residence._id}, {'identification': this.residence.identification}).$promise.then(() => {
-      this.location.path('/feed');
+      this.user.signupStep = 0;
+      _.clone(this.user).$update().then(() => {
+        this.location.path('/feed');
+      });
     })
   }
 }

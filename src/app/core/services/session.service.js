@@ -22,7 +22,7 @@ export class SessionService {
     let defer = this.q.defer();
 
     let onSuccess = (user) => {
-      let step = user.signupStep || 1;
+      let step = (user.signupStep === 0 || user.signupStep) ? user.signupStep : 1;
       let url = (step === 0) ? '/feed' : `/signup/${step}`;
       this.logged = user;
       this.location.url(url);

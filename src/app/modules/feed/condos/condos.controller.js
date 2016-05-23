@@ -18,7 +18,7 @@ export class FeedCondosController {
 
   filterCondos () {
     this.loading = true;
-    this.condos = this.CondoResource.query({'name': this.filterTerm});
+    this.condos = this.CondoResource.query({'text[$search]': this.filterTerm});
     this.condos.$promise.then(() => {
       this.loading = false;
     });
