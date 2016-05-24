@@ -4,6 +4,7 @@ import { FeedResource } from './index.resource';
 import { FeedController } from './index.controller';
 import { FeedNavbarController } from './navbar/navbar.controller';
 import { FeedCondosController } from './condos/condos.controller';
+import { FeedResidentsController } from './residents/residents.controller';
 import { FeedUserController } from './user/user.controller';
 
 export default angular.module('econdos.modules.feed', [])
@@ -13,4 +14,5 @@ export default angular.module('econdos.modules.feed', [])
   .controller('FeedNavbarController', FeedNavbarController)
   .controller('FeedCondosController', FeedCondosController)
   .controller('FeedUserController', FeedUserController)
+  .controller('FeedResidentsController', FeedResidentsController)
 

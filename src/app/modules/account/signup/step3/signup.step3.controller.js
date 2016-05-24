@@ -63,6 +63,7 @@ export class AccountSignupStep3Controller {
     return this.CondoResource.updateResidence({'_id': this.condo._id, 'residenceId' : this.residence._id}, {'identification': this.residence.identification}).$promise.then(() => {
       this.user.signupStep = 0;
       _.clone(this.user).$update().then(() => {
+        swal("Cadastro Finalizado", "Bem-vindo(a) à comunidade do seu condomínio!", "success");
         this.location.path('/feed');
       });
     })

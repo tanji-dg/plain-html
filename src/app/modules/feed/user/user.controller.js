@@ -10,6 +10,8 @@ export class FeedUserController {
   }
 
   save() {
-    return _.clone(this.user).$update();
+    return _.clone(this.user).$update().then(() => {
+      swal("Dados Alterados", "Seus dados foram alterados com sucesso! ", "success");
+    });
   }
 }

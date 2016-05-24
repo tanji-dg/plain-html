@@ -1,0 +1,34 @@
+<div class="logged-in" ng-controller="FeedResidentsController as vm">
+
+  <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
+
+  <div class="container">
+    <h2 class="section-title"><i class="fa fa-users fa-circled"></i>Minha Família</h2>
+
+    <form ng-submit="vm.save()" promise-btn>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>{{ vm.condo.name }}</h4>
+          <div class="form-group">
+            <input class="form-control" ng-model="vm.residence.identification" type="text" placeholder="Digite o identificador (número da casa, apto...)" required>
+          </div>
+        </div>
+        <div class="panel-body">
+          <h4>Integrantes &nbsp; <button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.addUser()">adicionar</button> </h4>
+          <hr />
+          <div class="list-group">
+            <div class="list-group-item" ng-repeat="user in vm.residence.residents">
+              <h4 class="list-group-item-heading">
+                {{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}
+                <button type="button" class="btn btn-default btn-danger btn-xs" ng-click="vm.removeUser(user)" ng-hide="vm.user._id == user._id"><i class="fa fa-trash"></i><span class="hidden-xs"> remover</span></button>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-raised" type="submit">
+        Salvar
+      </button>
+    </form>
+  </div>
+</div>

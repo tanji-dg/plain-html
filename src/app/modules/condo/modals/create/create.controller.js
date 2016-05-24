@@ -5,11 +5,14 @@ export class CondoModalsCreateController {
 
     this.condo = new CondoResource();
     this.modalInstance = $uibModalInstance;
+    this.CondoResource = CondoResource;
   }
 
   save() {
-    return this.condo.$save().then((response) => {
-      this.modalInstance.close(response);
+    return this.condo.$save().then((c) => {
+      this.CondoResource.get({'_id': c._id}).$promise.then((condo) => {
+        this.modalInstance.close(condo);
+      });
     });
   }
 }

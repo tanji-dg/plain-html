@@ -16,4 +16,9 @@ export let routerConfig = ($stateProvider) => {
     'templateUrl' : 'app/modules/feed/condos/condos.view.html'
   });
 
+  $stateProvider.state('feedCondoResidents', {
+    'url'         : '/:condoId/minha-familia',
+    'templateUrl' : 'app/modules/feed/residents/residents.view.html'
+  });
+
 };

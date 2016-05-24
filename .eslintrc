@@ -16,6 +16,7 @@
     "module"  : true,
     "inject"  : true,
     "$"       : true,
-    "_"       : true
+    "_"       : true,
+    "swal"    : true
   }
 }

@@ -18,6 +18,11 @@ export let CondoResource = ($resource, config) => {
       'url'                : `${baseUrl}/:_id/users/:userId`,
       'params'             : {'userId' : '@userId'}
     },
+    'removeUser'           : {
+      'method'             : 'DELETE',
+      'url'                : `${baseUrl}/:_id/users/:userId`,
+      'params'             : {'userId' : '@userId'}
+    },
     'getResidences'        : {
       'method'             : 'GET',
       'isArray'            : true,

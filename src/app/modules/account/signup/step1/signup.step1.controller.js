@@ -4,7 +4,6 @@ export class AccountSignupStep1Controller {
     'ngInject';
 
     this.user = Session.get();
-    console.log(this.user);
     this.location = $location;
   }
 
