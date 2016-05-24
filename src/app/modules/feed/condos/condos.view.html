@@ -3,7 +3,7 @@
   <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
 
   <div class="container">
-    <h2 class="section-title"><i class="fa fa-building fa-circled"></i>Meu Condomínios <button class="btn btn-primary pull-right"><i class="fa fa-plus"></i>Adicionar Condomínio</button></h2>
+    <h2 class="section-title"><i class="fa fa-building fa-circled"></i>Meu Condomínios <button class="btn btn-primary pull-right" ng-click="vm.createCondo()"><i class="fa fa-plus"></i>Adicionar Condomínio</button></h2>
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -24,9 +24,10 @@
             <div class="panel-body">
               <h5>{{:: condo.address }}</h5>
               <p>{{:: condo.city }}/{{:: condo.state }}</p>
-              <a href="" class=" btn btn-default btn-success btn-xs" ng-click="vm.addCondo(condo)">
+              <a href="" class=" btn btn-default btn-success btn-xs" ng-click="vm.addCondo(condo)" ng-hide="vm.isAlreadyMine(condo)">
                 <i class="fa fa-plus"></i><span class="hidden-xs">&nbsp; &nbsp;Adicionar</span>
               </a>
+              <span class="label label-default" ng-show="vm.isAlreadyMine(condo)"><i class="fa fa-check"></i> &nbsp; ADICIONADO</span>
             </div>
           </div>
         </div>
@@ -42,17 +43,17 @@
     </div>
 
     <div class="selected-condos">
-      <div class="panel panel-default" ng-repeat="vm.user.condos">
+      <div class="panel panel-default" ng-repeat="condo in vm.user.condos">
         <div class="panel-heading">
           <strong>{{:: condo.name }}</strong>
         </div>
         <div class="panel-body">
-            <h5>{{:: condo.address }}</h5>
-            <p>{{:: condo.city }}/{{:: condo.state }}</p>
-            <a href="" class=" btn btn-default btn-success btn-xs" ng-click="vm.addCondo(condo)">
-              <i class="fa fa-plus"></i><span class="hidden-xs">&nbsp; &nbsp;Adicionar</span>
-            </a>
-            <a href="" class="btn btn-default btn-warning btn-xs"><i class="fa fa-user"></i>&nbsp; Moradores</a>
+          <h5>{{:: condo.address }}</h5>
+          <p>{{:: condo.city }}/{{:: condo.state }}</p>
+          <a href="" class=" btn btn-default btn-danger btn-xs" ng-click="vm.removeCondo(condo)">
+            <i class="fa fa-trash"></i><span class="hidden-xs">&nbsp; &nbsp;Remover</span>
+          </a>
+          <a href="#/{{ condo._id }}/minha-familia" class="btn btn-default btn-success btn-xs"><i class="fa fa-users"></i>&nbsp; Família</a>
         </div>
       </div>
     </div>

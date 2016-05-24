@@ -20,12 +20,7 @@ export class AccountSignupStep2Controller {
 
   filterCondos () {
     this.loading = true;
-    this.condos = this.CondoResource.query({
-      '[$or][0][name][$regex]': this.filterTerm,
-      '[$or][1][street][$regex]': this.filterTerm,
-      '[$or][2][cep][$regex]': this.filterTerm,
-      '[$or][3][city][$regex]': this.filterTerm
-    });
+    this.condos = this.CondoResource.query({'$text[$search]': this.filterTerm});
     this.condos.$promise.then(() => {
       this.loading = false;
     });
