@@ -49,6 +49,25 @@ export let CondoResource = ($resource, config) => {
       'method'             : 'PUT',
       'url'                : `${baseUrl}/:_id/residences/:residenceId`,
       'params'             : {'residenceId' : '@residenceId'}
+    },
+    'getOccurrences'       : {
+      'method'             : 'GET',
+      'isArray'            : true,
+      'url'                : `${baseUrl}/:_id/occurrences`
+    },
+    'getOccurrence'        : {
+      'method'             : 'GET',
+      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId`,
+      'params'             : {'occurenceId' : '@occurrenceId'}
+    },
+    'addOccurrence'        : {
+      'method'             : 'POST',
+      'url'                : `${baseUrl}/:_id/occurrences`
+    },
+    'removeOccurrence'     : {
+      'method'             : 'DELETE',
+      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId`,
+      'params'             : {'userId' : '@occurrenceId'}
     }
   });
 
