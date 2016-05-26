@@ -67,7 +67,17 @@ export let CondoResource = ($resource, config) => {
     'removeOccurrence'     : {
       'method'             : 'DELETE',
       'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId`,
-      'params'             : {'userId' : '@occurrenceId'}
+      'params'             : {'occurrenceId' : '@occurrenceId'}
+    },
+    'likeOccurrence'       : {
+      'method'             : 'PUT',
+      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId/like`,
+      'params'             : {'occurrenceId' : '@occurrenceId'}
+    },
+    'undoLikeOccurrence'   : {
+      'method'             : 'DELETE',
+      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId/like`,
+      'params'             : {'occurrenceId' : '@occurrenceId'}
     }
   });
 

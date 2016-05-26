@@ -9,26 +9,20 @@ export class FeedController {
 
     this.condo = this.CondoService.get();
     this.occurrences = this.CondoResource.getOccurrences({'_id': this.condo._id});
+  }
 
-    //this.CondoResource.addOccurrence({'_id': this.condo._id}, {
-    //  'title': 'Testando',
-    //  'description': 'Testando 123',
-    //  'type': 'PRIVATE'
-    //});
-    //
-    //this.CondoResource.addOccurrence({'_id': this.condo._id}, {
-    //  'title': 'Testando',
-    //  'description': 'Testando 123',
-    //  'type': 'VOTING'
-    //});
-    //
-    //this.CondoResource.addOccurrence({'_id': this.condo._id}, {
-    //  'title': 'Testando',
-    //  'description': 'Testando 123',
-    //  'type': 'ADVICE'
-    //});
-
-
+  like(occurrence) {
+    if(occurrence.liked) {
+      this.CondoResource.undoLikeOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id}).$promise.then(() => {
+        occurrence.likes--;
+        occurrence.liked = false;
+      });
+    } else {
+      this.CondoResource.likeOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id}).$promise.then(() => {
+        occurrence.likes++;
+        occurrence.liked = true;
+      });
+    }
   }
 
 }

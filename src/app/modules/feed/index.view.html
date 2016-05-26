@@ -44,9 +44,9 @@
           <div class="panel-body">
             <p class="description">{{ occurrence.description }}</p>
 
-            <button class="btn btn-success btn-sm">
+            <button class="btn btn-success btn-sm" ng-click="vm.like(occurrence)" ng-init="occurrence.likes = occurrence.likers.length">
               <i class="fa fa-thumbs-o-up"></i>
-              <span class="badge" ng-show="occurrence.likers.length">{{ occurrence.likers.length }}</span>
+              <span class="badge" ng-show="occurrence.likes">{{ occurrence.likes }}</span>
             </button>
           </div>
 
