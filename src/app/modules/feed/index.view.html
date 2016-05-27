@@ -1,8 +1,78 @@
-<div class="logged-in">
+<div class="logged-in" ng-controller="FeedController as vm">
 
   <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
 
 	<div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="text-center">
+          <strong> Pesquisar por: </strong>
+          &nbsp;&nbsp;&nbsp;
+          <div class="btn-group btn-category" role="group">
+            <button type="button" class="btn btn-default" ng-class="(vm.occurrence.type == undefined) ? 'btn-primary' : 'btn-white'"  ng-click="vm.occurrence.type = undefined" ng-init="vm.occurrence.type = undefined">Todas</button>
+            <button type="button" class="btn btn-default" ng-class="(vm.occurrence.type == 'PUBLIC') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrence.type = 'PUBLIC'">Públicas</button>
+            <button type="button" class="btn btn-default" ng-class="(vm.occurrence.type == 'PRIVATE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrence.type = 'PRIVATE'">Privadas</button>
+            <button type="button" class="btn btn-default" ng-class="(vm.occurrence.type == 'VOTING') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrence.type = 'VOTING'">Votações</button>
+            <button type="button" class="btn btn-default" ng-class="(vm.occurrence.type == 'ADVICE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrence.type = 'ADVICE'">Avisos</button>
+          </div>
+        </div>
+        <br />
+        <div class="panel panel-default post" ng-repeat="occurrence in vm.occurrences | filter:vm.occurrence.type">
+          <div class="panel-heading">
+            <header>
+              <div class="icon">
+                <i class="fa fa-globe" ng-show="occurrence.type == 'PUBLIC'"></i>
+                <i class="fa fa-lock" ng-show="occurrence.type == 'PRIVATE'"></i>
+                <i class="fa fa-newspapper-o" ng-show="occurrence.type == 'VOTING'"></i>
+                <i class="fa fa-check-square-o" ng-show="occurrence.type == 'ADVICE'"></i>
+              </div>
+              <div class="title">
+                <div class="info">
+                  <span class="label label-lg" ng-show="occurrence.type == 'PUBLIC'">Ocorrência Pública</span>
+                  <span class="label label-lg" ng-show="occurrence.ty"pe == 'PRIVATE'">Ocorrência Privada</span>
+                  <span class="label label-lg" ng-show="occurrence.type == 'VOTING'">Votação</span>
+                  <span class="label label-lg" ng-show="occurrence.type == 'ADVICE'">Aviso</span>
+                  &nbsp;
+                  <small class="author">Fulano de Tal</small>
+                  <small class="pull-right">5 dias atrás</small>
+                </div>
+                <h4>{{ occurrence.title }}</h4>
+              </div>
+            </header>
+          </div>
 
-	</div>
+          <div class="panel-body">
+            <p class="description">{{ occurrence.description }}</p>
+
+            <button class="btn btn-success btn-sm" ng-click="vm.like(occurrence)" ng-init="occurrence.likes = occurrence.likers.length">
+              <i class="fa fa-thumbs-o-up"></i>
+              <span class="badge" ng-show="occurrence.likes">{{ occurrence.likes }}</span>
+            </button>
+          </div>
+
+          <div class="panel-footer comments">
+            <h4>Comentários <span class="badge">3</span> <a href="#" class="pull-right toggle"><i class="fa fa-angle-up"></i> esconder</a></h4>
+            <div class="list-group">
+              <div class="list-group-item comment">
+                <div class="row-picture">
+                  <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+                </div>
+                <div class="row-content">
+                  <h3 class="list-group-item-heading">Fulano de Tal</h3>
+                  <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus</p>
+                </div>
+              </div>
+            </div>
+            <form>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Escreva um comentário">
+            <span class="input-group-btn">
+              <button class="btn btn-sm btn-success" type="button"><i class="fa fa-angle-right"></i></button>
+            </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
