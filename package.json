@@ -1,7 +1,9 @@
 {
   "name": "econdos",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "get-query-modifier": "^1.0.0"
+  },
   "scripts": {
     "start": "gulp serve",
     "test": "gulp test"

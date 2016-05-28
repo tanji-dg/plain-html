@@ -13,8 +13,9 @@ var ghPages = require('gulp-gh-pages');
 gulp.task('deploy', ['build'], function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages({
-      remoteUrl: 'git@github.com:econdos/frontend.git',
-      force: true
+      remoteUrl: 'git@github.com:econdos/econdos.github.io.git',
+      force: true,
+      branch: 'master'
     }));
 });
 
