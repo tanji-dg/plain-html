@@ -40,6 +40,6 @@ export let UserResource = ($resource, config) => {
       'isArray'            : true,
       'url'                : `${baseUrl}/notifications`,
       'params'             : {'$limit' : '5', '$populate' : 'users'}
-    },
+    }
   });
 };

@@ -37,8 +37,10 @@ export class FeedCondosController {
       closeOnConfirm: false
     }, (isConfirm) => {
       if (isConfirm) {
-        this.CondoResource.removeUser({'_id': condo._id, 'userId': this.user._id}).$promise.then(() => {
+        this.CondoResource.removeLoggedUser({'_id': condo._id}).$promise.then(() => {
           swal("Condomínio Removido", "O condomínio foi removido com sucesso!", "success");
+          let condoIndex = _.findIndex(this.user.condos, {'_id': condo._id});
+          this.user.condos.splice(condoIndex, 1);
         });
       }
     });
