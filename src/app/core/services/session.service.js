@@ -1,6 +1,6 @@
 export class SessionService {
 
-  constructor(Auth, UserResource, $q, $location, $rootScope, localStorageService) {
+  constructor(Auth, UserResource, CondoService, $q, $location, $rootScope, localStorageService) {
     'ngInject';
 
     this.logged = null;
@@ -9,6 +9,7 @@ export class SessionService {
     this.auth = Auth;
     this.token = localStorageService.get('token');
     this.user = UserResource;
+    this.CondoService = CondoService;
     this.location = $location;
 
     this.resolve = () => {
@@ -18,7 +19,7 @@ export class SessionService {
 
   }
 
-  create(username, password) {
+  create (username, password) {
     let defer = this.q.defer();
 
     let onSuccess = (user) => {
@@ -51,11 +52,24 @@ export class SessionService {
     return defer.promise;
   }
 
-  logout() {
+  logout () {
     return this.auth.logout();
   }
 
-  get() {
+  get () {
     return this.logged;
+  }
+
+  isCondoAdmin () {
+    let user, condo;
+
+    user = this.get();
+    condo = this.CondoService.get();
+
+    if (user && condo)
+      if (user.condosAdmin.length > 0)
+        return _.some(user.condosAdmin, {'_id': condo._id});
+
+    return false;
   }
 }

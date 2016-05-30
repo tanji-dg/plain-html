@@ -22,9 +22,13 @@ export class CondoModalsCreateUserController {
   }
 
   createUser() {
-    return this.CondoResource.createUser({'_id': this.condo._id}, {firstname: this.user.firstname, lastname: this.user.lastname,email: this.filterTerm}).$promise.then((user) => {
-      user.firstname = this.user.firstname;
-      user.lastname = this.user.lastname;
+    return this.CondoResource.createUser({'_id': this.condo._id}, {
+      firstName: this.user.firstName,
+      lastName: this.user.lastName,
+      email: this.filterTerm
+    }).$promise.then((user) => {
+      user.firstName = this.user.firstName;
+      user.lastName = this.user.lastName;
       user.email = this.filterTerm;
       this.modalInstance.close(user);
     });

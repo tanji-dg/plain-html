@@ -56,7 +56,7 @@ export class FeedResidentsController {
       closeOnConfirm: false
     }, (isConfirm) => {
       if (isConfirm) {
-        this.CondoResource.removeUser({'_id': this.condo._id, 'userId': user._id}).$promise.then(() => {
+        this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.residence._id, userId: user._id}).$promise.then(() => {
           swal("Integrante Removido", "O integrante foi removido com sucesso!", "success");
           let userIndex = _.findIndex(this.residence.residents, {'_id': user._id});
           this.residence.residents.splice(userIndex, 1);

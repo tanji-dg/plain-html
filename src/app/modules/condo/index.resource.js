@@ -18,10 +18,9 @@ export let CondoResource = ($resource, config) => {
       'url'                : `${baseUrl}/:_id/users/:userId`,
       'params'             : {'userId' : '@userId'}
     },
-    'removeUser'           : {
+    'removeLoggedUser'      : {
       'method'             : 'DELETE',
-      'url'                : `${baseUrl}/:_id/users/:userId`,
-      'params'             : {'userId' : '@userId'}
+      'url'                : `${baseUrl}/:_id/users/me`
     },
     'getResidences'        : {
       'method'             : 'GET',
@@ -40,9 +39,14 @@ export let CondoResource = ($resource, config) => {
       'method'             : 'POST',
       'url'                : `${baseUrl}/:_id/residences`
     },
-    'addUserToResidence'      : {
+    'addUserToResidence'   : {
       'method'             : 'PUT',
       'url'                : `${baseUrl}/:_id/residences/:residenceId/users/:userId`,
+      'params'             : {'residenceId' : '@residenceId', 'userId' : '@userId'}
+    },
+    'removeUserFromResidence'      : {
+      'method'             : 'PUT',
+      'url'                : `${baseUrl}/:_id/residences/:residenceId/users/:userId/reject`,
       'params'             : {'residenceId' : '@residenceId', 'userId' : '@userId'}
     },
     'updateResidence'      : {
@@ -53,12 +57,13 @@ export let CondoResource = ($resource, config) => {
     'getOccurrences'       : {
       'method'             : 'GET',
       'isArray'            : true,
-      'url'                : `${baseUrl}/:_id/occurrences`
+      'url'                : `${baseUrl}/:_id/occurrences`,
+      'params'             : {'$populate' : 'comments users', '$sort': '-createdAt'}
     },
     'getOccurrence'        : {
       'method'             : 'GET',
       'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId`,
-      'params'             : {'occurenceId' : '@occurrenceId'}
+      'params'             : {'occurenceId' : '@occurrenceId', '$populate' : 'comments'}
     },
     'addOccurrence'        : {
       'method'             : 'POST',
@@ -77,6 +82,11 @@ export let CondoResource = ($resource, config) => {
     'undoLikeOccurrence'   : {
       'method'             : 'DELETE',
       'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId/like`,
+      'params'             : {'occurrenceId' : '@occurrenceId'}
+    },
+    'commentOccurrence'    : {
+      'method'             : 'POST',
+      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId/comments`,
       'params'             : {'occurrenceId' : '@occurrenceId'}
     }
   });

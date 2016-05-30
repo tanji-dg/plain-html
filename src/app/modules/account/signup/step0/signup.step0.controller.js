@@ -14,7 +14,7 @@ export class AccountSignupStep0Controller {
     this.user.baseUrl = this.location.absUrl().split('/#')[0];
     this.user.signupStep = 1;
 
-    return this.account.$register().then(() => {
+    return this.user.$register().then(() => {
       this.Session.create(this.user.login, this.user.password);
       this.success = true;
     });
