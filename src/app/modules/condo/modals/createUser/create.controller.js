@@ -33,4 +33,8 @@ export class CondoModalsCreateUserController {
       this.modalInstance.close(user);
     });
   }
+
+  close () {
+    this.modalInstance.dismiss();
+  }
 }

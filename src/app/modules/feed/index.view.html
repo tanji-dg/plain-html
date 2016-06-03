@@ -25,7 +25,7 @@
                     <textarea ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
                   </div>
                 </uib-tab>
-                <uib-tab heading="Votação" select="vm.setOccurrenceType('VOTING')">
+                <uib-tab heading="Votação" select="vm.setOccurrenceType('VOTING')" ng-if="vm.Session.isAdmin()">
                   <div class="form-group">
                     <input ng-model="vm.occurrence.title" required type="text" placeholder="Escreva a pergunta que você deseja responder com a sua votação..." class="form-control">
                   </div>
@@ -33,7 +33,7 @@
                     <textarea ng-model="vm.occurrence.description" required placeholder="Digite algumas informações importantes..." class="form-control"></textarea>
                   </div>
                 </uib-tab>
-                <uib-tab heading="Aviso" select="vm.setOccurrenceType('ADVICE')">
+                <uib-tab heading="Aviso" select="vm.setOccurrenceType('ADVICE')" ng-if="vm.Session.isAdmin()">
                   <div class="form-group">
                     <input ng-model="vm.occurrence.title" required type="text" placeholder="Qual é o título do aviso?" class="form-control">
                   </div>
@@ -57,8 +57,8 @@
             <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == undefined) ? 'btn-primary' : 'btn-white'"  ng-click="vm.occurrences.type = undefined" ng-init="vm.occurrences.type = undefined">Todas</button>
             <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PUBLIC') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PUBLIC'">Públicas</button>
             <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PRIVATE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PRIVATE'">Privadas</button>
-            <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'VOTING') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'VOTING'" ng-if="this.Session.isAdmin">Votações</button>
-            <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'ADVICE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'ADVICE'" ng-if="this.Session.isAdmin">Avisos</button>
+            <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'VOTING') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'VOTING'">Votações</button>
+            <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'ADVICE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'ADVICE'">Avisos</button>
           </div>
         </div>
         <br />

@@ -41,6 +41,9 @@
                     <button type="button" class="btn btn-default btn-danger btn-xs" ng-click="vm.removeUser(user)" ng-hide="vm.user._id == user._id || !vm.Session.isCondoAdmin()"><i class="fa fa-trash"></i><span class="hidden-xs"> remover</span></button>
                  </h4>
                 </div>
+                <div ng-hide="vm.residence.residents.length">
+                  <p><i class="fa fa-spinner fa-spin"></i> &nbsp;Carregando...</p>
+                </div>
               </div>
             </div>
           </div>
