@@ -13,7 +13,7 @@ export class ErrorInterceptor {
 
       let error401 = () => {
         $location.url('/login');
-        $window.swal('Ops...', 'Faça o login novamente para acessar o sistema.', 'error');
+        $window.swal('Ops...', 'Não foi possível realizar o login. \nVerifique seu e-mail e senha!', 'error');
       };
 
       switch (rejection.status) {

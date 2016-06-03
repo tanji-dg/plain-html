@@ -15,10 +15,11 @@ export class AccountSignupStep0Controller {
     this.user.signupStep = 1;
 
     return this.user.$register().then(() => {
-      this.Session.create(this.user.login, this.user.password);
-      this.success = true;
+      this.Session.create(this.user.login, this.user.password).then(() => {
+        this.location.path('/signup/1');
+      });
     }).catch((error) => {
-      swal('Este usuário já existe!', 'Tente utilizar um outro e-mail.', "error");
+      swal('Este usuário já existe!', 'Tente utilizar outro e-mail.', "error");
    });
   }
 }
