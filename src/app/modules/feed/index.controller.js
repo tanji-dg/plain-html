@@ -61,7 +61,9 @@ export class FeedController {
   commentOccurrence (occurrence) {
     return this.CondoResource.commentOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id}, {description: occurrence.newComment}).$promise.then(() => {
       let occurrenceIndex = _.findIndex(this.occurrences, {'_id': occurrence._id});
-      this.occurrences[occurrenceIndex] = this.CondoResource.getOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id});
+      this.CondoResource.getOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id}).$promise.then((occurrence) => {
+        this.occurrences[occurrenceIndex] = occurrence;
+      });
     });
   }
 

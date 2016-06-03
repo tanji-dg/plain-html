@@ -38,8 +38,8 @@ export let UserResource = ($resource, config) => {
     'getNotifications'     : {
       'method'             : 'GET',
       'isArray'            : true,
-      'url'                : `${baseUrl}/notifications`,
-      'params'             : {'$limit' : '5', '$populate' : 'users'}
+      'url'                : `${baseUrl}/me/notifications`,
+      'params'             : {'$limit' : '5', '$populate': 'users'}
     }
   });
 };
