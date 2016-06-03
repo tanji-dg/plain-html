@@ -14,12 +14,11 @@ export class SessionService {
 
     this.resolve = () => {
       $rootScope.$resolved = true;
-      if (!$rootScope.$$phase) $rootScope.$apply();
     }
 
   }
 
-  create (username, password) {
+  create(username, password) {
     let defer = this.q.defer();
 
     let onSuccess = (user) => {
@@ -52,15 +51,15 @@ export class SessionService {
     return defer.promise;
   }
 
-  logout () {
+  logout() {
     return this.auth.logout();
   }
 
-  get () {
+  get() {
     return this.logged;
   }
 
-  isAdmin () {
+  isAdmin() {
     let user, condo;
 
     user = this.get();
