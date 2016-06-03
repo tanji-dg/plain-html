@@ -13,7 +13,7 @@ export class ErrorInterceptor {
 
       let error401 = () => {
         $location.url('/login');
-        $window.swal('Sessão expirada', 'Faça o login novamente para acessar o sistema.', 'error');
+        $window.swal('Ops...', 'Faça o login novamente para acessar o sistema.', 'error');
       };
 
       switch (rejection.status) {

@@ -8,7 +8,7 @@ export class SessionService {
     this.q = $q;
     this.auth = Auth;
     this.token = localStorageService.get('token');
-    this.user = UserResource;
+    this.UserResource = UserResource;
     this.CondoService = CondoService;
     this.location = $location;
 
@@ -25,7 +25,7 @@ export class SessionService {
     let onSuccess = (user) => {
       let step = (user.signupStep === 0 || user.signupStep) ? user.signupStep : 1;
       let url = (step === 0) ? '/feed' : `/signup/${step}`;
-      this.logged = user;
+      this.logged = new this.UserResource(user);
       this.location.url(url);
       this.resolve();
 
@@ -33,8 +33,8 @@ export class SessionService {
     };
 
     let onError = (error) => {
-      if (['/login', '/activate', '/signup'].indexOf(this.location.path()) === -1) {
-        this.location.url('/');
+      if (['/activate', '/signup'].indexOf(this.location.path()) === -1) {
+        this.location.url('/login');
       }
 
       this.resolve();
@@ -44,7 +44,7 @@ export class SessionService {
     if (username && password) {
       this.auth.login(username, password).then(onSuccess, onError);
     } else if (this.token) {
-      this.user.authenticate().$promise.then(onSuccess, onError);
+      this.UserResource.authenticate().$promise.then(onSuccess, onError);
     } else {
       onError('Not Authorized');
     }

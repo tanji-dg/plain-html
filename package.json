@@ -1,8 +1,11 @@
 {
   "name": "econdos",
-  "version": "0.0.0",
-  "dependencies": {},
+  "version": "1.0.0",
+  "dependencies": {
+    "get-query-modifier": "^1.0.0"
+  },
   "scripts": {
+    "start": "gulp serve",
     "test": "gulp test"
   },
   "devDependencies": {
@@ -22,6 +25,7 @@
     "gulp-eslint": "~1.0.0",
     "gulp-filter": "~3.0.1",
     "gulp-flatten": "~0.2.0",
+    "gulp-gh-pages": "Klortho/gulp-gh-pages",
     "gulp-inject": "~3.0.0",
     "gulp-load-plugins": "~0.10.0",
     "gulp-minify-css": "~1.2.1",
@@ -56,6 +60,6 @@
     "wrench": "~1.5.8"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=5.10.0"
   }
 }
