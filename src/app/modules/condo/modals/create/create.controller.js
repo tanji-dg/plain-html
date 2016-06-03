@@ -15,4 +15,8 @@ export class CondoModalsCreateController {
       });
     });
   }
+
+  close () {
+    this.modalInstance.dismiss();
+  }
 }

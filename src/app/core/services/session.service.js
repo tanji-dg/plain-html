@@ -70,7 +70,7 @@ export class SessionService {
         return _.some(user.condosAdmin, {'_id' : condo._id});
       }
 
-      if (user.condosAdmin.length > 0) {
+      if (user.condosOwner.length > 0) {
         return _.some(user.condosOwner, {'_id' : condo._id});
       }
     }
