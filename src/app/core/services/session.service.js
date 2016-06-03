@@ -33,8 +33,8 @@ export class SessionService {
     };
 
     let onError = (error) => {
-      if (['/login', '/activate', '/signup'].indexOf(this.location.path()) === -1) {
-        this.location.url('/');
+      if (['/activate', '/signup'].indexOf(this.location.path()) === -1) {
+        this.location.url('/login');
       }
 
       this.resolve();
