@@ -1,5 +1,5 @@
 export let ConfigBlock = (
-    $logProvider, $uiViewScrollProvider, $urlRouterProvider, $httpProvider, 
+    $logProvider, $uiViewScrollProvider, $urlRouterProvider, $httpProvider,
     localStorageServiceProvider, angularPromiseButtonsProvider
   ) => {
   'ngInject';
@@ -16,7 +16,7 @@ export let ConfigBlock = (
 
   $logProvider.debugEnabled(true);
   $uiViewScrollProvider.useAnchorScroll();
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 
   angularPromiseButtonsProvider.extendConfig({
     spinnerTpl: '<i class="fa fa-spinner fa-spin margin-bottom fa-promise-button"></i>',
