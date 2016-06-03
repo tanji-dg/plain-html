@@ -58,12 +58,23 @@ export let CondoResource = ($resource, config) => {
       'method'             : 'GET',
       'isArray'            : true,
       'url'                : `${baseUrl}/:_id/occurrences`,
-      'params'             : {'$populate' : 'comments users', '$sort': '-createdAt'}
+      'params'             : {
+        '$populate[0]'          : 'comments',
+        '$populate[1][path]'    : 'createdBy',
+        '$populate[1][select]'  : 'firstName lastName',
+        '$sort'                 : '-createdAt'
+      }
     },
     'getOccurrence'        : {
       'method'             : 'GET',
       'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId`,
-      'params'             : {'occurenceId' : '@occurrenceId', '$populate' : 'comments'}
+      'params'             : {
+        'occurenceId'           : '@occurrenceId',
+        '$populate[0]'          : 'comments',
+        '$populate[1][path]'    : 'createdBy',
+        '$populate[1][select]'  : 'firstName lastName',
+        '$sort'                 : '-createdAt'
+      }
     },
     'addOccurrence'        : {
       'method'             : 'POST',

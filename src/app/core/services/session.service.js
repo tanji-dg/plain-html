@@ -60,15 +60,21 @@ export class SessionService {
     return this.logged;
   }
 
-  isCondoAdmin () {
+  isAdmin () {
     let user, condo;
 
     user = this.get();
     condo = this.CondoService.get();
 
-    if (user && condo)
-      if (user.condosAdmin.length > 0)
-        return _.some(user.condosAdmin, {'_id': condo._id});
+    if (user && condo) {
+      if (user.condosAdmin.length > 0) {
+        return _.some(user.condosAdmin, {'_id' : condo._id});
+      }
+
+      if (user.condosAdmin.length > 0) {
+        return _.some(user.condosOwner, {'_id' : condo._id});
+      }
+    }
 
     return false;
   }
