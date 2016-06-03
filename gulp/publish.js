@@ -11,7 +11,7 @@ var ghPages = require('gulp-gh-pages');
 
 
 gulp.task('deploy', ['build'], function() {
-  return gulp.src('./dist/**/*')
+  return gulp.src('./dist/**/*', 'CNAME')
     .pipe(ghPages({
       remoteUrl: 'git@github.com:econdos/econdos.github.io.git',
       force: true,
