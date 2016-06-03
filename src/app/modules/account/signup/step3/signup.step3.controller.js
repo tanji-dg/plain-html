@@ -30,12 +30,13 @@ export class AccountSignupStep3Controller {
   }
 
   setUpResidence () {
+    var self = this;
     this.CondoResource.addUser({'_id' : this.condo._id, 'userId' : this.user._id}).$promise.then(() =>
         this.CondoResource.getResidences({'_id' : this.condo._id, '$populate' : 'users requesters'}).$promise
     ).then((residences) => {
       if (residences.length === 0) {
         this.CondoResource.addResidence({'_id' : this.condo._id}, {'identification' : 0}).$promise.then((residence) => {
-          addUserToResidence(this.user, residence).$promise.then(() => {
+          self.addUserToResidence(this.user, residence).$promise.then(() => {
             this.residence = this.getResidence(residence);
           });
         });

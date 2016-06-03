@@ -29,7 +29,7 @@
                 <!--<img src="http://placehold.it/18x18" class="profile-image img-circle">-->
                 <div class="inline">
                   <strong>{{ notification.user.firstName + ' ' + notification.user.lastName  }}</strong>
-                  <span ng-show="notification.type == 'OCCURRENCE:NEW'">adicionou um novo aviso.</span>
+                  <span ng-show="notification.type == 'OCCURRENCE:NEW'">adicionou uma publicação.</span>
                   <span ng-show="notification.type == 'COMMENT:NEW'">adicionou um novo comentário.</span>
                   <br />
                   <small>5 horas atrás</small>
@@ -41,16 +41,19 @@
             </li>
           </ul>
         </li>
-        <li class="dropdown" uib-dropdown>
-          <a href="" class="dropdown-toggle" uib-dropdown-toggle>
-            {{ vm.condo.name }} <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu" uib-dropdown-menu>
-            <li ng-repeat="condo in vm.user.condos" ng-if="condo._id != vm.condo._id"><a href="" ng-click="vm.chooseCondo(condo)">{{ condo.name }}</a></li>
-          </ul>
+        <li class="dropdown" uib-dropdown ng-if="vm.user.condos.length > 1">
+            <a href="" class="dropdown-toggle" uib-dropdown-toggle>
+              {{ vm.condo.name }} <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" uib-dropdown-menu>
+              <li ng-repeat="condo in vm.user.condos" ng-if="condo._id != vm.condo._id"><a href="" ng-click="vm.chooseCondo(condo)">{{ condo.name }}</a></li>
+            </ul>
+        </li>
+        <li ng-if="vm.user.condos.length == 1">
+          <a class="dropdown-toggle">{{ vm.condo.name }}</a>
         </li>
         <li class="dropdown" uib-dropdown>
-          <a href="" class="dropdown-toggle" uib-dropdown-toggle>
+          <a href="" class="dropown-toggle" uib-dropdown-toggle>
             <i class="fa fa-cog"></i> <b class="caret"></b>
           </a>
           <ul class="dropdown-menu" uib-dropdown-menu>

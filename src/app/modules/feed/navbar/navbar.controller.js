@@ -9,7 +9,7 @@ export class FeedNavbarController {
     this.$window = $window;
 
     this.user = this.Session.get();
-    this.notifications = this.UserResource.getNotifications({'_id': this.user._id});
+    this.notifications = this.UserResource.getNotifications();
 
     this.getCondo();
   }
