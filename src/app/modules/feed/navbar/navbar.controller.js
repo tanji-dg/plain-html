@@ -11,14 +11,7 @@ export class FeedNavbarController {
     this.user = this.Session.get();
     this.notifications = this.UserResource.getNotifications({'_id': this.user._id});
 
-    this.setUpCondo();
-  }
-
-  setUpCondo () {
     this.getCondo();
-    if(!this.condo._id) {
-      this.CondoService.set(this.user.condos[0]);
-    }
   }
 
   getCondo () {

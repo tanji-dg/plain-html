@@ -1,6 +1,6 @@
 export class SessionService {
 
-  constructor(Auth, UserResource, $q, $location, $rootScope, localStorageService) {
+  constructor(Auth, UserResource, CondoService, $q, $location, $rootScope, localStorageService) {
     'ngInject';
 
     this.logged = null;
@@ -8,7 +8,8 @@ export class SessionService {
     this.q = $q;
     this.auth = Auth;
     this.token = localStorageService.get('token');
-    this.user = UserResource;
+    this.UserResource = UserResource;
+    this.CondoService = CondoService;
     this.location = $location;
 
     this.resolve = () => {
@@ -18,13 +19,13 @@ export class SessionService {
 
   }
 
-  create(username, password) {
+  create (username, password) {
     let defer = this.q.defer();
 
     let onSuccess = (user) => {
       let step = (user.signupStep === 0 || user.signupStep) ? user.signupStep : 1;
       let url = (step === 0) ? '/feed' : `/signup/${step}`;
-      this.logged = user;
+      this.logged = new this.UserResource(user);
       this.location.url(url);
       this.resolve();
 
@@ -43,7 +44,7 @@ export class SessionService {
     if (username && password) {
       this.auth.login(username, password).then(onSuccess, onError);
     } else if (this.token) {
-      this.user.authenticate().$promise.then(onSuccess, onError);
+      this.UserResource.authenticate().$promise.then(onSuccess, onError);
     } else {
       onError('Not Authorized');
     }
@@ -51,11 +52,24 @@ export class SessionService {
     return defer.promise;
   }
 
-  logout() {
+  logout () {
     return this.auth.logout();
   }
 
-  get() {
+  get () {
     return this.logged;
+  }
+
+  isCondoAdmin () {
+    let user, condo;
+
+    user = this.get();
+    condo = this.CondoService.get();
+
+    if (user && condo)
+      if (user.condosAdmin.length > 0)
+        return _.some(user.condosAdmin, {'_id': condo._id});
+
+    return false;
   }
 }

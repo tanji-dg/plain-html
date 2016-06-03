@@ -11,13 +11,13 @@
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav navbar-left">
         <li>
-          <a href="" class="btn btn-sm btn-success">
+          <a href="#/feed" class="btn btn-sm btn-success">
             <i class="fa fa-plus"></i> &nbsp; Nova Ocorrência
           </a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="">Página Inicial</a></li>
+        <li><a href="#/feed">Página Inicial</a></li>
         <li class="dropdown" uib-dropdown>
           <a href="" class="dropdown-toggle" uib-dropdown-toggle>
             <i class="fa fa-bell"></i>
@@ -28,7 +28,7 @@
               <a>
                 <!--<img src="http://placehold.it/18x18" class="profile-image img-circle">-->
                 <div class="inline">
-                  <strong>{{ notification.user.firstName + ' ' + otification.user.lastName  }}</strong>
+                  <strong>{{ notification.user.firstName + ' ' + notification.user.lastName  }}</strong>
                   <span ng-show="notification.type == 'OCCURRENCE:NEW'">adicionou um novo aviso.</span>
                   <span ng-show="notification.type == 'COMMENT:NEW'">adicionou um novo comentário.</span>
                   <br />
@@ -54,9 +54,9 @@
             <i class="fa fa-cog"></i> <b class="caret"></b>
           </a>
           <ul class="dropdown-menu" uib-dropdown-menu>
-            <li><a href="#/meus-dados">Meu Dados</a></li>
-            <li><a href="#/meus-condominios">Meus Condomínios</a></li>
-            <li><a ng-click="vm.logOut()">Sair</a></li>
+            <li><a href="#/meus-dados"><i class="fa fa-user"></i> &nbsp; Meu Dados</a></li>
+            <li><a href="#/meus-condominios"><i class="fa fa-building"></i> &nbsp; Meus Condomínios</a></li>
+            <li><a ng-click="vm.logOut()"><i class="fa fa-sign-out"></i> &nbsp; Sair</a></li>
           </ul>
         </li>
       </ul>

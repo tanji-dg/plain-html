@@ -47,6 +47,8 @@ h1, h2, h3, h4 {
 	width: 100%;
 	padding-left: 0;
 	height: 28px;
+  padding: 20px 0;
+  font-size: 15px;
 }
 
 .form-group.label-floating {
@@ -429,6 +431,23 @@ h1, h2, h3, h4 {
 			}
 		}
 	}
+
+  .panel-publication {
+
+    .form-control {
+      padding: 25px 15px;
+
+      ::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {
+        font-weight: normal;
+        font-size: 15px;
+        font-family: inherit;
+      }
+    }
+
+    .tab-content {
+      padding: 10px;
+    }
+  }
 
 	.container-sm {
 		max-width: 960px;
