@@ -90,7 +90,7 @@ h1, h2, h3, h4 {
 		}
 	}
 
-	&.btn-primary, &:disabled, &[disabled][disabled] {
+	&.btn-primary, &.btn-primary:disabled, &.btn-primary[disabled][disabled] {
 		background: $color-primary !important;
 		color: #fff;
 	}
