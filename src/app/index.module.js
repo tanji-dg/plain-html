@@ -21,6 +21,7 @@ angular
     'ui.bootstrap',
     'ui.select',
     'angularPromiseButtons',
+    'angularMoment',
 
     Core.name,
     Modules.name

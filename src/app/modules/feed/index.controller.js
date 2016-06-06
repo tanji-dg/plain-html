@@ -45,15 +45,18 @@ export class FeedController {
   }
 
   likeOccurrence (occurrence) {
+    occurrence.isLoading = true;
     if (occurrence.liked) {
       this.CondoResource.undoLikeOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id}).$promise.then(() => {
         occurrence.likes--;
         occurrence.liked = false;
+        occurrence.isLoading = false;
       });
     } else {
       this.CondoResource.likeOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id}).$promise.then(() => {
         occurrence.likes++;
         occurrence.liked = true;
+        occurrence.isLoading = false;
       });
     }
   }

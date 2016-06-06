@@ -5,7 +5,7 @@ export class AccountSignupStep3Controller {
     'ngInject';
 
     this.swal = $window.swal;
-    this.location = $location;
+    this.$location = $location;
     this.CondoResource = CondoResource;
     this.CondoService = CondoService;
     this.CondoModals = CondoModals;
@@ -86,12 +86,12 @@ export class AccountSignupStep3Controller {
     this.user.signupStep = 0;
     return _.clone(this.user).$update().then(() => {
       swal("Cadastro Finalizado", "Bem-vindo(a) à comunidade do seu condomínio!", "success");
-      this.location.path('/feed');
+      this.$location.path('/feed');
     });
   }
 
   save () {
-    if(this.Session.isCondoAdmin()) {
+    if(this.Session.isAdmin()) {
       return this.CondoResource.updateResidence({
         '_id' : this.condo._id,
         'residenceId' : this.residence._id

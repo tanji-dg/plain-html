@@ -79,7 +79,7 @@
                   <span class="label label-lg" ng-show="occurrence.type == 'ADVICE'">Aviso</span>
                   &nbsp;
                   <small class="author">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</small>
-                  <small class="pull-right">{{ occurrence.createdAt | date:'longDate' }} às {{ occurrence.createdAt | date:'shortTime' }}</small>
+                  <small class="pull-right" am-time-ago="occurrence.createdAt"></small>
                 </div>
                 <h4>{{ occurrence.title }}</h4>
               </div>
@@ -89,7 +89,7 @@
           <div class="panel-body">
             <p class="description">{{ occurrence.description }}</p>
 
-            <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-init="occurrence.likes = occurrence.likers.length">
+            <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-init="occurrence.likes = occurrence.likers.length" ng-disabled="occurrence.isLoading">
               <i class="fa fa-thumbs-o-up"></i>
               <span class="badge" ng-show="occurrence.likes">{{ occurrence.likes }}</span>
             </button>

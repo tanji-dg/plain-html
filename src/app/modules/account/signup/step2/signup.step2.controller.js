@@ -6,7 +6,7 @@ export class AccountSignupStep2Controller {
 
     this.q = $q;
     this.swal = $window.swal;
-    this.location = $location;
+    this.$location = $location;
     this.Session = Session;
     this.CondoResource = CondoResource;
     this.CondoModals = CondoModals;
@@ -30,7 +30,7 @@ export class AccountSignupStep2Controller {
     this.user.signupStep = 3;
     _.clone(this.user).$update().then(() => {
       this.CondoService.set(condo);
-      this.location.path('/signup/3');
+      this.$location.path('/signup/3');
     });
   }
 
@@ -42,6 +42,6 @@ export class AccountSignupStep2Controller {
 
   save () {
     this.user.signupStep = 3;
-    this.location.path('/signup/3/');
+    this.$location.path('/signup/3/');
   }
 }

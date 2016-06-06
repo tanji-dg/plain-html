@@ -4,21 +4,21 @@ export class AccountSignupStep0Controller {
     'ngInject';
 
     this.user = new UserResource();
-    this.location = $location;
+    this.$location = $location;
     this.Session = Session;
   }
 
   save() {
     this.user.langKey = 'pt';
     this.user.email = this.user.login;
-    this.user.baseUrl = this.location.absUrl().split('/#')[0];
+    this.user.baseUrl = this.$location.absUrl().split('/#')[0];
     this.user.signupStep = 1;
 
     return this.user.$register().then(() => {
       this.Session.create(this.user.login, this.user.password).then(() => {
-        this.location.path('/signup/1');
+        this.$location.path('/signup/1');
       });
-    }).catch((error) => {
+    }).catch(() => {
       swal('Este usuário já existe!', 'Tente utilizar outro e-mail.', "error");
    });
   }
