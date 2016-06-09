@@ -99,6 +99,17 @@ export let CondoResource = ($resource, config) => {
       'method'             : 'POST',
       'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId/comments`,
       'params'             : {'occurrenceId' : '@occurrenceId'}
+    },
+    'getOccurrenceComments'    : {
+      'method'             : 'GET',
+      'isArray'            : true,
+      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId/comments`,
+      'params'             : {
+        'occurreceId' : '@occurrenceId',
+        '$limit'      : 1000,
+        '$populate'   : 'createdBy',
+        '$sort'       : '-createdAt'
+      }
     }
   });
 

@@ -100,13 +100,14 @@
             <div class="list-group">
               <div class="list-group-item comment" ng-repeat="comment in occurrence.comments">
                 <!--<div class="row-picture">-->
-                  <!--<img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">-->
+                <!--<img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">-->
                 <!--</div>-->
                 <div class="row-content">
-                 <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }}</h3>
+                  <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }}</h3>
                   <p class="list-group-item-text">{{ comment.description }}</p>
                 </div>
               </div>
+              <a href="javascript:void(0);" class="simple" ng-click="vm.allComments(occurrence)" ng-hide="occurrence.isShowingAllComments"><i class="fa fa-angle-down"></i> &nbsp;Ver todos os comentários</a>
             </div>
             <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn>
               <div class="input-group">
@@ -119,7 +120,7 @@
           </div>
         </div>
         <div class="text-center" ng-hide="vm.occurrences.length">
-          <p><i class="fa fa-spinner fa-spin"></i> &nbsp;Carregando...</p>
+          <p>Nenhuma ocorrência foi encontrada</p>
         </div>
         <div class="text-center" ng-show="vm.occurrences.length > 0 && filteredOccurrences.length === 0">
           <p>Ops! Nenhuma ocorrência deste tipo foi postada.</p>
