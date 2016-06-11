@@ -5,70 +5,71 @@ export let CondoResource = ($resource, config) => {
 
   return $resource(`${baseUrl}/:_id`, {'_id' : '@_id'}, {
     'search' : {
-      'method'             : 'GET',
-      'isArray'            : true,
-      'url'                : `${config.backendUrl}/_search/condos/:query`
+      'method'                 : 'GET',
+      'isArray'                : true,
+      'url'                    : `${config.backendUrl}/_search/condos/:query`
     },
-    'createUser'           : {
-      'method'             : 'POST',
-      'url'                : `${baseUrl}/:_id/users`
+    'createUser'               : {
+      'method'                 : 'POST',
+      'url'                    : `${baseUrl}/:_id/users`
     },
-    'addUser'              : {
-      'method'             : 'PUT',
-      'url'                : `${baseUrl}/:_id/users/:userId`,
-      'params'             : {'userId' : '@userId'}
+    'addUser'                  : {
+      'method'                 : 'PUT',
+      'url'                    : `${baseUrl}/:_id/users/:userId`,
+      'params'                 : {'userId' : '@userId'}
     },
-    'removeLoggedUser'      : {
-      'method'             : 'DELETE',
-      'url'                : `${baseUrl}/:_id/users/me`
+    'removeLoggedUser'         : {
+      'method'                 : 'DELETE',
+      'url'                    : `${baseUrl}/:_id/users/me`
     },
-    'getResidences'        : {
-      'method'             : 'GET',
-      'isArray'            : true,
-      'url'                : `${baseUrl}/:_id/residences`,
-      'params'             : {'$populate' : '@$populate'},
-      'transformResponse'  : transformMultipleResidencesResponse
+    'getResidences'            : {
+      'method'                 : 'GET',
+      'isArray'                : true,
+      'url'                    : `${baseUrl}/:_id/residences`,
+      'params'                 : {'$populate' : '@$populate'},
+      'transformResponse'      : transformMultipleResidencesResponse
     },
-    'getResidence'         : {
-      'method'             : 'GET',
-      'url'                : `${baseUrl}/:_id/residences/:residenceId`,
-      'params'             : {'residenceId' : '@residenceId', 'populate' : '@$populate'},
-      'transformResponse'  : transformSingleResidenceResponse
+    'getResidence'             : {
+      'method'                 : 'GET',
+      'url'                    : `${baseUrl}/:_id/residences/:residenceId`,
+      'params'                 : {'residenceId' : '@residenceId', 'populate' : '@$populate'},
+      'transformResponse'      : transformSingleResidenceResponse
     },
-    'addResidence'         : {
-      'method'             : 'POST',
-      'url'                : `${baseUrl}/:_id/residences`
+    'addResidence'             : {
+      'method'                 : 'POST',
+      'url'                    : `${baseUrl}/:_id/residences`
     },
-    'addUserToResidence'   : {
-      'method'             : 'PUT',
-      'url'                : `${baseUrl}/:_id/residences/:residenceId/users/:userId`,
-      'params'             : {'residenceId' : '@residenceId', 'userId' : '@userId'}
+    'addUserToResidence'       : {
+      'method'                 : 'PUT',
+      'url'                    : `${baseUrl}/:_id/residences/:residenceId/users/:userId`,
+      'params'                 : {'residenceId' : '@residenceId', 'userId' : '@userId'}
     },
-    'removeUserFromResidence'      : {
-      'method'             : 'PUT',
-      'url'                : `${baseUrl}/:_id/residences/:residenceId/users/:userId/reject`,
-      'params'             : {'residenceId' : '@residenceId', 'userId' : '@userId'}
+    'removeUserFromResidence'  : {
+      'method'                 : 'PUT',
+      'url'                    : `${baseUrl}/:_id/residences/:residenceId/users/:userId/reject`,
+      'params'                 : {'residenceId' : '@residenceId', 'userId' : '@userId'}
     },
-    'updateResidence'      : {
-      'method'             : 'PUT',
-      'url'                : `${baseUrl}/:_id/residences/:residenceId`,
-      'params'             : {'residenceId' : '@residenceId'}
+    'updateResidence'          : {
+      'method'                 : 'PUT',
+      'url'                    : `${baseUrl}/:_id/residences/:residenceId`,
+      'params'                 : {'residenceId' : '@residenceId'}
     },
-    'getOccurrences'       : {
-      'method'             : 'GET',
-      'isArray'            : true,
-      'url'                : `${baseUrl}/:_id/occurrences`,
-      'params'             : {
+    'getOccurrences'           : {
+      'method'                 : 'GET',
+      'isArray'                : true,
+      'url'                    : `${baseUrl}/:_id/occurrences`,
+      'params'                 : {
         '$populate[0]'          : 'comments',
         '$populate[1][path]'    : 'createdBy',
         '$populate[1][select]'  : 'firstName lastName',
+        '$populate[2]'          : 'voters',
         '$sort'                 : '-createdAt'
       }
     },
-    'getOccurrence'        : {
-      'method'             : 'GET',
-      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId`,
-      'params'             : {
+    'getOccurrence'            : {
+      'method'                 : 'GET',
+      'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId`,
+      'params'                 : {
         'occurenceId'           : '@occurrenceId',
         '$populate[0]'          : 'comments',
         '$populate[1][path]'    : 'createdBy',
@@ -76,40 +77,50 @@ export let CondoResource = ($resource, config) => {
         '$sort'                 : '-createdAt'
       }
     },
-    'addOccurrence'        : {
-      'method'             : 'POST',
-      'url'                : `${baseUrl}/:_id/occurrences`
+    'addOccurrence'            : {
+      'method'                 : 'POST',
+      'url'                    : `${baseUrl}/:_id/occurrences`
     },
-    'removeOccurrence'     : {
-      'method'             : 'DELETE',
-      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId`,
-      'params'             : {'occurrenceId' : '@occurrenceId'}
+    'removeOccurrence'         : {
+      'method'                 : 'DELETE',
+      'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId`,
+      'params'                 : {'occurrenceId' : '@occurrenceId'}
     },
-    'likeOccurrence'       : {
-      'method'             : 'PUT',
-      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId/like`,
-      'params'             : {'occurrenceId' : '@occurrenceId'}
+    'likeOccurrence'           : {
+      'method'                 : 'PUT',
+      'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId/like`,
+      'params'                 : {'occurrenceId' : '@occurrenceId'}
     },
-    'undoLikeOccurrence'   : {
-      'method'             : 'DELETE',
-      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId/like`,
-      'params'             : {'occurrenceId' : '@occurrenceId'}
+    'undoLikeOccurrence'       : {
+      'method'                 : 'DELETE',
+      'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId/like`,
+      'params'                 : {'occurrenceId' : '@occurrenceId'}
     },
-    'commentOccurrence'    : {
-      'method'             : 'POST',
-      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId/comments`,
-      'params'             : {'occurrenceId' : '@occurrenceId'}
+    'commentOccurrence'        : {
+      'method'                 : 'POST',
+      'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId/comments`,
+      'params'                 : {'occurrenceId' : '@occurrenceId'}
     },
     'getOccurrenceComments'    : {
-      'method'             : 'GET',
-      'isArray'            : true,
-      'url'                : `${baseUrl}/:_id/occurrences/:occurrenceId/comments`,
-      'params'             : {
+      'method'                 : 'GET',
+      'isArray'                : true,
+      'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId/comments`,
+      'params'                 : {
         'occurreceId' : '@occurrenceId',
         '$limit'      : 1000,
         '$populate'   : 'createdBy',
         '$sort'       : '-createdAt'
-      }
+      },
+    },
+    'voteForOccurrence'        : {
+      'method'                 : 'PUT',
+      'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId/vote`,
+      'params'                 : {'occurrenceId' : '@occurrenceId'}
+    },
+    'voteAgainstOccurrence'    : {
+      'method'                 : 'DELETE',
+      'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId/vote`,
+      'params'                 : {'occurrenceId' : '@occurrenceId'}
     }
   });
 

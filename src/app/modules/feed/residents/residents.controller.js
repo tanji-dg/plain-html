@@ -46,7 +46,7 @@ export class FeedResidentsController {
     });
   }
 
-  removeUser (user) {
+  removeUser (user, users) {
     this.swal({
       title: "Tem certeza?",
       text: "Esta ação não poderá ser desfeita.",
@@ -60,8 +60,8 @@ export class FeedResidentsController {
       if (isConfirm) {
         this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.residence._id, userId: user._id}).$promise.then(() => {
           this.swal("Integrante Removido", "O integrante foi removido com sucesso!", "success");
-          let userIndex = this._.findIndex(this.residence.residents, {'_id': user._id});
-          this.residence.residents.splice(userIndex, 1);
+          let userIndex = this._.findIndex(users, {'_id': user._id});
+          users.splice(userIndex, 1);
         });
       }
     });

@@ -87,7 +87,19 @@
           </div>
 
           <div class="panel-body">
-            <p class="description">{{ occurrence.description }}</p>
+            <div class="btn-group options pull-right" ng-if="occurrence.type == 'VOTING'">
+              <button type="button" class="btn btn-ray" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="occurrence.isVoting">
+                <!--<span class="badge">10</span>&nbsp; -->
+                Sim
+              </button>
+              <button type="button" class="btn btn-gray" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="occurrence.isVoting">
+                <!--<span class="badge">3</span>&nbsp; -->
+                Não
+              </button>
+            </div>
+            <p class="description">
+              {{ occurrence.description }}
+            </p>
 
             <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-init="occurrence.likes = occurrence.likers.length" ng-disabled="occurrence.isLoading">
               <i class="fa fa-thumbs-o-up"></i>
@@ -107,7 +119,7 @@
                   <p class="list-group-item-text">{{ comment.description }}</p>
                 </div>
               </div>
-              <a href="javascript:void(0);" class="simple" ng-click="vm.allComments(occurrence)" ng-hide="occurrence.isShowingAllComments"><i class="fa fa-angle-down"></i> &nbsp;Ver todos os comentários</a>
+              <a href="javascript:void(0);" class="simple" ng-click="vm.allComments(occurrence)" ng-hide="occurrence.isShowingAllComments || !occurrence.comments.length"><i class="fa fa-angle-down"></i> &nbsp;Ver todos os comentários</a>
             </div>
             <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn>
               <div class="input-group">

@@ -29,9 +29,11 @@ export class AccountSignupStep2Controller {
   chooseCondo (condo) {
     this.user.signupStep = 0;
     _.clone(this.user).$update().then(() => {
-      this.CondoService.set(condo);
-      this.$location.path('/feed');
-      this.swal("Cadastro Finalizado", "Bem-vindo(a) ao seu condomínio!", "success");
+      this.CondoResource.addUser({'_id': condo._id, 'userId': this.user._id}).$promise.then(() => {
+        this.CondoService.set(condo);
+        this.$location.path('/feed');
+        this.swal("Cadastro Finalizado", "Bem-vindo(a) ao seu condomínio!", "success");
+      });
     });
   }
 
