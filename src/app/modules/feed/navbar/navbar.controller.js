@@ -3,11 +3,13 @@ export class FeedNavbarController {
   constructor($window,$location, Session, CondoService, UserResource) {
     'ngInject';
 
+    this.window = $window;
+    this._ = this.window._;
+    this.swal = this.window.swal;
     this.Session = Session;
     this.CondoService = CondoService;
     this.UserResource = UserResource;
-    this.$window = $window;
-    this.$location = $location;
+    this.location = $location;
 
     this.user = this.Session.get();
     this.notifications = this.UserResource.getNotifications();
@@ -22,16 +24,16 @@ export class FeedNavbarController {
   chooseCondo (condo) {
     this.CondoService.set(condo);
     this.getCondo();
-    this.$window.location.reload();
+    this.window.location.reload();
   }
 
   logOut () {
     this.Session.logout();
-    this.$location.path('/login');
+    this.location.path('/login');
   }
 
   getUnreadNotifications () {
-    return _.filter(this.notifications, { read: false }).length;
+    return this._.filter(this.notifications, { read: false }).length;
   }
 
   markNotificationsAsRead () {

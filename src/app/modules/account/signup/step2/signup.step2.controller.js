@@ -31,7 +31,7 @@ export class AccountSignupStep2Controller {
     _.clone(this.user).$update().then(() => {
       this.CondoService.set(condo);
       this.$location.path('/feed');
-      swal("Cadastro Finalizado", "Bem-vindo(a) ao seu condomínio!", "success");
+      this.swal("Cadastro Finalizado", "Bem-vindo(a) ao seu condomínio!", "success");
     });
   }
 

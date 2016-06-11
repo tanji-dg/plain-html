@@ -1,9 +1,12 @@
 export class FeedCondosController {
 
-  constructor ($location,
+  constructor ($location, $window,
                Session, CondoResource, CondoModals, CondoService, UserResource) {
     'ngInject';
 
+    this.window = $window;
+    this._ = this.window._;
+    this.swal = this.window.swal;
     this.Session = Session;
     this.location = $location;
     this.CondoResource = CondoResource;
@@ -26,7 +29,7 @@ export class FeedCondosController {
   }
 
   removeCondo (condo) {
-    swal({
+    this.swal({
       title: "Tem certeza?",
       text: "Esta ação não poderá ser desfeita.",
       type: "warning",
@@ -38,8 +41,8 @@ export class FeedCondosController {
     }, (isConfirm) => {
       if (isConfirm) {
         this.CondoResource.removeLoggedUser({'_id': condo._id}).$promise.then(() => {
-          swal("Condomínio Removido", "O condomínio foi removido com sucesso!", "success");
-          let condoIndex = _.findIndex(this.user.condos, {'_id': condo._id});
+          this.swal("Condomínio Removido", "O condomínio foi removido com sucesso!", "success");
+          let condoIndex = this._.findIndex(this.user.condos, {'_id': condo._id});
           this.user.condos.splice(condoIndex, 1);
         });
       }
@@ -48,7 +51,7 @@ export class FeedCondosController {
 
   addCondo (condo) {
     this.CondoResource.addUser({'_id': condo._id, 'userId': this.user._id}).$promise.then(() => {
-      swal("Condomínio Adicionado", "O condomínio foi adicionado com sucesso!", "success");
+      this.swal("Condomínio Adicionado", "O condomínio foi adicionado com sucesso!", "success");
       this.user.condos.push(condo);
     });
   }
@@ -60,6 +63,6 @@ export class FeedCondosController {
   }
 
   isAlreadyMine (condo) {
-    return (_.findIndex(this.user.condos, {'_id': condo._id}) >= 0) ? true : false;
+    return (this._.findIndex(this.user.condos, {'_id': condo._id}) >= 0) ? true : false;
   }
 }
