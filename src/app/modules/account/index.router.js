@@ -21,11 +21,6 @@ export let routerConfig = ($stateProvider) => {
     'templateUrl' : 'app/modules/account/signup/step2/signup.step2.view.html'
   });
 
-  $stateProvider.state('accountSignupStep3', {
-    'url'         : '/signup/3',
-    'templateUrl' : 'app/modules/account/signup/step3/signup.step3.view.html'
-  });
-
   $stateProvider.state('accountActivate', {
     'url'         : '/activate?key',
     'templateUrl' : 'app/modules/account/activate/activate.view.html'

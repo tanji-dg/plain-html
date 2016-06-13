@@ -1,8 +1,10 @@
 export class FeedController {
 
-  constructor($location, Session, CondoResource, CondoService) {
+  constructor($window, $location, Session, CondoResource, CondoService) {
     'ngInject';
 
+    this.window = $window;
+    this.swal = this.window.swal;
     this.location = $location;
     this.CondoResource = CondoResource;
     this.CondoService = CondoService;
@@ -30,7 +32,7 @@ export class FeedController {
 
   addOccurrence () {
     return this.CondoResource.addOccurrence({'_id': this.condo._id}, this.occurrence).$promise.then(() => {
-      swal("Publicado!", "Seu post foi enviado com sucesso.", "success");
+      this.swal("Publicado!", "Seu post foi enviado com sucesso.", "success");
       this.occurrence = {type: this.occurrence.type};
       this.getOccurrences();
     });
@@ -62,12 +64,38 @@ export class FeedController {
   }
 
   commentOccurrence (occurrence) {
-    return this.CondoResource.commentOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id}, {description: occurrence.newComment}).$promise.then(() => {
-      let occurrenceIndex = _.findIndex(this.occurrences, {'_id': occurrence._id});
-      this.CondoResource.getOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id}).$promise.then((occurrence) => {
-        this.occurrences[occurrenceIndex] = occurrence;
-      });
+    if (occurrence.newComment && occurrence.newComment.length > 2) {
+      return this.CondoResource.commentOccurrence(
+        {'_id': this.condo._id, 'occurrenceId': occurrence._id},
+        {description: occurrence.newComment}
+      ).$promise.then(() => {
+          occurrence.comments.unshift({description: occurrence.newComment, createdBy: this.user});
+          occurrence.newComment = "";
+        });
+    } else {
+      this.swal('Ops', 'Você precisa digitar no mínimo 3 caracteres!', 'error');
+      return;
+    }
+  }
+
+  allComments (occurrence) {
+    return this.CondoResource.getOccurrenceComments({'_id' : this.condo._id, 'occurrenceId' : occurrence._id}).$promise.then((comments) => {
+      occurrence.comments = comments;
+      occurrence.isShowingAllComments = true;
     });
   }
 
+  voteOccurrence (occurrence, isFor) {
+    occurrence.isVoting = true;
+
+    if (isFor === true) {
+      return this.CondoResource.voteForOccurrence({'_id' : this.condo._id, 'occurrenceId' : occurrence._id}).$promise.then(() => {
+        occurrence.isVoting = false;
+      });
+    } else {
+      return this.CondoResource.voteAgainstOccurrence({'_id' : this.condo._id, 'occurrenceId' : occurrence._id}).$promise.then(() => {
+        occurrence.isVoting = false;
+      });
+    }
+  }
 }

@@ -165,6 +165,15 @@ h1, h2, h3, h4 {
 	}
 }
 
+a.simple {
+  color: $color-secundary;
+  text-decoration: underline;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
 /********************************
 /* Logged Out */
 /********************************/
@@ -386,22 +395,6 @@ h1, h2, h3, h4 {
 			margin-top: 30px;
 		}
 
-	}
-
-	&.third-step {
-    .list-group-item-heading {
-      font-size: 16px;
-
-      .label {
-        display: inline-block;
-        margin-left: 5px;
-      }
-
-      .btn {
-        margin-top: 0px;
-        margin-left: 5px;
-      }
-    }
 	}
 }
 
@@ -743,4 +736,25 @@ h1, h2, h3, h4 {
 			object-fit: cover;
 		}
 	}
+
+  .list-group-item-user {
+    padding: 6px;
+
+    .list-group-item-heading {
+      margin: 0;
+      font-weight: normal;
+      font-size: 16px;
+      vertical-align: middle;
+
+      .label {
+        display: inline-block;
+        margin-left: 5px;
+      }
+
+      .btn {
+        margin: 0 0 0 10px;
+      }
+    }
+  }
+
 }

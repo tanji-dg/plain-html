@@ -4,7 +4,9 @@ export class FeedResidentsController {
                Session, CondoResource, CondoService, CondoModals) {
     'ngInject';
 
-    this.swal = $window.swal;
+    this.window = $window;
+    this._ = this.window._;
+    this.swal = this.window.swal;
     this.location = $location;
     this.stateParams = $stateParams;
     this.CondoResource = CondoResource;
@@ -39,13 +41,13 @@ export class FeedResidentsController {
   addUser () {
     this.CondoModals.createUser().then((user) => {
       this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, userId: user._id}).$promise.then(() => {
-        if(!_.some(this.residence.residents, {'_id': user._id})) this.residence.residents.push(user)
+        if(!this._.some(this.residence.residents, {'_id': user._id})) this.residence.residents.push(user)
       })
     });
   }
 
-  removeUser (user) {
-    swal({
+  removeUser (user, users) {
+    this.swal({
       title: "Tem certeza?",
       text: "Esta ação não poderá ser desfeita.",
       type: "warning",
@@ -57,9 +59,9 @@ export class FeedResidentsController {
     }, (isConfirm) => {
       if (isConfirm) {
         this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.residence._id, userId: user._id}).$promise.then(() => {
-          swal("Integrante Removido", "O integrante foi removido com sucesso!", "success");
-          let userIndex = _.findIndex(this.residence.residents, {'_id': user._id});
-          this.residence.residents.splice(userIndex, 1);
+          this.swal("Integrante Removido", "O integrante foi removido com sucesso!", "success");
+          let userIndex = this._.findIndex(users, {'_id': user._id});
+          users.splice(userIndex, 1);
         });
       }
     });
@@ -67,7 +69,7 @@ export class FeedResidentsController {
 
   save () {
     return this.CondoResource.updateResidence({'_id': this.condo._id, 'residenceId' : this.residence._id}, {'identification': this.residence.identification}).$promise.then(() => {
-      swal("Família Atualizada!", "Sua família foi atualizada com sucesso.", "success");
+      this.swal("Família Atualizada!", "Sua família foi atualizada com sucesso.", "success");
     })
   }
 }
