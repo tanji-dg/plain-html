@@ -22,7 +22,14 @@ export class FeedResidentsController {
     this.CondoResource.get({'_id': this.stateParams.condoId}).$promise.then((condo) => {
       this.condo = condo;
       this.CondoService.set(this.condo);
+
+      this.residences = [{_id: 'loading', identification: 'Carregando...'}];
       this.CondoResource.getResidences({'_id': this.condo._id, '$populate': 'users requesters'}).$promise.then((residences) => {
+
+        this.residences.concat(residences);
+        this.residences[0] = {_id : 0, identification : 'Selecione um identificador'};
+        this.residences[this.residences.length] = {_id : 'other', identification : 'Outro'};
+
         if(residences.length === 0) {
           this.CondoResource.addResidence({'_id': this.condo._id}, {'identification': 0}).$promise.then((residence) => {
             this.residence = this.CondoResource.getResidence({

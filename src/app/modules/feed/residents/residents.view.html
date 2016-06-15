@@ -10,7 +10,9 @@
         <div class="panel-heading">
           <h4>{{ vm.condo.name }}</h4>
           <div class="form-group">
-            <input class="form-control" ng-model="vm.residence.identification" type="text" placeholder="Digite o identificador (número da casa, apto...)" required>
+            <select ng-model="vm.residence" class="form-control">
+              <option ng-repeat="residence in vm.residences">{{ residence.identification }}</option>
+            </select>
           </div>
         </div>
         <div class="panel-body">
