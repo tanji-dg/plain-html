@@ -25,7 +25,7 @@ export class SessionService {
       let step = (user.signupStep === 0 || user.signupStep) ? user.signupStep : 1;
       let url = (step === 0) ? '/feed' : `/signup/${step}`;
       this.logged = new this.UserResource(user);
-      this.location.url(url);
+      if(this.authType === 'login') this.location.url(url);
       this.resolve();
 
       defer.resolve(user);
@@ -41,6 +41,7 @@ export class SessionService {
     };
 
     if (username && password) {
+      this.authType = 'login';
       this.auth.login(username, password).then(onSuccess, onError);
     } else if (this.token) {
       this.UserResource.authenticate().$promise.then(onSuccess, onError);

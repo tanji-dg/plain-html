@@ -70,6 +70,7 @@ export class FeedController {
         {description: occurrence.newComment}
       ).$promise.then(() => {
           occurrence.comments.unshift({description: occurrence.newComment, createdBy: this.user});
+          occurrence.commentsTotal++;
           occurrence.newComment = "";
         });
     } else {

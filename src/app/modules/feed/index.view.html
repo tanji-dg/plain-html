@@ -119,7 +119,7 @@
                   <p class="list-group-item-text">{{ comment.description }}</p>
                 </div>
               </div>
-              <a href="javascript:void(0);" class="simple" ng-click="vm.allComments(occurrence)" ng-hide="occurrence.isShowingAllComments || !occurrence.comments.length"><i class="fa fa-angle-down"></i> &nbsp;Ver todos os comentários</a>
+              <a href="javascript:void(0);" class="simple" ng-click="vm.allComments(occurrence)" ng-hide="occurrence.isShowingAllComments || !occurrence.comments.length || occurrence.commentsTotal <= occurrence.comments.length"><i class="fa fa-angle-down"></i> &nbsp;Ver todos os comentários</a>
             </div>
             <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn>
               <div class="input-group">
