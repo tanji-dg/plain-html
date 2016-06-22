@@ -110,7 +110,7 @@ export let CondoResource = ($resource, config) => {
         '$limit'      : 1000,
         '$populate'   : 'createdBy',
         '$sort'       : '-createdAt'
-      },
+      }
     },
     'voteForOccurrence'        : {
       'method'                 : 'PUT',
