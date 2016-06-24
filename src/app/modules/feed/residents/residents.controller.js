@@ -29,6 +29,7 @@ export class FeedResidentsController {
       this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.newResidence._id, userId: this.user._id}).$promise.then(() => {
         this.residence = this.newResidence;
         this.newResidence = {};
+        this.Session.refresh();
         this.swal("Residência selecionada", "Você foi adicionado à residência selecionada!", "success");
       });
     } else {
@@ -40,6 +41,7 @@ export class FeedResidentsController {
         }).$promise.then((residence) => {
           this.newResidence = {};
           this.residence = residence;
+            this.Session.refresh();
           this.swal("Residência cadastrada", "Você foi adicionado à residência cadastrada!", "success");
         }, () => {
           vm.residenceNotFound = false;
@@ -77,6 +79,7 @@ export class FeedResidentsController {
           } else {
             this.residence = {};
             this.swal.close();
+            this.Session.refresh();
           }
         });
       }

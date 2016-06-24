@@ -63,6 +63,10 @@ export class SessionService {
     return this.logged;
   }
 
+  refresh () {
+    return this.logged = this.UserResource.authenticate();
+  }
+
   getCondo () {
     return this.window._.find(this.logged.condos, {_id: this.logged.defaultCondo});
   }

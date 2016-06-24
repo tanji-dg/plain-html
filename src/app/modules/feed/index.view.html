@@ -88,13 +88,13 @@
 
           <div class="panel-body">
             <div class="btn-group options pull-right" ng-if="occurrence.type == 'VOTING'">
-              <button type="button" class="btn btn-ray" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="occurrence.isVoting">
-                <!--<span class="badge">10</span>&nbsp; -->
+              <button type="button" ng-class="{'btn-success': vm.findOccurrenceVote(occurrence.favorVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="occurrence.isVoting">
                 Sim
+                <span class="badge" ng-show="occurrence.favorVotes.length">{{ occurrence.favorVotes.length }}</span>
               </button>
-              <button type="button" class="btn btn-gray" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="occurrence.isVoting">
-                <!--<span class="badge">3</span>&nbsp; -->
+              <button type="button" ng-class="{'btn-danger': vm.findOccurrenceVote(occurrence.againstVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="occurrence.isVoting">
                 Não
+                <span class="badge" ng-show="occurrence.againstVotes.length">{{ occurrence.againstVotes.length }}</span>
               </button>
             </div>
             <p class="description">
