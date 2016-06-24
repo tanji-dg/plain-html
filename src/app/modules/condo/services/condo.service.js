@@ -1,16 +1,7 @@
 export class CondoService {
 
-  constructor($cookies) {
+  constructor() {
     'ngInject';
 
-    this.cookies = $cookies;
-  }
-
-  get () {
-    return this.cookies.getObject('condo');
-  }
-
-  set (condo) {
-    this.cookies.putObject('condo', condo);
   }
 }

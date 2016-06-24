@@ -1,14 +1,15 @@
 export class CondoModalsCreateUserController {
 
-  constructor(CondoResource, CondoService, UserResource, $uibModalInstance) {
+  constructor(CondoResource, Session, UserResource, $uibModalInstance) {
     'ngInject';
 
     this.user = new UserResource();
+    this.Session = Session;
     this.UserResource = UserResource;
     this.CondoResource = CondoResource;
     this.modalInstance = $uibModalInstance;
 
-    this.condo = CondoService.get();
+    this.condo = this.Session.getCondo();
   }
 
   filterUsers () {

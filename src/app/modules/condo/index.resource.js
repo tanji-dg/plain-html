@@ -62,7 +62,8 @@ export let CondoResource = ($resource, config) => {
         '$populate[0]'          : 'comments',
         '$populate[1][path]'    : 'createdBy',
         '$populate[1][select]'  : 'firstName lastName',
-        '$populate[2]'          : 'voters',
+        '$populate[2]'          : 'favorVotes',
+        '$populate[3]'          : 'againstVotes',
         '$sort'                 : '-createdAt'
       }
     },
@@ -74,6 +75,8 @@ export let CondoResource = ($resource, config) => {
         '$populate[0]'          : 'comments',
         '$populate[1][path]'    : 'createdBy',
         '$populate[1][select]'  : 'firstName lastName',
+        '$populate[2]'          : 'favorVotes',
+        '$populate[3]'          : 'againstVotes',
         '$sort'                 : '-createdAt'
       }
     },
@@ -110,7 +113,7 @@ export let CondoResource = ($resource, config) => {
         '$limit'      : 1000,
         '$populate'   : 'createdBy',
         '$sort'       : '-createdAt'
-      },
+      }
     },
     'voteForOccurrence'        : {
       'method'                 : 'PUT',
