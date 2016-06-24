@@ -12,53 +12,40 @@ export class FeedResidentsController {
     this.CondoResource = CondoResource;
     this.CondoService = CondoService;
     this.CondoModals = CondoModals;
+    this.Session = Session;
 
-    this.user = Session.get();
-    this.isResidenceSet = false;
-
-    this.setUpCondo();
-  }
-
-  setUpCondo () {
     this.CondoResource.get({'_id': this.stateParams.condoId}).$promise.then((condo) => {
       this.condo = condo;
-      this.CondoService.set(this.condo);
-
-      this.residences = [{_id: 0, identification: 'Carregando...'}];
-      this.residence = this.residences[0];
-
-      this.CondoResource.getResidences({'_id': this.condo._id, '$populate': 'users requesters'}).$promise.then((residences) => {
-        this.residence = {};
-        this.residences = residences;
+      this.Session.setCondo(this.condo).then((user) => {
+        this.user = user;
+        if (this.user.defaultResidence) this.residence = this.CondoResource.getResidence({_id: this.condo._id, residenceId: this.user.defaultResidence._id, '$populate': 'users requesters'});
+        this.residences = this.CondoResource.getResidences({'_id': this.condo._id, '$populate': 'users requesters'});
       });
     });
   }
 
   setResidence () {
-    let from = (this.residenceNotFound) ? 'input' : 'select';
-
-    if (this.residence.identification) {
-      if (from === 'select') {
-        return this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, userId: this.user._id}).$promise.then(() => {
-          this.isResidenceSet = true;
-          this.swal("Residência selecionada", "Você foi adicionado à residência selecionada!", "success");
-        });
-      } else {
-        return this.CondoResource.addResidence({'_id': this.condo._id}, {'identification': this.residence.identification}).$promise.then((residence) => {
-          this.CondoResource.getResidence({
-            '_id' : this.condo._id,
-            'residenceId' : residence._id,
-            '$populate' : 'users requesters'
-          }).$promise.then((residence) => {
-            this.residence = residence;
-            this.isResidenceSet = true;
-            this.swal("Residência cadastrada", "Você foi adicionado à residência cadastrada!", "success");
-          });
-        });
-      }
+    if (this.newResidence && this.newResidence._id) {
+      this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.newResidence._id, userId: this.user._id}).$promise.then(() => {
+        this.residence = this.newResidence;
+        this.newResidence = {};
+        this.swal("Residência selecionada", "Você foi adicionado à residência selecionada!", "success");
+      });
     } else {
-      swal('Ops!', ((from === 'select') ? 'Selecione o identificador da sua residência' : 'Digite o identificador da sua residência'), 'error');
-      return false;
+      return this.CondoResource.addResidence({'_id': this.condo._id}, {'identification': this.newResidence.identification}).$promise.then((residence) => {
+        this.CondoResource.getResidence({
+          '_id' : this.condo._id,
+          'residenceId' : residence._id,
+          '$populate' : 'users requesters'
+        }).$promise.then((residence) => {
+          this.newResidence = {};
+          this.residence = residence;
+          this.swal("Residência cadastrada", "Você foi adicionado à residência cadastrada!", "success");
+        }, () => {
+          vm.residenceNotFound = false;
+          this.swal("Residência já existe", "Você selecionou uma residência que já existe. Escolha entre as nossas opções.", "error");
+        });
+      });
     }
   }
 
@@ -89,11 +76,14 @@ export class FeedResidentsController {
             users.splice(userIndex, 1);
           } else {
             this.residence = {};
-            this.isResidenceSet = false;
             this.swal.close();
           }
         });
       }
     });
+  }
+
+  isRequester () {
+    return (_.find(this.residence.requesters, {_id: this.user._id})) ? true : false;
   }
 }

@@ -11,19 +11,11 @@ export class FeedController {
     this.Session = Session;
 
     this.user = this.Session.get();
+    this.condo = this.Session.getCondo();
+    console.log(this.condo);
 
-    this.setUpCondo();
     this.getOccurrences();
 
-  }
-
-  setUpCondo () {
-    this.getCondo();
-    if(!this.condo) this.CondoService.set(this.user.condos[0]);
-  }
-
-  getCondo () {
-    this.condo = this.CondoService.get();
   }
 
   getOccurrences () {

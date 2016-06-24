@@ -5,15 +5,15 @@
   <div class="container">
     <h2 class="section-title"><i class="fa fa-users fa-circled"></i><strong>Integrantes</strong> &raquo; {{ vm.condo.name }}</h2>
 
-      <div class="panel panel-default" ng-hide="vm.isResidenceSet">
+      <div class="panel panel-box panel-box-residence panel-default" ng-hide="vm.residence._id">
         <div class="panel-body">
-          <div ng-hide="vm.residenceNotFound">
+          <div ng-hide="!vm.residences.length || vm.residenceNotFound">
             <form ng-submit="vm.setResidence()" promise-btn>
               <div class="pull-left">
                 <h4>Selecione a residência:</h4>
               </div>
-              <div class="col-sm-2">
-                <select ng-if="vm.residences.length" ng-model="vm.residence" ng-options="residence.identification for residence in vm.residences" class="form-control"></select>
+              <div class="form-field pull-left">
+                <select ng-model="vm.newResidence" ng-options="residence.identification for residence in vm.residences" class="form-control"></select>
               </div>
               <div class="pull-left">
                 <button type="button" ng-click="vm.residenceNotFound = true; vm.residence = {};" class="btn btn-default btn-raised btn-sm">Não encontrou?</button>
@@ -21,13 +21,13 @@
               </div>
             </form>
           </div>
-          <div class="form-group" ng-show="vm.residenceNotFound">
+          <div ng-show="!vm.residences.length || vm.residenceNotFound">
             <form ng-submit="vm.setResidence()" promise-btn>
               <div class="pull-left">
                 <h4>Digite o identificador da sua residência:</h4>
               </div>
-              <div class="col-sm-3">
-                <input ng-model="vm.residence.identification" placeholder="Ex: Apartamento 110" class="form-control pull-left" autofocus />
+              <div class="form-field pull-left">
+                <input ng-model="vm.newResidence.identification" placeholder="Ex: Apartamento 110" class="form-control pull-left" autofocus />
               </div>
               <div class="pull-left">
                 <button type="submit" class="btn btn-success btn-sm">Enviar</button>
@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <div class="panel panel-default" ng-show="vm.isResidenceSet">
+      <div class="panel panel-default" ng-show="vm.residence._id">
         <div class="panel-heading">
           <h4>{{ vm.residence.identification }} &nbsp; <button type="button" class="btn btn-primary btn-xs" ng-click="vm.removeUser(vm.user, vm.residence.users)">Alterar Residência</button></h4>
         </div>
@@ -48,6 +48,7 @@
             <div class="list-group-item list-group-item-user" ng-repeat="user in vm.residence.users">
               <h4 class="list-group-item-heading">
                 {{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}
+                <span ng-if="vm.user._id == user._id">(eu)</span>
                 <button type="button" class="btn btn-default btn-danger btn-xs" ng-click="vm.removeUser(user, vm.residence.users)" ng-hide="vm.user._id == user._id || !vm.Session.isAdmin()"><i class="fa fa-trash"></i><span class="hidden-xs"> remover</span></button>
               </h4>
             </div>
@@ -57,7 +58,8 @@
             <div class="list-group-item list-group-item-user" ng-repeat="user in vm.residence.requesters">
               <h5 class="list-group-item-heading">
                 {{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}
-                <button type="button" class="btn btn-default btn-danger btn-xs" ng-click="vm.removeUser(user, vm.residence.requesters)" ng-hide="vm.user._id == user._id"><i class="fa fa-trash"></i><span class="hidden-xs"> remover</span></button>
+                <span ng-if="vm.user._id == user._id">(eu)</span>
+                <button type="button" class="btn btn-default btn-danger btn-xs" ng-click="vm.removeUser(user, vm.residence.requesters)" ng-hide="vm.user._id == user._id || vm.isRequester()"><i class="fa fa-trash"></i><span class="hidden-xs"> remover</span></button>
               </h5>
             </div>
             <div ng-show="vm.residence.requesters.length == 0">Você ainda não convidou nenhum integrante.</div>
