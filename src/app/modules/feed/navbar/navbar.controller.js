@@ -18,13 +18,13 @@ export class FeedNavbarController {
   }
 
   getCondo () {
-    this.condo = this.CondoService.get();
+    this.condo = this.Session.getCondo();
   }
 
   chooseCondo (condo) {
-    this.CondoService.set(condo);
-    this.getCondo();
-    this.window.location.reload();
+    this.Session.setCondo(condo).then(() => {
+      this.window.location.reload();
+    });
   }
 
   logOut () {
@@ -37,10 +37,6 @@ export class FeedNavbarController {
   }
 
   markNotificationsAsRead () {
-    this.UserResource.markNotificationsAsRead().$promise.then(() => {
-      this.UserResource.getNotifications().$promise.then((notifications) => {
-        this.notifications = notifications;
-      });
-    });
+    this.UserResource.markNotificationsAsRead();
   }
 }

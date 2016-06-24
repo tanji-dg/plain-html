@@ -15,7 +15,7 @@ export class FeedCondosController {
     this.UserResource = UserResource;
 
     this.user = this.Session.get();
-    this.condo = this.CondoService.get();
+    this.condo = this.Session.getCondo();
 
     this.loading = false;
   }
