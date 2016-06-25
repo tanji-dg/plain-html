@@ -15,7 +15,9 @@ export class SessionService {
 
     this.resolve = () => {
       $rootScope.$resolved = true;
-    }
+    };
+
+    this.broadcast = (notification) => $rootScope.$broadcast(notification.type, notification);
 
   }
 
@@ -28,15 +30,12 @@ export class SessionService {
       let url = (step === 0) ? '/feed' : `/signup/${step}`;
       this.logged = new this.UserResource(user);
       if (!this.isAuthentication) this.location.url(url);
+      let broadcast = this.broadcast;
+
+      this.auth.getPusher().subscribe(`private-user-${user._id}`).bind('notification', broadcast);
+      this.auth.getPusher().subscribe(`private-condo-${user.defaultCondo._id || user.defaultCondo}`).bind('notification', broadcast);
+
       this.resolve();
-
-      this.auth.getPusher().subscribe(`private-user-${user._id}`).bind('notification', function(data) {
-        console.log(data);
-      });
-      this.auth.getPusher().subscribe(`private-condo-${user.defaultCondo._id || user.defaultCondo}`).bind('notification', function(data) {
-        console.log(data);
-      });
-
       defer.resolve(user);
     };
 

@@ -1,6 +1,6 @@
 export class FeedController {
 
-  constructor($window, $location, Session, CondoResource, CondoService) {
+  constructor($window, $location, $rootScope, Session, CondoResource, CondoService) {
     'ngInject';
 
     this.window = $window;
@@ -15,6 +15,45 @@ export class FeedController {
 
     this.getOccurrences();
 
+    this.resolve = () => {
+      $rootScope.$resolved = true;
+    };
+
+    let findOccurrence = notification => {
+      let occurrenceId = notification.occurrence._id || notification.occurrence;
+      return this.occurrences.find(o => o._id == occurrenceId);
+    };
+
+    $rootScope.$on('OCCURRENCE-NEW', (event, notification) => {
+      this.occurrences.unshift(notification.occurrence);
+      $rootScope.$apply();
+    });
+
+    $rootScope.$on('OCCURRENCE-LIKE', (event, notification) => {
+      let occurrence = findOccurrence(notification);
+      let index = occurrence.likers.indexOf(notification.createdBy);
+      if (index == -1) {
+        occurrence.likers.push(notification.createdBy);
+        $rootScope.$apply();
+      }
+    });
+
+    $rootScope.$on('OCCURRENCE-DISLIKE', (event, notification) => {
+      let occurrence = findOccurrence(notification);
+      let index = occurrence.likers.indexOf(notification.createdBy);
+      if (index > -1) {
+        occurrence.likers.splice(index, 1);
+        $rootScope.$apply();
+      }
+    });
+
+    $rootScope.$on('COMMENT-NEW', (event, notification) => {
+      let occurrence = findOccurrence(notification);
+      occurrence.comments.unshift(notification.comment);
+      occurrence.commentsTotal++;
+      $rootScope.$apply();
+    });
+
   }
 
   getOccurrences () {
@@ -25,7 +64,7 @@ export class FeedController {
     return this.CondoResource.addOccurrence({'_id': this.condo._id}, this.occurrence).$promise.then(() => {
       this.swal("Publicado!", "Seu post foi enviado com sucesso.", "success");
       this.occurrence = {type: this.occurrence.type};
-      this.getOccurrences();
+      // this.getOccurrences();
     });
   }
 
@@ -39,16 +78,12 @@ export class FeedController {
 
   likeOccurrence (occurrence) {
     occurrence.isLoading = true;
-    if (occurrence.liked) {
+    if (occurrence.likers.indexOf(this.user._id) > -1) {
       this.CondoResource.undoLikeOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id}).$promise.then(() => {
-        occurrence.likes--;
-        occurrence.liked = false;
         occurrence.isLoading = false;
       });
     } else {
       this.CondoResource.likeOccurrence({'_id': this.condo._id, 'occurrenceId': occurrence._id}).$promise.then(() => {
-        occurrence.likes++;
-        occurrence.liked = true;
         occurrence.isLoading = false;
       });
     }
@@ -60,8 +95,6 @@ export class FeedController {
         {'_id': this.condo._id, 'occurrenceId': occurrence._id},
         {description: occurrence.newComment}
       ).$promise.then(() => {
-          occurrence.comments.unshift({description: occurrence.newComment, createdBy: this.user});
-          occurrence.commentsTotal++;
           occurrence.newComment = "";
         });
     } else {
