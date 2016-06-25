@@ -1,6 +1,6 @@
 export class FeedController {
 
-  constructor($window, $location, Session, CondoResource, CondoService) {
+  constructor($scope, $window, $location, $q, $http, Upload, cloudinary, Session, CondoResource, CondoService, FileResource) {
     'ngInject';
 
     this.window = $window;
@@ -8,10 +8,18 @@ export class FeedController {
     this.location = $location;
     this.CondoResource = CondoResource;
     this.CondoService = CondoService;
+    this.FileResource = FileResource;
     this.Session = Session;
+    this.scope = $scope;
+    this.q = $q;
+    this.http = $http;
+    this.upload = Upload;
+    this.cloudinary = cloudinary;
 
     this.user = this.Session.get();
     this.condo = this.Session.getCondo();
+    this.scope.uploadImages = this.uploadImages;
+    this.scope.vm = this;
 
     this.getOccurrences();
 
@@ -60,7 +68,7 @@ export class FeedController {
         {'_id': this.condo._id, 'occurrenceId': occurrence._id},
         {description: occurrence.newComment}
       ).$promise.then(() => {
-          occurrence.comments.unshift({description: occurrence.newComment, createdBy: this.user});
+          occurrence.comments.unshift({description: occurrence.newComment, createdBy: this.user, createdAt: new Date()});
           occurrence.commentsTotal++;
           occurrence.newComment = "";
         });
@@ -114,5 +122,41 @@ export class FeedController {
 
   findOccurrenceVote (votes) {
     return this.window._.find(votes, {voter: this.user._id});
+  }
+
+  uploadImages (element) {
+    var vm, promises;
+
+
+    vm = this.vm;
+    promises = [];
+    
+    vm.FileResource.signature().$promise.then((server) => {
+      vm.window._.forEach(element.files, function (file) {        
+        var defered = vm.q.defer();
+
+        file.upload = vm.upload.upload({
+          url: server.url,
+          transformRequest: function (data, headersGetter) {
+            var headers = headersGetter();
+            delete headers['Authorization'];
+            return data;
+          }
+        }).progress(function (e) {
+
+        }).success(function (data, status, headers, config) {
+          defered.resolve();
+        }).error(function (data, status, headers, config) {
+          defered.reject();
+        });
+
+        promises.push(defered.promise);
+      });
+
+      vm.q.all(promises).then(function(responses) {
+        console.log(responses);
+        alert('success');
+      });
+    });
   }
 }

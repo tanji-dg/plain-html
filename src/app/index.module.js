@@ -22,6 +22,8 @@ angular
     'ui.select',
     'angularPromiseButtons',
     'angularMoment',
+    'ngFileUpload',
+    'cloudinary',
 
     Core.name,
     Modules.name

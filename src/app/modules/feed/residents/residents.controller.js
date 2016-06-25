@@ -44,7 +44,7 @@ export class FeedResidentsController {
             this.Session.refresh();
           this.swal("Residência cadastrada", "Você foi adicionado à residência cadastrada!", "success");
         }, () => {
-          vm.residenceNotFound = false;
+          this.residenceNotFound = false;
           this.swal("Residência já existe", "Você selecionou uma residência que já existe. Escolha entre as nossas opções.", "error");
         });
       });

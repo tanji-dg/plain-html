@@ -1,10 +1,12 @@
 export let ConfigBlock = (
     $logProvider, $uiViewScrollProvider, $urlRouterProvider, $httpProvider,
-    localStorageServiceProvider, angularPromiseButtonsProvider
+    localStorageServiceProvider, angularPromiseButtonsProvider, cloudinaryProvider
   ) => {
   'ngInject';
 
   $.material.init();
+  cloudinaryProvider.set("cloud_name", "econdos");
+
 
   localStorageServiceProvider
     .setPrefix('econdos')

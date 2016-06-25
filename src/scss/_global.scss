@@ -144,6 +144,10 @@ h1, h2, h3, h4 {
 	background: transparent !important;
 }
 
+.input-group-btn {
+	font-size: inherit;
+}
+
 /********************************
 /* Fontawesome */
 /********************************/
@@ -612,6 +616,12 @@ a.simple {
 			font-size: 14px;
 			font-weight: bold;
 			margin: 0;
+
+			small {
+				font-size: 0.8em;
+				display: inline-block;
+				margin-left: 3px;
+			}
 		}
 
 		.list-group-item-text {
