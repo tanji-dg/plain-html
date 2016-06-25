@@ -28,8 +28,10 @@ export class SessionService {
       this.location.url(url);
       this.resolve();
 
-      let channel = this.auth.getPusher().subscribe(`private-user-${user._id}`);
-      channel.bind('notification', function(data) {
+      this.auth.getPusher().subscribe(`private-user-${user._id}`).bind('notification', function(data) {
+        console.log(data);
+      });
+      this.auth.getPusher().subscribe(`private-condo-${user.defaultCondo._id || user.defaultCondo}`).bind('notification', function(data) {
         console.log(data);
       });
 
