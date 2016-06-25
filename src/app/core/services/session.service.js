@@ -28,6 +28,11 @@ export class SessionService {
       this.location.url(url);
       this.resolve();
 
+      let channel = this.auth.getPusher().subscribe(`private-user-${user._id}`);
+      channel.bind('notification', function(data) {
+        console.log(data);
+      });
+
       defer.resolve(user);
     };
 

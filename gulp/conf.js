@@ -9,29 +9,30 @@
 var gutil = require('gulp-util');
 var nconf = require('nconf');
 
-nconf.argv().env().file({file : 'config.json'});
+nconf.argv().env().file({file: 'config.json'});
 
 /**
  * Environment Variables
  */
 exports.environment = {
-  'ENV'        : nconf.get('ENV'),
-  'BACKEND_URL': nconf.get('BACKEND_URL'),
-  'APP_SECRET' : nconf.get('APP_SECRET'),
-  'AWS_KEY'    : nconf.get('AWS_KEY'),
-  'AWS_SECRET' : nconf.get('AWS_SECRET'),
-  'AWS_BUCKET' : nconf.get('AWS_BUCKET'),
-  'AWS_REGION' : nconf.get('AWS_REGION')
+  'ENV'           : nconf.get('ENV'),
+  'BACKEND_URL'   : nconf.get('BACKEND_URL'),
+  'APP_SECRET'    : nconf.get('APP_SECRET'),
+  'AWS_KEY'       : nconf.get('AWS_KEY'),
+  'AWS_SECRET'    : nconf.get('AWS_SECRET'),
+  'AWS_BUCKET'    : nconf.get('AWS_BUCKET'),
+  'AWS_REGION'    : nconf.get('AWS_REGION'),
+  'PUSHER_APP_KEY': nconf.get('PUSHER_APP_KEY')
 };
 
 /**
  *  The main paths of your project handle these with care
  */
 exports.paths = {
-  src  : 'src',
-  dist : 'dist',
-  tmp  : '.tmp',
-  e2e  : 'e2e'
+  src : 'src',
+  dist: 'dist',
+  tmp : '.tmp',
+  e2e : 'e2e'
 };
 
 /**
@@ -40,8 +41,8 @@ exports.paths = {
  *  to inject css preprocessor deps and js files in karma
  */
 exports.wiredep = {
-  exclude   : [/\/bootstrap\.js$/, /\/bootstrap-sass\/.*\.js/, /\/bootstrap\.css/],
-  directory : 'bower_components'
+  exclude  : [/\/bootstrap\.js$/, /\/bootstrap-sass\/.*\.js/, /\/bootstrap\.css/],
+  directory: 'bower_components'
 };
 
 /**
