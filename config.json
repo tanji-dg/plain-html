@@ -1,9 +1,10 @@
 {
-  "ENV"        : "development",
-  "BACKEND_URL": "http://econdos-backend.herokuapp.com/api/v1",
-  "APP_SECRET" : "Bx522vYx66b30pX190Ug2odY5AKgJ9p3",
-  "AWS_KEY"    : "",
-  "AWS_SECRET" : "",
-  "AWS_BUCKET" : "",
-  "AWS_REGION" : ""
+  "ENV"           : "development",
+  "BACKEND_URL"   : "http://localhost:8080/api/v1",
+  "PUSHER_APP_KEY": "7198790adb090cf2762e",
+  "APP_SECRET"    : "Bx522vYx66b30pX190Ug2odY5AKgJ9p3",
+  "AWS_KEY"       : "",
+  "AWS_SECRET"    : "",
+  "AWS_BUCKET"    : "",
+  "AWS_REGION"    : ""
 }
