@@ -30,12 +30,8 @@ export class SessionService {
       if (!this.isAuthentication) this.location.url(url);
       this.resolve();
 
-      this.auth.getPusher().subscribe(`private-user-${user._id}`).bind('notification', function(data) {
-        console.log(data);
-      });
-      this.auth.getPusher().subscribe(`private-condo-${user.defaultCondo._id || user.defaultCondo}`).bind('notification', function(data) {
-        console.log(data);
-      });
+      this.auth.getPusher().subscribe(`private-user-${user._id}`).bind('notification', function() {});
+      this.auth.getPusher().subscribe(`private-condo-${user.defaultCondo._id || user.defaultCondo}`).bind('notification', function() {});
 
       defer.resolve(user);
     };

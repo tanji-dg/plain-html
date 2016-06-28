@@ -17,6 +17,7 @@ export class FeedController {
     this.cloudinary = cloudinary;
 
     this.user = this.Session.get();
+    this.users = this.getUsers();
     this.condo = this.Session.getCondo();
     this.scope.uploadImages = this.uploadImages;
     this.scope.vm = this;
@@ -127,7 +128,6 @@ export class FeedController {
   uploadImages (element) {
     var vm, promises;
 
-
     vm = this.vm;
     promises = [];
     
@@ -153,10 +153,13 @@ export class FeedController {
         promises.push(defered.promise);
       });
 
-      vm.q.all(promises).then(function(responses) {
-        console.log(responses);
+      vm.q.all(promises).then(function() {
         alert('success');
       });
     });
+  }
+
+  getUsers (query) {
+    return this.CondoResource.getUsers({'_id': this.Session.getCondo()._id});
   }
 }

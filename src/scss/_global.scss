@@ -430,6 +430,35 @@ a.simple {
 	height: 100%;
 	display: table;
 
+	tags-input {
+
+		.tags {
+			padding: 9px;
+			border: 1px solid #ccc;
+			box-shadow: none;
+
+			.input {
+				color: $color-secundary;
+				width: 100%;
+			}
+
+			.tag-item, .input {
+				font-size: 15px;
+				font-weight: 400;
+			}
+
+			.tag-item {
+			  border: 0;
+		    border-radius: 0;
+		    background: $color-primary;
+		    
+		    &, a {
+		    	color: #fff;
+		    }
+  		}
+		}
+	}
+
 	.dropdown-menu {
 		padding: 0px;
 		min-width: 100%;
