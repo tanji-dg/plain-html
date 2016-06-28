@@ -120,9 +120,9 @@
               {{ occurrence.description }}
             </p>
 
-            <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-init="occurrence.likes = occurrence.likers.length" ng-disabled="occurrence.isLoading">
+            <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-disabled="occurrence.isLoading">
               <i class="fa fa-thumbs-o-up"></i>
-              <span class="badge" ng-show="occurrence.likes">{{ occurrence.likes }}</span>
+              <span class="badge" ng-show="occurrence.likers.length">{{ occurrence.likers.length }}</span>
             </button>
           </div>
 
