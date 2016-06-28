@@ -144,6 +144,10 @@ h1, h2, h3, h4 {
 	background: transparent !important;
 }
 
+.input-group-btn {
+	font-size: inherit;
+}
+
 /********************************
 /* Fontawesome */
 /********************************/
@@ -426,6 +430,35 @@ a.simple {
 	height: 100%;
 	display: table;
 
+	tags-input {
+
+		.tags {
+			padding: 9px;
+			border: 1px solid #ccc;
+			box-shadow: none;
+
+			.input {
+				color: $color-secundary;
+				width: 100%;
+			}
+
+			.tag-item, .input {
+				font-size: 15px;
+				font-weight: 400;
+			}
+
+			.tag-item {
+			  border: 0;
+		    border-radius: 0;
+		    background: $color-primary;
+		    
+		    &, a {
+		    	color: #fff;
+		    }
+  		}
+		}
+	}
+
 	.dropdown-menu {
 		padding: 0px;
 		min-width: 100%;
@@ -612,6 +645,12 @@ a.simple {
 			font-size: 14px;
 			font-weight: bold;
 			margin: 0;
+
+			small {
+				font-size: 0.8em;
+				display: inline-block;
+				margin-left: 3px;
+			}
 		}
 
 		.list-group-item-text {

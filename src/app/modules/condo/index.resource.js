@@ -9,6 +9,11 @@ export let CondoResource = ($resource, config) => {
       'isArray'                : true,
       'url'                    : `${config.backendUrl}/_search/condos/:query`
     },
+    'getUsers'                 : {
+      'method'                 : 'GET',
+      'isArray'                : true,
+      'url'                    : `${baseUrl}/:_id/users`
+    },
     'createUser'               : {
       'method'                 : 'POST',
       'url'                    : `${baseUrl}/:_id/users`

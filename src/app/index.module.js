@@ -13,6 +13,8 @@ angular
     'ngMessages',
     'ngAria',
     'ngResource',
+    'ngFileUpload',
+    'ngTagsInput',
     'toastr',
     'validation.match',
     'LocalStorageModule',
@@ -22,6 +24,8 @@ angular
     'ui.select',
     'angularPromiseButtons',
     'angularMoment',
+    'cloudinary',
+    'cloudinary',
 
     Core.name,
     Modules.name
