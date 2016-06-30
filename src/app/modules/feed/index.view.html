@@ -20,10 +20,10 @@
                     <h5>Imagens:</h5>
                     <div class="form-images">
                       <label class="form-file">
-                        <i class="fa fa-plus"></i>
+                        <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
                         <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadImages(this)" multiple>
                       </label>
-                      <img src="" alt="" class="form-image" />
+                      <span ng-repeat="picture in vm.occurrence.pictures"><img src="{{ picture.url }}" class="form-image" /></span>
                     </div>
                   </div>
                 </uib-tab>
@@ -36,9 +36,26 @@
                       <textarea ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                      <tags-input ng-model="vm.occurrence.viewers" placeholder="Enviar esta ocorrência para..." display-property="firstName" key-property="_id" replace-spaces-with-dashes="false">
-                        <auto-complete source="vm.getUsers($query)" display-property="firstName"></auto-complete>
+                      <tags-input ng-model="vm.occurrence.viewers" 
+                          placeholder="Enviar esta ocorrência para..." 
+                          display-property="name" 
+                          key-property="_id" 
+                          add-from-autocomplete-only="true"
+                          replace-spaces-with-dashes="false">
+                        <auto-complete source="vm.getUsers($query)" 
+                            load-on-focus="true" 
+                            load-on-empty="true"
+                            display-property="name"
+                            min-length="0"></auto-complete>
                       </tags-input>
+                    </div>
+                    <h5>Imagens:</h5>
+                    <div class="form-images">
+                      <label class="form-file">
+                        <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
+                        <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadImages(this)" multiple>
+                      </label>
+                      <span ng-repeat="picture in vm.occurrence.pictures"><img src="{{ picture.url }}" class="form-image" /></span>
                     </div>
                   </div>
                 </uib-tab>
@@ -50,6 +67,14 @@
                     <div class="form-group">
                       <textarea ng-model="vm.occurrence.description" required placeholder="Digite algumas informações importantes..." class="form-control"></textarea>
                     </div>
+                    <h5>Imagens:</h5>
+                    <div class="form-images">
+                      <label class="form-file">
+                        <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
+                        <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadImages(this)" multiple>
+                      </label>
+                      <span ng-repeat="picture in vm.occurrence.pictures"><img src="{{ picture.url }}" class="form-image" /></span>
+                    </div>
                   </div>
                 </uib-tab>
                 <uib-tab heading="Aviso" select="vm.setOccurrenceType('ADVICE')" ng-if="vm.Session.isAdmin()">
@@ -59,6 +84,14 @@
                     </div>
                     <div class="form-group">
                       <textarea ng-model="vm.occurrence.description" required placeholder="Agora escreva a mensagem que deseja publicar..." class="form-control"></textarea>
+                    </div>
+                    <h5>Imagens:</h5>
+                    <div class="form-images">
+                      <label class="form-file">
+                        <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
+                        <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadImages(this)" multiple>
+                      </label>
+                      <span ng-repeat="picture in vm.occurrence.pictures"><img src="{{ picture.url }}" class="form-image" /></span>
                     </div>
                   </div>
                 </uib-tab>
@@ -119,6 +152,12 @@
             <p class="description">
               {{ occurrence.description }}
             </p>
+
+            <uib-carousel active="active" ng-if="occurrence.pictures.length">
+              <uib-slide ng-repeat="picture in occurrence.pictures" index="picture.id">
+                <img ng-src="{{picture.url}}" style="margin:auto;">
+              </uib-slide>
+            </uib-carousel>
 
             <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-disabled="occurrence.isLoading">
               <i class="fa fa-thumbs-o-up"></i>

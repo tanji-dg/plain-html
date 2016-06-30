@@ -430,6 +430,19 @@ a.simple {
 	height: 100%;
 	display: table;
 
+	.carousel {
+
+		.item {
+
+			img {
+				background: #eee;
+				width: 100%;
+				height: 400px;
+				object-fit: contain;
+			}
+		}
+	}
+
 	tags-input {
 
 		.tags {
@@ -439,7 +452,7 @@ a.simple {
 
 			.input {
 				color: $color-secundary;
-				width: 100%;
+				width: 250px;
 			}
 
 			.tag-item, .input {
@@ -454,8 +467,16 @@ a.simple {
 		    
 		    &, a {
 		    	color: #fff;
+		    	text-decoration: none; 
 		    }
   		}
+		}
+
+		.suggestion-item {
+
+			&.selected {
+				background: $color-secundary-light;
+			}
 		}
 	}
 

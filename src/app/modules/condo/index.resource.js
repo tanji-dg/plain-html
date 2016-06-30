@@ -69,6 +69,7 @@ export let CondoResource = ($resource, config) => {
         '$populate[1][select]'  : 'firstName lastName',
         '$populate[2]'          : 'favorVotes',
         '$populate[3]'          : 'againstVotes',
+        '$populate[4]'          : 'pictures',
         '$sort'                 : '-createdAt'
       }
     },
@@ -82,17 +83,25 @@ export let CondoResource = ($resource, config) => {
         '$populate[1][select]'  : 'firstName lastName',
         '$populate[2]'          : 'favorVotes',
         '$populate[3]'          : 'againstVotes',
+        '$populate[4]'          : 'pictures',
         '$sort'                 : '-createdAt'
       }
     },
     'addOccurrence'            : {
       'method'                 : 'POST',
-      'url'                    : `${baseUrl}/:_id/occurrences`
+      'url'                    : `${baseUrl}/:_id/occurrences`,
+      'transformRequest'       : transformOccurrenceRequest
     },
     'removeOccurrence'         : {
       'method'                 : 'DELETE',
       'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId`,
       'params'                 : {'occurrenceId' : '@occurrenceId'}
+    },
+    'uploadFiles'              : {
+      'method'                 : 'POST',
+      'url'                    : `${baseUrl}/:_id/files/upload`,
+      'headers'                : {'Content-Type': undefined},
+      'isArray'                : true
     },
     'likeOccurrence'           : {
       'method'                 : 'PUT',
@@ -143,5 +152,10 @@ export let CondoResource = ($resource, config) => {
     var residences = (response instanceof Array) ? response : angular.fromJson(response);
     residences = residences.map(transformSingleResidenceResponse);
     return residences;
+  }
+
+  function transformOccurrenceRequest(occurrence) {
+    // if(occurrence.pictures && occurrence.pictures.length) occurrence.pictures = occurrence.pictures.map((picture) => { return picture._id; });
+    return angular.toJson(occurrence);
   }
 };
