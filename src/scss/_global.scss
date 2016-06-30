@@ -430,6 +430,19 @@ a.simple {
 	height: 100%;
 	display: table;
 
+	.carousel {
+
+		.item {
+
+			img {
+				background: #eee;
+				width: 100%;
+				height: 400px;
+				object-fit: contain;
+			}
+		}
+	}
+
 	tags-input {
 
 		.tags {

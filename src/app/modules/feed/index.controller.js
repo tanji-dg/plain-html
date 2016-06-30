@@ -1,6 +1,7 @@
 export class FeedController {
 
-  constructor($scope, $window, $location, $rootScope, $q, $http, Upload, cloudinary, Session, CondoResource, CondoService, FileResource) {
+  constructor($scope, $window, $location, $rootScope, $q, $http, 
+              Upload, cloudinary, Session, CondoResource, CondoService) {
     'ngInject';
 
     this.window = $window;
@@ -8,7 +9,6 @@ export class FeedController {
     this.location = $location;
     this.CondoResource = CondoResource;
     this.CondoService = CondoService;
-    this.FileResource = FileResource;
     this.Session = Session;
     this.scope = $scope;
     this.q = $q;
@@ -159,36 +159,23 @@ export class FeedController {
   }
 
   uploadImages (element) {
-    var vm, promises;
+    var vm, fd;
 
     vm = this.vm;
-    promises = [];
-    
-    vm.FileResource.signature().$promise.then((server) => {
-      vm.window._.forEach(element.files, function (file) {        
-        var defered = vm.q.defer();
+    fd = new FormData();
+    vm.uploading = true;
 
-        file.upload = vm.upload.upload({
-          url: server.url,
-          transformRequest: function (data, headersGetter) {
-            var headers = headersGetter();
-            delete headers['Authorization'];
-            return data;
-          }
-        }).progress(function (e) {
+    vm.window._.forEach(element.files, (file) => {
+      fd.append('file', file);
+    });
 
-        }).success(function (data, status, headers, config) {
-          defered.resolve();
-        }).error(function (data, status, headers, config) {
-          defered.reject();
-        });
-
-        promises.push(defered.promise);
-      });
-
-      vm.q.all(promises).then(function() {
-        alert('success');
-      });
+    vm.CondoResource.uploadFiles({'_id': vm.condo._id}, fd).$promise.then((files) => {
+      if(vm.occurrence.pictures) vm.occurrence.pictures = vm.occurrence.pictures.concat(files);
+      else vm.occurrence.pictures = files;
+      vm.uploading = false;
+    }, () => {
+      vm.uploading = false;
+      vm.window.swal("Ops!", "Não foi possível salvar esta(s) imagen(s). \nPor favor, tente novamente mais tarde.", "error");
     });
   }
 

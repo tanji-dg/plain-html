@@ -25,7 +25,6 @@ angular
     'angularPromiseButtons',
     'angularMoment',
     'cloudinary',
-    'cloudinary',
 
     Core.name,
     Modules.name
