@@ -439,7 +439,7 @@ a.simple {
 
 			.input {
 				color: $color-secundary;
-				width: 100%;
+				width: 250px;
 			}
 
 			.tag-item, .input {
@@ -454,8 +454,16 @@ a.simple {
 		    
 		    &, a {
 		    	color: #fff;
+		    	text-decoration: none; 
 		    }
   		}
+		}
+
+		.suggestion-item {
+
+			&.selected {
+				background: $color-secundary-light;
+			}
 		}
 	}
 

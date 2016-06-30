@@ -193,6 +193,11 @@ export class FeedController {
   }
 
   getUsers (query) {
-    return this.CondoResource.getUsers({'_id': this.Session.getCondo()._id});
+    return this.CondoResource.getUsers({'_id': this.Session.getCondo()._id}).$promise.then((users) => {
+      return this.window._.map(users, (user) => {
+        user.name = user.firstName + ' ' + user.lastName;
+        return user;
+      });
+    });
   }
 }
