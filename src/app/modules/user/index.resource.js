@@ -27,12 +27,8 @@ export let UserResource = ($resource, config) => {
       'method'                : 'PUT',
       'url'                   : `${baseUrl}`
     },
-    'resetPasswordInit'       : {
-      'method'                : 'PUT',
-      'url'                   : `${baseUrl}/reset`
-    },
-    'resetPasswordFinish'     : {
-      'method'                : 'PUT',
+    'resetPassword'           : {
+      'method'                : 'GET',
       'url'                   : `${baseUrl}/reset`
     },
     'getNotifications'        : {
