@@ -171,7 +171,7 @@ export class FeedController {
 
     if (error) {
       vm.uploading = false;
-      vm.window.swal("Ops!", "Todos os arquivos selecionados precisam ser imagens!", "error");
+      vm.window.swal("Ops!", "Você só pode enviar imagens!", "error");
     } else {
       vm.CondoResource.uploadFiles({'_id': vm.condo._id}, fd).$promise.then((files) => {
         if (vm.occurrence.pictures) vm.occurrence.pictures = vm.occurrence.pictures.concat(files);
@@ -185,7 +185,7 @@ export class FeedController {
   }
 
   getUsers (query) {
-    return this.CondoResource.getUsers({'_id': this.Session.getCondo()._id}).$promise.then((users) => {
+    return this.CondoResource.getUsers({'_id': this.Session.getCondo()._id, '$text[search]': query}).$promise.then((users) => {
       return this.window._.map(users, (user) => {
         user.name = user.firstName + ' ' + user.lastName;
         return user;

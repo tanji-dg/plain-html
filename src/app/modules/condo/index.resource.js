@@ -66,7 +66,7 @@ export let CondoResource = ($resource, config) => {
       'params'                 : {
         '$populate[0]'          : 'comments',
         '$populate[1][path]'    : 'createdBy',
-        '$populate[1][select]'  : 'firstName lastName',
+        '$populate[1][select]'  : 'firstName lastName picture',
         '$populate[2]'          : 'favorVotes',
         '$populate[3]'          : 'againstVotes',
         '$populate[4]'          : 'pictures',
@@ -80,7 +80,7 @@ export let CondoResource = ($resource, config) => {
         'occurenceId'           : '@occurrenceId',
         '$populate[0]'          : 'comments',
         '$populate[1][path]'    : 'createdBy',
-        '$populate[1][select]'  : 'firstName lastName',
+        '$populate[1][select]'  : 'firstName lastName picture',
         '$populate[2]'          : 'favorVotes',
         '$populate[3]'          : 'againstVotes',
         '$populate[4]'          : 'pictures',
