@@ -21,19 +21,18 @@ export let UserResource = ($resource, config) => {
     'authenticate'            : {
       'method'                : 'GET',
       'url'                   : `${baseUrl}/me`,
-      'params'                : {'$populate' : '@$populate'}
+      'params'                : {
+        '$populate[0]'          : 'picture'
+      }
     },
     'changePassword'          : {
       'method'                : 'PUT',
       'url'                   : `${baseUrl}`
     },
-    'resetPasswordInit'       : {
-      'method'                : 'PUT',
-      'url'                   : `${baseUrl}/reset`
-    },
-    'resetPasswordFinish'     : {
-      'method'                : 'PUT',
-      'url'                   : `${baseUrl}/reset`
+    'resetPassword'           : {
+      'method'                : 'GET',
+      'url'                   : `${baseUrl}/:email/reset`,
+      'params'                : {'email' : '@email'}
     },
     'getNotifications'        : {
       'method'                : 'GET',

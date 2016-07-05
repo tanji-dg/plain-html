@@ -169,9 +169,9 @@
             <h4>Comentários <span class="badge">{{ occurrence.commentsTotal }}</span></h4>
             <div class="list-group">
               <div class="list-group-item comment" ng-repeat="comment in occurrence.comments">
-                <!--<div class="row-picture">-->
-                <!--<img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">-->
-                <!--</div>-->
+                <div class="row-picture" ng-show="comment.createdBy.picture">
+                  <img class="circle" src="{{ comment.createdBy.picture.url }}" alt="icon">
+                </div>
                 <div class="row-content">
                   <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }} <small am-time-ago="comment.createdAt"></small></h3>
                   <p class="list-group-item-text">{{ comment.description }}</p>

@@ -73,7 +73,6 @@ export class FeedController {
     return this.CondoResource.addOccurrence({'_id': this.condo._id}, this.occurrence).$promise.then(() => {
       this.swal("Publicado!", "Seu post foi enviado com sucesso.", "success");
       this.occurrence = {type: this.occurrence.type};
-      // this.getOccurrences();
     });
   }
 
@@ -159,28 +158,34 @@ export class FeedController {
   }
 
   uploadImages (element) {
-    var vm, fd;
+    var vm, fd, error;
 
     vm = this.vm;
     fd = new FormData();
     vm.uploading = true;
 
     vm.window._.forEach(element.files, (file) => {
+      if (file.type.indexOf("image")) error = true;
       fd.append('file', file);
     });
 
-    vm.CondoResource.uploadFiles({'_id': vm.condo._id}, fd).$promise.then((files) => {
-      if(vm.occurrence.pictures) vm.occurrence.pictures = vm.occurrence.pictures.concat(files);
-      else vm.occurrence.pictures = files;
+    if (error) {
       vm.uploading = false;
-    }, () => {
-      vm.uploading = false;
-      vm.window.swal("Ops!", "Não foi possível salvar esta(s) imagen(s). \nPor favor, tente novamente mais tarde.", "error");
-    });
+      vm.window.swal("Ops!", "Você só pode enviar imagens!", "error");
+    } else {
+      vm.CondoResource.uploadFiles({'_id': vm.condo._id}, fd).$promise.then((files) => {
+        if (vm.occurrence.pictures) vm.occurrence.pictures = vm.occurrence.pictures.concat(files);
+        else vm.occurrence.pictures = files;
+        vm.uploading = false;
+      }, () => {
+        vm.uploading = false;
+        vm.window.swal("Ops!", "Não foi possível salvar esta(s) imagen(s). \nPor favor, tente novamente mais tarde.", "error");
+      });
+    }
   }
 
   getUsers (query) {
-    return this.CondoResource.getUsers({'_id': this.Session.getCondo()._id}).$promise.then((users) => {
+    return this.CondoResource.getUsers({'_id': this.Session.getCondo()._id, '$text[search]': query}).$promise.then((users) => {
       return this.window._.map(users, (user) => {
         user.name = user.firstName + ' ' + user.lastName;
         return user;
