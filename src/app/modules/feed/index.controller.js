@@ -19,7 +19,7 @@ export class FeedController {
     this.user = this.Session.get();
     this.users = this.getUsers();
     this.condo = this.Session.getCondo();
-    this.scope.uploadImages = this.uploadImages;
+    this.scope.uploadPictures = this.uploadPictures;
     this.scope.vm = this;
 
     this.getOccurrences();
@@ -157,7 +157,7 @@ export class FeedController {
     return this.window._.find(votes, {voter: this.user._id});
   }
 
-  uploadImages (element) {
+  uploadPictures (element) {
     var vm, fd, error;
 
     vm = this.vm;
@@ -184,8 +184,12 @@ export class FeedController {
     }
   }
 
+  removePicture (index) {
+    this.occurrence.pictures.splice(index, 1);
+  }
+
   getUsers (query) {
-    return this.CondoResource.getUsers({'_id': this.Session.getCondo()._id, '$text[search]': query}).$promise.then((users) => {
+    return this.CondoResource.getUsers({'_id': this.Session.getCondo()._id, '$text[$search]': query}).$promise.then((users) => {
       return this.window._.map(users, (user) => {
         user.name = user.firstName + ' ' + user.lastName;
         return user;
