@@ -1,5 +1,9 @@
 @media (max-width: 768px) {
 
+	.visible-xs {
+		display: inline-block !important;
+	}
+
 	.row-picture {
 		display: none !important;
 	}

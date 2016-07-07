@@ -25,29 +25,34 @@ export class FeedResidentsController {
   }
 
   setResidence () {
-    if (this.newResidence && this.newResidence._id) {
-      this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.newResidence._id, userId: this.user._id}).$promise.then(() => {
-        this.residence = this.newResidence;
-        this.newResidence = {};
-        this.Session.refresh();
-        this.swal("Residência selecionada", "Você foi adicionado à residência selecionada!", "success");
-      });
-    } else {
-      return this.CondoResource.addResidence({'_id': this.condo._id}, {'identification': this.newResidence.identification}).$promise.then((residence) => {
-        this.CondoResource.getResidence({
-          '_id' : this.condo._id,
-          'residenceId' : residence._id,
-          '$populate' : 'users requesters'
-        }).$promise.then((residence) => {
+
+    if (this.newResidence) {
+      if (this.newResidence._id) {
+        this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.newResidence._id, userId: this.user._id}).$promise.then(() => {
+          this.residence = this.newResidence;
           this.newResidence = {};
-          this.residence = residence;
-            this.Session.refresh();
-          this.swal("Residência cadastrada", "Você foi adicionado à residência cadastrada!", "success");
+          this.Session.refresh();
+          this.swal("Residência selecionada", "Você foi adicionado à residência selecionada!", "success");
+        });
+      } else {
+        return this.CondoResource.addResidence({'_id': this.condo._id}, {'identification': this.newResidence.identification}).$promise.then((residence) => {
+          this.CondoResource.getResidence({
+            '_id' : this.condo._id,
+            'residenceId' : residence._id,
+            '$populate' : 'users requesters'
+          }).$promise.then((residence) => {
+            this.newResidence = {};
+            this.residence = residence;
+              this.Session.refresh();
+            this.swal("Residência cadastrada", "Você foi adicionado à residência cadastrada!", "success");
+          });
         }, () => {
           this.residenceNotFound = false;
-          this.swal("Residência já existe", "Você selecionou uma residência que já existe. Escolha entre as nossas opções.", "error");
+          this.swal("Residência já existe", "Você tentou adicionar uma residência que já existe. \nEscolha entre as nossas opções.", "error");
         });
-      });
+      }
+    } else {
+      this.swal("Ops!", "Você precisa inserir a residência.", "error");      
     }
   }
 

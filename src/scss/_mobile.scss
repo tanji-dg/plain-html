@@ -16,6 +16,15 @@
 
 	.logged-in {
 
+		.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+			border: 0;
+		}
+
+		.btn-add-occurrence {
+	    margin: 0px 10px;
+    	width: 150px;
+		}
+
 		.nav-tabs {
 			border-bottom: 0;
 			

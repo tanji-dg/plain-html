@@ -10,6 +10,7 @@ export class FeedNavbarController {
     this.CondoService = CondoService;
     this.UserResource = UserResource;
     this.location = $location;
+    this.isCollapsed = true;
 
     this.user = this.Session.get();
     this.notifications = this.UserResource.getNotifications();
