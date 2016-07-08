@@ -1,6 +1,6 @@
 export class FeedController {
 
-  constructor($scope, $window, $location, $rootScope, $q, $http, 
+  constructor($scope, $window, $location, $rootScope, $q, $http,
               Upload, cloudinary, Session, CondoResource, CondoService) {
     'ngInject';
 
@@ -58,6 +58,7 @@ export class FeedController {
 
     $rootScope.$on('COMMENT-NEW', (event, notification) => {
       let occurrence = findOccurrence(notification);
+      occurrence.comments = occurrence.comments || [];
       occurrence.comments.unshift(notification.comment);
       occurrence.commentsTotal++;
       $rootScope.$apply();
