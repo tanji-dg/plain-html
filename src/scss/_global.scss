@@ -197,9 +197,9 @@ a.simple {
 
 .change-user-picture {
 	position: relative;
-  border-radius: 200px;  	
+  border-radius: 200px;
   width: 110px;
-  margin: 0 auto; 
+  margin: 0 auto;
 
 	.empty, img {
     width: 100%;
@@ -212,7 +212,7 @@ a.simple {
 	}
 
 	img {
-		object-fit: cover;	
+		object-fit: cover;
 	}
 
 	.link {
@@ -224,8 +224,8 @@ a.simple {
 		position: absolute;
 		bottom: 0;
 		font-weight: normal;
-		text-align: center; 
-		margin: 0 !important; 
+		text-align: center;
+		margin: 0 !important;
 	}
 }
 
@@ -446,7 +446,7 @@ a.simple {
 	&.second-step {
 
 		.condos-search-response,
-		.selected-condos, {
+		.selected-condos {
 			margin-top: 30px;
 		}
 
@@ -498,10 +498,10 @@ a.simple {
 			  border: 0;
 		    border-radius: 0;
 		    background: $color-primary;
-		    
+
 		    &, a {
 		    	color: #fff;
-		    	text-decoration: none; 
+		    	text-decoration: none;
 		    }
   		}
 		}
@@ -858,7 +858,7 @@ a.simple {
 
 		.form-image {
 			position: relative;
-			
+
 			img {
 				object-fit: cover;
 				width: 89px;
