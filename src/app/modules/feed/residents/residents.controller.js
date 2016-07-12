@@ -91,6 +91,11 @@ export class FeedResidentsController {
     });
   }
 
+  changeResidence (user, users) {
+    this.residenceNotFound = false;
+    this.removeUser(user, users);
+  }
+
   isRequester () {
     return (_.find(this.residence.requesters, {_id: this.user._id})) ? true : false;
   }

@@ -3,7 +3,7 @@
   <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
 
 	<div class="container">
-    <div class="row">
+    <div class="row" ng-if="vm.Session.getCondo()">
       <div class="col-sm-12">
         <form ng-submit="vm.addOccurrence();" promise-btn>
           <div class="panel panel-primary panel-publication">
@@ -173,11 +173,13 @@
               {{ occurrence.description }}
             </p>
 
-            <uib-carousel active="active" ng-if="occurrence.pictures.length">
-              <uib-slide ng-repeat="picture in occurrence.pictures" index="picture.id">
-                <img ng-src="{{picture.url}}" style="margin:auto;">
-              </uib-slide>
-            </uib-carousel>
+            <ul ng-if="occurrence.pictures.length">
+              <li ng-repeat="picture in occurrence.pictures">
+                <a ng-click="vm.showPicture(vm.occurrence.pictures, $index)">
+                  <img  ng-src="{{picture.url}}" style="margin:auto;">
+                </a>
+              </li>
+            </ul>
 
             <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-disabled="occurrence.isLoading">
               <i class="fa fa-thumbs-o-up"></i>
@@ -188,7 +190,7 @@
           <div class="panel-footer comments">
             <h4>Comentários <span class="badge">{{ occurrence.commentsTotal }}</span></h4>
             <div class="list-group">
-              <div class="list-group-item comment" ng-repeat="comment in occurrence.comments">
+              <div class="list-group-item comment" ng-repeat="comment in occurrence.comments | orderBy:'-createdAt'">
                 <div class="row-picture" ng-show="comment.createdBy.picture">
                   <img class="circle" src="{{ comment.createdBy.picture.url }}" alt="icon">
                 </div>

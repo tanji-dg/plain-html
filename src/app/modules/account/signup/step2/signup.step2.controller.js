@@ -27,13 +27,10 @@ export class AccountSignupStep2Controller {
   }
 
   chooseCondo (condo) {
-    this.Session.setCondo(condo).then(() => {
-      this.user.signupStep = 0;
-      _.clone(this.user).$update().then(() => {
-        this.CondoResource.addUser({'_id': condo._id, 'userId': this.user._id}).$promise.then(() => {
-          this.$location.path('/feed');
-          this.swal("Cadastro Finalizado", "Bem-vindo(a) ao seu condomínio!", "success");
-        });
+    this.CondoResource.addUser({'_id': condo._id, 'userId': this.user._id}).$promise.then(() => {
+      this.Session.setCondo(condo).then(() => {
+        this.$location.path('/feed');
+        this.swal("Cadastro Finalizado", "Bem-vindo(a) ao seu condomínio!", "success");
       });
     });
   }

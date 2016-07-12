@@ -1,7 +1,7 @@
 export class FeedController {
 
   constructor($scope, $window, $location, $rootScope, $q, $http, 
-              Upload, cloudinary, Session, CondoResource, CondoService) {
+              Upload, cloudinary, Session, CondoResource, CondoService, Lightbox) {
     'ngInject';
 
     this.window = $window;
@@ -16,9 +16,25 @@ export class FeedController {
     this.upload = Upload;
     this.cloudinary = cloudinary;
 
+    this.condo = this.Session.getCondo();
+
+    if(!this.condo) {
+      var that = this;
+      this.window.swal({
+        title: "Ops!",   
+        text: "Você não possui nenhum condomínio adicionado.",   
+        type: "error",   
+        showCancelButton: false,   
+        confirmButtonColor: "#FFA90C",   
+        confirmButtonText: "Escolher um condomínio"
+      }, function(){   
+        that.window.location.href = '#/meus-condominios';
+      });
+      return;
+    }
+
     this.user = this.Session.get();
     this.users = this.getUsers();
-    this.condo = this.Session.getCondo();
     this.scope.uploadPictures = this.uploadPictures;
     this.scope.vm = this;
 
@@ -195,5 +211,9 @@ export class FeedController {
         return user;
       });
     });
+  }
+
+  showPicture (pictures, index) {
+    Lightbox.openModal(pictures, index);
   }
 }
