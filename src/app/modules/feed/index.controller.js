@@ -74,6 +74,7 @@ export class FeedController {
 
     $rootScope.$on('COMMENT-NEW', (event, notification) => {
       let occurrence = findOccurrence(notification);
+      occurrence.comments = occurrence.comments || [];
       occurrence.comments.unshift(notification.comment);
       occurrence.commentsTotal++;
       $rootScope.$apply();

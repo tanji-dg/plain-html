@@ -21,7 +21,6 @@
     "ui-select": "angular-ui-select#~0.13.2",
     "html5shiv": "~3.7.2",
     "fontawesome": "~4.6.0",
-    "lodash": "~4.0.0",
     "bootstrap": "3.3.6",
     "bootstrap-material-design": "0.4.4",
     "angular-validation-match": "^1.7.1",
@@ -35,7 +34,8 @@
     "cloudinary_ng": "^1.0.0",
     "pusher-websocket-iso": "pusher#^3.1.0",
     "ng-file-upload-shim": "^12.0.4",
-    "angular-bootstrap-lightbox": "^0.12.0"
+    "angular-bootstrap-lightbox": "^0.12.0",
+    "lodash": "~4.13.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.2"
@@ -73,6 +73,7 @@
   },
   "resolutions": {
     "jquery": "~2.1.4",
-    "angular": "~1.4.2"
+    "angular": "~1.4.2",
+    "lodash": "~4.13.1"
   }
 }
