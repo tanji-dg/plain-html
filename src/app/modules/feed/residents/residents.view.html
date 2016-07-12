@@ -5,8 +5,14 @@
   <div class="container">
     <h2 class="section-title"><i class="fa fa-users fa-circled"></i><strong>Integrantes</strong> &raquo; {{ vm.condo.name }}</h2>
 
-      <div class="panel panel-box panel-box-residence panel-default" ng-hide="vm.residence._id">
+      <div class="panel panel-box panel-box-residence panel-default"  ng-hide="vm.residence.$resolved || vm.residences.$resolved">
         <div class="panel-body">
+          <i class="fa fa-spinner fa-spin"></i> Carregando...
+        </div>
+      </div>
+
+      <div class="panel panel-box panel-box-residence panel-default" ng-hide="vm.residence._id">
+        <div class="panel-body" ng-show="vm.residences.$resolved">
           <div ng-hide="!vm.residences.length || vm.residenceNotFound">
             <form ng-submit="vm.setResidence()" promise-btn>
               <div class="pull-left">
@@ -39,7 +45,7 @@
 
       <div class="panel panel-default" ng-show="vm.residence._id">
         <div class="panel-heading">
-          <h4>{{ vm.residence.identification }} &nbsp; <button type="button" class="btn btn-primary btn-xs" ng-click="vm.removeUser(vm.user, vm.residence.users); this.residenceNotFound = false;">Alterar Residência</button></h4>
+          <h4>{{ vm.residence.identification }} &nbsp; <button type="button" class="btn btn-primary btn-xs" ng-click="vm.changeResidence(vm.user, vm.residence.users);">Alterar Residência</button></h4>
         </div>
         <div class="panel-body">
           <h4>Integrantes</h4>
