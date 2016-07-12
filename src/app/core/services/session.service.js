@@ -74,6 +74,7 @@ export class SessionService {
   }
 
   getCondo () {
+    console.log(this.logged.defaultCondo);
     return this.window._.find(this.logged.condos, {_id: this.logged.defaultCondo});
   }
 
@@ -81,8 +82,9 @@ export class SessionService {
     var user = this.get();
     this.cookies.putObject('condo', condo);
     if (!onlyLocal) {
-      return this.UserResource.update({_id: user._id}, {defaultCondo: condo._id}).$promise.then(() => {
+      return this.UserResource.update({_id: user._id}, {defaultCondo: condo._id, signupStep: 0}).$promise.then(() => {
         return this.UserResource.authenticate().$promise.then((user) => {
+          console.log(user);
           return this.logged = user;
         });
       });

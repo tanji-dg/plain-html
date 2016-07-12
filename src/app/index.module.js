@@ -25,6 +25,7 @@ angular
     'angularPromiseButtons',
     'angularMoment',
     'cloudinary',
+    'bootstrapLightbox',
 
     Core.name,
     Modules.name
