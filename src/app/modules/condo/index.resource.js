@@ -64,12 +64,11 @@ export let CondoResource = ($resource, config) => {
       'isArray'                : true,
       'url'                    : `${baseUrl}/:_id/occurrences`,
       'params'                 : {
-        '$populate[0]'          : 'comments',
-        '$populate[1][path]'    : 'createdBy',
-        '$populate[1][select]'  : 'firstName lastName picture',
+        '$populate[0]'          : '_comments',
+        '$populate[1][path]'    : 'pictures',
+        '$populate[1][select]'  : 'url',
         '$populate[2]'          : 'favorVotes',
         '$populate[3]'          : 'againstVotes',
-        '$populate[4]'          : 'pictures',
         '$sort'                 : '-createdAt'
       }
     },
@@ -123,9 +122,12 @@ export let CondoResource = ($resource, config) => {
       'isArray'                : true,
       'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId/comments`,
       'params'                 : {
-        'occurreceId' : '@occurrenceId',
-        '$limit'      : 1000,
-        '$populate'   : 'createdBy',
+        'occurreceId'                   : '@occurrenceId',
+        '$limit'                        : 1000,
+        '$populate[1][path]'            : 'createdBy',
+        '$populate[1][select]'          : 'firstName lastName picture',
+        '$populate[1][populate][path]'  : 'picture',
+        '$populate[1][populate][select]': 'url',
         '$sort'       : '-createdAt'
       }
     },
