@@ -128,11 +128,16 @@ export class FeedController {
     }
   }
 
-  allComments (occurrence) {
+  showComments (occurrence) {
     return this.CondoResource.getOccurrenceComments({'_id' : this.condo._id, 'occurrenceId' : occurrence._id}).$promise.then((comments) => {
       occurrence.comments = comments;
       occurrence.isShowingAllComments = true;
     });
+  }
+
+  hideComments (occurrence) {
+    occurrence.comments = occurrence.comments.slice(0, 3);
+      occurrence.isShowingAllComments = false;
   }
 
   voteOccurrence (occurrence, isFor) {

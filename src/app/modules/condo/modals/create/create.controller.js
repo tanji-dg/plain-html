@@ -1,10 +1,12 @@
 export class CondoModalsCreateController {
 
-  constructor(CondoResource, $uibModalInstance) {
+  constructor($window, $uibModalInstance, CondoResource) {
     'ngInject';
 
+    this.window = $window;
     this.condo = new CondoResource();
     this.modalInstance = $uibModalInstance;
+    this.CondoResource = CondoResource;
     this.CondoResource = CondoResource;
   }
 
@@ -13,6 +15,9 @@ export class CondoModalsCreateController {
       this.CondoResource.get({'_id': c._id}).$promise.then((condo) => {
         this.modalInstance.close(condo);
       });
+    }, (response) => {
+      this.window.swal("Ops!", "Este condomínio já existe!", "error");
+      this.modalInstance.dismiss();
     });
   }
 

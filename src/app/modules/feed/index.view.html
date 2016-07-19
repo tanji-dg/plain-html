@@ -189,6 +189,14 @@
 
           <div class="panel-footer comments">
             <h4>Comentários <span class="badge">{{ occurrence.commentsTotal }}</span></h4>
+            <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn class="list-group">
+              <div class="input-group">
+                <input type="text" ng-model="occurrence.newComment" class="form-control" placeholder="Escreva um comentário">
+                <span class="input-group-btn">
+                  <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-angle-right"></i></button>
+                </span>
+              </div>
+            </form>
             <div class="list-group">
               <div class="list-group-item comment" ng-repeat="comment in occurrence.comments | orderBy:'-createdAt'">
                 <div class="row-picture" ng-show="comment.createdBy.picture">
@@ -199,16 +207,9 @@
                   <p class="list-group-item-text">{{ comment.description }}</p>
                 </div>
               </div>
-              <a href="javascript:void(0);" class="simple" ng-click="vm.allComments(occurrence)" ng-hide="occurrence.isShowingAllComments || !occurrence.comments.length || occurrence.commentsTotal <= occurrence.comments.length"><i class="fa fa-angle-down"></i> &nbsp;Ver todos os comentários</a>
+              <a href="javascript:void(0);" class="simple" ng-click="vm.showComments(occurrence)" ng-hide="occurrence.isShowingAllComments || !occurrence.comments.length || occurrence.commentsTotal <= occurrence.comments.length" promise-btn><i class="fa fa-angle-down"></i> Ver todos os comentários</a>
+              <a href="javascript:void(0);" class="simple" ng-click="vm.hideComments(occurrence)" ng-show="occurrence.isShowingAllComments"><i class="fa fa-angle-up"></i> Esconder comentários</a>
             </div>
-            <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn>
-              <div class="input-group">
-                <input type="text" ng-model="occurrence.newComment" class="form-control" placeholder="Escreva um comentário">
-                <span class="input-group-btn">
-                  <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-angle-right"></i></button>
-                </span>
-              </div>
-            </form>
           </div>
         </div>
         <div class="text-center" ng-hide="vm.occurrences.length">

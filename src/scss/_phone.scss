@@ -21,8 +21,14 @@
 	.logged-out {
 
 		.container {
-		    width: 100%;
-		    margin-top: 30px;
+	    width: 100%;
+	    margin-top: 30px;
+
+			.btn-forgot-password {
+				padding: 0;
+	    	margin: 25px 0 5px 0;
+	    	display: block;
+			}
 
 			.container-block {
 				padding: 20px;
