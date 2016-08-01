@@ -1,7 +1,7 @@
 export class FeedController {
 
   constructor($scope, $window, $location, $rootScope, $q, $http, 
-              Upload, cloudinary, Session, CondoResource, CondoService, Lightbox) {
+              Upload, cloudinary, Session, CondoResource, CondoService) {
     'ngInject';
 
     this.window = $window;
@@ -204,6 +204,8 @@ export class FeedController {
         vm.window.swal("Ops!", "Não foi possível salvar esta(s) imagen(s). \nPor favor, tente novamente mais tarde.", "error");
       });
     }
+
+    document.getElementById('occurrenceFiles').value = null;
   }
 
   removePicture (index) {
@@ -217,9 +219,5 @@ export class FeedController {
         return user;
       });
     });
-  }
-
-  showPicture (pictures, index) {
-    Lightbox.openModal(pictures, index);
   }
 }

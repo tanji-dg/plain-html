@@ -32,15 +32,15 @@ export class SessionService {
       if (!this.isAuthentication) this.location.url(url);
       let broadcast = this.broadcast;
 
-      this.auth.getPusher().subscribe(`private-user-${user._id}`).bind('notification', broadcast);
-      this.auth.getPusher().subscribe(`private-condo-${user.defaultCondo._id || user.defaultCondo}`).bind('notification', broadcast);
+      if (user && user._id) this.auth.getPusher().subscribe(`private-user-${user._id}`).bind('notification', broadcast);
+      if (user.defaultCondo) this.auth.getPusher().subscribe(`private-condo-${user.defaultCondo._id || user.defaultCondo}`).bind('notification', broadcast);
 
       this.resolve();
       defer.resolve(user);
     };
 
     let onError = (error) => {
-      if (['/activate', '/signup'].indexOf(this.location.path()) === -1) {
+      if (['/activate', '/signup', '/reset'].indexOf(this.location.path()) === -1) {
         this.location.url('/login');
       }
 
@@ -74,7 +74,6 @@ export class SessionService {
   }
 
   getCondo () {
-    console.log(this.logged.defaultCondo);
     return this.window._.find(this.logged.condos, {_id: this.logged.defaultCondo});
   }
 
@@ -84,7 +83,6 @@ export class SessionService {
     if (!onlyLocal) {
       return this.UserResource.update({_id: user._id}, {defaultCondo: condo._id, signupStep: 0}).$promise.then(() => {
         return this.UserResource.authenticate().$promise.then((user) => {
-          console.log(user);
           return this.logged = user;
         });
       });

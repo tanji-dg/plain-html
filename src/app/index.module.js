@@ -25,7 +25,7 @@ angular
     'angularPromiseButtons',
     'angularMoment',
     'cloudinary',
-    'bootstrapLightbox',
+    'wu.masonry',
 
     Core.name,
     Modules.name

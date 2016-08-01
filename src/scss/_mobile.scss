@@ -4,13 +4,17 @@
 			a {
 				.icon {
 					display: inherit !important;
-					margin: 0 auto; 
+					margin: 0 auto !important; 
 				}
 			}
 		}
 
 		.title {
-			display: none !important;
+	    font-size: 14px;
+	    text-align: center;
+	    display: block !important;
+	    width: 100px !important;
+	    margin: 10px auto 0 auto;
 		}
 	}
 
@@ -45,23 +49,23 @@
 			}
 		}
 
-		.form-post{
-
-			.form-file,
-			.form-image {
-				width: 74px;
-				height: 74px;
-			}
-
-			.form-file {
-			    padding: 21px;
-			}
-		}
-
 		.btn-category {
 
 			.btn {
 				width: 100%;
+			}
+		}
+	}
+
+	.logged-out {
+
+		&.first-step {
+
+			.form-file {
+		    display: block;
+		    max-width: 100%;
+		    margin: 0 auto 20px auto;
+		    font-weight: bold;
 			}
 		}
 	}

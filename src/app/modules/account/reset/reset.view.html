@@ -1,0 +1,37 @@
+<div class="logged-out reset" ng-controller="AccountResetController as vm">
+  <div class="container">
+    <div class="container-alignment">
+      <h1 class="logo">eCondos</h1>
+      <form ng-submit="vm.reset()" promise-btn>
+        <div class="container-block">
+          <h3>Esqueci minha senha</h3>
+          <div class="form-group form-group-label">
+            <input class="form-control floating-label" type="email" placeholder="E-mail"
+                   ng-model="vm.user.email">
+          </div>
+          <div class="form-group form-group-label">
+            <input class="form-control floating-label" type="password"
+                   ng-model="vm.user.password" name="password"
+                   ng-minlength="5" ng-maxlength="100"
+                   placeholder="Senha"
+                   required>
+          </div>
+          <div class="form-group form-group-label">
+            <input class="form-control floating-label" type="password"
+                   ng-model="vm.user.passwordConfirm" name="passwordConfirm"
+                   match="vm.user.password" ng-minlength="5" ng-maxlength="100"
+                   placeholder="Confirmar senha"
+                   required>
+            <small class="text-danger" ng-if="user.passwordConfirm.$error.match">
+              A confirmação da senha está incorreta
+            </small>
+          </div>
+          <button type="submit" ng-disabled="user.$invalid" class="btn btn-primary btn-raised">
+            Alterar senha
+          </button>
+        </div>
+      </form>
+      <a href="#/login" title="Acessar minha conta" class="link">Acessar minha conta</a>
+    </div>
+  </div>
+</div>

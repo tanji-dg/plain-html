@@ -24,10 +24,16 @@
 	    width: 100%;
 	    margin-top: 30px;
 
+	    .btn-xs-wide {
+				display: block;
+				width: 100%;
+	    }
+
 			.btn-forgot-password {
-				padding: 0;
-	    	margin: 25px 0 5px 0;
-	    	display: block;
+	    	margin: 15px auto 5px auto;
+		    padding: 15px !important;
+		    background: #eee;
+		    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 			}
 
 			.container-block {
