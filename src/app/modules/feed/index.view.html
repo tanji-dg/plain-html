@@ -5,7 +5,7 @@
 	<div class="container">
     <div class="row" ng-if="vm.Session.getCondo()">
       <div class="col-sm-12">
-        <form ng-submit="vm.addOccurrence();" promise-btn>
+        <form name="postOccurrence" ng-submit="vm.addOccurrence();" promise-btn>
           <div class="panel panel-primary panel-publication">
             <div class="panel-body">
               <uib-tabset>
@@ -21,7 +21,7 @@
                     <div class="form-images">
                       <label class="form-file">
                         <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                        <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
+                        <input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
                       </label>
                       <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
                         <img src="{{ picture.url }}" />
@@ -160,7 +160,7 @@
             </header>
           </div>
 
-          <div class="panel-body">
+          <div class="panel-body occurrence">
             <div class="btn-group options pull-right" ng-if="occurrence.type == 'VOTING'">
               <button type="button" ng-class="{'btn-success': vm.findOccurrenceVote(occurrence.favorVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="occurrence.isVoting">
                 Sim <span class="badge" ng-show="occurrence.favorVotes.length">{{ occurrence.favorVotes.length }}</span>
@@ -173,13 +173,9 @@
               {{ occurrence.description }}
             </p>
 
-            <ul ng-if="occurrence.pictures.length">
-              <li ng-repeat="picture in occurrence.pictures">
-                <a ng-click="vm.showPicture(vm.occurrence.pictures, $index)">
-                  <img  ng-src="{{picture.url}}" style="margin:auto;">
-                </a>
-              </li>
-            </ul>
+            <div class="images" ng-if="occurrence.pictures.length">
+              <img ng-src="{{picture.url}}"  ng-repeat="picture in occurrence.pictures">
+            </div>
 
             <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-disabled="occurrence.isLoading">
               <i class="fa fa-thumbs-o-up"></i>

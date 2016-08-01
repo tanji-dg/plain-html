@@ -45,14 +45,20 @@ h1, h2, h3, h4 {
 .form-group {
 	margin-top: 0;
 	margin-bottom: 15px;
+
+	select {
+    -webkit-appearance: menulist-button !important;
+    -moz-appearance: menulist-button !important;
+    appearance: menulist-button !important;
+  }
 }
 
 .form-control {
 	width: 100%;
 	padding-left: 0;
-	height: 28px;
-  padding: 20px 0;
   font-size: 15px;
+  height: 40px;
+	padding: 10px 0;
 }
 
 .form-group.label-floating {
@@ -922,6 +928,20 @@ a.simple {
 
   .form-file {
   	width: 100%;
+  }
+
+  .occurrence {
+
+  	.images {
+  		
+  		img {
+		    width: 90px;
+		    height: 90px;
+		    margin-right: 10px;
+		    margin-bottom: 10px;
+		    object-fit: cover;
+  		}
+  	}
   }
 
 }

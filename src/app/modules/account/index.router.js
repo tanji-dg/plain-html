@@ -26,4 +26,9 @@ export let routerConfig = ($stateProvider) => {
     'templateUrl' : 'app/modules/account/activate/activate.view.html'
   });
 
+  $stateProvider.state('accountReset', {
+    'url'         : '/reset/:activationKey',
+    'templateUrl' : 'app/modules/account/reset/reset.view.html'
+  });
+
 };

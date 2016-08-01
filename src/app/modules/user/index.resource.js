@@ -14,9 +14,9 @@ export let UserResource = ($resource, config) => {
       'url'                   : `${baseUrl}`
     },
     'activate'                : {
-      'method'                : 'GET',
-      'url'                   : `${baseUrl}/:id/activate`,
-      'params'                : {'activationKey' : '@key'}
+      'method'                : 'PUT',
+      'url'                   : `${baseUrl}/:email/activate`,
+      'params'                : {'activationKey' : '@activationKey', 'email' : '@email'}
     },
     'authenticate'            : {
       'method'                : 'GET',
@@ -24,10 +24,6 @@ export let UserResource = ($resource, config) => {
       'params'                : {
         '$populate[0]'          : 'picture'
       }
-    },
-    'changePassword'          : {
-      'method'                : 'PUT',
-      'url'                   : `${baseUrl}`
     },
     'resetPassword'           : {
       'method'                : 'GET',

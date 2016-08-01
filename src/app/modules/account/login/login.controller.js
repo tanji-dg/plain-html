@@ -15,7 +15,7 @@ export class AccountLoginController {
   resetPassword () {
     if (this.user && this.user.login) {
       return this.UserResource.resetPassword({email: this.user.login}).$promise.then(() => {
-        this.window.swal("Senha Alterada!", "Criamos uma nova senha provisória \ne enviamos para o seu e-mail.", "success");
+        this.window.swal("Solicitação recebida!", "Clique no link que você recebeu por e-mail \ne altere a sua senha.", "success");
       }, () => {
         var that = this;
         this.window.swal({
