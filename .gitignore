@@ -7,3 +7,4 @@ coverage/
 dist/
 .publish/
 npm-debug.log
+.DS_Store
