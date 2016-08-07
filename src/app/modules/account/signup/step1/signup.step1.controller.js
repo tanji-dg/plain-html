@@ -8,6 +8,7 @@ export class AccountSignupStep1Controller {
     this.scope = $scope;
     this.window = $window;
     this.FileResource = FileResource;
+    this.date = new Date();
 
     this.scope.uploadPicture = this.uploadPicture;
     this.scope.vm = this;

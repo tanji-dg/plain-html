@@ -29,24 +29,31 @@ export class FeedCondosController {
   }
 
   removeCondo (condo) {
-    this.swal({
-      title: "Tem certeza?",
-      text: "Esta ação não poderá ser desfeita.",
-      type: "warning",
-      showCancelButton: true,
-      cancelButtonText: "Não",
-      confirmButtonColor: "#DD6B55",
-      confirmButtonText: "Sim",
-      closeOnConfirm: false
-    }, (isConfirm) => {
-      if (isConfirm) {
-        this.CondoResource.removeLoggedUser({'_id': condo._id}).$promise.then(() => {
-          this.swal("Condomínio Removido", "O condomínio foi removido com sucesso!", "success");
-          let condoIndex = this._.findIndex(this.user.condos, {'_id': condo._id});
-          this.user.condos.splice(condoIndex, 1);
-        });
-      }
-    });
+    if (this.user.condos.length > 1) {
+      this.swal({
+        title: "Tem certeza?",
+        text: "Esta ação não poderá ser desfeita.",
+        type: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Não",
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Sim",
+        closeOnConfirm: false
+      }, (isConfirm) => {
+        if (isConfirm) {
+          this.CondoResource.removeLoggedUser({'_id': condo._id}).$promise.then(() => {
+            let condoIndex = this._.findIndex(this.user.condos, {'_id': condo._id});
+            this.user.condos.splice(condoIndex, 1);
+
+            this.Session.setCondo(this.user.condos[0]).then(() => {
+              this.swal("Condomínio Removido", "O condomínio foi removido com sucesso!", "success");
+            });
+          });
+        }
+      });
+    } else {
+      this.swal("Ops!", "Adicione outro condomínio antes de remover o existente.", "error");      
+    }
   }
 
   addCondo (condo) {

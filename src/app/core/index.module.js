@@ -7,6 +7,7 @@ import { config } from './constants/config.constant';
  * DIRECTIVES
  */
 import { scrollToItem } from './directives/scrollToItem.directive';
+import { lightgallery } from './directives/lightgallery.directive';
 
 /**
  * FACTORIES
@@ -29,6 +30,7 @@ import { SessionService } from './services/session.service';
 export default angular.module('joinesty.core', [])
   .constant('config', config)
   .directive('scrollToItem', scrollToItem)
+  .directive('lightgallery', lightgallery)
   .factory('$mock', $mock)
   .service('AuthInterceptor', AuthInterceptor)
   .service('ErrorInterceptor', ErrorInterceptor)

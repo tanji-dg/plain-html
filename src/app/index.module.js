@@ -25,7 +25,6 @@ angular
     'angularPromiseButtons',
     'angularMoment',
     'cloudinary',
-    'wu.masonry',
 
     Core.name,
     Modules.name
