@@ -48,7 +48,6 @@ h1, h2, h3, h4 {
 
 	select {
     -webkit-appearance: menulist-button !important;
-    -moz-appearance: menulist-button !important;
     appearance: menulist-button !important;
   }
 }
@@ -933,6 +932,14 @@ a.simple {
   .occurrence {
 
   	.images {
+			margin: 0;
+			padding: 0; 
+
+  		.image {
+  			list-style: none;
+  			display: inline-block;
+  			cursor: pointer;
+  		}
   		
   		img {
 		    width: 90px;
