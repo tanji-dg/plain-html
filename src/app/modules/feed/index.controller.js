@@ -1,6 +1,6 @@
 export class FeedController {
 
-  constructor($scope, $window, $location, $rootScope, $q, $http, 
+  constructor($scope, $window, $location, $rootScope, $q, $http, $sce,
               Upload, cloudinary, Session, CondoResource, CondoService) {
     'ngInject';
 
@@ -80,6 +80,9 @@ export class FeedController {
       $rootScope.$apply();
     });
 
+    $scope.trustSrc = function(src) {
+      return $sce.trustAsResourceUrl(src);
+    }
   }
 
   getOccurrences () {
