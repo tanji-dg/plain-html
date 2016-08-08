@@ -19,6 +19,8 @@ gulp.task('deploy', ['build'], function() {
     }));
 });
 
+gulp.task('publish', ['deploy']);
+
 // gulp.task('publish', ['bower', 'build'], function () {
 //   var awsProperties = {
 //     'key'    : conf.environment.AWS_KEY,

@@ -32,6 +32,7 @@ exports.paths = {
   src : 'src',
   dist: 'dist',
   tmp : '.tmp',
+  publish : '.publish',
   e2e : 'e2e'
 };
 
