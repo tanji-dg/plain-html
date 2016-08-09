@@ -2,6 +2,12 @@
 <html ng-app="econdos" ng-strict-di>
   <head>
     <base href="./" />
+    <link rel="canonical" href=" { { site.url } }{ { page.url } }" />
+    <script type="text/javascript">
+      var host = "yoursite.com";
+      if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+    </script>
 
     <meta charset="utf-8">
     <title>econdos</title>
@@ -24,6 +30,12 @@
     <!-- endinject -->
     <!-- endbuild -->
 
+    <script type="text/javascript"> //<![CDATA[
+    var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
+    document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+    //]]>
+    </script>
+
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -34,6 +46,15 @@
       <div ui-view autoscroll="true" ng-animate="'view'" class="view-frame"></div>
     </div>
 
+
+    <footer class="footer">
+      <div class="container">
+        <script language="JavaScript" type="text/javascript">
+          TrustLogo("http://app.econdos.com.br/img/comodo_secure_seal_76x26_transp.png", "CL1", "none");
+        </script>
+        <a  href="https://www.positivessl.com/" id="comodoTL">Positive SSL</a>
+      </div>
+    </footer>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
