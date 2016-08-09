@@ -24,7 +24,7 @@
                         <input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
                       </label>
                       <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img ng-src="{{ picture.url }}" />
+                        <img ng-src="{{ trustSrc(picture.url) }}" />
                         <div class="close" ng-click="vm.removePicture($index)">
                           <i class="fa fa-times"></i>
                         </div>
@@ -41,14 +41,14 @@
                       <textarea ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                      <tags-input ng-model="vm.occurrence.viewers" 
-                          placeholder="Enviar esta ocorrência para..." 
-                          display-property="name" 
-                          key-property="_id" 
+                      <tags-input ng-model="vm.occurrence.viewers"
+                          placeholder="Enviar esta ocorrência para..."
+                          display-property="name"
+                          key-property="_id"
                           add-from-autocomplete-only="true"
                           replace-spaces-with-dashes="false">
-                        <auto-complete source="vm.getUsers($query)" 
-                            load-on-focus="true" 
+                        <auto-complete source="vm.getUsers($query)"
+                            load-on-focus="true"
                             load-on-empty="true"
                             display-property="name"
                             min-length="0"></auto-complete>
@@ -107,7 +107,7 @@
                         <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
                       </label>
                       <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img src="{{ picture.url }}" />
+                        <img ng-src="{{ picture.url }}" />
                         <div class="close" ng-click="vm.removePicture($index)">
                           <i class="fa fa-times"></i>
                         </div>
@@ -193,7 +193,7 @@
               <br /><br />
               <div class="list-group-item comment" ng-repeat="comment in occurrence.comments | orderBy:'createdAt'">
                 <div class="row-picture" ng-show="comment.createdBy.picture">
-                  <img class="circle" src="{{ comment.createdBy.picture.url }}" alt="icon">
+                  <img class="circle" ng-src="{{ trustSrc(comment.createdBy.picture.url) }}" alt="icon">
                 </div>
                 <div class="row-content">
                   <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }} <small am-time-ago="comment.createdAt"></small></h3>

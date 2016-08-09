@@ -4,7 +4,7 @@ export let lightgallery = () => {
   return {
     restrict: 'A',
     link: function(scope, element) {
-      if (scope.$last) element.parent().lightGallery();
+      if (scope.$last) element.parent().lightGallery({thumbnail: true, hash: false});
     }
   };
 }
