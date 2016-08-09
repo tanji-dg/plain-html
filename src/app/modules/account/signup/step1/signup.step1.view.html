@@ -14,7 +14,7 @@
           <li>
             <a ng-href="#/signup/2" title="Meu Condomínio">
               <span class="icon"><i class="fa fa-building"></i></span>
-              <span class="title">Meus Condomínios</span>
+              <span class="title">Meu Condomínio</span>
             </a>
           </li>
         </ul>
@@ -56,17 +56,17 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-2">   
-            <br />  
+            <div class="col-md-2">
+            <br />
               <label class="form-file">
-                <div class="change-user-picture">              
+                <div class="change-user-picture">
                   <img src="{{ vm.user.picture.url }}" ng-show="vm.user.picture" />
-                  <div class="empty" ng-hide="vm.user.picture"></div>              
-                  <div class="link" ng-hide="vm.uploading">Alterar Imagem</div>          
+                  <div class="empty" ng-hide="vm.user.picture"></div>
+                  <div class="link" ng-hide="vm.uploading">Alterar Imagem</div>
                   <div class="link" ng-show="vm.uploading">Carregando...</div>
                 </div>
                 <input type="file" class="hidden" onchange="angular.element(this).scope().uploadPicture(this)">
-              </label>              
+              </label>
             </div>
           </div>
           <button ng-disabled="user.$invalid" class="btn btn-primary btn-raised" type="submit">
@@ -74,13 +74,13 @@
           </button>
           <a href="#/signup" class="btn btn-flat btn-default">
             Voltar
-          </a> 
+          </a>
           <div>
             <br />
             <small class="text-danger" ng-if="user.$error.required">
               Preencha todos os campos!
             </small>
-          </div>      
+          </div>
         </form>
       </div>
     </div>
