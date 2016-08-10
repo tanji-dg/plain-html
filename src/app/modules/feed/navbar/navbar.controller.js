@@ -1,9 +1,10 @@
 export class FeedNavbarController {
 
-  constructor($window,$location, Session, CondoService, UserResource) {
+  constructor($window,$location, Session, CondoService, UserResource, $state) {
     'ngInject';
 
     this.window = $window;
+    this.state = $state;
     this._ = this.window._;
     this.swal = this.window.swal;
     this.Session = Session;

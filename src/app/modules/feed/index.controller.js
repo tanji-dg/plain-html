@@ -1,10 +1,11 @@
 export class FeedController {
 
   constructor($scope, $window, $location, $rootScope, $q, $http, $sce,
-              Upload, cloudinary, Session, CondoResource, CondoService) {
+              Upload, cloudinary, Session, CondoResource, CondoService, $state) {
     'ngInject';
 
     this.window = $window;
+    this.state = $state;
     this.swal = this.window.swal;
     this.location = $location;
     this.CondoResource = CondoResource;
@@ -21,13 +22,13 @@ export class FeedController {
     if(!this.condo) {
       var that = this;
       this.window.swal({
-        title: "Ops!",   
-        text: "Você não possui nenhum condomínio adicionado.",   
-        type: "error",   
-        showCancelButton: false,   
-        confirmButtonColor: "#FFA90C",   
+        title: "Ops!",
+        text: "Você não possui nenhum condomínio adicionado.",
+        type: "error",
+        showCancelButton: false,
+        confirmButtonColor: "#FFA90C",
         confirmButtonText: "Escolher um condomínio"
-      }, function(){   
+      }, function(){
         that.window.location.href = '#/meus-condominios';
       });
       return;
@@ -91,8 +92,9 @@ export class FeedController {
 
   addOccurrence () {
     return this.CondoResource.addOccurrence({'_id': this.condo._id}, this.occurrence).$promise.then(() => {
-      this.swal("Publicado!", "Seu post foi enviado com sucesso.", "success");
+      this.swal("Publicado!", "Sua postagem foi recebida com sucesso.", "success");
       this.occurrence = {type: this.occurrence.type};
+      this.state.transitionTo('feed');
     });
   }
 
