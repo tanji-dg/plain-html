@@ -12,7 +12,7 @@
       <ul class="nav navbar-nav navbar-left">
         <li>
           <a ng-href="#/feed{{vm.state.current.name === 'feed.new' ? '' : '/new'}}" class="btn btn-sm btn-success btn-add-occurrence">
-            <i class="fa fa-plus"></i> &nbsp; Nova Ocorrência
+            <i class="fa" ng-class="{'fa-plus': vm.state.current.name === 'feed', 'fa-minus': vm.state.current.name === 'feed.new'}"></i> &nbsp; Nova Ocorrência
           </a>
         </li>
       </ul>
