@@ -95,7 +95,7 @@ gulp.task('fonts:fontawesome', function() {
 });
 
 gulp.task('img', ['img:lg'], function () {
-  return gulp.src(path.join(conf.paths.src, '/assets/images/*'))
+  return gulp.src(path.join(conf.paths.src, '/assets/images/**/*'))
     .pipe($.flatten())
     .pipe(gulp.dest(path.join(conf.paths.dist, '/img/')));
 });
