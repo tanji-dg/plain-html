@@ -25,6 +25,8 @@ angular
     'angularPromiseButtons',
     'angularMoment',
     'cloudinary',
+    'ngMask',
+    'moment-picker',
 
     Core.name,
     Modules.name

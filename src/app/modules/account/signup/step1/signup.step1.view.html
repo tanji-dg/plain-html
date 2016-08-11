@@ -44,7 +44,7 @@
                       ng-model="vm.user.birthDate" ng-minlength="10" ui-date-mask required>
                   </div>
                   <small class="text-danger" ng-if="user.birthDate.$error.minlength || user.birthDate.$error.date">
-                    Verifique a data! Ex: {{ vm.date | date:'dd-MM-yyyy' }}. <br /><br />
+                    Verifique a data! Ex: {{ vm.date | date:'dd/MM/yyyy' }}. <br /><br />
                   </small>
                 </div>
                 <div class="col-md-6">
