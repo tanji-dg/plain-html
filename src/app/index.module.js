@@ -27,6 +27,7 @@ angular
     'cloudinary',
     'ngMask',
     'moment-picker',
+    'ngFx',
 
     Core.name,
     Modules.name

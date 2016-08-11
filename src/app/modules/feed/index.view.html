@@ -42,15 +42,19 @@
               </div>
             </header>
           </div>
-
           <div class="panel-body occurrence">
-            <div class="btn-group options pull-right" ng-if="occurrence.type == 'VOTING'">
-              <button type="button" ng-class="{'btn-success': vm.findOccurrenceVote(occurrence.favorVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="occurrence.isVoting">
-                Sim <span class="badge" ng-show="occurrence.favorVotes.length">{{ occurrence.favorVotes.length }}</span>
-              </button>
-              <button type="button" ng-class="{'btn-danger': vm.findOccurrenceVote(occurrence.againstVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="occurrence.isVoting">
-                Não <span class="badge" ng-show="occurrence.againstVotes.length">{{ occurrence.againstVotes.length }}</span>
-              </button>
+            <div class="pull-right" ng-if="occurrence.type == 'VOTING'">
+              <div class="btn-group options">
+                <button type="button" ng-class="{'btn-success': vm.findOccurrenceVote(occurrence.favorVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="!occurrence.isVoting">
+                  Sim <span class="badge" ng-show="occurrence.favorVotes.length">{{ occurrence.favorVotes.length }}</span>
+                </button>
+                <button type="button" ng-class="{'btn-danger': vm.findOccurrenceVote(occurrence.againstVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="!occurrence.isVoting">
+                  Não <span class="badge" ng-show="occurrence.againstVotes.length">{{ occurrence.againstVotes.length }}</span>
+                </button>
+              </div>
+              <br>
+              <small ng-if="!occurrence.isVoting">Votação fechada!</small>
+              <small ng-if="occurrence.isVoting">Votação será encerrada <span am-time-ago="occurrence.votingUntil"></span></small>
             </div>
             <p class="description">
               {{ occurrence.description }}
