@@ -1,0 +1,38 @@
+.modal-body-crudCondoUser {
+	overflow-y: auto;
+}
+
+.modal-dialog-extendedDisplay {
+	width: 900px;
+}
+
+.label-default {
+  &.econdos {
+    background-color: $color-primary;
+  }
+}
+
+.panel-default {
+  &.econdos {
+    border: 0px;
+  }
+}
+
+.material-icons {
+  &.red {
+    color: #E61610;
+  }
+
+  &.green {
+    color: #72BB53;
+  }
+  
+  &.blue {
+    color: #206CF5;
+  }
+}
+  
+thead th {
+  background-color: #5A5A5A;
+  color: #EEEEEE;
+}
