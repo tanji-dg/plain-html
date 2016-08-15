@@ -4,14 +4,9 @@ export let RunBlock = ($rootScope, $timeout, $window, $ionicPlatform, $state, $s
   'ngInject';
   Session.create();
 
-  var deviceInformation = ionic.Platform.device();
-  if (deviceInformation.platform === "browser"){
-    $rootScope.isBrowser = true;
-  }else{
-    $rootScope.isBrowser = false;
-  }
 
   $ionicPlatform.ready(function() {
+    $rootScope.isBrowser = ionic && ionic.Platform && ionic.Platform.platforms && ionic.Platform.platforms.indexOf('browser') > -1;
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if ($window.cordova && window.cordova.plugins && $window.cordova.plugins.Keyboard) {
