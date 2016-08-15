@@ -1,6 +1,6 @@
 {
   "name": "econdos",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "dependencies": {
     "angular-animate": "^1.5.8",
     "get-query-modifier": "^1.0.0"
