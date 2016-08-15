@@ -28,6 +28,8 @@ angular
     'ngMask',
     'moment-picker',
     'ngFx',
+    'ionic',
+    'ionic.service.core',
 
     Core.name,
     Modules.name
