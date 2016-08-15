@@ -933,14 +933,14 @@ a.simple {
 
   	.images {
 			margin: 0;
-			padding: 0; 
+			padding: 0;
 
   		.image {
   			list-style: none;
   			display: inline-block;
   			cursor: pointer;
   		}
-  		
+
   		img {
 		    width: 90px;
 		    height: 90px;
@@ -951,4 +951,10 @@ a.simple {
   	}
   }
 
+}
+
+@media screen and (min-width: 762px) {
+  .platform-browser ion-content {
+    overflow-y: auto !important;
+  }
 }

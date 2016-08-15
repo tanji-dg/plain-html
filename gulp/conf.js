@@ -33,7 +33,8 @@ exports.paths = {
   dist: 'dist',
   tmp : '.tmp',
   publish : '.publish',
-  e2e : 'e2e'
+  e2e : 'e2e',
+  root : './'
 };
 
 /**
