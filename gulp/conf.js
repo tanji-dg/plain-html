@@ -34,6 +34,7 @@ exports.paths = {
   tmp : '.tmp',
   publish : '.publish',
   e2e : 'e2e',
+  ionic : 'ionic',
   root : './'
 };
 

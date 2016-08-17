@@ -17,7 +17,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#/feed">Página Inicial</a></li>
+        <li><a ui-sref="feed">Página Inicial</a></li>
         <li class="dropdown" uib-dropdown>
           <a href="#" class="dropdown-toggle" uib-dropdown-toggle ng-click="vm.markNotificationsAsRead()">
             <i class="fa fa-bell hidden-xs"></i>
@@ -61,8 +61,8 @@
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu" uib-dropdown-menu>
-            <li><a href="#/meus-dados"><i class="fa fa-user"></i> &nbsp; Meu Dados</a></li>
-            <li><a href="#/meus-condominios"><i class="fa fa-building"></i> &nbsp; Meu Condomínio</a></li>
+            <li><a ui-sref="feedUser"><i class="fa fa-user"></i> &nbsp; Meu Dados</a></li>
+            <li><a ui-sref="feedCondos"><i class="fa fa-building"></i> &nbsp; Meu Condomínio</a></li>
             <li><a ng-click="vm.logOut()"><i class="fa fa-sign-out"></i> &nbsp; Sair</a></li>
           </ul>
         </li>

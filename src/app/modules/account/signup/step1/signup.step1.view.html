@@ -6,13 +6,13 @@
       <div class="container-block">
         <ul class="steps">
           <li class="active">
-            <a ng-href="#/signup/1" title="Informações Pessoais">
+            <a ui-sref="accountSignupStep1" title="Informações Pessoais">
               <span class="icon"><i class="fa fa fa-user"></i></span>
               <span class="title">Informações Pessoais</span>
             </a>
           </li>
           <li>
-            <a ng-href="#/signup/2" title="Meu Condomínio">
+            <a ui-sref="accountSignupStep2" title="Meu Condomínio">
               <span class="icon"><i class="fa fa-building"></i></span>
               <span class="title">Meu Condomínio</span>
             </a>
@@ -72,7 +72,7 @@
           <button ng-disabled="user.$invalid" class="btn btn-primary btn-raised" type="submit">
             Próximo Passo
           </button>
-          <a href="#/signup" class="btn btn-flat btn-default">
+          <a ui-sref="accountSignupStep0" class="btn btn-flat btn-default">
             Voltar
           </a>
           <div>
