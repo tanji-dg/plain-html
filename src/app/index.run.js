@@ -25,7 +25,7 @@ export let RunBlock = ($rootScope, $timeout, $window, $ionicPlatform, $ionicPopu
       if (updateAvailable) {
         deploy.download().then(function() {
           deploy.extract().then(function() {
-            deploy.unwatch();
+            // deploy.unwatch();
             $ionicPopup.show({
               title: 'Atualização Disponível',
               subTitle: 'Uma nova atualização acabou de ser instalada. Gostaria de reiniciar o sistema para carregar as novas funcionalidades?',

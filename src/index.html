@@ -53,42 +53,43 @@
     </script>
 
   </head>
-  <body>
-    <ion-content class="platform-browser">
-    <!--[if lt IE 10]>
-      <p class="browsehappy">Você está usando um browser <strong>desatualizado</strong>. Por favor, <a href="http://browsehappy.com/">Autalize seu Browser</a> para obter melhor performance.</p>
-    <![endif]-->
+  <body class="index">
 
-    <div ng-if="$resolved" class="view-animate-container main-content">
-      <div ui-view autoscroll="true" ng-animate="'view'" class="view-frame"></div>
-    </div>
+    <ion-content class="platform-browser">
+      <!--[if lt IE 10]>
+        <p class="browsehappy">Você está usando um browser <strong>desatualizado</strong>. Por favor, <a href="http://browsehappy.com/">Autalize seu Browser</a> para obter melhor performance.</p>
+      <![endif]-->
+
+      <div ng-if="$resolved" class="view-animate-container main-content">
+        <div ui-view autoscroll="true" ng-animate="'view'" class="view-frame"></div>
+      </div>
 
     </ion-content>
 
-    <!--<footer class="footer">-->
-      <!--<div class="container">-->
-        <!--<script language="JavaScript" type="text/javascript">-->
-          <!--TrustLogo("https://app.econdos.com.br/img/comodo_secure_seal_76x26_transp.png", "CL1", "none");-->
-        <!--</script>-->
-        <!--<a  href="https://www.positivessl.com/" id="comodoTL">Positive SSL</a>-->
-      <!--</div>-->
-    <!--</footer>-->
+      <!--<footer class="footer">-->
+        <!--<div class="container">-->
+          <!--<script language="JavaScript" type="text/javascript">-->
+            <!--TrustLogo("https://app.econdos.com.br/img/comodo_secure_seal_76x26_transp.png", "CL1", "none");-->
+          <!--</script>-->
+          <!--<a  href="https://www.positivessl.com/" id="comodoTL">Positive SSL</a>-->
+        <!--</div>-->
+      <!--</footer>-->
 
-    <!-- build:js(src) scripts/vendor.js -->
-    <!-- bower:js -->
-    <!-- run `gulp inject` to automatically populate bower script dependencies -->
-    <!-- endbower -->
-    <!-- endbuild -->
+      <!-- build:js(src) scripts/vendor.js -->
+      <!-- bower:js -->
+      <!-- run `gulp inject` to automatically populate bower script dependencies -->
+      <!-- endbower -->
+      <!-- endbuild -->
 
-    <!-- build:js({.tmp/serve,.tmp/partials}) scripts/app.js -->
-    <!-- inject:js -->
-    <!-- js files will be automatically insert here -->
-    <!-- endinject -->
+      <!-- build:js({.tmp/serve,.tmp/partials}) scripts/app.js -->
+      <!-- inject:js -->
+      <!-- js files will be automatically insert here -->
+      <!-- endinject -->
 
-    <!-- inject:partials -->
-    <!-- angular templates will be automatically converted in js and inserted here -->
-    <!-- endinject -->
-    <!-- endbuild -->
+      <!-- inject:partials -->
+      <!-- angular templates will be automatically converted in js and inserted here -->
+      <!-- endinject -->
+      <!-- endbuild -->
 
   </body>
 </html>

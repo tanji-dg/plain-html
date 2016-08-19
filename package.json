@@ -8,7 +8,9 @@
   "scripts": {
     "start": "gulp serve",
     "test": "gulp test",
-    "build prod": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build"
+    "build prod": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build",
+    "ionic:build:copy": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build && gulp ionic:copy",
+    "ionic:build:copy:upload": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build && gulp ionic:copy && cd ionic && ionic upload && cd .."
   },
   "devDependencies": {
     "babel-core": "~5.8.25",

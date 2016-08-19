@@ -43,7 +43,7 @@ gulp.task('inject', ['ioconfig', 'scripts', 'styles', 'fonts', 'img'], function 
 gulp.task('ioconfig', function () {
   var src = path.join(conf.wiredep.directory, 'ionic-platform-web-client/dist/ionic.io.bundle*.js');
   var dest = path.join(conf.wiredep.directory, 'ionic-platform-web-client/dist');
-  var ioconfig = fs.readFileSync(path.join(conf.paths.ionic, '.io-config.json'), "utf8").slice(0, -1);
+  var ioconfig = fs.readFileSync(path.join(conf.paths.ionic, '.io-config.json'), "utf8");
   var start = '"IONIC_SETTINGS_STRING_START";var settings =';
   var end =  '; return { get: function(setting) { if (settings[setting]) { return settings[setting]; } return null; } };"IONIC_SETTINGS_STRING_END"';
   var replaceBy = start + ioconfig + end;
