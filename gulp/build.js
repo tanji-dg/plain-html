@@ -75,6 +75,7 @@ gulp.task('fonts', ['other', 'fonts:lg', 'fonts:fontawesome'], function () {
   return gulp.src(path.join(conf.paths.src, '/assets/fonts/*'))
     .pipe($.filter('*.{eot,svg,ttf,woff,woff2}'))
     .pipe($.flatten())
+    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/fonts/')))
     .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/')));
 });
 
