@@ -15,7 +15,7 @@ export class CondoModalsCreateController {
     return this.condo.$save().then(c => {
       condo._id = c._id
       this.modalInstance.close(condo);
-    }, (response) => {
+    }, () => {
       this.window.swal("Ops!", "Este condomínio já existe!", "error");
       this.modalInstance.dismiss();
     });

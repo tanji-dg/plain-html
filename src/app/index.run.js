@@ -1,6 +1,6 @@
 // Bug do ui-router https://github.com/angular-ui/ui-router/issues/105
 // deve-se manter $state, $stateParams
-export let RunBlock = ($rootScope, $timeout, $window, $ionicPlatform, $ionicPopup,
+export let RunBlock = ($rootScope, $timeout, $window, $ionicPlatform, $ionicPopup, $log,
                        $state, $stateParams, Session) => {
   'ngInject';
   Session.create();
@@ -17,10 +17,10 @@ export let RunBlock = ($rootScope, $timeout, $window, $ionicPlatform, $ionicPopu
     }
     if ($window.StatusBar) {
       // org.apache.cordova.statusbar required
-      if (StatusBar) StatusBar.styleDefault();
+      $window.StatusBar.styleDefault();
     }
 
-    var deploy = new Ionic.Deploy();
+    var deploy = new $window.Ionic.Deploy();
     deploy.watch().then(function() {}, function() {}, function(updateAvailable) {
       if (updateAvailable) {
         deploy.download().then(function() {
@@ -47,7 +47,7 @@ export let RunBlock = ($rootScope, $timeout, $window, $ionicPlatform, $ionicPopu
 
     if ($window.plugins && $window.plugins.OneSignal) {
       var notificationOpenedCallback = function(jsonData) {
-        // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+        $log('didReceiveRemoteNotificationCallBack: ' + jsonData.toJson());
       };
 
       $window.plugins.OneSignal.init("26c111f3-a93c-48fb-a572-06567cf9ae92",
@@ -58,9 +58,9 @@ export let RunBlock = ($rootScope, $timeout, $window, $ionicPlatform, $ionicPopu
       $window.plugins.OneSignal.enableInAppAlertNotification(true);
 
       $window.plugins.OneSignal.getIds(function(ids) {
-        document.getElementById("OneSignalUserID").innerHTML = "UserID: " + ids.userId;
-        document.getElementById("OneSignalPushToken").innerHTML = "PushToken: " + ids.pushToken;
-        // console.log('getIds: ' + JSON.stringify(ids));
+        // document.getElementById("OneSignalUserID").innerHTML = "UserID: " + ids.userId;
+        // document.getElementById("OneSignalPushToken").innerHTML = "PushToken: " + ids.pushToken;
+        $log('getIds: ' + ids.toJson());
       });
 
       $window.plugins.OneSignal.sendTags({name: "Ricardo Paiva", email: "ricardo@ricardopaiva.com"});

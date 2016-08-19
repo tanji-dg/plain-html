@@ -50,12 +50,12 @@ export class FeedController {
       return this.occurrences.find(o => o._id == occurrenceId);
     };
 
-    $rootScope.$on('OCCURRENCE-NEW', (event, notification) => {
+    let onOccurrenceNew = $rootScope.$on('OCCURRENCE-NEW', (event, notification) => {
       this.occurrences.unshift(notification.occurrence);
       $rootScope.$apply();
     });
 
-    $rootScope.$on('OCCURRENCE-LIKE', (event, notification) => {
+    let onOccurrenceLike = $rootScope.$on('OCCURRENCE-LIKE', (event, notification) => {
       let occurrence = findOccurrence(notification);
       let index = occurrence.likers.indexOf(notification.createdBy);
       if (index == -1) {
@@ -64,7 +64,7 @@ export class FeedController {
       }
     });
 
-    $rootScope.$on('OCCURRENCE-DISLIKE', (event, notification) => {
+    let onOccurrenceDislike = $rootScope.$on('OCCURRENCE-DISLIKE', (event, notification) => {
       let occurrence = findOccurrence(notification);
       let index = occurrence.likers.indexOf(notification.createdBy);
       if (index > -1) {
@@ -73,12 +73,19 @@ export class FeedController {
       }
     });
 
-    $rootScope.$on('COMMENT-NEW', (event, notification) => {
+    let onCommentNew = $rootScope.$on('COMMENT-NEW', (event, notification) => {
       let occurrence = findOccurrence(notification);
       occurrence.comments = occurrence.comments || [];
       occurrence.comments.unshift(notification.comment);
       occurrence.commentsTotal++;
       $rootScope.$apply();
+    });
+
+    $scope.$on('$destroy', function () {
+      onOccurrenceNew();
+      onOccurrenceLike();
+      onOccurrenceDislike();
+      onCommentNew();
     });
 
     $scope.trustSrc = function(src) {
@@ -209,8 +216,7 @@ export class FeedController {
         vm.window.swal("Ops!", "Não foi possível salvar esta(s) imagen(s). \nPor favor, tente novamente mais tarde.", "error");
       });
     }
-
-    document.getElementById('occurrenceFiles').value = null;
+    element.value = null;
   }
 
   removePicture (index) {
