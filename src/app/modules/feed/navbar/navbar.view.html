@@ -11,7 +11,7 @@
     <div class="navbar-collapse collapse navbar-responsive-collapse" uib-collapse="vm.isCollapsed">
       <ul class="nav navbar-nav navbar-left">
         <li>
-          <a ng-href="#/feed{{vm.state.current.name === 'feed.new' ? '' : '/new'}}" class="btn btn-sm btn-success btn-add-occurrence">
+          <a ui-sref="{{vm.state.current.name === 'feed' ? 'feed.new' : 'feed'}}" class="btn btn-sm btn-success btn-add-occurrence">
             <i class="fa" ng-class="{'fa-plus': vm.state.current.name === 'feed', 'fa-minus': vm.state.current.name === 'feed.new'}"></i> &nbsp; Nova Ocorrência
           </a>
         </li>

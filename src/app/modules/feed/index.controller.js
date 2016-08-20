@@ -1,10 +1,11 @@
 export class FeedController {
 
-  constructor($scope, $window, $location, $rootScope, $q, $http, $sce,
+  constructor($scope, $window, $location, $rootScope, $q, $http, $sce, $timeout,
               Upload, cloudinary, Session, CondoResource, CondoService, $state) {
     'ngInject';
 
     this.window = $window;
+    this.timeout = $timeout;
     this.state = $state;
     this.swal = this.window.swal;
     this.location = $location;
@@ -95,6 +96,7 @@ export class FeedController {
 
   getOccurrences () {
     this.occurrences = this.CondoResource.getOccurrences({'_id': this.condo._id});
+    this.occurrences.$promise.then(() => this.occurrences.$resolved = true);
   }
 
   addOccurrence () {
@@ -141,15 +143,15 @@ export class FeedController {
   }
 
   showComments (occurrence) {
+    occurrence.$resolved = false;
     return this.CondoResource.getOccurrenceComments({'_id' : this.condo._id, 'occurrenceId' : occurrence._id}).$promise.then((comments) => {
       occurrence.comments = comments;
-      occurrence.isShowingAllComments = true;
+      // this.timeout(() => occurrence.$resolved = true, 500);
     });
   }
 
   hideComments (occurrence) {
     occurrence.comments = occurrence.comments.slice(0, 3);
-      occurrence.isShowingAllComments = false;
   }
 
   voteOccurrence (occurrence, isFor) {
