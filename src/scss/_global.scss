@@ -92,6 +92,10 @@ h1, h2, h3, h4 {
   border: none;
   border-radius: 3px;
 
+  &.btn-table {
+    padding: 5px 10px;
+  }
+  
   &.btn-sm {
     font-size: 0.9em;
   }

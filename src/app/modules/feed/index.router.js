@@ -21,10 +21,9 @@ export let routerConfig = ($stateProvider) => {
     'url'        : '/meus-condominios',
     'templateUrl': 'app/modules/feed/condos/condos.view.html'
   });
-
+  
   $stateProvider.state('feedCondoResidents', {
-    'url'        : '/:condoId/integrantes',
-    'templateUrl': 'app/modules/feed/residents/residents.view.html'
+    'url'         : '/meu-condominio/:condoId/integrantes',
+    'templateUrl' : 'app/modules/condo/residents/residents.view.html'
   });
-
 };
