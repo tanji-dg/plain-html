@@ -1,10 +1,12 @@
 export let ConfigBlock = (
-    $logProvider, $uiViewScrollProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider,
+  $logProvider, $uiViewScrollProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider,
     localStorageServiceProvider, angularPromiseButtonsProvider, cloudinaryProvider
   ) => {
   'ngInject';
 
-  // $ionicConfigProvider.scrolling.jsScrolling(true);
+  $ionicConfigProvider.scrolling.jsScrolling(false);
+  $ionicConfigProvider.platform.android.scrolling.jsScrolling(false);
+  $ionicConfigProvider.platform.ios.scrolling.jsScrolling(true);
 
   $.material.init();
   cloudinaryProvider.set("cloud_name", "econdos");

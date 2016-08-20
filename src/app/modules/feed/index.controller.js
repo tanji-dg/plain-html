@@ -1,10 +1,11 @@
 export class FeedController {
 
-  constructor($scope, $window, $location, $rootScope, $q, $http, $sce,
+  constructor($scope, $window, $location, $rootScope, $q, $http, $sce, $timeout,
               Upload, cloudinary, Session, CondoResource, CondoService, $state) {
     'ngInject';
 
     this.window = $window;
+    this.timeout = $timeout;
     this.state = $state;
     this.swal = this.window.swal;
     this.location = $location;
@@ -50,12 +51,12 @@ export class FeedController {
       return this.occurrences.find(o => o._id == occurrenceId);
     };
 
-    $rootScope.$on('OCCURRENCE-NEW', (event, notification) => {
+    let onOccurrenceNew = $rootScope.$on('OCCURRENCE-NEW', (event, notification) => {
       this.occurrences.unshift(notification.occurrence);
       $rootScope.$apply();
     });
 
-    $rootScope.$on('OCCURRENCE-LIKE', (event, notification) => {
+    let onOccurrenceLike = $rootScope.$on('OCCURRENCE-LIKE', (event, notification) => {
       let occurrence = findOccurrence(notification);
       let index = occurrence.likers.indexOf(notification.createdBy);
       if (index == -1) {
@@ -64,7 +65,7 @@ export class FeedController {
       }
     });
 
-    $rootScope.$on('OCCURRENCE-DISLIKE', (event, notification) => {
+    let onOccurrenceDislike = $rootScope.$on('OCCURRENCE-DISLIKE', (event, notification) => {
       let occurrence = findOccurrence(notification);
       let index = occurrence.likers.indexOf(notification.createdBy);
       if (index > -1) {
@@ -73,12 +74,19 @@ export class FeedController {
       }
     });
 
-    $rootScope.$on('COMMENT-NEW', (event, notification) => {
+    let onCommentNew = $rootScope.$on('COMMENT-NEW', (event, notification) => {
       let occurrence = findOccurrence(notification);
       occurrence.comments = occurrence.comments || [];
       occurrence.comments.unshift(notification.comment);
       occurrence.commentsTotal++;
       $rootScope.$apply();
+    });
+
+    $scope.$on('$destroy', function () {
+      onOccurrenceNew();
+      onOccurrenceLike();
+      onOccurrenceDislike();
+      onCommentNew();
     });
 
     $scope.trustSrc = function(src) {
@@ -88,6 +96,7 @@ export class FeedController {
 
   getOccurrences () {
     this.occurrences = this.CondoResource.getOccurrences({'_id': this.condo._id});
+    this.occurrences.$promise.then(() => this.occurrences.$resolved = true);
   }
 
   addOccurrence () {
@@ -134,15 +143,15 @@ export class FeedController {
   }
 
   showComments (occurrence) {
+    occurrence.$resolved = false;
     return this.CondoResource.getOccurrenceComments({'_id' : this.condo._id, 'occurrenceId' : occurrence._id}).$promise.then((comments) => {
       occurrence.comments = comments;
-      occurrence.isShowingAllComments = true;
+      // this.timeout(() => occurrence.$resolved = true, 500);
     });
   }
 
   hideComments (occurrence) {
     occurrence.comments = occurrence.comments.slice(0, 3);
-      occurrence.isShowingAllComments = false;
   }
 
   voteOccurrence (occurrence, isFor) {
@@ -209,8 +218,7 @@ export class FeedController {
         vm.window.swal("Ops!", "Não foi possível salvar esta(s) imagen(s). \nPor favor, tente novamente mais tarde.", "error");
       });
     }
-
-    document.getElementById('occurrenceFiles').value = null;
+    element.value = null;
   }
 
   removePicture (index) {

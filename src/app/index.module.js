@@ -30,6 +30,7 @@ angular
     'ngFx',
     'ionic',
     'ionic.service.core',
+    'monospaced.elastic',
 
     Core.name,
     Modules.name

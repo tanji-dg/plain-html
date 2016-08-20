@@ -4,7 +4,7 @@
 
   <div ui-view></div>
 
-	<div class="container-fluid">
+	<div class="container-fluid body-content">
     <div class="row" ng-if="vm.Session.getCondo()">
       <div class="col-sm-12">
         <div class="text-center">
@@ -73,11 +73,14 @@
           </div>
 
           <div class="panel-footer comments">
-            <h4>Comentários <span class="badge">{{ occurrence.commentsTotal }}</span></h4>
+            <span>Comentários <span class="badge">{{ occurrence.commentsTotal }}</span>
+              &nbsp;&nbsp;
+              <a href="javascript:void(0);" ng-show="occurrence.commentsTotal > 3" ng-click="occurrence.comments.length === occurrence.commentsTotal ? vm.hideComments(occurrence) : vm.showComments(occurrence)" promise-btn>
+                <i class="fa fa-angle-up" ng-class="{'fa-angle-up' : occurrence.comments.length === occurrence.commentsTotal, 'fa-angle-down': occurrence.comments.length < occurrence.commentsTotal}"></i>
+                <small ng-bind="occurrence.comments.length === occurrence.commentsTotal ? 'Esconder comentários' : 'Ver todos os comentários'"></small>
+              </a>
+            </span>
             <div class="list-group">
-              <a href="javascript:void(0);" class="simple" ng-click="vm.showComments(occurrence)" ng-hide="occurrence.isShowingAllComments || !occurrence.comments.length || occurrence.commentsTotal <= occurrence.comments.length" promise-btn><i class="fa fa-angle-down"></i> Ver todos os comentários</a>
-              <a href="javascript:void(0);" class="simple" ng-click="vm.hideComments(occurrence)" ng-show="occurrence.isShowingAllComments"><i class="fa fa-angle-up"></i> Esconder comentários</a>
-              <br /><br />
               <div class="list-group-item comment" ng-repeat="comment in occurrence.comments | orderBy:'createdAt'">
                 <div class="media">
                   <div class="media-left row-picture">
@@ -88,7 +91,7 @@
                   <div class="media-body">
                     <div class="row-content">
                       <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }} <small am-time-ago="comment.createdAt"></small></h3>
-                      <p class="list-group-item-text">{{ comment.description }}</p>
+                      <pre class="list-group-item-text">{{ comment.description }}</pre>
                     </div>
                   </div>
                 </div>
@@ -96,7 +99,7 @@
             </div>
             <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn class="list-group">
               <div class="input-group">
-                <input type="text" ng-model="occurrence.newComment" class="form-control" placeholder="Escreva um comentário">
+                <textarea class="padding-5 form-control custom-control" ng-keyup="$event.keyCode == 13 && !$event.shiftKey && vm.commentOccurrence(occurrence)" rows="1" msd-elastic ng-model="occurrence.newComment" placeholder="Escreva um comentário"></textarea>
                 <span class="input-group-btn">
                   <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-angle-right"></i></button>
                 </span>
@@ -104,11 +107,11 @@
             </form>
           </div>
         </div>
-        <div class="text-center" ng-hide="vm.occurrences.length">
+        <div class="text-center" ng-show="!vm.occurrences.length && vm.occurrences.$resolved">
           <p>Nenhuma ocorrência foi encontrada</p>
         </div>
         <div class="text-center" ng-show="vm.occurrences.length > 0 && filteredOccurrences.length === 0">
-          <p>Ops! Nenhuma ocorrência deste tipo foi postada.</p>
+          <p>Nenhuma ocorrência deste tipo foi postada.</p>
         </div>
       </div>
     </div>

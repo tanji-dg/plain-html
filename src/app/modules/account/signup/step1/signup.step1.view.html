@@ -19,67 +19,51 @@
           </li>
         </ul>
         <form name="user" ng-submit="vm.save()" promise-btn>
-          <div class="row">
-            <div class="col-md-10">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group form-group-label">
-                    <input class="form-control floating-label"
-                           ng-model="vm.user.firstName"
-                           type="text" placeholder="Nome" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group form-group-label">
-                    <input class="form-control floating-label"
-                           ng-model="vm.user.lastName"
-                           type="text" placeholder="Sobrenome" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group form-group-label">
-                    <input class="form-control floating-label mask-date"
-                      name="birthDate"
-                      type="text" placeholder="Data de Nascimento*"
-                      ng-model="vm.user.birthDate" ng-minlength="10" ui-date-mask required>
-                  </div>
-                  <small class="text-danger" ng-if="user.birthDate.$error.minlength || user.birthDate.$error.date">
-                    Verifique a data! Ex: {{ vm.date | date:'dd/MM/yyyy' }}. <br /><br />
-                  </small>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group form-group-label">
-                    <input class="form-control floating-label mask-mobile"
-                           type="text" placeholder="Celular"
-                           ng-model="vm.user.phone" ui-br-phone-number>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2">
-            <br />
-              <label class="form-file">
-                <div class="change-user-picture">
-                  <img src="{{ vm.user.picture.url }}" ng-show="vm.user.picture" />
-                  <div class="empty" ng-hide="vm.user.picture"></div>
-                  <div class="link" ng-hide="vm.uploading">Alterar Imagem</div>
-                  <div class="link" ng-show="vm.uploading">Carregando...</div>
-                </div>
-                <input type="file" class="hidden" onchange="angular.element(this).scope().uploadPicture(this)">
-              </label>
-            </div>
+          <div class="form-group col-md-6 form-group-label">
+            <input class="form-control floating-label"
+                   ng-model="vm.user.firstName"
+                   type="text" placeholder="Nome*" required>
           </div>
-          <button ng-disabled="user.$invalid" class="btn btn-primary btn-raised" type="submit">
-            Próximo Passo
-          </button>
-          <a ui-sref="accountSignupStep0" class="btn btn-flat btn-default">
-            Voltar
-          </a>
-          <div>
-            <br />
-            <small class="text-danger" ng-if="user.$error.required">
-              Preencha todos os campos!
+          <div class="form-group col-md-6 form-group-label">
+            <input class="form-control floating-label"
+                   ng-model="vm.user.lastName"
+                   type="text" placeholder="Sobrenome*" required>
+          </div>
+          <div class="form-group col-md-6 form-group-label">
+            <input class="form-control floating-label mask-date"
+                   name="birthDate"
+                   type="text" placeholder="Data de Nascimento*"
+                   ng-model="vm.user.birthDate" ng-minlength="10" ui-date-mask required>
+            <small class="text-danger" ng-if="user.birthDate.$error.minlength || user.birthDate.$error.date">
+              Verifique a data! Ex: {{ vm.date | date:'dd/MM/yyyy' }}.
             </small>
+          </div>
+          <div class="form-group col-md-6 form-group-label">
+            <input class="form-control floating-label mask-mobile"
+                   type="text" placeholder="Celular*" required
+                   ng-model="vm.user.phone" ui-br-phone-number>
+          </div>
+          <div class="form-group col-md-12">
+              <div class="change-user-picture form-file">
+                <img src="{{ vm.user.picture.url }}" ng-show="vm.user.picture" />
+                <div class="empty" ng-hide="vm.user.picture"></div>
+                <div class="link" ng-hide="vm.uploading">Alterar Imagem</div>
+                <div class="link" ng-show="vm.uploading">Carregando...</div>
+              </div>
+              <input type="file" class="hidden" onchange="angular.element(this).scope().uploadPicture(this)">
+          </div>
+          <div class="form-group col-md-12" ng-if="user.$error.required">
+            <small class="text-danger">
+              *Preencha todos os campos!
+            </small>
+          </div>
+          <div class="form-group col-md-6">
+            <button ng-disabled="user.$invalid" class="btn btn-primary btn-raised" type="submit">
+              Próximo Passo
+            </button>
+            <a ui-sref="accountSignupStep0" class="btn btn-flat btn-default">
+              Voltar
+            </a>
           </div>
         </form>
       </div>
