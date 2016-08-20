@@ -3,9 +3,9 @@ export class CondoModalsDeleteCondoUserController {
   constructor($window, CondoResource, Session, UserResource, $uibModalInstance) {
     'ngInject';
 
-	this.window = $window;
+    this.window = $window;
     this._ = this.window._;
-	this.swal = this.window.swal;
+    this.swal = this.window.swal;
     this.user = new UserResource();
     this.Session = Session;
     this.UserResource = UserResource;
