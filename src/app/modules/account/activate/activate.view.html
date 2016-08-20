@@ -8,7 +8,7 @@
         <div ng-show="vm.account.$resolved">
           <div ng-show="vm.success">
             <h3>Obrigado!</h3> Sua conta foi ativada com sucesso!<br/>
-            <p><a href="#/login" class="link">Agora você já pode acessar sua conta clicando aqui!</a></p>
+            <p><a ui-sref="accountLogin" class="link">Agora você já pode acessar sua conta clicando aqui!</a></p>
           </div>
           <div ng-hide="vm.success">
             Ops...<br/>

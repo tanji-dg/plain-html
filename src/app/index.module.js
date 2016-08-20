@@ -25,7 +25,11 @@ angular
     'angularPromiseButtons',
     'angularMoment',
     'cloudinary',
-    'bootstrapLightbox',
+    'ngMask',
+    'moment-picker',
+    'ngFx',
+    'ionic',
+    'ionic.service.core',
 
     Core.name,
     Modules.name

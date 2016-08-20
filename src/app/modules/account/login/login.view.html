@@ -12,15 +12,15 @@
             <input class="form-control floating-label" type="password" placeholder="Senha"
                    ng-model="vm.user.password">
           </div>
-          <button type="submit" class="btn btn-primary btn-raised">
+          <button type="submit" class="btn btn-primary btn-raised btn-xs-wide">
             Entrar
           </button>
-          <button type="button" ng-click="vm.resetPassword()" class="btn btn-flat btn-forgot-password btn-default" promise-btn>
+          <button type="button" ng-click="vm.resetPassword()" class="btn btn-flat btn-forgot-password btn-default btn-xs-wide" promise-btn>
             Esqueci minha senha
           </button>
+          <button type="button" class="btn btn-default btn-sm btn-raised btn-xs-wide form-control" ui-sref="accountSignupStep0" title="Criar minha conta" class="link">Criar minha conta</button>
         </div>
       </form>
-      <a href="/#/signup" title="Criar minha conta" class="link">Criar minha conta</a>
     </div>
   </div>
 </div>

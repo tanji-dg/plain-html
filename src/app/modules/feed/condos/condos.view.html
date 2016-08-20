@@ -13,7 +13,7 @@
         <div class="form-group condo-search">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-search"></i></span>
-            <input type="text" ng-model="vm.filterTerm" ng-model-options="{ debounce: 1000 }" ng-change="vm.filterCondos()" class="form-control mask-cep" placeholder="Pesquisar pelo nome, cidade ou cep">
+            <input type="text" ng-model="vm.filterTerm" ng-model-options="{ debounce: 1000 }" ng-change="vm.filterCondos()" class="form-control mask-cep" placeholder="Pesquisar...">
           </div>
         </div>
         <div class="condos-search-response" ng-show="vm.condos.length">
@@ -53,7 +53,7 @@
           <a href="" class=" btn btn-default btn-danger btn-xs" ng-click="vm.removeCondo(condo)">
             <i class="fa fa-trash"></i><span class="hidden-xs">&nbsp; &nbsp;Remover</span>
           </a>
-          <a href="#/{{ condo._id }}/integrantes" class="btn btn-default btn-success btn-xs"><i class="fa fa-users"></i>&nbsp; Integrantes</a>
+          <a ui-sref="#/{{ condo._id }}/integrantes" class="btn btn-default btn-success btn-xs"><i class="fa fa-users"></i>&nbsp; Integrantes</a>
         </div>
       </div>
     </div>

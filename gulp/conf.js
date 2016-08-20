@@ -32,7 +32,10 @@ exports.paths = {
   src : 'src',
   dist: 'dist',
   tmp : '.tmp',
-  e2e : 'e2e'
+  publish : '.publish',
+  e2e : 'e2e',
+  ionic : 'ionic',
+  root : './'
 };
 
 /**

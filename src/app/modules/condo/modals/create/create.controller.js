@@ -11,10 +11,10 @@ export class CondoModalsCreateController {
   }
 
   save() {
-    return this.condo.$save().then((c) => {
-      this.CondoResource.get({'_id': c._id}).$promise.then((condo) => {
-        this.modalInstance.close(condo);
-      });
+    let condo = angular.copy(this.condo);
+    return this.condo.$save().then(c => {
+      condo._id = c._id
+      this.modalInstance.close(condo);
     }, (response) => {
       this.window.swal("Ops!", "Este condomínio já existe!", "error");
       this.modalInstance.dismiss();

@@ -2,128 +2,11 @@
 
   <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
 
-	<div class="container">
+  <div ui-view></div>
+
+	<div class="container-fluid">
     <div class="row" ng-if="vm.Session.getCondo()">
       <div class="col-sm-12">
-        <form ng-submit="vm.addOccurrence();" promise-btn>
-          <div class="panel panel-primary panel-publication">
-            <div class="panel-body">
-              <uib-tabset>
-                <uib-tab heading="Ocorrência Pública" select="vm.setOccurrenceType('PUBLIC')">
-                  <div class="form-post">
-                    <div class="form-group">
-                      <input ng-model="vm.occurrence.title" required type="text" placeholder="Escreva um título para a sua ocorrência..." class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <textarea ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
-                    </div>
-                    <h5>Imagens:</h5>
-                    <div class="form-images">
-                      <label class="form-file">
-                        <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                        <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                      </label>
-                      <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img src="{{ picture.url }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
-                    </div>
-                  </div>
-                </uib-tab>
-                <uib-tab heading="Ocorrência Privada" select="vm.setOccurrenceType('PRIVATE')">
-                  <div class="form-post">
-                    <div class="form-group">
-                      <input ng-model="vm.occurrence.title" required type="text" placeholder="Escreva um título para a sua ocorrência..." class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <textarea ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <tags-input ng-model="vm.occurrence.viewers" 
-                          placeholder="Enviar esta ocorrência para..." 
-                          display-property="name" 
-                          key-property="_id" 
-                          add-from-autocomplete-only="true"
-                          replace-spaces-with-dashes="false">
-                        <auto-complete source="vm.getUsers($query)" 
-                            load-on-focus="true" 
-                            load-on-empty="true"
-                            display-property="name"
-                            min-length="0"></auto-complete>
-                      </tags-input>
-                    </div>
-                    <h5>Imagens:</h5>
-                    <div class="form-images">
-                      <label class="form-file">
-                        <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                        <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                      </label>
-                      <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img src="{{ picture.url }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
-                    </div>
-                  </div>
-                </uib-tab>
-                <uib-tab heading="Votação" select="vm.setOccurrenceType('VOTING')" ng-if="vm.Session.isAdmin()">
-                  <div class="form-post">
-                    <div class="form-group">
-                      <input ng-model="vm.occurrence.title" required type="text" placeholder="Escreva a pergunta que você deseja responder com a sua votação..." class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <textarea ng-model="vm.occurrence.description" required placeholder="Digite algumas informações importantes..." class="form-control"></textarea>
-                    </div>
-                    <h5>Imagens:</h5>
-                    <div class="form-images">
-                      <label class="form-file">
-                        <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                        <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                      </label>
-                      <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img src="{{ picture.url }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
-                    </div>
-                  </div>
-                </uib-tab>
-                <uib-tab heading="Aviso" select="vm.setOccurrenceType('ADVICE')" ng-if="vm.Session.isAdmin()">
-                  <div class="form-post">
-                    <div class="form-group">
-                      <input ng-model="vm.occurrence.title" required type="text" placeholder="Qual é o título do aviso?" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <textarea ng-model="vm.occurrence.description" required placeholder="Agora escreva a mensagem que deseja publicar..." class="form-control"></textarea>
-                    </div>
-                    <h5>Imagens:</h5>
-                    <div class="form-images">
-                      <label class="form-file">
-                        <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                        <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                      </label>
-                      <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img src="{{ picture.url }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
-                    </div>
-                  </div>
-                </uib-tab>
-              </uib-tabset>
-            </div>
-            <div class="panel-footer">
-              <div class="text-right">
-                <button type="submit" class="btn btn-sm btn-primary">Publicar</button>
-              </div>
-            </div>
-         </div>
-        </form>
         <div class="text-center">
           <strong> Pesquisar por: </strong>
           &nbsp;&nbsp;&nbsp;
@@ -159,25 +42,27 @@
               </div>
             </header>
           </div>
-
-          <div class="panel-body">
-            <div class="btn-group options pull-right" ng-if="occurrence.type == 'VOTING'">
-              <button type="button" ng-class="{'btn-success': vm.findOccurrenceVote(occurrence.favorVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="occurrence.isVoting">
-                Sim <span class="badge" ng-show="occurrence.favorVotes.length">{{ occurrence.favorVotes.length }}</span>
-              </button>
-              <button type="button" ng-class="{'btn-danger': vm.findOccurrenceVote(occurrence.againstVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="occurrence.isVoting">
-                Não <span class="badge" ng-show="occurrence.againstVotes.length">{{ occurrence.againstVotes.length }}</span>
-              </button>
+          <div class="panel-body occurrence">
+            <div class="pull-right" ng-if="occurrence.type == 'VOTING'">
+              <div class="btn-group options">
+                <button type="button" ng-class="{'btn-success': vm.findOccurrenceVote(occurrence.favorVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="!occurrence.isVoting">
+                  Sim <span class="badge" ng-show="occurrence.favorVotes.length">{{ occurrence.favorVotes.length }}</span>
+                </button>
+                <button type="button" ng-class="{'btn-danger': vm.findOccurrenceVote(occurrence.againstVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="!occurrence.isVoting">
+                  Não <span class="badge" ng-show="occurrence.againstVotes.length">{{ occurrence.againstVotes.length }}</span>
+                </button>
+              </div>
+              <br>
+              <small ng-if="!occurrence.isVoting">Votação fechada!</small>
+              <small ng-if="occurrence.isVoting">Votação será encerrada <span am-time-ago="occurrence.votingUntil"></span></small>
             </div>
             <p class="description">
               {{ occurrence.description }}
             </p>
 
-            <ul ng-if="occurrence.pictures.length">
-              <li ng-repeat="picture in occurrence.pictures">
-                <a ng-click="vm.showPicture(vm.occurrence.pictures, $index)">
-                  <img  ng-src="{{picture.url}}" style="margin:auto;">
-                </a>
+            <ul class="images" ng-if="occurrence.pictures.length">
+              <li class="image" lightgallery ng-repeat="picture in occurrence.pictures" data-src="{{trustSrc(picture.url)}}">
+                <img ng-src="{{trustSrc(picture.url)}}" />
               </li>
             </ul>
 
@@ -189,6 +74,26 @@
 
           <div class="panel-footer comments">
             <h4>Comentários <span class="badge">{{ occurrence.commentsTotal }}</span></h4>
+            <div class="list-group">
+              <a href="javascript:void(0);" class="simple" ng-click="vm.showComments(occurrence)" ng-hide="occurrence.isShowingAllComments || !occurrence.comments.length || occurrence.commentsTotal <= occurrence.comments.length" promise-btn><i class="fa fa-angle-down"></i> Ver todos os comentários</a>
+              <a href="javascript:void(0);" class="simple" ng-click="vm.hideComments(occurrence)" ng-show="occurrence.isShowingAllComments"><i class="fa fa-angle-up"></i> Esconder comentários</a>
+              <br /><br />
+              <div class="list-group-item comment" ng-repeat="comment in occurrence.comments | orderBy:'createdAt'">
+                <div class="media">
+                  <div class="media-left row-picture">
+                    <a href="#" ng-show="comment.createdBy.picture">
+                      <img class="circle" ng-src="{{ trustSrc(comment.createdBy.picture.url) }}" alt="icon">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <div class="row-content">
+                      <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }} <small am-time-ago="comment.createdAt"></small></h3>
+                      <p class="list-group-item-text">{{ comment.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn class="list-group">
               <div class="input-group">
                 <input type="text" ng-model="occurrence.newComment" class="form-control" placeholder="Escreva um comentário">
@@ -197,19 +102,6 @@
                 </span>
               </div>
             </form>
-            <div class="list-group">
-              <div class="list-group-item comment" ng-repeat="comment in occurrence.comments | orderBy:'-createdAt'">
-                <div class="row-picture" ng-show="comment.createdBy.picture">
-                  <img class="circle" src="{{ comment.createdBy.picture.url }}" alt="icon">
-                </div>
-                <div class="row-content">
-                  <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }} <small am-time-ago="comment.createdAt"></small></h3>
-                  <p class="list-group-item-text">{{ comment.description }}</p>
-                </div>
-              </div>
-              <a href="javascript:void(0);" class="simple" ng-click="vm.showComments(occurrence)" ng-hide="occurrence.isShowingAllComments || !occurrence.comments.length || occurrence.commentsTotal <= occurrence.comments.length" promise-btn><i class="fa fa-angle-down"></i> Ver todos os comentários</a>
-              <a href="javascript:void(0);" class="simple" ng-click="vm.hideComments(occurrence)" ng-show="occurrence.isShowingAllComments"><i class="fa fa-angle-up"></i> Esconder comentários</a>
-            </div>
           </div>
         </div>
         <div class="text-center" ng-hide="vm.occurrences.length">

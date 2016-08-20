@@ -50,6 +50,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(cssFilter)
     .pipe($.sourcemaps.init())
     .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
+    .pipe($.replace('/assets/images', '/img'))
     .pipe($.minifyCss({ processImport: false }))
     .pipe($.sourcemaps.write('maps'))
     .pipe(cssFilter.restore)
@@ -70,11 +71,40 @@ gulp.task('html', ['inject', 'partials'], function () {
 
 // Only applies for fonts from bower dependencies
 // Custom fonts are handled by the "other" task
-gulp.task('fonts', function () {
-  return gulp.src($.mainBowerFiles())
-    .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
+gulp.task('fonts', ['other', 'fonts:lg', 'fonts:fontawesome'], function () {
+  return gulp.src(path.join(conf.paths.src, '/assets/fonts/*'))
+    .pipe($.filter('*.{eot,svg,ttf,woff,woff2}'))
     .pipe($.flatten())
     .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/')));
+});
+
+// Fonts lg
+gulp.task('fonts:lg', function() {
+  return gulp.src(path.join(conf.wiredep.directory, '/lightgallery/dist/fonts/*'))
+    .pipe($.filter('*.{eot,svg,ttf,woff,woff2}'))
+    .pipe($.flatten())
+    .pipe(gulp.dest('dist/fonts/'));
+});
+
+// Fonts fontawesome
+gulp.task('fonts:fontawesome', function() {
+  return gulp.src(path.join(conf.wiredep.directory, '/fontawesome/fonts/*'))
+    .pipe($.filter('*.{eot,svg,ttf,woff,woff2}'))
+    .pipe($.flatten())
+    .pipe(gulp.dest('dist/fonts/'));
+});
+
+gulp.task('img', ['img:lg'], function () {
+  return gulp.src(path.join(conf.paths.src, '/assets/images/**/*'))
+    .pipe($.flatten())
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/img/')));
+});
+
+// Images:lg
+gulp.task('img:lg', function() {
+  return gulp.src(path.join(conf.wiredep.directory, '/lightgallery/dist/img/*'))
+    .pipe($.flatten())
+    .pipe(gulp.dest('dist/img/'));
 });
 
 gulp.task('other', function () {
@@ -94,4 +124,4 @@ gulp.task('clean', function () {
   return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')]);
 });
 
-gulp.task('build', ['html', 'fonts', 'other']);
+gulp.task('build', ['html', 'fonts', 'img']);
