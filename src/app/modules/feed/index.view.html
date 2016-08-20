@@ -96,7 +96,7 @@
             </div>
             <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn class="list-group">
               <div class="input-group">
-                <input type="text" ng-model="occurrence.newComment" class="form-control" placeholder="Escreva um comentário">
+                <textarea class="padding-5 form-control custom-control" ng-keyup="$event.keyCode == 13 && !$event.shiftKey && vm.commentOccurrence(occurrence)" rows="1" msd-elastic ng-model="occurrence.newComment" placeholder="Escreva um comentário"></textarea>
                 <span class="input-group-btn">
                   <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-angle-right"></i></button>
                 </span>
