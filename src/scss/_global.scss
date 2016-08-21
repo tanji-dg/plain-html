@@ -275,6 +275,7 @@ a.simple {
 
       .list-group-item-heading {
         font-size: 16px;
+        line-height: 1.2;
       }
 
       &:last-child {
@@ -993,4 +994,6 @@ a.simple {
 pre {
   border-width: 0;
   font-family: inherit;
+  padding: 2px;
+  margin: 0;
 }
