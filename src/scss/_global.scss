@@ -279,6 +279,7 @@ a.simple {
 
       .list-group-item-heading {
         font-size: 16px;
+        line-height: 1.2;
       }
 
       &:last-child {
@@ -339,6 +340,10 @@ a.simple {
 		margin: 0 auto;
 		width: 100%;
 		max-width: 450px;
+    text-align: center;
+    .container-block {
+      text-align: left;
+    }
 	}
 
 	/********************************
@@ -969,11 +974,15 @@ a.simple {
   .container-fluid, .row {
     margin-left: 0;
     margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .col-sm-12 {
-    margin-left: 3px;
-    margin-right: 3px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .list-group-item {
@@ -997,4 +1006,6 @@ a.simple {
 pre {
   border-width: 0;
   font-family: inherit;
+  padding: 2px;
+  margin: 0;
 }
