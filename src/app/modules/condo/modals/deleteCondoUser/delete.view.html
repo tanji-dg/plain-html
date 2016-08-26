@@ -1,18 +1,20 @@
-<div class="modal-header">
-  <button type="button" class="close" ng-click="vm.close()"><span aria-hidden="true">&times;</span></button>
-  <h4 class="modal-title" id="myModalLabel"><strong><i class="fa fa-user-times fa-circled"></i> &nbsp;Escolha uma opção:</strong></h4>
-</div>
-<div class="modal-body residents modal-body-crudCondoUser">
-  <div class="panel residents panel-default">
-    <div class="panel-body">
-	  <div class="panel residents panel-default econdos">
-        <div class="panel-body">
-          <a class="btn btn-primary btn-raised pull-left" ng-click="vm.removeFromResidence()">Excluir da Residência</a>
-          <a class="btn btn-primary btn-raised pull-right" ng-click="vm.removeFromCondo()">Excluir do Condomínio</a>
+<div ng-controller="CondoModalsDeleteCondoUserController as vm">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="vm.close()"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel"><strong><i class="fa fa-user-times fa-circled"></i> &nbsp;Escolha uma opção:</strong></h4>
+  </div>
+  <div class="modal-body residents modal-body-crudCondoUser">
+    <div class="panel residents panel-default">
+      <div class="panel-body">
+  	  <div class="panel residents panel-default econdos">
+          <div class="panel-body">
+            <a class="btn btn-primary btn-raised pull-left" ng-click="vm.removeFromResidence(user)">Excluir da Residência</a>
+            <a class="btn btn-primary btn-raised pull-right" ng-click="vm.removeFromCondo()">Excluir do Condomínio</a>
+          </div>
         </div>
+        <hr />
+        <a class="btn btn-flat btn-default btn-outline pull-right" ng-click="vm.close()">Cancelar</a>
       </div>
-      <hr />
-      <a class="btn btn-flat btn-default btn-outline pull-right" ng-click="vm.close()">Cancelar</a>
     </div>
   </div>
 </div>

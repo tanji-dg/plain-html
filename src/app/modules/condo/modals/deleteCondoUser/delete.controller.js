@@ -1,23 +1,24 @@
 export class CondoModalsDeleteCondoUserController {
 
-  constructor($window, CondoResource, Session, UserResource, $uibModalInstance) {
+  constructor($window, CondoResource, Session, UserResource) {
     'ngInject';
 
     this.window = $window;
     this._ = this.window._;
     this.swal = this.window.swal;
-    this.user = new UserResource();
-    this.Session = Session;
+
     this.UserResource = UserResource;
     this.CondoResource = CondoResource;
-    this.modalInstance = $uibModalInstance;
-
+    this.Session = Session;
+    //this.modalInstance = $uibModalInstance;
+    //this.CondoModals = CondoModals;
+    this.user = this.Session.get();
     this.condo = this.Session.getCondo();
   }
 
   removeFromResidence(user) {
     this.swal({
-      title: "Tem certeza que deseja excluir o usuário da residência?",
+      title: "Tem certeza que deseja excluir o usuário " + user.firstName + " da residência?",
       text: "Esta ação não poderá ser desfeita.",
       type: "warning",
       showCancelButton: true,
@@ -41,7 +42,7 @@ export class CondoModalsDeleteCondoUserController {
       }
     });
   }
-  
+
   removeFromCondo(user) {
     this.swal({
       title: "Tem certeza que deseja excluir o usuário do condomínio?",

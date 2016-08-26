@@ -16,6 +16,12 @@ export class CondoModalsAddCondoUserController {
     this.users = this.UserResource.query({'email': this.filterTerm});
   }
 
+  /*addUser() {
+    return this.CondoResource.addUser({'_id': this.condo._id, 'userId': user._id}, {email: this.filterTerm}).$promise.then(() => {
+      this.modalInstance.close(user);
+    });
+  });*/
+
   chooseUser (user) {
     return this.CondoResource.addUser({'_id': this.condo._id, 'userId': user._id}, {email: this.filterTerm}).$promise.then(() => {
       this.modalInstance.close(user);

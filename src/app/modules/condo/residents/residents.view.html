@@ -12,28 +12,55 @@
         <a class="btn btn-primary btn-raised pull-right" ng-click="vm.addUser()">Adicionar Morador</a>
       </div>
       <div class="panel-body">
-        <table class="table table-striped table-hover table-bordered table-responsive">
-          <thead class="residents thead-inverse">
-            <tr>
-              <th>Morador</th>
-              <th>Residência</th>
-              <th>Perfil na Residência</th>
-              <th>Perfil no Condomínio</th>
-              <th>Editar</th>
-              <th>Excluir</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="user in vm.residence.requesters">
-              <td>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></td>
-              <td>[CONTENT]</td>
-              <td>[CONTENT]</td>
-              <td>[CONTENT]</td>
-              <td><center><i class="residents material-icons green"  ng-click="vm.updateUser(user)">edit</i></center></td>
-              <td><center><i class="residents material-icons red" ng-click="vm.removeUser(user)">highlight_off</i></center></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="container">
+          <!--
+          <div class="row">
+            <div class="col-md-3"><h4><div class="label label-default">Morador</div></h4></div>
+            <div class="col-md-2"><h4><div class="label label-default">Residência</div></h4></div>
+            <div class="col-md-3"><h4><div class="label label-default">Perfil na Residência</div></h4></div>
+            <div class="col-md-3"><h4><div class="label label-default">Perfil no Condomínio</div></h4></div>
+            <div class="col-md-1"><h4><div class="label label-default">Ações</div></h4></div>
+          </div>
+        -->
+          <div class="list-group">
+          <div ng-repeat="residence in vm.residences">
+
+            <div class="row" ng-repeat="user in residence.users">
+              <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
+              <div class="col-md-2"><p>{{ residence.identification }}</p></div>
+              <div class="col-md-3"><p>{{ user._id == residence.voter ? "Proprietário(direito à voto)" : "Residente" }}</p></div>
+              <div class="col-md-3"><p>[CONTENT]</p></div>
+              <div class="col-md-1">
+                <i class="residents material-icons green" ng-click="vm.updateUser(user)">edit</i>
+                <i class="residents material-icons red" ng-click="vm.removeUser(user)">highlight_off</i>
+              </div>
+            </div>
+
+            <div class="row" ng-repeat="user in residence.requesters">
+              <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
+              <div class="col-md-2"><p>{{ residence.identification }}</p></div>
+              <div class="col-md-3"><p>{{ user._id == residence.voter ? "Proprietário(direito à voto)" : "Requisitante" }}</p></div>
+              <div class="col-md-3"><p>[CONTENT]</p></div>
+              <div class="col-md-1">
+                <i class="residents material-icons green" ng-click="vm.updateUser(user)">edit</i>
+                <i class="residents material-icons red" ng-click="vm.removeUser(user)">highlight_off</i>
+              </div>
+            </div>
+
+            <div class="row" ng-repeat="user in vm.users">
+              <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
+              <div class="col-md-2"><p>{{ residence.identification }}</p></div>
+              <div class="col-md-3"><p>{{ user._id == residence.voter ? "Proprietário(direito à voto)" : "Requisitante" }}</p></div>
+              <div class="col-md-3"><p>[CONTENT]</p></div>
+              <div class="col-md-1">
+                <i class="residents material-icons green" ng-click="vm.updateUser(user)">edit</i>
+                <i class="residents material-icons red" ng-click="vm.removeUser(user)">highlight_off</i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>

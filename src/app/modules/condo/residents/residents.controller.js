@@ -21,24 +21,29 @@ export class CondoResidentsController {
         if (this.user.defaultResidence) this.residence = this.CondoResource.getResidence({_id: this.condo._id, residenceId: this.user.defaultResidence._id, '$populate': 'users requesters'});
         this.residences = this.CondoResource.getResidences({'_id': this.condo._id, '$populate': 'users requesters'});
       });
+      this.CondoResource.getUsers({'_id': this.condo._id}).$promise.then((users) => {
+        this.users = users;
+      });
     });
   }
-  
+
   addUser() {
     this.CondoModals.addCondoUser().then((user) => {
 
-    }); 
+    });
   }
-  
-  updateUser(user) {
-	this.CondoModals.updateCondoUser().then((user) => {
 
-    }); 	  
-  }
-  
-  removeUser(user) {
-	this.CondoModals.deleteCondoUser().then((user) => {
+  updateUser(user) {
+	  this.CondoModals.updateCondoUser().then((user) => {
 
     });
+  }
+
+  removeUser(user) {
+    this.CondoModals.deleteCondoUser(user);
+
+	  //this.CondoModals.deleteCondoUser().then((user) => {
+      //this.removeUserFromResidence(user);
+    //});
   }
 }
