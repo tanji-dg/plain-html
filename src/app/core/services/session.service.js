@@ -35,6 +35,7 @@ export class SessionService {
       if (user && user._id) this.auth.getPusher().subscribe(`private-user-${user._id}`).bind('notification', broadcast);
       if (user.defaultCondo) this.auth.getPusher().subscribe(`private-condo-${user.defaultCondo._id || user.defaultCondo}`).bind('notification', broadcast);
 
+      this.window.plugins && this.window.plugins.OneSignal && this.window.plugins.OneSignal.sendTags && this.window.plugins.OneSignal.sendTags(user);
       this.resolve();
       defer.resolve(user);
     };
@@ -49,7 +50,6 @@ export class SessionService {
     };
 
     if (username && password) {
-      this.authType = 'login';
       this.auth.login(username, password).then(onSuccess, onError);
     } else if (this.token) {
       this.isAuthentication = true;
