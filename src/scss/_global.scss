@@ -310,9 +310,10 @@ a.simple {
 		}
 
 		.container-block {
-			padding: 40px;
+			padding: 30px;
 			background: white;
       display: inline-block;
+      min-width: 360px;
 		}
 
 		.link {
@@ -1004,4 +1005,8 @@ pre {
   font-family: inherit;
   padding: 2px;
   margin: 0;
+}
+
+.pl-15 {
+  padding-left: 15px;
 }
