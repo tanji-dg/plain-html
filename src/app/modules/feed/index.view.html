@@ -19,6 +19,10 @@
               <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'ADVICE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'ADVICE'">Avisos</button>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
           <br />
           <div class="panel panel-default post" ng-repeat="occurrence in filteredOccurrences = (vm.occurrences | filter:vm.occurrences.type)">
             <div class="panel-heading">
@@ -61,11 +65,29 @@
                 {{ occurrence.description }}
               </p>
 
-              <ul class="images" ng-if="occurrence.pictures.length">
-                <li class="image" lightgallery ng-repeat="picture in occurrence.pictures" data-src="{{trustSrc(picture.url)}}">
-                  <img ng-src="{{trustSrc(picture.url)}}" />
-                </li>
-              </ul>
+              <section class="section pdb0">
+                <div class="container-fluid">
+                  <div class="demo-gallery mrb50">
+                    <div class="demo-gallery">
+                      <ul id="lightgallery" class="list-unstyled" ng-if="occurrence.pictures.length">
+                        <li class="col-xs-6 col-sm-4 col-md-3 justified-gallery" lightgallery ng-repeat="picture in occurrence.pictures"
+                            data-src="{{trustSrc(picture.url)}}" data-sub-html="">
+                          <a href="">
+                            <!--<cl-image public-id="{{picture.publicId}}" class="img-responsive" format="jpg">-->
+                              <!--<cl-transformation height="144" width="144" crop="fill" gravity="auto" quality="auto"/>-->
+                            <!--</cl-image>-->
+                            <img class="img-responsive" ng-src="{{trustSrc(picture.thumbnail)}}">
+                            <div class="demo-gallery-poster">
+                              <img src="/img/zoom.png">
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
 
               <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-disabled="occurrence.isLoading">
                 <i class="fa fa-thumbs-o-up"></i>
