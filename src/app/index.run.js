@@ -16,7 +16,6 @@ export let RunBlock = ($rootScope, $timeout, $window, $ionicPlatform, $ionicPopu
 
     }
     if ($window.StatusBar) {
-      // org.apache.cordova.statusbar required
       $window.StatusBar.styleDefault();
     }
 
@@ -47,7 +46,7 @@ export let RunBlock = ($rootScope, $timeout, $window, $ionicPlatform, $ionicPopu
 
     if ($window.plugins && $window.plugins.OneSignal) {
       var notificationOpenedCallback = function(jsonData) {
-        $log('didReceiveRemoteNotificationCallBack: ' + jsonData.toJson());
+        $log('didReceiveRemoteNotificationCallBack: ', jsonData);
       };
 
       $window.plugins.OneSignal.init("26c111f3-a93c-48fb-a572-06567cf9ae92",
@@ -60,7 +59,7 @@ export let RunBlock = ($rootScope, $timeout, $window, $ionicPlatform, $ionicPopu
       $window.plugins.OneSignal.getIds(function(ids) {
         // document.getElementById("OneSignalUserID").innerHTML = "UserID: " + ids.userId;
         // document.getElementById("OneSignalPushToken").innerHTML = "PushToken: " + ids.pushToken;
-        $log('getIds: ' + ids.toJson());
+        $log('getIds: ', ids);
       });
 
       $window.plugins.OneSignal.sendTags({name: "Ricardo Paiva", email: "ricardo@ricardopaiva.com"});

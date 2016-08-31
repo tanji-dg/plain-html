@@ -66,7 +66,7 @@ export let CondoResource = ($resource, config) => {
       'params'                 : {
         '$populate[0]'          : '_comments',
         '$populate[1][path]'    : 'pictures',
-        '$populate[1][select]'  : 'url',
+        '$populate[1][select]'  : 'url publicId thumbnail',
         '$populate[2]'          : 'favorVotes',
         '$populate[3]'          : 'againstVotes',
         '$sort'                 : '-createdAt'
@@ -127,7 +127,7 @@ export let CondoResource = ($resource, config) => {
         '$populate[1][path]'            : 'createdBy',
         '$populate[1][select]'          : 'firstName lastName picture',
         '$populate[1][populate][path]'  : 'picture',
-        '$populate[1][populate][select]': 'url',
+        '$populate[1][populate][select]': 'url publicId thumbnail',
         '$sort'       : '-createdAt'
       }
     },
