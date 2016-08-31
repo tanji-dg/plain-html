@@ -50,7 +50,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(cssFilter)
     .pipe($.sourcemaps.init())
     .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
-    .pipe($.replace('/assets/images', '/img'))
+    .pipe($.replace('/assets/img', '/img'))
     .pipe($.minifyCss({ processImport: false }))
     .pipe($.sourcemaps.write('maps'))
     .pipe(cssFilter.restore)
@@ -96,8 +96,9 @@ gulp.task('fonts:fontawesome', function() {
 });
 
 gulp.task('img', ['img:lg'], function () {
-  return gulp.src(path.join(conf.paths.src, '/assets/images/**/*'))
+  return gulp.src(path.join(conf.paths.src, '/assets/img/**/*'))
     .pipe($.flatten())
+    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/img/')))
     .pipe(gulp.dest(path.join(conf.paths.dist, '/img/')));
 });
 
@@ -105,7 +106,8 @@ gulp.task('img', ['img:lg'], function () {
 gulp.task('img:lg', function() {
   return gulp.src(path.join(conf.wiredep.directory, '/lightgallery/dist/img/*'))
     .pipe($.flatten())
-    .pipe(gulp.dest('dist/img/'));
+    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/img/')))
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/img/')));
 });
 
 gulp.task('other', function () {
