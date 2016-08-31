@@ -1,26 +1,35 @@
 <div class="modal-header">
   <button type="button" class="close" ng-click="vm.close()"><span aria-hidden="true">&times;</span></button>
-  <h4 class="modal-title" id="myModalLabel"><strong><i class="fa fa-edit fa-circled"></i> &nbsp;Atualizar Integrante / Residência</strong></h4>
+  <h4 class="modal-title"><strong><i class="fa fa-edit fa-circled"></i> &nbsp;Atualizar Integrante / Residência</strong></h4>
 </div>
 <div class="modal-body residents modal-body-crudCondoUser">
   <div class="panel residents panel-default">
     <div class="panel-body">
       <form role="form">
-	    <input type="text" class="form-control" placeholder="Nome do integrante">
-        <input type="text" class="form-control" placeholder="Nome da residência">
+	      <input type="text" class="form-control" value="{{ vm.userName }}" readonly="checked">
+        <input type="text" class="form-control" value="{{ vm.residence.identification }}" readonly="checked">
         <h4><span class = "label residents label-default econdos">Perfil na Residência</span></h4>
         <label class="radio-inline"><input type="radio" name="pres">Requisitante</label>
         <label class="radio-inline"><input type="radio" name="pres">Residente</label>
         <label class="radio-inline"><input type="radio" name="pres">Proprietário (direito à voto)</label>
         <hr />
         <h4><span class = "label residents label-default econdos">Perfil no Condomínio</span></h4>
+<!--
         <label class="radio-inline"><input type="radio" name="pcondo">Super Admin</label>
         <label class="radio-inline"><input type="radio" name="pcondo">Admin</label>
         <label class="radio-inline"><input type="radio" name="pcondo">Morador</label>
-    	<label class="radio-inline"><input type="radio" name="pcondo">Requisitante da Residência</label>
+    	  <label class="radio-inline"><input type="radio" name="pcondo">Requisitante da Residência</label>
+-->
+        <div ng-repeat="profile in vm.condoProfiles">
+          <div ng-switch on="profile">
+            <label class="radio-inline" ng-switch-when="vm.user.condoProfile"><input type="radio" name="pcondo" ng-checked="true">{{ profile }}</label>
+            <label class="radio-inline" ng-switch-default><input type="radio" name="pcondo">{{ profile }}</label>
+          </div>
+        </div>
+
       </form>
       <hr />
-      <a class="btn btn-primary btn-raised pull-right" ng-click="vm.update()">Atualizar</a>
+      <a class="btn btn-primary btn-raised pull-right" ng-click="vm.updateData()">Atualizar</a>
     </div>
   </div>
 </div>

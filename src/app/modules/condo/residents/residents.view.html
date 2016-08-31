@@ -2,64 +2,63 @@
   <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
   <div class="container">
     <h2 class="section-title"><i class="fa fa-users fa-circled"></i><strong>Moradores do Condomínio</strong> &raquo; {{ vm.condo.name }}</h2>
-    <div class="panel panel-box panel-box-residence panel-default"  ng-hide="vm.residence.$resolved || vm.residences.$resolved">
+    <div class="panel panel-box panel-box-residence panel-default" ng-hide="vm.users.$resolved">
       <div class="panel-body">
         <i class="fa fa-spinner fa-spin"></i> Carregando...
       </div>
     </div>
-    <div class="panel residents panel-default" ng-show="vm.residence._id">
+    <div class="panel residents panel-default">
       <div class="panel-body">
         <a class="btn btn-primary btn-raised pull-right" ng-click="vm.addUser()">Adicionar Morador</a>
       </div>
       <div class="panel-body">
         <div class="container">
-          <!--
-          <div class="row">
-            <div class="col-md-3"><h4><div class="label label-default">Morador</div></h4></div>
-            <div class="col-md-2"><h4><div class="label label-default">Residência</div></h4></div>
-            <div class="col-md-3"><h4><div class="label label-default">Perfil na Residência</div></h4></div>
-            <div class="col-md-3"><h4><div class="label label-default">Perfil no Condomínio</div></h4></div>
-            <div class="col-md-1"><h4><div class="label label-default">Ações</div></h4></div>
-          </div>
-        -->
           <div class="list-group">
-          <div ng-repeat="residence in vm.residences">
-
-            <div class="row" ng-repeat="user in residence.users">
-              <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
-              <div class="col-md-2"><p>{{ residence.identification }}</p></div>
-              <div class="col-md-3"><p>{{ user._id == residence.voter ? "Proprietário(direito à voto)" : "Residente" }}</p></div>
-              <div class="col-md-3"><p>[CONTENT]</p></div>
-              <div class="col-md-1">
-                <i class="residents material-icons green" ng-click="vm.updateUser(user)">edit</i>
-                <i class="residents material-icons red" ng-click="vm.removeUser(user)">highlight_off</i>
+            <div ng-repeat="user in vm.users">
+              <div ng-repeat="residence in user.residences.allResidences">
+                <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
+                <div class="col-md-2"><p>{{ residence.identification }}</p></div>
+                <div class="col-md-3"><p>{{ residence.residenceProfile }}</p></div>
+                <div class="col-md-3"><p>{{ user.condoProfile }}</p></div>
+                <div class="col-md-1">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, residence)"></i>
+                  <i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, residence)"></i>
+                </div>
               </div>
-            </div>
-
-            <div class="row" ng-repeat="user in residence.requesters">
-              <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
-              <div class="col-md-2"><p>{{ residence.identification }}</p></div>
-              <div class="col-md-3"><p>{{ user._id == residence.voter ? "Proprietário(direito à voto)" : "Requisitante" }}</p></div>
-              <div class="col-md-3"><p>[CONTENT]</p></div>
-              <div class="col-md-1">
-                <i class="residents material-icons green" ng-click="vm.updateUser(user)">edit</i>
-                <i class="residents material-icons red" ng-click="vm.removeUser(user)">highlight_off</i>
+              <!--
+              <div ng-repeat="voter in user.residences.voterResidences">
+                <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
+                <div class="col-md-2"><p>{{ voter.identification }}</p></div>
+                <div class="col-md-3"><p>{{ voter.residenceProfile }}</p></div>
+                <div class="col-md-3"><p>{{ user.condoProfile }}</p></div>
+                <div class="col-md-1">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, voter)"></i>
+                  <i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, voter)"></i>
+                </div>
               </div>
-            </div>
-
-            <div class="row" ng-repeat="user in vm.users">
-              <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
-              <div class="col-md-2"><p>{{ residence.identification }}</p></div>
-              <div class="col-md-3"><p>{{ user._id == residence.voter ? "Proprietário(direito à voto)" : "Requisitante" }}</p></div>
-              <div class="col-md-3"><p>[CONTENT]</p></div>
-              <div class="col-md-1">
-                <i class="residents material-icons green" ng-click="vm.updateUser(user)">edit</i>
-                <i class="residents material-icons red" ng-click="vm.removeUser(user)">highlight_off</i>
+              <div ng-repeat="requester in user.residences.requesterResidences">
+                <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
+                <div class="col-md-2"><p>{{ requester.identification }}</p></div>
+                <div class="col-md-3"><p>{{ requester.residenceProfile }}</p></div>
+                <div class="col-md-3"><p>{{ user.condoProfile }}</p></div>
+                <div class="col-md-1">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, requester)"></i>
+                  <i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, requester)"></i>
+                </div>
               </div>
+              <div ng-repeat="usr in user.residences.userResidences">
+                <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
+                <div class="col-md-2"><p>{{ usr.identification }}</p></div>
+                <div class="col-md-3"><p>{{ usr.residenceProfile }}</p></div>
+                <div class="col-md-3"><p>{{ user.condoProfile }}</p></div>
+                <div class="col-md-1">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, usr)"></i>
+                  <i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, usr)"></i>
+                </div>
+              </div>
+            -->
             </div>
-
           </div>
-        </div>
         </div>
       </div>
     </div>

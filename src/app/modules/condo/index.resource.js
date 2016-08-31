@@ -140,6 +140,17 @@ export let CondoResource = ($resource, config) => {
       'method'                 : 'DELETE',
       'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId/vote`,
       'params'                 : {'occurrenceId' : '@occurrenceId'}
+    },
+    'removeUserFromCondo'      : {
+      'method'                 : 'DELETE',
+      'url'                    : `${baseUrl}/:_id/:condoId/users/:userId`,
+      'params'                 : {'condoId' : '@condoId', 'userId' : '@userId'}
+    },
+    'getUsersFromCondo'        : {
+      'method'                 : 'GET',
+      'isArray'                : true,
+      'url'                    : `${baseUrl}/:_id/:condoId/users`,
+      'params'                 : {'condoId' : '@condoId', '$populate' : '@$populate'}
     }
   });
 
