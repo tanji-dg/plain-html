@@ -27,7 +27,7 @@ stages:
 package:
   stage: package
   script:
-    - npm run build prod
+    - npm run build:prod
 #    - dpl --provider=heroku --app=econdos --api-key=$HEROKU_API_KEY
   tags:
     - docker
