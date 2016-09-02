@@ -1,0 +1,47 @@
+image: node:6
+
+services:
+  - mongo
+
+cache:
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+  - node_modules/
+
+before_script:
+#  - apt-get update -qy
+#  - apt-get install -y git build-essential libssl-dev curl wget procps ruby-dev ruby
+#  - gem install dpl
+  - npm config set cache /cache/npm
+  - npm install --silent
+
+variables:
+  BACKEND_URL: 'https://econdos.herokuapp.com/api/v1'
+  NODE_ENV: 'test'
+  HEROKU_API_KEY: 'f6a92485-9628-4769-aa6f-2665b5349532'
+
+stages:
+  - package
+  - deploy
+
+package:
+  stage: package
+  script:
+    - npm run build prod
+#    - dpl --provider=heroku --app=econdos --api-key=$HEROKU_API_KEY
+  tags:
+    - docker
+
+
+
+pages:
+  stage: deploy
+#  script:
+#  - mkdir .public
+#  - cp -r * .public
+#  - mv .public public
+  artifacts:
+    paths:
+    - dist
+  only:
+  - master
