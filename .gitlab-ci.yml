@@ -10,32 +10,34 @@ cache:
   - bower_components/
 
 before_script:
-#  - apt-get update -qy
-#  - apt-get install -y git build-essential libssl-dev curl wget procps ruby-dev ruby
-#  - gem install dpl
   - npm config set cache /cache/npm
   - npm install --silent
 
 variables:
   BACKEND_URL: 'https://econdos.herokuapp.com/api/v1'
-  NODE_ENV: 'test'
-  HEROKU_API_KEY: 'f6a92485-9628-4769-aa6f-2665b5349532'
+  NODE_ENV: 'production'
 
 stages:
   - deploy
 
-package:
-  stage: package
+#package:
+#  stage: deploy
+#  script:
+#    - npm run bower:install
+#    - npm run build:prod
+#    - dpl --provider=heroku --app=econdos --api-key=$HEROKU_API_KEY
+#  tags:
+#    - docker
+
+pages:
+  stage: deploy
   script:
     - npm run bower:install
     - npm run build:prod
-#    - dpl --provider=heroku --app=econdos --api-key=$HEROKU_API_KEY
-  tags:
-    - docker
-
-pages:
   artifacts:
     paths:
     - dist
   only:
   - master
+  tags:
+    - docker
