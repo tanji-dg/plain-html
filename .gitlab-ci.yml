@@ -7,6 +7,7 @@ cache:
   key: "$CI_BUILD_REF_NAME"
   paths:
   - node_modules/
+  - bower_components/
 
 before_script:
 #  - apt-get update -qy
@@ -21,7 +22,6 @@ variables:
   HEROKU_API_KEY: 'f6a92485-9628-4769-aa6f-2665b5349532'
 
 stages:
-  - package
   - deploy
 
 package:
@@ -33,14 +33,7 @@ package:
   tags:
     - docker
 
-
-
 pages:
-  stage: deploy
-#  script:
-#  - mkdir .public
-#  - cp -r * .public
-#  - mv .public public
   artifacts:
     paths:
     - dist
