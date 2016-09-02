@@ -14,9 +14,9 @@ variables:
   BACKEND_URL: 'https://econdos.herokuapp.com/api/v1'
   NODE_ENV: 'production'
 
-stages:
-  - deploy
-
+#stages:
+#  - deploy
+#
 #package:
 #  stage: deploy
 #  script:
@@ -33,7 +33,7 @@ pages:
     - npm run build:prod
   artifacts:
     paths:
-    - dist
+    - dist/*
   only:
   - master
   tags:
