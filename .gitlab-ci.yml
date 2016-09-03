@@ -1,0 +1,41 @@
+image: node:6
+
+cache:
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+  - node_modules/
+  - bower_components/
+
+before_script:
+  - npm config set cache /cache/npm
+  - npm install --silent
+
+variables:
+  BACKEND_URL: 'https://econdos.herokuapp.com/api/v1'
+  NODE_ENV: 'production'
+
+#stages:
+#  - deploy
+#
+#package:
+#  stage: deploy
+#  script:
+#    - npm run bower:install
+#    - npm run build:prod
+#    - dpl --provider=heroku --app=econdos --api-key=$HEROKU_API_KEY
+#  tags:
+#    - docker
+
+pages:
+  stage: deploy
+  script:
+    - npm run bower:install
+    - npm run build:prod
+    - mv dist public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+  tags:
+    - docker
