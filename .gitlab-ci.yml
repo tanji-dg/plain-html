@@ -31,9 +31,10 @@ pages:
   script:
     - npm run bower:install
     - npm run build:prod
+    - mv dist public
   artifacts:
     paths:
-    - dist/*
+    - public
   only:
   - master
   tags:
