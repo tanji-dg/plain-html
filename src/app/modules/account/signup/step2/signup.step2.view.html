@@ -27,29 +27,55 @@
               <input type="text" ng-model="vm.filterTerm" ng-model-options="{ debounce: 1000 }" ng-change="vm.filterCondos()" class="form-control mask-cep" placeholder="Pesquisar...">
             </div>
           </div>
-          <div class="condos-search-response" ng-show="vm.condos.length">
-            <div class="panel panel-default" ng-repeat="condo in vm.condos">
-              <div class="panel-heading">
-                <strong>{{:: condo.name }}</strong>
-              </div>
-              <div class="panel-body">
-                <h5>{{:: condo.address }}</h5>
-                <p>{{:: condo.city }}/{{:: condo.state }}</p>
-                <a href="" class=" btn btn-default btn-success btn-xs" ng-click="vm.chooseCondo(condo)">
-                  <i class="fa fa-plus"></i>&nbsp; &nbsp;Selecionar
-                </a>
-              </div>
+          <div class="condos-search-response col-sm-7 col-sm-offset-2" ng-show="vm.condos.length">
+            <div class="col-sm-12" ng-repeat="condo in vm.condos">
+              <table class="table">
+                <tr>
+                  <tr class="text-justify"><strong>{{:: condo.name }}</strong></tr>
+                </tr>
+                <tr>
+                  <td class="visible-xs">
+                    <div class="change-user-picture">
+                      <!--<img src="{{condo.picture.url}}" ng-show="vm.user.picture" />-->
+                      <img src="../../../../../assets/img/icon-condominios.png"/>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-justify">{{:: condo.address }}</td>
+                  <td class="hidden-xs" rowspan="3">
+                    <div class="change-user-picture">
+                      <!--<img src="{{condo.picture.url}}" ng-show="vm.user.picture" />-->
+                      <img src="../../../../../assets/img/icon-condominios.png"/>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-justify">{{:: condo.cep }}</td>
+                </tr>
+                <tr>
+                  <td class="text-justify">{{:: condo.city }} / {{:: condo.state }}</td>
+                </tr>
+                <tr>
+                  <td><a href="" class=" btn btn-default btn-success btn-xs" ng-click="vm.chooseCondo(condo)">
+                    <i class="fa fa-plus"></i>&nbsp; &nbsp;Selecionar
+                  </a></td>
+                </tr>
+              </table>
+
             </div>
           </div>
           <p class="text-center" ng-show="vm.loading">
-            <span class="btn btn-material-grey-200"><i class="fa fa-spin fa-spinner"></i>&nbsp; Carregando</span>
+            <span class=""><i class="fa fa-spin fa-spinner"></i>&nbsp; Carregando</span>
           </p>
+
           <p ng-show="vm.condos.length || vm.filterTerm">
-            <button class="btn btn-material-grey-200" type="button" ng-click="vm.createCondo()">
+            <button class="" type="button" ng-click="vm.createCondo()">
               Não encontrou? Cadastre-o.
             </button>
             <br><small>Cadastre seu condomínio caso não tenha encontrado na lista acima.</small>
           </p>
+
           <a ui-sref="accountSignupStep1" class="btn btn-flat btn-default">
             Voltar
           </a>
