@@ -10,16 +10,34 @@ before_script:
   - npm config set cache /cache/npm
   - npm install --silent
 
+
 pages:
   stage: deploy
   script:
-    - npm run bower:install
-    - npm run build:prod
-    - mv dist public
+    - if [ $CI_BUILD_REF_NAME = "master" ]; then npm run bower:install; npm run build:prod; mv dist public; fi
+#    - npm run bower:install
+#    - npm run build:prod
+#    - mv dist public
   artifacts:
     paths:
     - public
-  only:
-  - $BRANCH
   tags:
     - docker
+  only:
+    - master
+
+
+pages:
+  stage: deploy
+  script:
+    - if [ $CI_BUILD_REF_NAME = "staging" ]; then npm run bower:install; npm run build:prod; mv dist public; fi
+#    - npm run bower:install
+#    - npm run build:prod
+#    - mv dist public
+  artifacts:
+    paths:
+    - public
+  tags:
+    - docker
+  only:
+    - staging
