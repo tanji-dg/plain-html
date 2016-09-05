@@ -24,6 +24,6 @@ pages:
     paths:
     - public
   only:
-  - $BRANCH
+  - '$BRANCH'
   tags:
     - docker
