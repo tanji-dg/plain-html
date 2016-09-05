@@ -24,6 +24,6 @@ pages:
     paths:
     - public
   only:
-  - '$BRANCH'
+  - staging
   tags:
     - docker
