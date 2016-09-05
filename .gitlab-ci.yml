@@ -10,21 +10,9 @@ before_script:
   - npm config set cache /cache/npm
   - npm install --silent
 
-variables:
-  BACKEND_URL: 'https://econdos.herokuapp.com/api/v1'
-  NODE_ENV: 'production'
-
-#stages:
-#  - deploy
-#
-#package:
-#  stage: deploy
-#  script:
-#    - npm run bower:install
-#    - npm run build:prod
-#    - dpl --provider=heroku --app=econdos --api-key=$HEROKU_API_KEY
-#  tags:
-#    - docker
+#variables:
+#  BACKEND_URL: 'https://econdos.herokuapp.com/api/v1'
+#  NODE_ENV: 'production'
 
 pages:
   stage: deploy
@@ -36,6 +24,6 @@ pages:
     paths:
     - public
   only:
-  - master
+  - $BRANCH
   tags:
     - docker
