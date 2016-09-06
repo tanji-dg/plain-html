@@ -9,9 +9,10 @@
     "start": "gulp serve",
     "test": "gulp test",
     "bower:install": "bower install --allow-root",
+    "build": "gulp clean && gulp build",
     "build:prod": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build",
-    "ionic:build:copy": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build && gulp ionic:copy",
-    "ionic:build:copy:upload": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build && gulp ionic:copy && cd ionic && ionic upload --deploy=production && cd ..",
+    "ionic:build:prod:copy": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build && gulp ionic:copy",
+    "ionic:build:prod:copy:upload": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build && gulp ionic:copy && cd ionic && ionic upload --deploy=production && cd ..",
     "emulate:iPhone-6s": "cd ionic && ionic emulate ios --target=iPhone-6s && cd .."
   },
   "devDependencies": {
