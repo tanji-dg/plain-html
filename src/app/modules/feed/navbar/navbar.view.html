@@ -11,9 +11,19 @@
     <div class="navbar-collapse collapse navbar-responsive-collapse" uib-collapse="vm.isCollapsed">
       <ul class="nav navbar-nav navbar-left">
         <li>
-          <a ui-sref="{{vm.state.current.name === 'feed' ? 'feed.new' : 'feed'}}" class="btn btn-sm btn-success btn-add-occurrence">
-            <i class="fa" ng-class="{'fa-plus': vm.state.current.name === 'feed', 'fa-minus': vm.state.current.name === 'feed.new'}"></i> &nbsp; Nova Ocorrência
-          </a>
+          <!-- Uso do ng-switch devido a limitação do ui-router não fazer atualização dinâmica de URL -->
+          <div ng-switch="vm.state.current.name">
+            <div ng-switch-when="feed.new">
+              <a ui-sref="feed" class="btn btn-sm btn-success btn-add-occurrence">
+                <i class="fa fa-minus"></i> &nbsp; Nova Ocorrência
+              </a>
+            </div>
+            <div ng-switch-default>
+              <a ui-sref="feed.new" class="btn btn-sm btn-success btn-add-occurrence">
+                <i class="fa fa-plus"></i> &nbsp; Nova Ocorrência
+              </a>
+            </div>
+          </div>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
