@@ -52,7 +52,7 @@ h1, h2, h3, h4 {
 
 .form-group {
 	margin-top: 0;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 
 	select {
     -webkit-appearance: menulist-button !important;
@@ -61,11 +61,17 @@ h1, h2, h3, h4 {
 }
 
 .form-control {
-	width: 100%;
 	padding-left: 0;
-  font-size: 15px;
-  height: 40px;
+	font-size: 15px;
+  	height: 40px;
 	padding: 10px 0;
+}
+
+@media screen and (min-width: 699px){
+    .form-control {
+		width: 100%;
+
+	}
 }
 
 .form-group.label-floating {
@@ -243,6 +249,12 @@ a.simple {
 	}
 }
 
+.full-width{
+	width:100%;
+}
+
+
+
 /********************************
 /* Logged Out */
 /********************************/
@@ -321,7 +333,7 @@ a.simple {
 			padding: 30px;
 			background: white;
       display: inline-block;
-      min-width: 360px;
+     
 		}
 
 		.link {
