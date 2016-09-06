@@ -22,16 +22,5 @@ pages:
     - docker
   only:
     - master
-
-
-pages:
-  stage: deploy
-  script:
-    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm run bower:install && npm run build:prod && mv dist public; fi
-  artifacts:
-    paths:
-    - public
-  tags:
-    - docker
-  only:
     - staging
+
