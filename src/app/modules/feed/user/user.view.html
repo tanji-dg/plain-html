@@ -3,30 +3,32 @@
   <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
 
   <div class="container">
-    <h2 class="section-title">
-      <i class="fa fa-user fa-circled"></i>Editar Dados
-      <a href="#/" ></a>
-    </h2>
+    <div class="row center-block">
+      <h2 class="section-title">
+        <i class="fa fa-user fa-circled"></i>Editar Dados
+        <a href="#/" ></a>
+      </h2>
+    </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>Informações Pessoais</h4>
-      </div>
-      <div class="panel-body">
-        <form ng-submit="vm.save()" promise-btn>
-          <div class="row">
-            <div class="col-md-2">            
-              <label class="form-file">
-                <div class="change-user-picture">              
+    <div class="row center-block">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Informações Pessoais</h4>
+        </div>
+        <div class="panel-body">
+          <form ng-submit="vm.save()" promise-btn>
+            <div class="col-xs-12 col-sm-4 col-md-4 ">
+              <label class="form-file no-background">
+                <div class="change-user-picture">
                   <img src="{{ vm.user.picture.url }}" ng-show="vm.user.picture" />
-                  <div class="empty" ng-hide="vm.user.picture"></div>   
-                  <div class="link" ng-hide="vm.uploading">Alterar Imagem</div>          
+                  <div class="empty" ng-hide="vm.user.picture"></div>
+                  <div class="link" ng-hide="vm.uploading">Alterar Imagem</div>
                   <div class="link" ng-show="vm.uploading">Carregando...</div>
                 </div>
                 <input type="file" class="hidden" onchange="angular.element(this).scope().uploadPicture(this)">
               </label>
             </div>
-            <div class="col-md-5">
+            <div class="col-xs-6 col-sm-4 col-md-4 ">
               <div class="form-group form-group-label">
                 <div class="form-control-wrapper"><input class="form-control" type="text" ng-model="vm.user.firstName" placeholder="Nome" required></div>
               </div>
@@ -34,7 +36,7 @@
                 <div class="form-control-wrapper"><input class="form-control" type="text" ng-model="vm.user.birthDate" placeholder="Data de nascimento" ui-date-mask required></div>
               </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-xs-6 col-sm-4 col-md-4 ">
               <div class="form-group form-group-label">
                 <div class="form-control-wrapper"><input class="form-control" type="text" ng-model="vm.user.lastName" placeholder="Sobrenome" required></div>
               </div>
@@ -42,10 +44,14 @@
                 <div class="form-control-wrapper"><input class="form-control" type="text" ng-model="vm.user.phone" placeholder="Celular" ui-br-phone-number></div>
               </div>
             </div>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <button class="btn btn-primary btn-raised pull-right" type="submit">
+                  Salvar
+                </button>
+              </div>
+            </div>
           </div>
-          <button class="btn btn-primary btn-raised pull-right" type="submit">
-            Salvar
-          </button>
         </form>
       </div>
     </div>
