@@ -3,7 +3,8 @@
   "version": "2.1.0",
   "dependencies": {
     "angular-animate": "^1.5.8",
-    "get-query-modifier": "^1.0.0"
+    "get-query-modifier": "^1.0.0",
+    "gulp-install": "^0.6.0"
   },
   "scripts": {
     "start": "gulp serve",
@@ -26,13 +27,13 @@
     "eslint-loader": "~1.1.0",
     "eslint-plugin-angular": "~0.12.0",
     "estraverse": "~4.1.0",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-angular-templatecache": "~1.8.0",
     "gulp-autoprefixer": "~3.0.2",
     "gulp-eslint": "~1.0.0",
     "gulp-filter": "~3.0.1",
     "gulp-flatten": "~0.2.0",
-    "gulp-gh-pages": "Klortho/gulp-gh-pages",
+    "gulp-gh-pages": "github:klortho/gulp-gh-pages",
     "gulp-inject": "~3.0.0",
     "gulp-load-plugins": "~0.10.0",
     "gulp-minify-css": "~1.2.1",
@@ -68,5 +69,18 @@
   },
   "engines": {
     "node": ">=6.3.0"
-  }
+  },
+  "description": "[ ![Codeship Status for econdoslab/econdos-frontend master](https://codeship.com/projects/c42168a0-074c-0134-04fe-2a7932f3ad25/status?branch=master)](https://codeship.com/projects/154865)\r # staging\r [ ![Codeship Status for econdoslab/econdos-frontend staging](https://codeship.com/projects/c42168a0-074c-0134-04fe-2a7932f3ad25/status?branch=staging)](https://codeship.com/projects/154865)",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/renatolopesesilva/app.econdos.com.br.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/renatolopesesilva/app.econdos.com.br/issues"
+  },
+  "homepage": "https://gitlab.com/renatolopesesilva/app.econdos.com.br#README"
 }
