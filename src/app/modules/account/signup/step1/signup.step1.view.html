@@ -18,17 +18,6 @@
             </a>
           </li>
         </ul>
-
-        <!--<div class="form-group col-md-12">-->
-          <!--<div class="change-user-picture form-file">-->
-            <!--<img src="{{ vm.user.picture.url }}" ng-show="vm.user.picture" />-->
-            <!--<div class="empty" ng-hide="vm.user.picture"></div>-->
-            <!--<div class="link" ng-hide="vm.uploading">Alterar Imagem</div>-->
-            <!--<div class="link" ng-show="vm.uploading">Carregando...</div>-->
-          <!--</div>-->
-          <!--<input type="file" class="hidden" onchange="angular.element(this).scope().uploadPicture(this)">-->
-        <!--</div>-->
-
         <div class="col-md-12 image-signup">
           <label class="form-file">
             <div class="change-user-picture">
@@ -40,7 +29,6 @@
             <input type="file" class="hidden" onchange="angular.element(this).scope().uploadPicture(this)">
           </label>
         </div>
-
         <form name="user" ng-submit="vm.save()" promise-btn>
           <div class="form-group col-md-6 form-group-label">
             <input class="form-control floating-label"
