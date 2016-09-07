@@ -16,6 +16,10 @@ export class CondoModalsUpdateCondoUserController {
     this.residence = DataSource.residence;
     this.condo = DataSource.condo;
 
+    this.currentResidenceId = this.residence._id;
+    this.currentCondoProfile = this.user.condoProfile;
+    this.currentResidenceProfile = this.residence.residenceProfile;
+
     this.userName = this.user.firstName + " " + this.user.lastName;
 
     this.loggedUser = this.Session.get();
@@ -33,10 +37,16 @@ export class CondoModalsUpdateCondoUserController {
 
     this.isCondoAdmin = false;
     let index =
-      this.loggedUser.condosOwner.concat(this.loggedUser.condosAdmin)
-        .findIndex((x) => x = this.condo._id);
+      this.loggedUser.condosAdmin.findIndex((x) => x = this.condo._id);
     if (index != -1) {
       this.isCondoAdmin = true;
+    }
+
+    this.isCondoOwner = false;
+    index =
+      this.loggedUser.condosOwner.findIndex((x) => x = this.condo._id);
+    if (index != -1) {
+      this.isCondoOwner = true;
     }
 
     this.condoProfiles = [
@@ -45,10 +55,24 @@ export class CondoModalsUpdateCondoUserController {
       "Morador",
       "Requisitante da Residência"
     ];
+
+    this.residenceProfiles = [
+      "Requisitante",
+      "Residente",
+      "Proprietário(direito à voto)"
+    ];
+
+    if (!this.isCondoOwner) {
+      this.condoProfiles.splice(0, 1);
+    }
+
+    if (!this.isCondoAdmin && !this.isCondoOwner) {
+      this.condoProfiles.splice(1, 1);
+    }
   }
 
-  updateData() {
-    if (this.isUserResident || this.isCondoAdmin) {
+  updateUserFromCondo() {
+    if (this.isUserResident || this.isCondoAdmin || this.isCondoOwner) {
       this.swal({
         title: "Tem certeza que deseja continuar com a atualização?",
         text: "Esta ação não poderá ser desfeita.",
@@ -60,16 +84,66 @@ export class CondoModalsUpdateCondoUserController {
         closeOnConfirm: true
       }, (isConfirm) => {
         if (isConfirm) {
-          //this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
-          //  this.swal("Dados Atualizados", "A atualização foi realizada com sucesso!", "success");
-          //});
+          if (this.currentCondoProfile !== this.user.condoProfile) {
+            if (this.user.condoProfile === "Requisitante de Residência") {
+              this.CondoResource.addUserToCondo({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
+            }
+
+            if (this.user.condoProfile === "Morador") {
+              this.CondoResource.setApproveUserToCondo({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
+            }
+
+            if ((this.isCondoOwner || this.isCondoAdmin) && this.user.condoProfile === "Admin") {
+              this.CondoResource.addUserToCondoAdmins({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
+            }
+
+            if (this.isCondoOwner && this.user.condoProfile === "Super Admin") {
+              this.CondoResource.addUserToCondoOwners({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then((x) => {});
+            }
+          }
+
+          if (this.currentResidenceId !== this.residence._id || this.currentResidenceProfile !== this.residence.residenceProfile) {
+            if (this.user._id === this.residence.voter) {
+              this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId' : this.residence._id, 'userId' : ''}).$promise.then(() => {});
+            }
+
+            this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.currentResidenceId, 'userId': this.user._id}).$promise.then(() => {});
+
+            this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
+              if (this.residence.residenceProfile === "Residente") {
+                this.CondoResource.setApproveUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+              }
+
+              if (this.residence.residenceProfile === "Proprietário(direito à voto)") {
+                this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+              }
+            });
+          }
+
+          this.swal("Dados Atualizados", "A atualização foi realizada com sucesso!", "success");
         }
       });
-
-      this.close();
     } else {
       this.swal("Aviso", "Você não tem permissão para executar está ação.", "warning");
     }
+
+    this.close();
+  }
+
+  filterResidences () {
+    this.CondoResource.getResidencesFromCondo({'condoId' : this.condo._id}).$promise.then(
+      residences => {
+        this.residences = residences.filter(
+          residence => residence.identification.includes(this.filterResidenceTerm)
+        );
+      }
+    );
+  }
+
+  chooseResidence (residence) {
+    this.residence = residence;
+    this.filterResidenceTerm = residence.identification;
+    this.residences = {};
   }
 
   close () {

@@ -22,11 +22,18 @@ export class CondoModals {
     }).result;
   }
 
-  addCondoUser() {
+  addCondoUser(condo) {
     return this.modal.open({
       'templateUrl'  : 'app/modules/condo/modals/addCondoUser/add.view.html',
       'controller'   : 'CondoModalsAddCondoUserController',
-      'controllerAs' : 'vm'
+      'controllerAs' : 'vm',
+      resolve : {
+        DataSource : function () {
+          return {
+            condo : condo
+          }
+        }
+      }
     }).result;
   }
 
@@ -40,7 +47,7 @@ export class CondoModals {
           return {
             user : user,
             residence : residence,
-            condo: condo
+            condo : condo
           }
         }
       }
@@ -57,7 +64,7 @@ export class CondoModals {
           return {
             user : user,
             residence : residence,
-            condo: condo
+            condo : condo
           }
         }
       }

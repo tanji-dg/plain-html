@@ -31,15 +31,21 @@ export class CondoModalsDeleteCondoUserController {
 
     this.isCondoAdmin = false;
     let index =
-      this.loggedUser.condosOwner.concat(this.loggedUser.condosAdmin)
-        .findIndex((x) => x = this.condo._id);
+      this.loggedUser.condosAdmin.findIndex((x) => x = this.condo._id);
     if (index != -1) {
       this.isCondoAdmin = true;
+    }
+
+    this.isCondoOwner = false;
+    index =
+      this.loggedUser.condosOwner.findIndex((x) => x = this.condo._id);
+    if (index != -1) {
+      this.isCondoOwner = true;
     }
   }
 
   removeFromResidence() {
-    if (this.isUserResident || this.isCondoAdmin) {
+    if (this.isUserResident || this.isCondoAdmin || this.isCondoOwner) {
       this.swal({
         title: "Tem certeza que deseja excluir o usuário " + this.user.firstName + " da residência " + this.residence.identification + "?",
         text: "Esta ação não poderá ser desfeita.",
@@ -51,6 +57,11 @@ export class CondoModalsDeleteCondoUserController {
         closeOnConfirm: true
       }, (isConfirm) => {
         if (isConfirm) {
+          if (this.user._id === this.residence.voter) {
+            console.log("usuário voter");
+            this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId' : this.residence._id, 'userId' : ''}).$promise.then(() => {});
+          }
+
           this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
             this.swal("Integrante Removido", "O integrante foi removido da residência com sucesso!", "success");
           });
@@ -64,7 +75,7 @@ export class CondoModalsDeleteCondoUserController {
   }
 
   removeFromCondo() {
-    if (this.isCondoAdmin) {
+    if (this.isCondoAdmin || this.isCondoOwner) {
       this.swal({
         title: "Tem certeza que deseja excluir o usuário " + this.user.firstName + " do condomínio " + this.condo.name + "?",
         text: "Esta ação não poderá ser desfeita.",
