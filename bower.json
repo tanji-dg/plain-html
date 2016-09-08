@@ -96,6 +96,9 @@
         "min/moment-with-locales.min.js"
       ]
     },
+    "ionic":{
+      "main":["release/js/ionic.bundle.js", "release/js/ionic.js","release/js/ionic-angular.js"]
+    },
     "ionic-platform-web-client": {
       "main": [
         "dist/ionic.io.bundle.js"
