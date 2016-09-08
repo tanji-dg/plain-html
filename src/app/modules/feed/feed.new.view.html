@@ -8,10 +8,16 @@
               <uib-tab heading="Ocorrência Pública" select="vm.setOccurrenceType('PUBLIC')">
                 <div class="form-post">
                   <div class="form-group">
-                    <input ng-model="vm.occurrence.title" required type="text" placeholder="Escreva um título para a sua ocorrência..." class="form-control">
+                    <input name="newPublicOccurrenceTitle" ng-model="vm.occurrence.title" required type="text" placeholder="Escreva um título para a sua ocorrência..." class="form-control">
+                    <div ng-messages="postOccurrence.newPublicOccurrenceTitle.$error" ng-if="postOccurrence.newPublicOccurrenceTitle.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira o título</div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <textarea ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
+                    <textarea name="newPublicOccurrenceDescription" ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
+                    <div ng-messages="postOccurrence.newPublicOccurrenceDescription.$error" ng-if="postOccurrence.newPublicOccurrenceDescription.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira a descrição da ocorrência</div>
+                    </div>
                   </div>
                   <h5>Imagens:</h5>
                   <div class="form-images">
@@ -31,10 +37,16 @@
               <uib-tab heading="Ocorrência Privada" select="vm.setOccurrenceType('PRIVATE')">
                 <div class="form-post">
                   <div class="form-group">
-                    <input ng-model="vm.occurrence.title" required type="text" placeholder="Escreva um título para a sua ocorrência..." class="form-control">
+                    <input name="newPrivateOccurrenceTitle" ng-model="vm.occurrence.title" required type="text" placeholder="Escreva um título para a sua ocorrência..." class="form-control">
+                    <div ng-messages="postOccurrence.newPrivateOccurrenceTitle.$error" ng-if="postOccurrence.newPrivateOccurrenceTitle.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira o título</div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <textarea ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
+                    <textarea name="newPrivateOccurrenceDescription" ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
+                    <div ng-messages="postOccurrence.newPrivateOccurrenceDescription.$error" ng-if="postOccurrence.newPrivateOccurrenceDescription.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira a descrição da ocorrência</div>
+                    </div>
                   </div>
                   <div class="form-group">
                     <tags-input ng-model="vm.occurrence.viewers"
@@ -68,11 +80,17 @@
               <uib-tab heading="Votação" select="vm.setOccurrenceType('VOTING')" ng-if="vm.Session.isAdmin()">
                 <div class="form-post">
                   <div class="form-group">
-                    <input ng-model="vm.occurrence.title" required type="text" placeholder="Você é a favor de..." class="form-control">
+                    <input name="newVotingTitle" ng-model="vm.occurrence.title" required type="text" placeholder="Você é a favor de..." class="form-control">
                     <small>dica: comece a pergunta sempre com "Você é a favor de"</small>
+                    <div ng-messages="postOccurrence.newVotingTitle.$error" ng-if="postOccurrence.newVotingTitle.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira o título da votação</div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <textarea ng-model="vm.occurrence.description" required placeholder="Digite algumas informações importantes..." class="form-control"></textarea>
+                    <textarea name="newVotingDescription" ng-model="vm.occurrence.description" required placeholder="Digite algumas informações importantes..." class="form-control"></textarea>
+                    <div ng-messages="postOccurrence.newVotingDescription.$error" ng-if="postOccurrence.newVotingDescription.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira a descrição do que será votado</div>
+                    </div>
                   </div>
                   <div class="form-group">
                     <div class="">
@@ -103,10 +121,16 @@
               <uib-tab heading="Aviso" select="vm.setOccurrenceType('ADVICE')" ng-if="vm.Session.isAdmin()">
                 <div class="form-post">
                   <div class="form-group">
-                    <input ng-model="vm.occurrence.title" required type="text" placeholder="Qual é o título do aviso?" class="form-control">
+                    <input name="newAdiviceTitle" ng-model="vm.occurrence.title" required type="text" placeholder="Qual é o título do aviso?" class="form-control">
+                    <div ng-messages="postOccurrence.newAdiviceTitle.$error" ng-if="postOccurrence.newAdiviceTitle.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira o título do aviso</div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <textarea ng-model="vm.occurrence.description" required placeholder="Agora escreva a mensagem que deseja publicar..." class="form-control"></textarea>
+                    <textarea name="newAdviceDescription" ng-model="vm.occurrence.description" required placeholder="Agora escreva a mensagem que deseja publicar..." class="form-control"></textarea>
+                    <div ng-messages="postOccurrence.newAdviceDescription.$error" ng-if="postOccurrence.newAdviceDescription.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira a descrição do aviso</div>
+                    </div>
                   </div>
                   <h5>Imagens:</h5>
                   <div class="form-images">
@@ -130,7 +154,7 @@
 
               <div class="col-sm-6"><a type="submit" class="btn btn-sm btn-warning" href="#/feed">Cancelar</a></div>
               <div class="col-sm-6 text-right">
-                <button type="submit" class="btn btn-lg btn-success pull-right">Publicar</button>
+                <button type="submit" class="btn btn-lg btn-success pull-right" ng-disabled="postOccurrence.$invalid">Publicar</button>
               </div>
             </div>
           </div>

@@ -78,6 +78,7 @@ export class FeedController {
       let occurrence = findOccurrence(notification);
       occurrence.comments = occurrence.comments || [];
       occurrence.comments.unshift(notification.comment);
+      occurrence.commentsTotal = occurrence.commentsTotal || 0;
       occurrence.commentsTotal++;
       $rootScope.$apply();
     });

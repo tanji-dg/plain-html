@@ -53,7 +53,7 @@
           <a href="" class=" btn btn-default btn-danger btn-xs" ng-click="vm.removeCondo(condo)">
             <i class="fa fa-trash"></i><span class="hidden-xs">&nbsp; &nbsp;Remover</span>
           </a>
-          <a ui-sref="#/{{ condo._id }}/integrantes" class="btn btn-default btn-success btn-xs"><i class="fa fa-users"></i>&nbsp; Integrantes</a>
+          <a ui-sref="feedCondoResidents({condoId: condo._id})" class="btn btn-default btn-success btn-xs"><i class="fa fa-users"></i>&nbsp; Integrantes</a>
         </div>
       </div>
     </div>
