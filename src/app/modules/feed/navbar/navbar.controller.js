@@ -1,6 +1,6 @@
 export class FeedNavbarController {
 
-  constructor($window,$location, Session, CondoService, UserResource, $state) {
+  constructor($window,$location, Session, CondoService, UserResource, $state, NavbarService) {
     'ngInject';
 
     this.window = $window;
@@ -12,11 +12,13 @@ export class FeedNavbarController {
     this.UserResource = UserResource;
     this.location = $location;
     this.isCollapsed = true;
+    this.NavbarService = NavbarService;
 
     this.user = this.Session.get();
     this.notifications = this.UserResource.getNotifications();
 
     this.getCondo();
+    this.NavbarService.onCondoDeletion((condo) => {this.condo = condo;});
   }
 
   getCondo () {
