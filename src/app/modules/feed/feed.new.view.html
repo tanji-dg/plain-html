@@ -68,11 +68,11 @@
                   </div>
                   <div class="form-group">
                     <div class="">
-                      <span moment-picker="vm.occurrence.votingFrom" format="LL LT" today="true" minutes-step="15">
+                      <span moment-picker="vm.occurrence.votingFrom" format="LL LT" today="true" minutes-step="15" today="true">
                         A votação se inicia em: <b>{{ vm.occurrence.votingFrom || 'clique aqui para selecionar uma data' }}</b>
                       </span>
                       <br/>
-                      <span moment-picker="vm.occurrence.votingUntil" format="LL LT" today="true" minutes-step="15">
+                      <span moment-picker="vm.occurrence.votingUntil" format="LL LT" today="true" minutes-step="15" min-date="vm.occurrence.votingFrom" today="true">
                         e finaliza em: <b>{{ vm.occurrence.votingUntil || 'clique aqui para selecionar uma data' }}</b>
                       </span>
                     </div>
