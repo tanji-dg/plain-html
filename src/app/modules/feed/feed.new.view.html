@@ -96,14 +96,15 @@
                 </div>
               </uib-tab>
             </uib-tabset>
-      			<div class="form-post">
+            <div class="form-post">
       			  <div class="form-group">
       				<h5>Imagens:</h5>
-      				<div class="display_inline_block">
-      					<label class="form-file add-icon">
-      						<i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-      						<input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-      					</label>
+            </div>
+          </div>
+      			<div class="form-post form-images-scroll-bar">
+      			  <div class="form-group">
+
+      				<div class="div-images">
       					<div class="form-image form-added-images" ng-repeat="picture in vm.occurrence.pictures">
       						<img ng-src="{{ trustSrc(picture.url) }}"/>
       						<div class="close" ng-click="vm.removePicture($index)">
@@ -111,12 +112,18 @@
       						</div>
       					</div>
       				</div>
+              <div class="div-add-icon">
+      					<label class="form-file add-icon">
+      						<i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
+      						<input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
+      					</label>
+              </div>
       			  </div>
       			</div>
           </div>
           <div class="panel-footer">
-            <div class="row">
-              <div class="col-sm-6"><a type="submit" class="btn btn-sm btn-warning" href="#/feed">Cancelar</a></div>
+            <div class="row fix-width">
+              <div class="col-sm-6"><a type="submit" class="btn btn-lg btn-warning" href="#/feed">Cancelar</a></div>
               <div class="col-sm-6 text-right">
                 <button type="submit" class="btn btn-lg btn-success pull-right" ng-disabled="postOccurrence.$invalid">Publicar</button>
               </div>
