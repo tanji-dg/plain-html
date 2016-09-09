@@ -1,4 +1,10 @@
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width : 767px) {	
+	/* Signup*/
+
+	.btn-full-width{
+		width:100%;
+	}
+
 	.steps {
 		li {
 			a {
@@ -10,13 +16,14 @@
 		}
 
 		.title {
-	    font-size: 14px;
-	    text-align: center;
-	    display: block !important;
-	    width: 100px !important;
-	    margin: 10px auto 0 auto;
+	    	font-size: 14px;
+	    	text-align: center;
+	    	display: block !important;
+	    	width: 100px !important;
+	    	margin: 10px auto 0 auto;
 		}
 	}
+	/*Signup end*/
 
 	.logged-in {
 

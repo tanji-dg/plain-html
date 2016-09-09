@@ -8,33 +8,32 @@
               <uib-tab heading="Ocorrência Pública" select="vm.setOccurrenceType('PUBLIC')">
                 <div class="form-post">
                   <div class="form-group">
-                    <input ng-model="vm.occurrence.title" required type="text" placeholder="Escreva um título para a sua ocorrência..." class="form-control">
+                    <input name="newPublicOccurrenceTitle" ng-model="vm.occurrence.title" required type="text" placeholder="Escreva um título para a sua ocorrência..." class="form-control">
+                    <div ng-messages="postOccurrence.newPublicOccurrenceTitle.$error" ng-if="postOccurrence.newPublicOccurrenceTitle.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira o título</div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <textarea ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
-                  </div>
-                  <h5>Imagens:</h5>
-                  <div class="form-images">
-                    <label class="form-file">
-                      <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                      <input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                    </label>
-                    <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img ng-src="{{ trustSrc(picture.url) }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
+                    <textarea name="newPublicOccurrenceDescription" ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
+                    <div ng-messages="postOccurrence.newPublicOccurrenceDescription.$error" ng-if="postOccurrence.newPublicOccurrenceDescription.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira a descrição da ocorrência</div>
+                    </div>
                   </div>
                 </div>
               </uib-tab>
               <uib-tab heading="Ocorrência Privada" select="vm.setOccurrenceType('PRIVATE')">
                 <div class="form-post">
                   <div class="form-group">
-                    <input ng-model="vm.occurrence.title" required type="text" placeholder="Escreva um título para a sua ocorrência..." class="form-control">
+                    <input name="newPrivateOccurrenceTitle" ng-model="vm.occurrence.title" required type="text" placeholder="Escreva um título para a sua ocorrência..." class="form-control">
+                    <div ng-messages="postOccurrence.newPrivateOccurrenceTitle.$error" ng-if="postOccurrence.newPrivateOccurrenceTitle.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira o título</div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <textarea ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
+                    <textarea name="newPrivateOccurrenceDescription" ng-model="vm.occurrence.description" required placeholder="O que você gostaria de reportar?" class="form-control"></textarea>
+                    <div ng-messages="postOccurrence.newPrivateOccurrenceDescription.$error" ng-if="postOccurrence.newPrivateOccurrenceDescription.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira a descrição da ocorrência</div>
+                    </div>
                   </div>
                   <div class="form-group">
                     <tags-input ng-model="vm.occurrence.viewers"
@@ -50,87 +49,83 @@
                                      min-length="0"></auto-complete>
                     </tags-input>
                   </div>
-                  <h5>Imagens:</h5>
-                  <div class="form-images">
-                    <label class="form-file">
-                      <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                      <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                    </label>
-                    <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img ng-src="{{ picture.url }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
-                  </div>
                 </div>
               </uib-tab>
               <uib-tab heading="Votação" select="vm.setOccurrenceType('VOTING')" ng-if="vm.Session.isAdmin()">
                 <div class="form-post">
                   <div class="form-group">
-                    <input ng-model="vm.occurrence.title" required type="text" placeholder="Você é a favor de..." class="form-control">
+                    <input name="newVotingTitle" ng-model="vm.occurrence.title" required type="text" placeholder="Você é a favor de..." class="form-control">
                     <small>dica: comece a pergunta sempre com "Você é a favor de"</small>
+                    <div ng-messages="postOccurrence.newVotingTitle.$error" ng-if="postOccurrence.newVotingTitle.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira o título da votação</div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <textarea ng-model="vm.occurrence.description" required placeholder="Digite algumas informações importantes..." class="form-control"></textarea>
+                    <textarea name="newVotingDescription" ng-model="vm.occurrence.description" required placeholder="Digite algumas informações importantes..." class="form-control"></textarea>
+                    <div ng-messages="postOccurrence.newVotingDescription.$error" ng-if="postOccurrence.newVotingDescription.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira a descrição do que será votado</div>
+                    </div>
                   </div>
                   <div class="form-group">
                     <div class="">
-                      <span moment-picker="vm.occurrence.votingFrom" format="LL LT" today="true" minutes-step="15">
+                      <span moment-picker="vm.occurrence.votingFrom" format="LL LT" today="true" minutes-step="15" today="true">
                         A votação se inicia em: <b>{{ vm.occurrence.votingFrom || 'clique aqui para selecionar uma data' }}</b>
                       </span>
                       <br/>
-                      <span moment-picker="vm.occurrence.votingUntil" format="LL LT" today="true" minutes-step="15">
+                      <span moment-picker="vm.occurrence.votingUntil" format="LL LT" today="true" minutes-step="15" min-date="vm.occurrence.votingFrom" today="true">
                         e finaliza em: <b>{{ vm.occurrence.votingUntil || 'clique aqui para selecionar uma data' }}</b>
                       </span>
                     </div>
-                  </div>
-                  <h5>Imagens:</h5>
-                  <div class="form-images">
-                    <label class="form-file">
-                      <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                      <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                    </label>
-                    <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img ng-src="{{ picture.url }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
                   </div>
                 </div>
               </uib-tab>
               <uib-tab heading="Aviso" select="vm.setOccurrenceType('ADVICE')" ng-if="vm.Session.isAdmin()">
                 <div class="form-post">
                   <div class="form-group">
-                    <input ng-model="vm.occurrence.title" required type="text" placeholder="Qual é o título do aviso?" class="form-control">
+                    <input name="newAdiviceTitle" ng-model="vm.occurrence.title" required type="text" placeholder="Qual é o título do aviso?" class="form-control">
+                    <div ng-messages="postOccurrence.newAdiviceTitle.$error" ng-if="postOccurrence.newAdiviceTitle.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira o título do aviso</div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <textarea ng-model="vm.occurrence.description" required placeholder="Agora escreva a mensagem que deseja publicar..." class="form-control"></textarea>
-                  </div>
-                  <h5>Imagens:</h5>
-                  <div class="form-images">
-                    <label class="form-file">
-                      <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                      <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                    </label>
-                    <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img ng-src="{{ picture.url }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
+                    <textarea name="newAdviceDescription" ng-model="vm.occurrence.description" required placeholder="Agora escreva a mensagem que deseja publicar..." class="form-control"></textarea>
+                    <div ng-messages="postOccurrence.newAdviceDescription.$error" ng-if="postOccurrence.newAdviceDescription.$touched" style="color:maroon" role="alert">
+                        <div ng-message="required">Insira a descrição do aviso</div>
+                    </div>
                   </div>
                 </div>
               </uib-tab>
             </uib-tabset>
+            <div class="form-post">
+      			  <div class="form-group">
+      				<h5>Imagens:</h5>
+            </div>
+          </div>
+      			<div class="form-post form-images-scroll-bar">
+      			  <div class="form-group">
+
+      				<div class="div-images">
+      					<div class="form-image form-added-images" ng-repeat="picture in vm.occurrence.pictures">
+      						<img ng-src="{{ trustSrc(picture.url) }}"/>
+      						<div class="close" ng-click="vm.removePicture($index)">
+      							<i class="fa fa-times"></i>
+      						</div>
+      					</div>
+      				</div>
+              <div class="div-add-icon">
+      					<label class="form-file add-icon">
+      						<i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
+      						<input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
+      					</label>
+              </div>
+      			  </div>
+      			</div>
           </div>
           <div class="panel-footer">
-            <div class="row">
-
-              <div class="col-sm-6"><a type="submit" class="btn btn-sm btn-warning" href="#/feed">Cancelar</a></div>
+            <div class="row fix-width">
+              <div class="col-sm-6"><a type="submit" class="btn btn-lg btn-warning" href="#/feed">Cancelar</a></div>
               <div class="col-sm-6 text-right">
-                <button type="submit" class="btn btn-lg btn-success pull-right">Publicar</button>
+                <button type="submit" class="btn btn-lg btn-success pull-right" ng-disabled="postOccurrence.$invalid">Publicar</button>
               </div>
             </div>
           </div>

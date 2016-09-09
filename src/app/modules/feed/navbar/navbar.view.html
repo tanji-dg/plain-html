@@ -11,13 +11,36 @@
     <div class="navbar-collapse collapse navbar-responsive-collapse" uib-collapse="vm.isCollapsed">
       <ul class="nav navbar-nav navbar-left">
         <li>
-          <a ui-sref="{{vm.state.current.name === 'feed' ? 'feed.new' : 'feed'}}" class="btn btn-sm btn-success btn-add-occurrence">
-            <i class="fa" ng-class="{'fa-plus': vm.state.current.name === 'feed', 'fa-minus': vm.state.current.name === 'feed.new'}"></i> &nbsp; Nova Ocorrência
-          </a>
+          <!-- Uso do ng-switch devido a limitação do ui-router não fazer atualização dinâmica de URL -->
+          <div ng-switch="vm.state.current.name">
+            <div ng-switch-when="feed.new">
+              <a ui-sref="feed" class="btn btn-sm btn-success btn-add-occurrence">
+                <i class="fa fa-minus"></i> &nbsp; Nova Ocorrência
+              </a>
+            </div>
+            <div ng-switch-default>
+              <a ui-sref="feed.new" class="btn btn-sm btn-success btn-add-occurrence">
+                <i class="fa fa-plus"></i> &nbsp; Nova Ocorrência
+              </a>
+            </div>
+          </div>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a ui-sref="feed">Página Inicial</a></li>
+        <li><a>{{vm.user.firstName}} {{vm.user.lastName}}</a></li>
+        <li><a>{{vm.user.defaultResidence.identification}}</a></li>
+        <li ng-if="vm.user.condos.length == 1">
+          <a class="dropdown-toggle"> {{vm.condo.name}} </a>
+        </li>
+        <li class="dropdown" uib-dropdown ng-if="vm.user.condos.length > 1">
+            <a href="" class="dropdown-toggle" uib-dropdown-toggle>
+              {{ vm.condo.name }} <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" uib-dropdown-menu>
+              <li ng-repeat="condo in vm.user.condos" ng-if="condo._id != vm.condo._id"><a href="" ng-click="vm.chooseCondo(condo)">{{ condo.name }}</a></li>
+            </ul>
+        </li>
         <li class="dropdown" uib-dropdown>
           <a href="#" class="dropdown-toggle" uib-dropdown-toggle ng-click="vm.markNotificationsAsRead()">
             <i class="fa fa-bell hidden-xs"></i>
@@ -42,17 +65,6 @@
               <a>Nenhuma notificação foi encontrada</a>
             </li>
           </ul>
-        </li>
-        <li class="dropdown" uib-dropdown ng-if="vm.user.condos.length > 1">
-            <a href="" class="dropdown-toggle" uib-dropdown-toggle>
-              {{ vm.condo.name }} <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu" uib-dropdown-menu>
-              <li ng-repeat="condo in vm.user.condos" ng-if="condo._id != vm.condo._id"><a href="" ng-click="vm.chooseCondo(condo)">{{ condo.name }}</a></li>
-            </ul>
-        </li>
-        <li ng-if="vm.user.condos.length == 1">
-          <a class="dropdown-toggle">{{ vm.condo.name }}</a>
         </li>
         <li class="dropdown" uib-dropdown>
           <a href="" class="dropown-toggle" uib-dropdown-toggle>
