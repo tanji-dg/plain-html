@@ -19,6 +19,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a ui-sref="feed">Página Inicial</a></li>
         <li><a>{{vm.user.firstName}} {{vm.user.lastName}}</a></li>
+        <li><a>{{vm.user.defaultResidence.identification}}</a></li>
         <li ng-if="vm.user.condos.length == 1">
           <a class="dropdown-toggle"> {{vm.condo.name}} </a>
         </li>
