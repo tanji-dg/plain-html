@@ -100,10 +100,11 @@ export class FeedController {
     this.occurrences.$promise.then(() => this.occurrences.$resolved = true);
   }
 
-  addOccurrence () {
+  addOccurrence () {    
+    this.occurrence.votingFrom = new Date(this.occurrence.votingFrom);
+    this.occurrence.votingUntil = new Date(this.occurrence.votingUntil);
     return this.CondoResource.addOccurrence({'_id': this.condo._id}, this.occurrence).$promise.then(() => {
       this.swal("Publicado!", "Sua postagem foi recebida com sucesso.", "success");
-      this.occurrence = {type: this.occurrence.type};
       this.state.transitionTo('feed');
     });
   }
