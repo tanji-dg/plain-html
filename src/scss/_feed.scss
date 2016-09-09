@@ -1,0 +1,43 @@
+	.add-icon {
+		width: 89px !important;
+		height: 89px !important;
+		float: left;
+	}
+
+	.form-added-images {
+		width: 89px !important;
+		margin-left:5px;
+		padding-bottom: 20px;
+		display:inline-block;
+	}
+
+	.form-images-scroll-bar {
+		overflow-y:hidden;
+		overflow-x:visible;
+		padding-bottom:89px;
+	}
+
+	.div-images {
+		display:inline-flex;
+		position:absolute;
+		margin-left:89px;
+	}
+
+
+	.div-add-icon {
+		display:inline-flex;
+		position:fixed;
+	}
+
+	.display-inline-block {
+		display:inline-block;
+	}
+
+	.gallery-image-size {
+		height:130px !important;
+		width:130px !important;
+	}
+
+	.fix-width {
+		width:inherit;
+	}

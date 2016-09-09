@@ -19,19 +19,6 @@
                         <div ng-message="required">Insira a descrição da ocorrência</div>
                     </div>
                   </div>
-                  <h5>Imagens:</h5>
-                  <div class="form-images">
-                    <label class="form-file">
-                      <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                      <input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                    </label>
-                    <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img ng-src="{{ trustSrc(picture.url) }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
-                  </div>
                 </div>
               </uib-tab>
               <uib-tab heading="Ocorrência Privada" select="vm.setOccurrenceType('PRIVATE')">
@@ -62,19 +49,6 @@
                                      min-length="0"></auto-complete>
                     </tags-input>
                   </div>
-                  <h5>Imagens:</h5>
-                  <div class="form-images">
-                    <label class="form-file">
-                      <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                      <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                    </label>
-                    <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img ng-src="{{ picture.url }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
-                  </div>
                 </div>
               </uib-tab>
               <uib-tab heading="Votação" select="vm.setOccurrenceType('VOTING')" ng-if="vm.Session.isAdmin()">
@@ -94,27 +68,14 @@
                   </div>
                   <div class="form-group">
                     <div class="">
-                      <span moment-picker="vm.occurrence.votingFrom" format="LL LT" today="true" minutes-step="15">
+                      <span moment-picker="vm.occurrence.votingFrom" format="LL LT" today="true" minutes-step="15" today="true">
                         A votação se inicia em: <b>{{ vm.occurrence.votingFrom || 'clique aqui para selecionar uma data' }}</b>
                       </span>
                       <br/>
-                      <span moment-picker="vm.occurrence.votingUntil" format="LL LT" today="true" minutes-step="15">
+                      <span moment-picker="vm.occurrence.votingUntil" format="LL LT" today="true" minutes-step="15" min-date="vm.occurrence.votingFrom" today="true">
                         e finaliza em: <b>{{ vm.occurrence.votingUntil || 'clique aqui para selecionar uma data' }}</b>
                       </span>
                     </div>
-                  </div>
-                  <h5>Imagens:</h5>
-                  <div class="form-images">
-                    <label class="form-file">
-                      <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                      <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                    </label>
-                    <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img ng-src="{{ picture.url }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
                   </div>
                 </div>
               </uib-tab>
@@ -132,27 +93,37 @@
                         <div ng-message="required">Insira a descrição do aviso</div>
                     </div>
                   </div>
-                  <h5>Imagens:</h5>
-                  <div class="form-images">
-                    <label class="form-file">
-                      <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-                      <input type="file" class="hidden" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-                    </label>
-                    <span class="form-image" ng-repeat="picture in vm.occurrence.pictures">
-                        <img ng-src="{{ picture.url }}" />
-                        <div class="close" ng-click="vm.removePicture($index)">
-                          <i class="fa fa-times"></i>
-                        </div>
-                      </span>
-                  </div>
                 </div>
               </uib-tab>
             </uib-tabset>
+            <div class="form-post">
+      			  <div class="form-group">
+      				<h5>Imagens:</h5>
+            </div>
+          </div>
+      			<div class="form-post form-images-scroll-bar">
+      			  <div class="form-group">
+
+      				<div class="div-images">
+      					<div class="form-image form-added-images" ng-repeat="picture in vm.occurrence.pictures">
+      						<img ng-src="{{ trustSrc(picture.url) }}"/>
+      						<div class="close" ng-click="vm.removePicture($index)">
+      							<i class="fa fa-times"></i>
+      						</div>
+      					</div>
+      				</div>
+              <div class="div-add-icon">
+      					<label class="form-file add-icon">
+      						<i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
+      						<input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
+      					</label>
+              </div>
+      			  </div>
+      			</div>
           </div>
           <div class="panel-footer">
-            <div class="row">
-
-              <div class="col-sm-6"><a type="submit" class="btn btn-sm btn-warning" href="#/feed">Cancelar</a></div>
+            <div class="row fix-width">
+              <div class="col-sm-6"><a type="submit" class="btn btn-lg btn-warning" href="#/feed">Cancelar</a></div>
               <div class="col-sm-6 text-right">
                 <button type="submit" class="btn btn-lg btn-success pull-right" ng-disabled="postOccurrence.$invalid">Publicar</button>
               </div>

@@ -66,15 +66,15 @@
               </p>
 
               <section class="section pdb0">
-                <div class="container-fluid">
+                <div class="container-fluid display-inline-block">
                   <div class="demo-gallery mrb50">
                     <div class="demo-gallery">
                       <ul id="lightgallery" class="list-unstyled" ng-if="occurrence.pictures.length">
-                        <li class="col-xs-6 col-sm-4 col-md-3 justified-gallery" lightgallery ng-repeat="picture in occurrence.pictures"
+                        <li class="col-xs-6 col-sm-4 col-md-3 justified-gallery gallery-image-size" lightgallery ng-repeat="picture in occurrence.pictures"
                             data-src="{{trustSrc(picture.url)}}" data-sub-html="">
                           <a href="">
                             <!--<cl-image public-id="{{picture.publicId}}" class="img-responsive" format="jpg">-->
-                              <!--<cl-transformation height="144" width="144" crop="fill" gravity="auto" quality="auto"/>-->
+                              <!--<cl-transformation height="133" width="133" crop="fill" gravity="auto" quality="auto"/>-->
                             <!--</cl-image>-->
                             <img class="img-responsive" ng-src="{{trustSrc(picture.thumbnail)}}">
                             <div class="demo-gallery-poster">

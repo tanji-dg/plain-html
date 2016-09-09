@@ -5,7 +5,6 @@
 html, body, .main-content, .view-frame {
 	width: 100%;
 	height: 100%;
-	display: table;
 }
 
 a, button, i, li {
@@ -333,7 +332,7 @@ a.simple {
 			padding: 30px;
 			background: white;
       display: inline-block;
-     
+
 		}
 
 		.link {
@@ -565,7 +564,7 @@ a.simple {
   .panel-publication {
 
     .form-control {
-      padding: 25px 15px;
+      //padding: 25px 15px;
 
       ::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {
         font-weight: normal;
@@ -887,7 +886,7 @@ a.simple {
 			padding-top: 15px;
 		}
 		.form-control {
-			padding: 25px 15px;
+			//padding: 25px 15px;
 		}
 
 

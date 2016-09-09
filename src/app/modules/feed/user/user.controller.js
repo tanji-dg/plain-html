@@ -10,7 +10,7 @@ export class FeedUserController {
     this.FileResource = FileResource;
     this.location = $location;
     this.scope = $scope;
-
+    this.date = new Date();
     this.user = this.Session.get();
     this.scope.uploadPicture = this.uploadPicture;
     this.scope.vm = this;

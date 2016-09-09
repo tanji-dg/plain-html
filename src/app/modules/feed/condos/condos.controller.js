@@ -1,7 +1,7 @@
 export class FeedCondosController {
 
   constructor ($location, $window,
-               Session, CondoResource, CondoModals, CondoService, UserResource) {
+               Session, CondoResource, CondoModals, CondoService, UserResource, NavbarService) {
     'ngInject';
 
     this.window = $window;
@@ -13,6 +13,7 @@ export class FeedCondosController {
     this.CondoModals = CondoModals;
     this.CondoService = CondoService;
     this.UserResource = UserResource;
+    this.NavbarService = NavbarService;
 
     this.user = this.Session.get();
     this.condo = this.Session.getCondo();
@@ -46,13 +47,14 @@ export class FeedCondosController {
             this.user.condos.splice(condoIndex, 1);
 
             this.Session.setCondo(this.user.condos[0]).then(() => {
+              this.NavbarService.updateDefaultCondoOnNavbar(this.user.condos[0]);
               this.swal("Condomínio Removido", "O condomínio foi removido com sucesso!", "success");
             });
           });
         }
       });
     } else {
-      this.swal("Ops!", "Adicione outro condomínio antes de remover o existente.", "error");      
+      this.swal("Ops!", "Adicione outro condomínio antes de remover o existente.", "error");
     }
   }
 
