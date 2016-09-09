@@ -9,8 +9,14 @@
 
 	.label-default {
 	  &.econdos {
-	    background-color: $color-primary;
+	    background-color: #FFA90C;
 	  }
+	}
+
+  .row {
+		&.colored {
+		  background-color: #EEEEEE;
+		}
 	}
 
 	.panel-default {
