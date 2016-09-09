@@ -14,7 +14,7 @@ cache:
 pages:
   stage: deploy
   script:
-    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm config set cache /cache/npm && npm install --silent && npm install -g bower gulp-cli; fi
+    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm config set cache /cache/npm && npm install --silent && npm install -g bower gulp-cli && npm install gulp; fi
     - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm run bower:install && npm run build && mv dist public; fi
   artifacts:
     paths:
