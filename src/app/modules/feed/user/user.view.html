@@ -16,7 +16,7 @@
           <h4>Informações Pessoais</h4>
         </div>
         <div class="panel-body">
-          <form ng-submit="vm.save()" promise-btn>
+          <form name="userData" ng-submit="vm.save()" promise-btn>
             <div class="col-xs-12 col-sm-4 col-md-4 ">
               <label class="form-file no-background">
                 <div class="change-user-picture">
@@ -33,7 +33,12 @@
                 <div class="form-control-wrapper"><input class="form-control" type="text" ng-model="vm.user.firstName" placeholder="Nome" required></div>
               </div>
               <div class="form-group form-group-label">
-                <div class="form-control-wrapper"><input class="form-control" type="text" ng-model="vm.user.birthDate" placeholder="Data de nascimento" ui-date-mask required></div>
+                <div class="form-control-wrapper">
+                  <input class="form-control mask-date" type="text" ng-model="vm.user.birthDate" placeholder="Data de Nascimento*" name="birthDate" ng-minlength="10" ui-date-mask required>
+                  <small class="text-danger" ng-if="userData.birthDate.$error.minlength || userData.birthDate.$error.date">
+                    Verifique a data! Ex: {{ vm.date | date:'dd/MM/yyyy' }}.
+                  </small>
+                </div>
               </div>
             </div>
             <div class="col-xs-6 col-sm-4 col-md-4 ">
@@ -46,7 +51,7 @@
             </div>
             <div class="form-group">
               <div class="col-xs-12">
-                <button class="btn btn-primary btn-raised pull-right" type="submit">
+                <button ng-disabled="userData.$invalid" class="btn btn-primary btn-raised pull-right" type="submit">
                   Salvar
                 </button>
               </div>
