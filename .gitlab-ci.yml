@@ -14,8 +14,8 @@ cache:
 pages:
   stage: deploy
   script:
-    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm config set cache /cache/npm && npm install --silent && npm install -g bower gulp-cli && npm install gulp wrench; fi
-    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then bower install --allow-root && gulp clean && gulp build && mv dist public; fi
+    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm config set cache /cache/npm && npm install --silent && npm install -g bower gulp-cli && npm install wrench; fi
+    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then bower install --allow-root && npm install wrench && gulp clean && gulp build && mv dist public; fi
   artifacts:
     paths:
     - public
