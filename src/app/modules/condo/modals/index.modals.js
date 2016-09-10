@@ -21,28 +21,53 @@ export class CondoModals {
       'controllerAs' : 'vm'
     }).result;
   }
-  
-  addCondoUser() {
+
+  addCondoUser(condo) {
     return this.modal.open({
       'templateUrl'  : 'app/modules/condo/modals/addCondoUser/add.view.html',
       'controller'   : 'CondoModalsAddCondoUserController',
-      'controllerAs' : 'vm'
+      'controllerAs' : 'vm',
+      resolve : {
+        DataSource : function () {
+          return {
+            condo : condo
+          }
+        }
+      }
     }).result;
   }
-  
-  deleteCondoUser() {
+
+  deleteCondoUser(user, residence, condo) {
     return this.modal.open({
       'templateUrl'  : 'app/modules/condo/modals/deleteCondoUser/delete.view.html',
       'controller'   : 'CondoModalsDeleteCondoUserController',
-      'controllerAs' : 'vm'
+      'controllerAs' : 'vm',
+      resolve : {
+        DataSource : function () {
+          return {
+            user : user,
+            residence : residence,
+            condo : condo
+          }
+        }
+      }
     }).result;
   }
-  
-  updateCondoUser() {
+
+  updateCondoUser(user, residence, condo) {
     return this.modal.open({
       'templateUrl'  : 'app/modules/condo/modals/updateCondoUser/update.view.html',
       'controller'   : 'CondoModalsUpdateCondoUserController',
-      'controllerAs' : 'vm'
+      'controllerAs' : 'vm',
+      resolve : {
+        DataSource : function () {
+          return {
+            user : user,
+            residence : residence,
+            condo : condo
+          }
+        }
+      }
     }).result;
   }
 }
