@@ -105,19 +105,17 @@
       			  <div class="form-group">
 
       				<div class="div-images">
-      					<div class="form-image form-added-images" ng-repeat="picture in vm.occurrence.pictures">
+                <label class="form-file add-icon">
+                  <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
+                  <input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
+                </label>
+                <div class="form-image form-added-images" ng-repeat="picture in vm.occurrence.pictures">
       						<img ng-src="{{ trustSrc(picture.url) }}"/>
       						<div class="close" ng-click="vm.removePicture($index)">
       							<i class="fa fa-times"></i>
       						</div>
       					</div>
       				</div>
-              <div class="div-add-icon">
-      					<label class="form-file add-icon">
-      						<i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-      						<input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-      					</label>
-              </div>
       			  </div>
       			</div>
           </div>
