@@ -1,143 +1,139 @@
 <div class="logged-in" ng-controller="FeedController as vm">
 
-  <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
+    <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
 
-  <div ui-view></div>
+    <div ui-view></div>
 
-  <section class="body-content">
-    <div class="container">
-      <div class="row" ng-if="vm.Session.getCondo()">
-        <div class="col-sm-12">
-          <div class="text-center">
-            <strong> Pesquisar por: </strong>
-            &nbsp;&nbsp;&nbsp;
-            <div class="btn-group btn-category" role="group">
-              <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == undefined) ? 'btn-primary' : 'btn-white'"  ng-click="vm.occurrences.type = undefined" ng-init="vm.occurrences.type = undefined">Todas</button>
-              <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PUBLIC') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PUBLIC'">Públicas</button>
-              <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PRIVATE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PRIVATE'">Privadas</button>
-              <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'VOTING') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'VOTING'">Votações</button>
-              <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'ADVICE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'ADVICE'">Avisos</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <br />
-          <div class="panel panel-default post" ng-repeat="occurrence in filteredOccurrences = (vm.occurrences | filter:vm.occurrences.type)">
-            <div class="panel-heading">
-              <header>
-                <div class="icon">
-                  <i class="fa fa-globe" ng-show="occurrence.type == 'PUBLIC'"></i>
-                  <i class="fa fa-lock" ng-show="occurrence.type == 'PRIVATE'"></i>
-                  <i class="fa fa-check-square-o" ng-show="occurrence.type == 'VOTING'"></i>
-                  <i class="fa fa-newspaper-o" ng-show="occurrence.type == 'ADVICE'"></i>
+    <section class="body-content">
+        <div class="container">
+            <div class="row" ng-if="vm.Session.getCondo()">
+                <div class="col-sm-12">
+                    <div class="text-center">
+                        <strong> Pesquisar por: </strong> &nbsp;&nbsp;&nbsp;
+                        <div class="btn-group btn-category" role="group">
+                            <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == undefined) ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = undefined" ng-init="vm.occurrences.type = undefined">Todas</button>
+                            <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PUBLIC') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PUBLIC'">Públicas</button>
+                            <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PRIVATE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PRIVATE'">Privadas</button>
+                            <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'VOTING') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'VOTING'">Votações</button>
+                            <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'ADVICE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'ADVICE'">Avisos</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="title">
-                  <div class="info">
-                    <span class="label label-lg" ng-show="occurrence.type == 'PUBLIC'">Ocorrência Pública</span>
-                    <span class="label label-lg" ng-show="occurrence.type == 'PRIVATE'">Ocorrência Privada</span>
-                    <span class="label label-lg" ng-show="occurrence.type == 'VOTING'">Votação</span>
-                    <span class="label label-lg" ng-show="occurrence.type == 'ADVICE'">Aviso</span>
-                    &nbsp;
-                    <small class="author">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</small>
-                    <small class="pull-right" am-time-ago="occurrence.createdAt"></small>
-                  </div>
-                  <h4>{{ occurrence.title }}</h4>
-                </div>
-              </header>
             </div>
-            <div class="panel-body occurrence">
-              <div class="pull-right" ng-if="occurrence.type == 'VOTING'">
-                <div class="btn-group options">
-                  <button type="button" ng-class="{'btn-success': vm.findOccurrenceVote(occurrence.favorVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="!occurrence.isVoting">
+            <div class="row">
+                <div class="col-sm-12">
+                    <br />
+                    <div class="panel panel-default post" ng-repeat="occurrence in filteredOccurrences = (vm.occurrences | filter:vm.occurrences.type)">
+                        <div class="panel-heading">
+                            <header>
+                                <div class="icon">
+                                    <i class="fa fa-globe" ng-show="occurrence.type == 'PUBLIC'"></i>
+                                    <i class="fa fa-lock" ng-show="occurrence.type == 'PRIVATE'"></i>
+                                    <i class="fa fa-check-square-o" ng-show="occurrence.type == 'VOTING'"></i>
+                                    <i class="fa fa-newspaper-o" ng-show="occurrence.type == 'ADVICE'"></i>
+                                </div>
+                                <div class="title">
+                                    <div class="info">
+                                        <span class="label label-lg" ng-show="occurrence.type == 'PUBLIC'">Ocorrência Pública</span>
+                                        <span class="label label-lg" ng-show="occurrence.type == 'PRIVATE'">Ocorrência Privada</span>
+                                        <span class="label label-lg" ng-show="occurrence.type == 'VOTING'">Votação</span>
+                                        <span class="label label-lg" ng-show="occurrence.type == 'ADVICE'">Aviso</span> &nbsp;
+                                        <small class="author">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</small>
+                                        <small class="pull-right" am-time-ago="occurrence.createdAt"></small>
+                                    </div>
+                                    <h4>{{ occurrence.title }}</h4>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="panel-body occurrence">
+                            <div class="pull-right" ng-if="occurrence.type == 'VOTING'">
+                                <div class="btn-group options">
+                                    <button type="button" ng-class="{'btn-success': vm.findOccurrenceVote(occurrence.favorVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="!occurrence.isVoting">
                     Sim <span class="badge" ng-show="occurrence.favorVotes.length">{{ occurrence.favorVotes.length }}</span>
                   </button>
-                  <button type="button" ng-class="{'btn-danger': vm.findOccurrenceVote(occurrence.againstVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="!occurrence.isVoting">
+                                    <button type="button" ng-class="{'btn-danger': vm.findOccurrenceVote(occurrence.againstVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="!occurrence.isVoting">
                     Não <span class="badge" ng-show="occurrence.againstVotes.length">{{ occurrence.againstVotes.length }}</span>
                   </button>
-                </div>
-                <br>
-                <small ng-if="!occurrence.isVoting">Votação fechada!</small>
-                <small ng-if="occurrence.isVoting">Votação será encerrada <span am-time-ago="occurrence.votingUntil"></span></small>
-              </div>
-              <p class="description">
-                {{ occurrence.description }}
-              </p>
-
-              <section class="section pdb0">
-                <div class="container-fluid display-inline-block">
-                  <div class="demo-gallery mrb50">
-                    <div class="demo-gallery">
-                      <ul id="lightgallery" class="list-unstyled" ng-if="occurrence.pictures.length">
-                        <li class="col-xs-6 col-sm-4 col-md-3 justified-gallery gallery-image-size" lightgallery ng-repeat="picture in occurrence.pictures"
-                            data-src="{{trustSrc(picture.url)}}" data-sub-html="">
-                          <a href="">
-                            <!--<cl-image public-id="{{picture.publicId}}" class="img-responsive" format="jpg">-->
-                              <!--<cl-transformation height="133" width="133" crop="fill" gravity="auto" quality="auto"/>-->
-                            <!--</cl-image>-->
-                            <img class="img-responsive" ng-src="{{trustSrc(picture.thumbnail)}}">
-                            <div class="demo-gallery-poster">
-                              <img src="img/zoom.png">
+                                </div>
+                                <br>
+                                <small ng-if="!occurrence.isVoting">Votação fechada!</small>
+                                <small ng-if="occurrence.isVoting">Votação será encerrada <span am-time-ago="occurrence.votingUntil"></span></small>
                             </div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </section>
+                            <p class="description">
+                                {{ occurrence.description }}
+                            </p>
+
+                            <section class="section pdb0">
+                                <div class="container-fluid display-inline-block">
+                                    <div class="demo-gallery mrb50">
+                                        <div class="demo-gallery">
+                                            <ul id="lightgallery" class="list-unstyled" ng-if="occurrence.pictures.length">
+                                                <li class="col-xs-6 col-sm-4 col-md-3 justified-gallery gallery-image-size" lightgallery ng-repeat="picture in occurrence.pictures" data-src="{{trustSrc(picture.url)}}" data-sub-html="">
+                                                    <a href="">
+                                                        <!--<cl-image public-id="{{picture.publicId}}" class="img-responsive" format="jpg">-->
+                                                        <!--<cl-transformation height="133" width="133" crop="fill" gravity="auto" quality="auto"/>-->
+                                                        <!--</cl-image>-->
+                                                        <img class="img-responsive" ng-src="{{trustSrc(picture.thumbnail)}}">
+                                                        <div class="demo-gallery-poster">
+                                                            <img src="img/zoom.png">
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
 
 
-              <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-disabled="occurrence.isLoading">
+                            <button class="btn btn-success btn-sm" ng-click="vm.likeOccurrence(occurrence)" ng-disabled="occurrence.isLoading">
                 <i class="fa fa-thumbs-o-up"></i>
                 <span class="badge" ng-show="occurrence.likers.length">{{ occurrence.likers.length }}</span>
               </button>
-            </div>
+                        </div>
 
-            <div class="panel-footer comments">
-              <span>Comentários <span class="badge">{{ occurrence.commentsTotal }}</span>
-                &nbsp;&nbsp;
-                <a href="javascript:void(0);" ng-show="occurrence.commentsTotal > 3" ng-click="occurrence.comments.length === occurrence.commentsTotal ? vm.hideComments(occurrence) : vm.showComments(occurrence)" promise-btn>
-                  <i class="fa fa-angle-up" ng-class="{'fa-angle-up' : occurrence.comments.length === occurrence.commentsTotal, 'fa-angle-down': occurrence.comments.length < occurrence.commentsTotal}"></i>
-                  <small ng-bind="occurrence.comments.length === occurrence.commentsTotal ? 'Esconder comentários' : 'Ver todos os comentários'"></small>
-                </a>
-              </span>
-              <div class="list-group">
-                <div class="list-group-item comment" ng-repeat="comment in occurrence.comments | orderBy:'createdAt'">
-                  <div class="media">
-                    <div class="media-left row-picture">
-                      <a href="#" ng-show="comment.createdBy.picture">
-                        <img class="circle" ng-src="{{ trustSrc(comment.createdBy.picture.url) }}" alt="icon">
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <div class="row-content">
-                        <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }} <small am-time-ago="comment.createdAt"></small></h3>
-                        <pre class="list-group-item-text">{{ comment.description }}</pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn class="list-group form-horizontal">
-                <div class="form-group input-group pl-15">
-                  <textarea class="padding-5 form-control custom-control" ng-keyup="$event.keyCode == 13 && !$event.shiftKey && vm.commentOccurrence(occurrence)" rows="1" msd-elastic ng-model="occurrence.newComment" placeholder="Escreva um comentário"></textarea>
-                  <span class="input-group-btn">
+                        <div class="panel-footer comments">
+                            <span>Comentários <span class="badge">{{ occurrence.commentsTotal }}</span> &nbsp;&nbsp;
+                            <a href="javascript:void(0);" ng-show="occurrence.commentsTotal > 3" ng-click="occurrence.comments.length === occurrence.commentsTotal ? vm.hideComments(occurrence) : vm.showComments(occurrence)" promise-btn>
+                                <i class="fa fa-angle-up" ng-class="{'fa-angle-up' : occurrence.comments.length === occurrence.commentsTotal, 'fa-angle-down': occurrence.comments.length < occurrence.commentsTotal}"></i>
+                                <small ng-bind="occurrence.comments.length === occurrence.commentsTotal ? 'Esconder comentários' : 'Ver todos os comentários'"></small>
+                            </a>
+                            </span>
+                            <div class="list-group">
+                                <div class="list-group-item comment" ng-repeat="comment in occurrence.comments | orderBy:'createdAt'">
+                                    <div class="media">
+                                        <div class="media-left row-picture">
+                                            <!--<a href="#" ng-show="comment.createdBy.picture"-->
+                                                <img class="circle" ng-src="{{ trustSrc(comment.createdBy.picture.url) }}" alt="icon">
+                                            <!--</a -->
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="row-content">
+                                                <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }} <small am-time-ago="comment.createdAt"></small></h3>
+                                                <pre class="list-group-item-text">{{ comment.description }}</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn class="list-group form-horizontal">
+                                <div class="form-group input-group pl-15">
+                                    <textarea class="padding-5 form-control custom-control" ng-keyup="$event.keyCode == 13 && !$event.shiftKey && vm.commentOccurrence(occurrence)" rows="1" msd-elastic ng-model="occurrence.newComment" placeholder="Escreva um comentário"></textarea>
+                                    <span class="input-group-btn">
                     <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-angle-right"></i></button>
                   </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="text-center" ng-show="!vm.occurrences.length && vm.occurrences.$resolved">
+                        <p>Nenhuma ocorrência foi encontrada</p>
+                    </div>
+                    <div class="text-center" ng-show="vm.occurrences.length > 0 && filteredOccurrences.length === 0">
+                        <p>Nenhuma ocorrência deste tipo foi postada.</p>
+                    </div>
                 </div>
-              </form>
             </div>
-          </div>
-          <div class="text-center" ng-show="!vm.occurrences.length && vm.occurrences.$resolved">
-            <p>Nenhuma ocorrência foi encontrada</p>
-          </div>
-          <div class="text-center" ng-show="vm.occurrences.length > 0 && filteredOccurrences.length === 0">
-            <p>Nenhuma ocorrência deste tipo foi postada.</p>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </div>
