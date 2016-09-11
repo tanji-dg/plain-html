@@ -38,14 +38,14 @@
                   <div class="form-group">
                     <tags-input ng-model="vm.occurrence.viewers"
                                 placeholder="Enviar esta ocorrência para..."
-                                display-property="name"
+                                display-property="identification"
                                 key-property="_id"
                                 add-from-autocomplete-only="true"
                                 replace-spaces-with-dashes="false">
-                      <auto-complete source="vm.getUsers($query)"
+                      <auto-complete source="vm.getResidences($query)"
                                      load-on-focus="true"
                                      load-on-empty="true"
-                                     display-property="name"
+                                     display-property="identification"
                                      min-length="0"></auto-complete>
                     </tags-input>
                   </div>
