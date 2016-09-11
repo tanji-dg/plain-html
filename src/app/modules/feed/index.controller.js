@@ -100,7 +100,7 @@ export class FeedController {
     this.occurrences.$promise.then(() => this.occurrences.$resolved = true);
   }
 
-  addOccurrence () {    
+  addOccurrence () {
     this.occurrence.votingFrom = new Date(this.occurrence.votingFrom);
     this.occurrence.votingUntil = new Date(this.occurrence.votingUntil);
     return this.CondoResource.addOccurrence({'_id': this.condo._id}, this.occurrence).$promise.then(() => {
@@ -235,4 +235,12 @@ export class FeedController {
       });
     });
   }
+
+  getResidences(query) {
+    return this.CondoResource.getResidences({'_id': this.Session.getCondo()._id, '$text[$search]': query}).$promise.then((residences) => {
+        return this.window._.map(residences, (residence) => {
+          return residence;
+        });
+    });
+  }  
 }
