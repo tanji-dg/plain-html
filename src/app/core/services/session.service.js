@@ -41,7 +41,8 @@ export class SessionService {
     };
 
     let onError = (error) => {
-      if (['/activate', '/signup', '/reset'].indexOf(this.location.path()) === -1) {
+      let firstHash = this.location.path().split('/')[1];
+      if (['activate', 'signup', 'reset'].indexOf(firstHash) === -1) {
         this.location.url('/login');
       }
 
