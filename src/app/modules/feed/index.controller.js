@@ -101,11 +101,13 @@ export class FeedController {
   }
 
   addOccurrence () {
-    this.occurrence.votingFrom = new Date(this.occurrence.votingFrom);
-    this.occurrence.votingUntil = new Date(this.occurrence.votingUntil);
+    if (this.occurrence.votingFrom) this.occurrence.votingFrom = new Date(this.occurrence.votingFrom);
+    if (this.occurrence.votingUntil) this.occurrence.votingUntil = new Date(this.occurrence.votingUntil);
     return this.CondoResource.addOccurrence({'_id': this.condo._id}, this.occurrence).$promise.then(() => {
       this.swal("Publicado!", "Sua postagem foi recebida com sucesso.", "success");
       this.state.transitionTo('feed');
+    }).catch((err) => {
+      this.swal("Ooops! Ocorreu um erro", JSON.stringify(err, null, 2), "error");
     });
   }
 
@@ -242,5 +244,5 @@ export class FeedController {
           return residence;
         });
     });
-  }  
+  }
 }
