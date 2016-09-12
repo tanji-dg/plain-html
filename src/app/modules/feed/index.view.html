@@ -34,11 +34,12 @@
                 </div>
                 <div class="title">
                   <div class="info">
+                    <img class="circle" ng-show="occurrence.createdBy.picture.url" ng-src="{{ trustSrc(occurrence.createdBy.picture.url) }}" alt="icon">
+                    <small class="author">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</small>
                     <span class="label label-lg" ng-show="occurrence.type == 'PUBLIC'">Ocorrência Pública</span>
                     <span class="label label-lg" ng-show="occurrence.type == 'PRIVATE'">Ocorrência Privada</span>
                     <span class="label label-lg" ng-show="occurrence.type == 'VOTING'">Votação</span>
                     <span class="label label-lg" ng-show="occurrence.type == 'ADVICE'">Aviso</span>
-                    <small class="author">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</small>
                     <small class="pull-right" am-time-ago="occurrence.createdAt"></small>
                   </div>
                   <h4>{{ occurrence.title }}</h4>

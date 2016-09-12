@@ -74,6 +74,9 @@ export let CondoResource = ($resource, config) => {
         '$populate[1][select]'  : 'url publicId thumbnail',
         '$populate[2]'          : 'favorVotes',
         '$populate[3]'          : 'againstVotes',
+        '$populate[4][path]'    : 'createdBy',
+        '$populate[4][select]'  : 'firstName lastName',
+        '$deepPopulate'         : 'createdBy.picture',
         '$sort'                 : '-createdAt'
       }
     },
