@@ -107,4 +107,30 @@ export class SessionService {
 
     return false;
   }
+
+  isCondoAdmin() {
+    let user, condo;
+
+    user = this.get();
+    condo = this.getCondo();
+
+    if (user && condo) {
+        return (user.condosAdmin.indexOf(condo._id) !== -1);
+    }
+
+    return false;
+  }
+
+  isCondoOwner() {
+    let user, condo;
+
+    user = this.get();
+    condo = this.getCondo();
+
+    if (user && condo) {
+        return (user.condosOwner.indexOf(condo._id) !== -1);
+    }
+
+    return false;
+  }
 }

@@ -16,20 +16,8 @@ export class CondoModalsAddCondoUserController {
     this.condo = DataSource.condo;
 
     this.loggedUser = this.Session.get();
-
-    this.isCondoAdmin = false;
-    let index =
-      this.loggedUser.condosAdmin.findIndex((x) => x = this.condo._id);
-    if (index != -1) {
-      this.isCondoAdmin = true;
-    }
-
-    this.isCondoOwner = false;
-    index =
-      this.loggedUser.condosOwner.findIndex((x) => x = this.condo._id);
-    if (index != -1) {
-      this.isCondoOwner = true;
-    }
+    this.isCondoAdmin = this.Session.isCondoAdmin();
+    this.isCondoOwner = this.Session.isCondoOwner();
 
     this.condoProfiles = [
       "Super Admin",
