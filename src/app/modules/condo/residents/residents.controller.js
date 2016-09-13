@@ -44,28 +44,27 @@ export class CondoResidentsController {
       this.residences = this.CondoResource.getResidencesFromCondo({'condoId' : this.condo._id});
       this.CondoResource.getUsersFromCondo({'condoId': this.condo._id, '$populate' : '_residences'}).$promise.then((users) => {
         this.users = users;
-        console.log(this.users);
         let i = 0;
         for (let user of this.users.entries()) {
-          let condosRequested = user[1].condosRequested.findIndex((x) => x = this.condo._id);
+          let condosRequested = user[1].condosRequested.findIndex(() => this.condo._id);
           if (condosRequested !== -1)
           {
             this.users[i].condoProfile = "Requisitante da Residência";
           }
 
-          let condos = user[1].condos.findIndex((x) => x = this.condo._id);
+          let condos = user[1].condos.findIndex(() => this.condo._id);
           if (condos !== -1)
           {
             this.users[i].condoProfile = "Morador";
           }
 
-          let condosAdmin = user[1].condosAdmin.findIndex((x) => x = this.condo._id);
+          let condosAdmin = user[1].condosAdmin.findIndex(() => this.condo._id);
           if (condosAdmin !== -1)
           {
             this.users[i].condoProfile = "Admin";
           }
 
-          let condoOwner = user[1].condosOwner.findIndex((x) => x = this.condo._id);
+          let condoOwner = user[1].condosOwner.findIndex(() => this.condo._id);
           if (condoOwner !== -1)
           {
             this.users[i].condoProfile = "Super Admin";
@@ -85,7 +84,7 @@ export class CondoResidentsController {
             res[1].residenceProfile = "Requisitante";
           }
 
-          user[1].residences.voterResidences.forEach(function (item, index, array) {
+          user[1].residences.voterResidences.forEach(function (item) {
               let idx = user[1].residences.userResidences.findIndex((x) => x._id = item._id);
               if (idx !== 1) {
                 user[1].residences.userResidences.splice(idx, 1);
@@ -97,7 +96,7 @@ export class CondoResidentsController {
               }
           });
 
-          user[1].residences.userResidences.forEach(function (item, index, array) {
+          user[1].residences.userResidences.forEach(function (item) {
               let idx = user[1].residences.requesterResidences.findIndex((x) => x._id = item._id);
               if (idx !== 1) {
                 user[1].residences.requesterResidences.splice(idx, 1);
@@ -112,14 +111,14 @@ export class CondoResidentsController {
           if (this.user._id === user[1]._id) {
             this.isCondoAdmin = false;
             let index =
-              user[1].condosAdmin.findIndex((x) => x = this.condo._id);
+              user[1].condosAdmin.findIndex(() => this.condo._id);
             if (index != -1) {
               this.isCondoAdmin = true;
             }
 
             this.isCondoOwner = false;
             index =
-              user[1].condosOwner.findIndex((x) => x = this.condo._id);
+              user[1].condosOwner.findIndex(() => this.condo._id);
             if (index != -1) {
               this.isCondoOwner = true;
             }

@@ -37,14 +37,14 @@ export class CondoModalsUpdateCondoUserController {
 
     this.isCondoAdmin = false;
     let index =
-      this.loggedUser.condosAdmin.findIndex((x) => x = this.condo._id);
+      this.loggedUser.condosAdmin.findIndex(() => this.condo._id);
     if (index != -1) {
       this.isCondoAdmin = true;
     }
 
     this.isCondoOwner = false;
     index =
-      this.loggedUser.condosOwner.findIndex((x) => x = this.condo._id);
+      this.loggedUser.condosOwner.findIndex(() => this.condo._id);
     if (index != -1) {
       this.isCondoOwner = true;
     }
@@ -98,7 +98,7 @@ export class CondoModalsUpdateCondoUserController {
             }
 
             if (this.isCondoOwner && this.user.condoProfile === "Super Admin") {
-              this.CondoResource.addUserToCondoOwners({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then((x) => {});
+              this.CondoResource.addUserToCondoOwners({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
             }
           }
 

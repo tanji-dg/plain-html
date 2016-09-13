@@ -107,7 +107,7 @@ export class FeedController {
       this.swal("Publicado!", "Sua postagem foi recebida com sucesso.", "success");
       this.state.transitionTo('feed');
     }).catch((err) => {
-      this.swal("Ooops! Ocorreu um erro", JSON.stringify(err, null, 2), "error");
+      this.swal("Ooops! Ocorreu um erro", err, "error");
     });
   }
 

@@ -19,14 +19,14 @@ export class CondoModalsAddCondoUserController {
 
     this.isCondoAdmin = false;
     let index =
-      this.loggedUser.condosAdmin.findIndex((x) => x = this.condo._id);
+      this.loggedUser.condosAdmin.findIndex(() => this.condo._id);
     if (index != -1) {
       this.isCondoAdmin = true;
     }
 
     this.isCondoOwner = false;
     index =
-      this.loggedUser.condosOwner.findIndex((x) => x = this.condo._id);
+      this.loggedUser.condosOwner.findIndex(() => this.condo._id);
     if (index != -1) {
       this.isCondoOwner = true;
     }

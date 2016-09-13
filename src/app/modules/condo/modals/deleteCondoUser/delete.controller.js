@@ -31,14 +31,14 @@ export class CondoModalsDeleteCondoUserController {
 
     this.isCondoAdmin = false;
     let index =
-      this.loggedUser.condosAdmin.findIndex((x) => x = this.condo._id);
+      this.loggedUser.condosAdmin.findIndex(() => this.condo._id);
     if (index != -1) {
       this.isCondoAdmin = true;
     }
 
     this.isCondoOwner = false;
     index =
-      this.loggedUser.condosOwner.findIndex((x) => x = this.condo._id);
+      this.loggedUser.condosOwner.findIndex(() => this.condo._id);
     if (index != -1) {
       this.isCondoOwner = true;
     }
@@ -58,7 +58,6 @@ export class CondoModalsDeleteCondoUserController {
       }, (isConfirm) => {
         if (isConfirm) {
           if (this.user._id === this.residence.voter) {
-            console.log("usuário voter");
             this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId' : this.residence._id, 'userId' : ''}).$promise.then(() => {});
           }
 
