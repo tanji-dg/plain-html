@@ -23,6 +23,8 @@ export class CondoModalsUpdateCondoUserController {
     this.userName = this.user.firstName + " " + this.user.lastName;
 
     this.loggedUser = this.Session.get();
+    this.isCondoAdmin = this.Session.isCondoAdmin();
+    this.isCondoOwner = this.Session.isCondoOwner();
 
     this.isUserResident = false;
     if (this.loggedUser._id === this.user._id)
@@ -33,20 +35,6 @@ export class CondoModalsUpdateCondoUserController {
           break;
         }
       }
-    }
-
-    this.isCondoAdmin = false;
-    let index =
-      this.loggedUser.condosAdmin.findIndex((x) => x = this.condo._id);
-    if (index != -1) {
-      this.isCondoAdmin = true;
-    }
-
-    this.isCondoOwner = false;
-    index =
-      this.loggedUser.condosOwner.findIndex((x) => x = this.condo._id);
-    if (index != -1) {
-      this.isCondoOwner = true;
     }
 
     this.condoProfiles = [

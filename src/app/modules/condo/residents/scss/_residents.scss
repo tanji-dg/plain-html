@@ -13,10 +13,28 @@
 	  }
 	}
 
+	.content {
+  	display:table-cell;
+  	vertical-align:middle;
+	}
+
   .row {
 		&.colored {
 		  background-color: #EEEEEE;
 		}
+
+		&.white {
+			background-color: #FFFFFF;
+		}
+
+		&.grey {
+			background-color: #EEEEEE;
+		}
+
+		border: 1px solid #FFA90C;
+		margin-top: 1px;
+		padding-top: 8px;
+		padding-bottom: 0px;
 	}
 
 	.panel-default {
