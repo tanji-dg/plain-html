@@ -12,32 +12,35 @@
         <a class="btn btn-primary btn-raised pull-right" ng-click="vm.addUser()">Adicionar Morador</a>
       </div>
       <div class="panel-body">
-        <div class="container">
-          <div class="list-group">
+        <!-- <div class="container"> -->
+          <!-- <div class="list-group"> -->
             <div ng-repeat="user in vm.users">
               <div ng-repeat="residence in user.residences.allResidences">
                 <div ng-if="vm.isResidenceValid(residence)">
-                  <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
-                  <div class="{{vm.isCondoAdmin || vm.isCondoOwner? 'col-md-2' : 'col-md-3' }}"><p>{{ residence.identification }}</p></div>
-                  <div class="col-md-3"><p>{{ residence.residenceProfile }}</p></div>
-                  <div class="col-md-3"><p>{{ user.condoProfile }}</p></div>
-                  <div ng-if="(vm.isCondoAdmin || vm.isCondoOwner) && user.condoProfile !== 'Super Admin'">
-                    <div class="col-md-1">
-                      <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, residence)"></i>
-                      <i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, residence)"></i>
+                  <!--<div class="row" style="{{vm.striped % 2 === 0? 'background-color:#FFFFFF;' : 'background-color:#DDDDDD;'}}">-->
+                  <div ng-style="rowStyle" ng-mouseover="rowStyle={'background-color': '#FFA90C', 'color':'white', 'font-weight': 'bold'};" ng-mouseleave="rowStyle={}" class="row grey">
+                    <div class="col-md-3"><p>{{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
+                    <div class="{{vm.isCondoAdmin || vm.isCondoOwner? 'col-md-2' : 'col-md-3' }}"><p>{{ residence.identification }}</p></div>
+                    <div class="col-md-3"><p>{{ residence.residenceProfile }}</p></div>
+                    <div class="col-md-3"><p>{{ user.condoProfile }}</p></div>
+                    <div ng-if="(vm.isCondoAdmin || vm.isCondoOwner) && user.condoProfile !== 'Super Admin'">
+                      <div class="col-md-1">
+                        <span style="color:green"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, residence)"></i></span>
+                        <span style="color:red"><i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, residence)"></i></span>
+                      </div>
                     </div>
-                  </div>
-                  <div ng-if="!vm.isCondoAdmin && vm.isCondoOwner && user.condoProfile === 'Super Admin'">
-                    <div class="col-md-1">
-                      <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, residence)"></i>
-                      <i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, residence)"></i>
+                    <div ng-if="!vm.isCondoAdmin && vm.isCondoOwner && user.condoProfile === 'Super Admin'">
+                      <div class="col-md-1">
+                        <span style="color:green"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, residence)"></i></span>
+                        <span style="color:red"><i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, residence)"></i></span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          <!-- </div> -->
+        <!-- </div> -->
       </div>
     </div>
   </div>

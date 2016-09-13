@@ -17,6 +17,8 @@ export class CondoModalsDeleteCondoUserController {
     this.condo = DataSource.condo;
 
     this.loggedUser = this.Session.get();
+    this.isCondoAdmin = this.Session.isCondoAdmin();
+    this.isCondoOwner = this.Session.isCondoOwner();
 
     this.isUserResident = false;
     if (this.loggedUser._id === this.user._id)
@@ -27,20 +29,6 @@ export class CondoModalsDeleteCondoUserController {
           break;
         }
       }
-    }
-
-    this.isCondoAdmin = false;
-    let index =
-      this.loggedUser.condosAdmin.findIndex(() => this.condo._id);
-    if (index != -1) {
-      this.isCondoAdmin = true;
-    }
-
-    this.isCondoOwner = false;
-    index =
-      this.loggedUser.condosOwner.findIndex(() => this.condo._id);
-    if (index != -1) {
-      this.isCondoOwner = true;
     }
   }
 

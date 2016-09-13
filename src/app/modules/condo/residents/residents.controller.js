@@ -10,9 +10,7 @@ export class CondoResidentsController {
     this.CondoResource = CondoResource;
     this.CondoModals = CondoModals;
     this.Session = Session;
-
     this.user = this.Session.get();
-
     this.load();
   }
 
@@ -31,6 +29,7 @@ export class CondoResidentsController {
   isResidenceValid(residence) {
     for(let res of this.residences.entries()) {
       if (res[1]._id === residence._id) {
+        this.striped = this.striped + 1;
         return true;
       }
     }
@@ -109,19 +108,10 @@ export class CondoResidentsController {
                 .concat(user[1].residences.requesterResidences));
 
           if (this.user._id === user[1]._id) {
-            this.isCondoAdmin = false;
-            let index =
-              user[1].condosAdmin.findIndex(() => this.condo._id);
-            if (index != -1) {
-              this.isCondoAdmin = true;
-            }
-
-            this.isCondoOwner = false;
-            index =
-              user[1].condosOwner.findIndex(() => this.condo._id);
-            if (index != -1) {
-              this.isCondoOwner = true;
-            }
+            this.isCondoAdmin =
+              (user[1].condosAdmin.indexOf(this.condo._id) !== -1);
+            this.isCondoOwner =
+              (user[1].condosOwner.indexOf(this.condo._id) !== -1);
           }
         }
       });
