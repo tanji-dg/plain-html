@@ -50,7 +50,7 @@ export class CondoModalsUpdateCondoUserController {
       "Proprietário(direito à voto)"
     ];
 
-    if (this.currentResidenceProfile === 'Proprietário(direito à voto)') {
+    if (this.currentResidenceProfile.includes("Proprietário(direito à voto)")) {
       this.residenceProfiles.splice(0, 2);
     }
 

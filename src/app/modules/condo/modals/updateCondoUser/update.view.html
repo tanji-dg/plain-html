@@ -18,11 +18,11 @@
           </div>
         </div>
         <h4><span class="label residents label-default econdos">Perfil na Residência</span></h4>
-        <label ng-show="vm.residenceProfiles.size() !== 3" class="radio-inline"><input type="radio" ng-model="vm.residence.residenceProfile" ng-checked="true"/>Proprietário(direito à voto)</label>
-        <h5 ng-show="vm.residenceProfiles.size() !== 3">
+        <label ng-show="vm.residenceProfiles.length !== 3" class="radio-inline"><input type="radio" ng-model="vm.residence.residenceProfile" ng-checked="true"/>Proprietário(direito à voto)</label>
+        <h5 ng-show="vm.residenceProfiles.length !== 3">
           <span class="control-label residents" style="color:red">Para modificar este perfil é necessário eleger outro proprietário para a residência.</span>
         </h5>
-        <label ng-show="vm.residenceProfiles.size() === 3" class="radio-inline" ng-repeat="profile in vm.residenceProfiles">
+        <label ng-show="vm.residenceProfiles.length === 3" class="radio-inline" ng-repeat="profile in vm.residenceProfiles">
           <input type="radio" ng-model="vm.residence.residenceProfile" ng-value="profile"/>{{profile}}
         </label>
         <hr />
