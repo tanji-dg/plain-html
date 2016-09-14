@@ -14,10 +14,11 @@ export class CondoModalsAddCondoUserController {
     this.modalInstance = $uibModalInstance;
 
     this.condo = DataSource.condo;
+    this.parent = DataSource.parent;
 
     this.loggedUser = this.Session.get();
-    this.isCondoAdmin = this.Session.isCondoAdmin();
-    this.isCondoOwner = this.Session.isCondoOwner();
+    this.isCondoAdmin = this.Session.isCondoAdmin(this.condo);
+    this.isCondoOwner = this.Session.isCondoOwner(this.condo);
 
     this.condoProfiles = [
       "Super Admin",
@@ -78,14 +79,24 @@ export class CondoModalsAddCondoUserController {
             }
           });
 
-          this.swal("Adição Concluída", "A adição foi realizada com sucesso!", "success");
+          this.swal({
+            title: "Adição Concluída",
+            text: "A adição foi realizada com sucesso!",
+            type: "success"
+          }, (isConfirm) => {
+            this.close();
+          });
         }
       });
     } else {
-      this.swal("Aviso", "Você não tem permissão para executar está ação.", "warning");
+      this.swal({
+        title: "Aviso",
+        text: "Você não tem permissão para executar está ação.",
+        type: "warning"
+      }, (isConfirm) => {
+        this.close();
+      });
     }
-
-    this.close();
   }
 
   filterUsers () {
