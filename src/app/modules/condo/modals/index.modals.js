@@ -22,7 +22,7 @@ export class CondoModals {
     }).result;
   }
 
-  addCondoUser(condo) {
+  addCondoUser(condo, parent) {
     return this.modal.open({
       'templateUrl'  : 'app/modules/condo/modals/addCondoUser/add.view.html',
       'controller'   : 'CondoModalsAddCondoUserController',
@@ -30,14 +30,15 @@ export class CondoModals {
       resolve : {
         DataSource : function () {
           return {
-            condo : condo
+            condo : condo,
+            parent : parent
           }
         }
       }
     }).result;
   }
 
-  deleteCondoUser(user, residence, condo) {
+  deleteCondoUser(user, residence, condo, parent) {
     return this.modal.open({
       'templateUrl'  : 'app/modules/condo/modals/deleteCondoUser/delete.view.html',
       'controller'   : 'CondoModalsDeleteCondoUserController',
@@ -47,14 +48,15 @@ export class CondoModals {
           return {
             user : user,
             residence : residence,
-            condo : condo
+            condo : condo,
+            parent : parent
           }
         }
       }
     }).result;
   }
 
-  updateCondoUser(user, residence, condo) {
+  updateCondoUser(user, residence, condo, parent) {
     return this.modal.open({
       'templateUrl'  : 'app/modules/condo/modals/updateCondoUser/update.view.html',
       'controller'   : 'CondoModalsUpdateCondoUserController',
@@ -64,7 +66,8 @@ export class CondoModals {
           return {
             user : user,
             residence : residence,
-            condo : condo
+            condo : condo,
+            parent : parent
           }
         }
       }

@@ -17,8 +17,8 @@ export class CondoModalsDeleteCondoUserController {
     this.condo = DataSource.condo;
 
     this.loggedUser = this.Session.get();
-    this.isCondoAdmin = this.Session.isCondoAdmin();
-    this.isCondoOwner = this.Session.isCondoOwner();
+    this.isCondoAdmin = this.Session.isCondoAdmin(this.condo);
+    this.isCondoOwner = this.Session.isCondoOwner(this.condo);
 
     this.isUserResident = false;
     if (this.loggedUser._id === this.user._id)

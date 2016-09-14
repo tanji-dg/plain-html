@@ -23,8 +23,8 @@ export class CondoModalsUpdateCondoUserController {
     this.userName = this.user.firstName + " " + this.user.lastName;
 
     this.loggedUser = this.Session.get();
-    this.isCondoAdmin = this.Session.isCondoAdmin();
-    this.isCondoOwner = this.Session.isCondoOwner();
+    this.isCondoAdmin = this.Session.isCondoAdmin(this.condo);
+    this.isCondoOwner = this.Session.isCondoOwner(this.condo);
 
     this.isUserResident = false;
     if (this.loggedUser._id === this.user._id)

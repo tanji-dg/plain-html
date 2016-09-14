@@ -15,15 +15,15 @@ export class CondoResidentsController {
   }
 
   addUser() {
-    this.CondoModals.addCondoUser(this.condo);
+    this.CondoModals.addCondoUser(this.condo, this);
   }
 
   updateUser(user, residence) {
-    this.CondoModals.updateCondoUser(user, residence, this.condo);
+    this.CondoModals.updateCondoUser(user, residence, this.condo, this);
   }
 
   removeUser(user, residence) {
-    this.CondoModals.deleteCondoUser(user, residence, this.condo);
+    this.CondoModals.deleteCondoUser(user, residence, this.condo, this);
   }
 
   isResidenceValid(residence) {
@@ -43,28 +43,28 @@ export class CondoResidentsController {
       this.residences = this.CondoResource.getResidencesFromCondo({'condoId' : this.condo._id});
       this.CondoResource.getUsersFromCondo({'condoId': this.condo._id, '$populate' : '_residences'}).$promise.then((users) => {
         this.users = users;
-        //console.log(this.users);
+        console.log(this.users);
         let i = 0;
         for (let user of this.users.entries()) {
-          let condosRequested = user[1].condosRequested.findIndex((x) => x = this.condo._id);
+          let condosRequested = user[1].condosRequested.indexOf(this.condo._id);
           if (condosRequested !== -1)
           {
             this.users[i].condoProfile = "Requisitante da Residência";
           }
 
-          let condos = user[1].condos.findIndex((x) => x = this.condo._id);
+          let condos = user[1].condos.indexOf(this.condo._id);
           if (condos !== -1)
           {
             this.users[i].condoProfile = "Morador";
           }
 
-          let condosAdmin = user[1].condosAdmin.findIndex((x) => x = this.condo._id);
+          let condosAdmin = user[1].condosAdmin.indexOf(this.condo._id);
           if (condosAdmin !== -1)
           {
             this.users[i].condoProfile = "Admin";
           }
 
-          let condoOwner = user[1].condosOwner.findIndex((x) => x = this.condo._id);
+          let condoOwner = user[1].condosOwner.indexOf(this.condo._id);
           if (condoOwner !== -1)
           {
             this.users[i].condoProfile = "Super Admin";

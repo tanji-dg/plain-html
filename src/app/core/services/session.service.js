@@ -108,27 +108,19 @@ export class SessionService {
     return false;
   }
 
-  isCondoAdmin() {
-    let user, condo;
-
-    user = this.get();
-    condo = this.getCondo();
-
-    if (user && condo) {
-        return (user.condosAdmin.indexOf(condo._id) !== -1);
+  isCondoAdmin(condo) {
+    for (let c of this.logged.condosAdmin.entries())
+    {
+      if (c[1]._id === condo._id) return true;
     }
 
     return false;
   }
 
-  isCondoOwner() {
-    let user, condo;
-
-    user = this.get();
-    condo = this.getCondo();
-
-    if (user && condo) {
-        return (user.condosOwner.indexOf(condo._id) !== -1);
+  isCondoOwner(condo) {
+    for (let c of this.logged.condosOwner.entries())
+    {
+      if (c[1]._id === condo._id) return true;
     }
 
     return false;
