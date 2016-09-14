@@ -101,10 +101,13 @@ export class FeedController {
   }
 
   addOccurrence () {
+    if (this.occurrence.votingFrom) this.occurrence.votingFrom = new Date(this.occurrence.votingFrom);
+    if (this.occurrence.votingUntil) this.occurrence.votingUntil = new Date(this.occurrence.votingUntil);
     return this.CondoResource.addOccurrence({'_id': this.condo._id}, this.occurrence).$promise.then(() => {
       this.swal("Publicado!", "Sua postagem foi recebida com sucesso.", "success");
-      this.occurrence = {type: this.occurrence.type};
       this.state.transitionTo('feed');
+    }).catch((err) => {
+      this.swal("Ooops! Ocorreu um erro", err, "error");
     });
   }
 
@@ -232,6 +235,14 @@ export class FeedController {
         user.name = user.firstName + ' ' + user.lastName;
         return user;
       });
+    });
+  }
+
+  getResidences(query) {
+    return this.CondoResource.getResidences({'_id': this.Session.getCondo()._id, '$text[$search]': query}).$promise.then((residences) => {
+        return this.window._.map(residences, (residence) => {
+          return residence;
+        });
     });
   }
 }

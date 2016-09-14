@@ -38,14 +38,14 @@
                   <div class="form-group">
                     <tags-input ng-model="vm.occurrence.viewers"
                                 placeholder="Enviar esta ocorrência para..."
-                                display-property="name"
+                                display-property="identification"
                                 key-property="_id"
                                 add-from-autocomplete-only="true"
                                 replace-spaces-with-dashes="false">
-                      <auto-complete source="vm.getUsers($query)"
+                      <auto-complete source="vm.getResidences($query)"
                                      load-on-focus="true"
                                      load-on-empty="true"
-                                     display-property="name"
+                                     display-property="identification"
                                      min-length="0"></auto-complete>
                     </tags-input>
                   </div>
@@ -96,15 +96,20 @@
                 </div>
               </uib-tab>
             </uib-tabset>
-      			<div class="form-post">
+            <div class="form-post">
       			  <div class="form-group">
       				<h5>Imagens:</h5>
-      				<div class="display_inline_block">
-      					<label class="form-file add-icon">
-      						<i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
-      						<input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
-      					</label>
-      					<div class="form-image form-added-images" ng-repeat="picture in vm.occurrence.pictures">
+            </div>
+          </div>
+      			<div class="form-post form-images-scroll-bar">
+      			  <div class="form-group">
+
+      				<div class="div-images">
+                <label class="form-file add-icon">
+                  <i class="fa" ng-class="vm.uploading ? 'fa-spinner fa-spin' : 'fa-plus'"></i>
+                  <input type="file" class="hidden" id="occurrenceFiles" ng-model="vm.occurrence.files" onchange="angular.element(this).scope().uploadPictures(this)" multiple>
+                </label>
+                <div class="form-image form-added-images" ng-repeat="picture in vm.occurrence.pictures">
       						<img ng-src="{{ trustSrc(picture.url) }}"/>
       						<div class="close" ng-click="vm.removePicture($index)">
       							<i class="fa fa-times"></i>
@@ -115,8 +120,8 @@
       			</div>
           </div>
           <div class="panel-footer">
-            <div class="row">
-              <div class="col-sm-6"><a type="submit" class="btn btn-sm btn-warning" href="#/feed">Cancelar</a></div>
+            <div class="row fix-width">
+              <div class="col-sm-6"><a type="submit" class="btn btn-lg btn-warning" href="#/feed">Cancelar</a></div>
               <div class="col-sm-6 text-right">
                 <button type="submit" class="btn btn-lg btn-success pull-right" ng-disabled="postOccurrence.$invalid">Publicar</button>
               </div>

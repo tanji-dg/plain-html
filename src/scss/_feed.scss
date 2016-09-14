@@ -11,10 +11,33 @@
 		display:inline-block;
 	}
 
-	.display_flex {
-		display:inline-flex
+	.form-images-scroll-bar {
+		overflow-y:hidden;
+		overflow-x:visible;
+		padding-bottom:89px;
 	}
 
-	.display_inline_block {
+	.div-images {
+		display:inline-flex;
+		position:absolute;
+		// margin-left:89px;
+	}
+
+
+	.div-add-icon {
+		display:inline-flex;
+		position:fixed;
+	}
+
+	.display-inline-block {
 		display:inline-block;
+	}
+
+	.gallery-image-size {
+		height:130px !important;
+		width:130px !important;
+	}
+
+	.fix-width {
+		width:inherit;
 	}

@@ -10,9 +10,8 @@
         <div class="col-sm-12">
           <div class="text-center">
             <strong> Pesquisar por: </strong>
-            &nbsp;&nbsp;&nbsp;
             <div class="btn-group btn-category" role="group">
-              <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == undefined) ? 'btn-primary' : 'btn-white'"  ng-click="vm.occurrences.type = undefined" ng-init="vm.occurrences.type = undefined">Todas</button>
+              <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == undefined) ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = undefined" ng-init="vm.occurrences.type = undefined">Todas</button>
               <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PUBLIC') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PUBLIC'">Públicas</button>
               <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PRIVATE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PRIVATE'">Privadas</button>
               <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'VOTING') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'VOTING'">Votações</button>
@@ -23,7 +22,7 @@
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <br />
+          <br/>
           <div class="panel panel-default post" ng-repeat="occurrence in filteredOccurrences = (vm.occurrences | filter:vm.occurrences.type)">
             <div class="panel-heading">
               <header>
@@ -35,12 +34,12 @@
                 </div>
                 <div class="title">
                   <div class="info">
+                    <img class="circle" ng-show="occurrence.createdBy.picture.url" ng-src="{{ trustSrc(occurrence.createdBy.picture.url) }}" alt="icon">
+                    <small class="author">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</small>
                     <span class="label label-lg" ng-show="occurrence.type == 'PUBLIC'">Ocorrência Pública</span>
                     <span class="label label-lg" ng-show="occurrence.type == 'PRIVATE'">Ocorrência Privada</span>
                     <span class="label label-lg" ng-show="occurrence.type == 'VOTING'">Votação</span>
                     <span class="label label-lg" ng-show="occurrence.type == 'ADVICE'">Aviso</span>
-                    &nbsp;
-                    <small class="author">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</small>
                     <small class="pull-right" am-time-ago="occurrence.createdAt"></small>
                   </div>
                   <h4>{{ occurrence.title }}</h4>
@@ -66,15 +65,14 @@
               </p>
 
               <section class="section pdb0">
-                <div class="container-fluid">
+                <div class="container-fluid display-inline-block">
                   <div class="demo-gallery mrb50">
                     <div class="demo-gallery">
                       <ul id="lightgallery" class="list-unstyled" ng-if="occurrence.pictures.length">
-                        <li class="col-xs-6 col-sm-4 col-md-3 justified-gallery" lightgallery ng-repeat="picture in occurrence.pictures"
-                            data-src="{{trustSrc(picture.url)}}" data-sub-html="">
+                        <li class="col-xs-6 col-sm-4 col-md-3 justified-gallery gallery-image-size" lightgallery ng-repeat="picture in occurrence.pictures" data-src="{{trustSrc(picture.url)}}" data-sub-html="">
                           <a href="">
                             <!--<cl-image public-id="{{picture.publicId}}" class="img-responsive" format="jpg">-->
-                              <!--<cl-transformation height="144" width="144" crop="fill" gravity="auto" quality="auto"/>-->
+                            <!--<cl-transformation height="133" width="133" crop="fill" gravity="auto" quality="auto"/>-->
                             <!--</cl-image>-->
                             <img class="img-responsive" ng-src="{{trustSrc(picture.thumbnail)}}">
                             <div class="demo-gallery-poster">
@@ -96,8 +94,8 @@
             </div>
 
             <div class="panel-footer comments">
-              <span>Comentários <span class="badge">{{ occurrence.commentsTotal }}</span>
-                &nbsp;&nbsp;
+              <span>Comentários
+                <span class="badge">{{ occurrence.commentsTotal }}</span> &nbsp;&nbsp;
                 <a href="javascript:void(0);" ng-show="occurrence.commentsTotal > 3" ng-click="occurrence.comments.length === occurrence.commentsTotal ? vm.hideComments(occurrence) : vm.showComments(occurrence)" promise-btn>
                   <i class="fa fa-angle-up" ng-class="{'fa-angle-up' : occurrence.comments.length === occurrence.commentsTotal, 'fa-angle-down': occurrence.comments.length < occurrence.commentsTotal}"></i>
                   <small ng-bind="occurrence.comments.length === occurrence.commentsTotal ? 'Esconder comentários' : 'Ver todos os comentários'"></small>
@@ -107,13 +105,13 @@
                 <div class="list-group-item comment" ng-repeat="comment in occurrence.comments | orderBy:'createdAt'">
                   <div class="media">
                     <div class="media-left row-picture">
-                      <a href="#" ng-show="comment.createdBy.picture">
-                        <img class="circle" ng-src="{{ trustSrc(comment.createdBy.picture.url) }}" alt="icon">
-                      </a>
+                      <img class="circle" ng-show="comment.createdBy.picture" ng-src="{{ trustSrc(comment.createdBy.picture.url) }}" alt="icon">
                     </div>
                     <div class="media-body">
                       <div class="row-content">
-                        <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }} <small am-time-ago="comment.createdAt"></small></h3>
+                        <h3 class="list-group-item-heading">{{ comment.createdBy.firstName + ' ' + comment.createdBy.lastName }}
+                          <small am-time-ago="comment.createdAt"></small>
+                        </h3>
                         <pre class="list-group-item-text">{{ comment.description }}</pre>
                       </div>
                     </div>
@@ -122,7 +120,13 @@
               </div>
               <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn class="list-group form-horizontal">
                 <div class="form-group input-group pl-15">
-                  <textarea class="padding-5 form-control custom-control" ng-keyup="$event.keyCode == 13 && !$event.shiftKey && vm.commentOccurrence(occurrence)" rows="1" msd-elastic ng-model="occurrence.newComment" placeholder="Escreva um comentário"></textarea>
+                  <textarea class="padding-5 form-control custom-control"
+                            ng-keyup="$event.keyCode == 13 && !$event.shiftKey && vm.commentOccurrence(occurrence)"
+                            rows="1"
+                            msd-elastic
+                            ng-model="occurrence.newComment"
+                            placeholder="Escreva um comentário">
+                  </textarea>
                   <span class="input-group-btn">
                     <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-angle-right"></i></button>
                   </span>

@@ -43,7 +43,6 @@ export class CondoResidentsController {
       this.residences = this.CondoResource.getResidencesFromCondo({'condoId' : this.condo._id});
       this.CondoResource.getUsersFromCondo({'condoId': this.condo._id, '$populate' : '_residences'}).$promise.then((users) => {
         this.users = users;
-        console.log(this.users);
         let i = 0;
         for (let user of this.users.entries()) {
           let condosRequested = user[1].condosRequested.indexOf(this.condo._id);

@@ -11,10 +11,13 @@
     "bower:install": "bower install --allow-root",
     "build": "gulp clean && gulp build",
     "build:prod": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build",
+    "win:build:prod": "gulp clean && set BACKEND_URL=https://econdos.herokuapp.com/api/v1 && set ENV=production && gulp build",
     "ionic:build:prod:copy": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build && gulp ionic:copy",
+    "win:ionic:build:prod:copy": "gulp clean && set BACKEND_URL=https://econdos.herokuapp.com/api/v1 && set ENV=production && gulp build && gulp ionic:copy",
     "ionic:build:prod:copy:upload": "gulp clean && BACKEND_URL=https://econdos.herokuapp.com/api/v1 ENV=production gulp build && gulp ionic:copy && cd ionic && ionic upload --deploy=production && cd ..",
     "emulate:iPhone-6s": "cd ionic && ionic emulate ios --target=iPhone-6s && cd ..",
-    "emulate:lab": "cd ionic && ionic serve --lab && cd .."
+    "emulate:lab": "cd ionic && ionic serve --lab && cd ..",
+    "emulate:lab:android": "cd ionic && ionic serve -t android -l && cd .."
   },
   "devDependencies": {
     "babel-core": "~5.8.25",
@@ -65,7 +68,7 @@
     "uglify-save-license": "~0.4.1",
     "webpack-stream": "~2.1.1",
     "wiredep": "~2.2.2",
-    "wrench": "~1.5.8"
+    "wrench": "^1.5.9"
   },
   "engines": {
     "node": ">=6.3.0"

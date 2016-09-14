@@ -108,7 +108,7 @@ h1, h2, h3, h4 {
   &.btn-table {
     padding: 5px 10px;
   }
-  
+
   &.btn-sm {
     font-size: 0.9em;
   }
@@ -740,11 +740,17 @@ a.simple {
 			color: $color-secundary;
 		}
 	}
+  .circle {
+    object-fit: cover;
+    height: 56px;
+    width: 56px;
+    vertical-align: middle;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 100%;
+    padding: 1px;
+  }
 
 	.comment {
-    .circle {
-  		object-fit: cover;
-    }
 
 		.list-group-item-heading{
 			font-size: 14px;

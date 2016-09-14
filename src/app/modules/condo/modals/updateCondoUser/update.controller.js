@@ -86,7 +86,7 @@ export class CondoModalsUpdateCondoUserController {
             }
 
             if (this.isCondoOwner && this.user.condoProfile === "Super Admin") {
-              this.CondoResource.addUserToCondoOwners({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then((x) => {});
+              this.CondoResource.addUserToCondoOwners({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
             }
           }
 

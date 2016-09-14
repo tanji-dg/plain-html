@@ -46,7 +46,6 @@ export class CondoModalsDeleteCondoUserController {
       }, (isConfirm) => {
         if (isConfirm) {
           if (this.user._id === this.residence.voter) {
-            console.log("usuário voter");
             this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId' : this.residence._id, 'userId' : ''}).$promise.then(() => {});
           }
 
