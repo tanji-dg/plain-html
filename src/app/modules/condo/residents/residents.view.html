@@ -23,13 +23,13 @@
                 <div ng-if="(vm.isCondoAdmin || vm.isCondoOwner) && user.condoProfile !== 'Super Admin'">
                   <div class="col-md-1">
                     <span style="color:green"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, residence)"></i></span>
-                    <span style="color:red"><i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, residence)"></i></span>
+                    <span style="color:red"><i ng-show="residence.residenceProfile !== 'Proprietário(direito à voto)'" class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, residence)"></i></span>
                   </div>
                 </div>
                 <div ng-if="!vm.isCondoAdmin && vm.isCondoOwner && user.condoProfile === 'Super Admin'">
                   <div class="col-md-1">
                     <span style="color:green"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, residence)"></i></span>
-                    <span style="color:red"><i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, residence)"></i></span>
+                    <span style="color:red"><i ng-show="residence.residenceProfile !== 'Proprietário(direito à voto)'" class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, residence)"></i></span>
                   </div>
                 </div>
               </div>
