@@ -7,42 +7,27 @@
     <div class="container">
       <div class="row" ng-if="vm.Session.getCondo()">
         <div class="row">
-          <div class="col-sm-12 hidden-xs">
-            <div class="text-center">
-              <strong> Pesquisar por: </strong>
-              <div class="btn-group btn-category" role="group">
-                <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == undefined) ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = undefined" ng-init="vm.occurrences.type = undefined">Todas</button>
-                <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PUBLIC') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PUBLIC'">Públicas</button>
-                <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PRIVATE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PRIVATE'">Privadas</button>
-                <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'VOTING') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'VOTING'">Votações</button>
-                <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'ADVICE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'ADVICE'">Avisos</button>
+            <div class="col-sm-12">
+              <div class="text-center">
+                <div class="btn-group filter-occurrence-btn-group" role="group">
+                  <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == undefined) ? 'btn-primary' : 'btn-white'"  ng-click="vm.occurrences.type = undefined" ng-init="vm.occurrences.type = undefined">
+                      <span class="">Todas</span>
+                  </button>
+                  <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PUBLIC') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PUBLIC'">
+                     <i class="fa  fa-globe"></i><span class="hidden-xs">Públicas</span>
+                  </button>
+                  <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PRIVATE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PRIVATE'">
+                      <i class="fa  fa-lock"></i><span class="hidden-xs">Privadas</span>
+                  </button>
+                  <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'VOTING') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'VOTING'">
+                     <i class="fa fa-check-square-o"></i><span class="hidden-xs"> Votações</span>
+                  </button>
+                  <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'ADVICE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'ADVICE'">
+                      <i class="fa fa-newspaper-o"></i><span class="hidden-xs">Avisos</span>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-xs-12 hidden-lg hidden-md hidden-sm text-center">
-            <div class="col-xs-12">
-              <strong> Pesquisada por: </strong>
-            </div>
-            <div class="col-xs-12">
-              <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == undefined) ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = undefined" ng-init="vm.occurrences.type = undefined">
-                  ALL
-                </button>
-                <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PUBLIC') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PUBLIC'">
-                  <i class="fa fa-globe"></i>
-                </button>
-                <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'PRIVATE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'PRIVATE'">
-                  <i class="fa fa-lock"></i>
-                </button>
-                <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'VOTING') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'VOTING'">
-                  <i class="fa fa-check-square-o"></i>
-                </button>
-                <button type="button" class="btn btn-default" ng-class="(vm.occurrences.type == 'ADVICE') ? 'btn-primary' : 'btn-white'" ng-click="vm.occurrences.type = 'ADVICE'">
-                  <i class="fa fa-newspaper-o"></i>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       <div class="row">
         <div class="col-sm-12">

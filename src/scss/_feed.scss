@@ -33,6 +33,15 @@
 		display:inline-block;
 	}
 
+	.filter-occurrence-btn-group{
+		.btn{
+			padding: 15px 18px;
+			span{
+				margin-left: 5px;
+			}
+		}
+	}
+
 	.gallery-image-size {
 		height:130px !important;
 		width:130px !important;
