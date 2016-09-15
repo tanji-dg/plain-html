@@ -15,6 +15,7 @@ export class CondoModalsDeleteCondoUserController {
     this.user = DataSource.user;
     this.residence = DataSource.residence;
     this.condo = DataSource.condo;
+    this.refWindow = DataSource.refWindow;
 
     this.loggedUser = this.Session.get();
     this.isCondoAdmin = this.Session.isCondoAdmin(this.condo);
@@ -51,11 +52,10 @@ export class CondoModalsDeleteCondoUserController {
 
           this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
             this.swal("Integrante Removido", "O integrante foi removido da residência com sucesso!", "success");
+            this.close();
           });
         }
       });
-
-      this.close();
     } else {
       this.swal("Aviso", "Você não tem permissão para executar está ação.", "warning");
     }
@@ -76,11 +76,10 @@ export class CondoModalsDeleteCondoUserController {
         if (isConfirm) {
           this.CondoResource.removeUserFromCondo({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {
             this.swal("Integrante Removido", "O integrante foi removido do condomínio com sucesso!", "success");
+            this.close();
           });
         }
       });
-
-      this.close();
     } else {
       this.swal("Aviso", "Você não tem permissão para executar está ação.", "warning");
     }

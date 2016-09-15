@@ -113,13 +113,12 @@ export class CondoModalsUpdateCondoUserController {
           }
 
           this.swal("Dados Atualizados", "A atualização foi realizada com sucesso!", "success");
+          this.close();
         }
       });
     } else {
       this.swal("Aviso", "Você não tem permissão para executar está ação.", "warning");
     }
-
-    this.close();
   }
 
   filterResidences () {
