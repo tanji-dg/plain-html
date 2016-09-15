@@ -38,7 +38,7 @@ export class CondoModals {
     }).result;
   }
 
-  deleteCondoUser(user, residence, condo, parent) {
+  deleteCondoUser(user, residence, condo, refWindow) {
     return this.modal.open({
       'templateUrl'  : 'app/modules/condo/modals/deleteCondoUser/delete.view.html',
       'controller'   : 'CondoModalsDeleteCondoUserController',
@@ -49,7 +49,7 @@ export class CondoModals {
             user : user,
             residence : residence,
             condo : condo,
-            parent : parent
+            refWindow : refWindow
           }
         }
       }

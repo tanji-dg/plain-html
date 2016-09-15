@@ -14,7 +14,6 @@ export class CondoModalsAddCondoUserController {
     this.modalInstance = $uibModalInstance;
 
     this.condo = DataSource.condo;
-    this.parent = DataSource.parent;
 
     this.loggedUser = this.Session.get();
     this.isCondoAdmin = this.Session.isCondoAdmin(this.condo);
@@ -67,35 +66,24 @@ export class CondoModalsAddCondoUserController {
             if (this.isCondoOwner && this.user.condoProfile === "Super Admin") {
               this.CondoResource.addUserToCondoOwners({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
             }
-          });
+          }).then(() => {
+            this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
+              if (this.residence.residenceProfile === "Residente") {
+                this.CondoResource.setApproveUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+              }
 
-          this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
-            if (this.residence.residenceProfile === "Residente") {
-              this.CondoResource.setApproveUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
-            }
-
-            if (this.residence.residenceProfile === "Proprietário(direito à voto)") {
-              this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
-            }
-          });
-
-          this.swal({
-            title: "Adição Concluída",
-            text: "A adição foi realizada com sucesso!",
-            type: "success"
-          }, (isConfirm) => {
-            this.close();
+              if (this.residence.residenceProfile === "Proprietário(direito à voto)") {
+                this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+              }
+            }).then(() => {
+              this.swal("Adição Concluída", "A adição foi realizada com sucesso!", "success");
+              this.close();
+            });
           });
         }
       });
     } else {
-      this.swal({
-        title: "Aviso",
-        text: "Você não tem permissão para executar está ação.",
-        type: "warning"
-      }, (isConfirm) => {
-        this.close();
-      });
+      this.swal("Aviso", "Você não tem permissão para executar está ação.", "warning");
     }
   }
 
