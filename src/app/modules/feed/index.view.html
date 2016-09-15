@@ -46,9 +46,9 @@
                 </div>
                 <div class="col-xs-2 hidden-lg hidden-md hidden-sm">
                   <i style="color:#5cb85c; margin-top: 13px" class="fa fa-globe fa-2x pull-right" ng-show="occurrence.type == 'PUBLIC'"></i>
-                  <i style="color:#5bc0de; margin-top: 13px" class="fa fa-lock pull-right fa-2x" ng-show="occurrence.type == 'PRIVATE'"></i>
-                  <i style="color:#f0ad4e; margin-top: 13px" class="fa fa-check-square-o fa-2x" ng-show="occurrence.type == 'VOTING'"></i>
-                  <i style="color:#d9534f; margin-top: 13px" class="fa fa-newspaper-o fa-2x" ng-show="occurrence.type == 'ADVICE'"></i>
+                  <i style="color:#5bc0de; margin-top: 13px" class="fa fa-lock  fa-2x pull-right" ng-show="occurrence.type == 'PRIVATE'"></i>
+                  <i style="color:#f0ad4e; margin-top: 13px" class="fa fa-check-square-o fa-2x pull-right" ng-show="occurrence.type == 'VOTING'"></i>
+                  <i style="color:#d9534f; margin-top: 13px" class="fa fa-newspaper-o fa-2x pull-right" ng-show="occurrence.type == 'ADVICE'"></i>
                 </div>
                 <div class="col-xs-12 col-sm-7 col-md-6">
                   <h3 style="text-align:center; margin-top: 5px">{{ occurrence.title }}</h3>
@@ -57,12 +57,12 @@
                   <div style="margin-top:13px">
                     <i style="color:#5cb85c" class="fa fa-globe fa-2x pull-right hidden-xs" ng-show="occurrence.type == 'PUBLIC'"></i>
                     <i style="color:#5bc0de" class="fa fa-lock fa-2x pull-right hidden-xs" ng-show="occurrence.type == 'PRIVATE'"></i>
-                    <i style="color:#f0ad4e" class="fa fa-check-square-o fa-2x hidden-xs" ng-show="occurrence.type == 'VOTING'"></i>
-                    <i style="color:#d9534f" class="fa fa-newspaper-o fa-2x hidden-xs" ng-show="occurrence.type == 'ADVICE'"></i>
+                    <i style="color:#f0ad4e" class="fa fa-check-square-o fa-2x pull-right hidden-xs" ng-show="occurrence.type == 'VOTING'"></i>
+                    <i style="color:#d9534f" class="fa fa-newspaper-o fa-2x pull-right  hidden-xs" ng-show="occurrence.type == 'ADVICE'"></i>
                     <span style="position: relative; top:4px" class="label label-success pull-right hidden-sm hidden-xs" ng-show="occurrence.type == 'PUBLIC'">Ocorrência Pública</span>
                     <span style="position: relative; top:4px;" class="label label-info pull-right hidden-sm hidden-xs" ng-show="occurrence.type == 'PRIVATE'">Ocorrência Privada</span>
                     <span style="position: relative; top:4px;" class="label label-warning pull-right hidden-sm hidden-xs" ng-show="occurrence.type == 'VOTING'">Votação</span>
-                    <span style="position: relative; top:4px;" lass="label label-danger pull-right hidden-sm hidden-xs" ng-show="occurrence.type == 'ADVICE'">Aviso</span>
+                    <span style="position: relative; top:4px;" class="label label-danger pull-right hidden-sm hidden-xs" ng-show="occurrence.type == 'ADVICE'">Aviso</span>
                   </div>
                 </div>
               </header>
