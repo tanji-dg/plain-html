@@ -26,23 +26,29 @@
           <div class="panel panel-default post" ng-repeat="occurrence in filteredOccurrences = (vm.occurrences | filter:vm.occurrences.type)">
             <div class="panel-heading">
               <header>
-                <div class="icon">
-                  <i class="fa fa-globe" ng-show="occurrence.type == 'PUBLIC'"></i>
-                  <i class="fa fa-lock" ng-show="occurrence.type == 'PRIVATE'"></i>
-                  <i class="fa fa-check-square-o" ng-show="occurrence.type == 'VOTING'"></i>
-                  <i class="fa fa-newspaper-o" ng-show="occurrence.type == 'ADVICE'"></i>
-                </div>
-                <div class="title">
-                  <div class="info">
+                <div style="padding-left:0px" class="col-xs-3">
+                  <div style="float:left">
                     <img class="circle" ng-show="occurrence.createdBy.picture.url" ng-src="{{ trustSrc(occurrence.createdBy.picture.url) }}" alt="icon">
-                    <small class="author">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</small>
-                    <span class="label label-lg" ng-show="occurrence.type == 'PUBLIC'">Ocorrência Pública</span>
-                    <span class="label label-lg" ng-show="occurrence.type == 'PRIVATE'">Ocorrência Privada</span>
-                    <span class="label label-lg" ng-show="occurrence.type == 'VOTING'">Votação</span>
-                    <span class="label label-lg" ng-show="occurrence.type == 'ADVICE'">Aviso</span>
-                    <small class="pull-right" am-time-ago="occurrence.createdAt"></small>
                   </div>
-                  <h4>{{ occurrence.title }}</h4>
+                  <div style="float:left; padding-left:10px; vertical-align:middle">
+                    <h4 class="author" style="margin-bottom:5px">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</h4>
+                    <small am-time-ago="occurrence.createdAt"></small>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <h3 style="text-align:center; margin-top: 5px">{{ occurrence.title }}</h3>
+                </div>
+                <div class="col-xs-3">
+                  <div style="margin-top:13px">
+                    <i style="color:#5cb85c" class="fa fa-globe fa-2x pull-right" ng-show="occurrence.type == 'PUBLIC'"></i>
+                    <i style="color:#5bc0de" class="fa fa-lock fa-2x pull-right" ng-show="occurrence.type == 'PRIVATE'"></i>
+                    <i style="color:#f0ad4e" class="fa fa-check-square-o" ng-show="occurrence.type == 'VOTING'"></i>
+                    <i style="color:#d9534f" class="fa fa-newspaper-o" ng-show="occurrence.type == 'ADVICE'"></i>
+                    <span style="position: relative; top:4px" class="label label-success pull-right" ng-show="occurrence.type == 'PUBLIC'">Ocorrência Pública</span>
+                    <span style="position: relative; top:4px;" class="label label-info pull-right" ng-show="occurrence.type == 'PRIVATE'">Ocorrência Privada</span>
+                    <span style="position: relative; top:4px;" class="label label-warning pull-right" ng-show="occurrence.type == 'VOTING'">Votação</span>
+                    <span style="position: relative; top:4px;" lass="label label-danger pull-right" ng-show="occurrence.type == 'ADVICE'">Aviso</span>
+                  </div>
                 </div>
               </header>
             </div>
@@ -94,7 +100,7 @@
             </div>
 
             <div class="panel-footer comments">
-              <span>Comentários
+              <span style="padding-left:10px">Comentários
                 <span class="badge">{{ occurrence.commentsTotal }}</span> &nbsp;&nbsp;
                 <a href="javascript:void(0);" ng-show="occurrence.commentsTotal > 3" ng-click="occurrence.comments.length === occurrence.commentsTotal ? vm.hideComments(occurrence) : vm.showComments(occurrence)" promise-btn>
                   <i class="fa fa-angle-up" ng-class="{'fa-angle-up' : occurrence.comments.length === occurrence.commentsTotal, 'fa-angle-down': occurrence.comments.length < occurrence.commentsTotal}"></i>
@@ -104,7 +110,7 @@
               <div class="list-group">
                 <div class="list-group-item comment" ng-repeat="comment in occurrence.comments | orderBy:'createdAt'">
                   <div class="media">
-                    <div class="media-left row-picture">
+                    <div class="media-left row-picture" style="padding-left: 10px;">
                       <img class="circle" ng-show="comment.createdBy.picture" ng-src="{{ trustSrc(comment.createdBy.picture.url) }}" alt="icon">
                     </div>
                     <div class="media-body">
@@ -119,7 +125,7 @@
                 </div>
               </div>
               <form ng-submit="vm.commentOccurrence(occurrence)" promise-btn class="list-group form-horizontal">
-                <div class="form-group input-group pl-15">
+                <div style="padding-left:25px" class="form-group input-group pl-15">
                   <textarea class="padding-5 form-control custom-control"
                             ng-keyup="$event.keyCode == 13 && !$event.shiftKey && vm.commentOccurrence(occurrence)"
                             rows="1"
@@ -127,7 +133,7 @@
                             ng-model="occurrence.newComment"
                             placeholder="Escreva um comentário">
                   </textarea>
-                  <span class="input-group-btn">
+                  <span style="padding-right:25px;" class="input-group-btn">
                     <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-angle-right"></i></button>
                   </span>
                 </div>
