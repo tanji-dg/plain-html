@@ -126,6 +126,13 @@
                 <button type="submit" class="btn btn-lg btn-success pull-right" ng-disabled="postOccurrence.$invalid">Publicar</button>
               </div>
             </div>
+            <div class="row">
+              <div class="form-group col-xs-12 text-center" ng-if="postOccurrence.$invalid">
+                <small class="text-danger">
+                  *Preencha todos os campos!
+                </small>
+              </div>
+            </div>
           </div>
         </div>
       </form>
