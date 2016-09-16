@@ -40,8 +40,9 @@
                     <img class="circle" ng-show="occurrence.createdBy.picture.url" ng-src="{{ trustSrc(occurrence.createdBy.picture.url) }}" alt="icon">
                   </div>
                   <div style="float:left; padding-left:10px; vertical-align:middle; padding-right:0px">
-                    <h4 class="author" style="margin-bottom:5px">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</h4>
-                    <span am-time-ago="occurrence.createdAt"></span>
+                    <h4 class="author hidden-xs" style="margin-bottom:5px">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</h4>
+                    <h5 class="author  visible-xs-block" style="margin-bottom:5px">{{ occurrence.createdBy.firstName + ' ' + occurrence.createdBy.lastName }}</h5>
+                    <small am-time-ago="occurrence.createdAt"></small>
                   </div>
                 </div>
                 <div class="col-xs-2 hidden-lg hidden-md hidden-sm">
@@ -51,7 +52,8 @@
                   <i style="color:#d9534f; margin-top: 13px" class="fa fa-newspaper-o fa-2x pull-right" ng-show="occurrence.type == 'ADVICE'"></i>
                 </div>
                 <div class="col-xs-12 col-sm-7 col-md-6">
-                  <h3 style="text-align:center; margin-top: 5px">{{ occurrence.title }}</h3>
+                  <h3 class="hidden-xs" style="text-align:center; margin-top: 5px">{{ occurrence.title }}</h3>
+                  <h4 class="visible-xs-block" style="text-align:center; margin-top: 5px">{{ occurrence.title }}</h4>
                 </div>
                 <div class="col-sm-1 col-md-3">
                   <div style="margin-top:13px">
@@ -68,23 +70,31 @@
               </header>
             </div>
             <div class="panel-body occurrence">
-              <div class="pull-right" ng-if="occurrence.type == 'VOTING'">
-                <div class="btn-group options">
-                  <button type="button" ng-class="{'btn-success': vm.findOccurrenceVote(occurrence.favorVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="!occurrence.isVoting">
-                    Sim <span class="badge" ng-show="occurrence.favorVotes.length">{{ occurrence.favorVotes.length }}</span>
-                  </button>
-                  <button type="button" ng-class="{'btn-danger': vm.findOccurrenceVote(occurrence.againstVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="!occurrence.isVoting">
-                    Não <span class="badge" ng-show="occurrence.againstVotes.length">{{ occurrence.againstVotes.length }}</span>
-                  </button>
+              <div style="padding-left:0px; padding-right:0px" class="col-xs-12" ng-if="occurrence.type == 'VOTING'">
+                <div style="padding-left:0px; padding-right:0px" class="col-xs-12 col-sm-8">
+                  <p style="padding-left:0px; padding-right:0px" class="description">
+                    {{ occurrence.description }}
+                  </p>
                 </div>
-                <br>
-                <small ng-if="!occurrence.isVoting">Votação fechada!</small>
-                <small ng-if="occurrence.isVoting">Votação será encerrada <span am-time-ago="occurrence.votingUntil"></span></small>
+                <div class="col-xs-12 col-sm-4 text-center">
+                  <div ng-if="occurrence.type == 'VOTING'">
+                    <div class="btn-group options">
+                      <button type="button" ng-class="{'btn-success': vm.findOccurrenceVote(occurrence.favorVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, true)" ng-disabled="!occurrence.isVoting">
+                        Sim <span class="badge" ng-show="occurrence.favorVotes.length">{{ occurrence.favorVotes.length }}</span>
+                      </button>
+                      <button type="button" ng-class="{'btn-danger': vm.findOccurrenceVote(occurrence.againstVotes)}" class="btn" ng-click="vm.voteOccurrence(occurrence, false)" ng-disabled="!occurrence.isVoting">
+                        Não <span class="badge" ng-show="occurrence.againstVotes.length">{{ occurrence.againstVotes.length }}</span>
+                      </button>
+                    </div>
+                    <br>
+                    <small ng-if="!occurrence.isVoting">Votação fechada!</small>
+                    <small ng-if="occurrence.isVoting">Votação será encerrada <span am-time-ago="occurrence.votingUntil"></span></small>
+                  </div>
+                </div>
               </div>
-              <p class="description">
+              <p style="word-break:break-word; overflow-wrap: break-word;" class="description" ng-if="occurrence.type != 'VOTING'">
                 {{ occurrence.description }}
               </p>
-
               <section class="section pdb0">
                 <div class="container-fluid display-inline-block">
                   <div class="demo-gallery mrb50">
