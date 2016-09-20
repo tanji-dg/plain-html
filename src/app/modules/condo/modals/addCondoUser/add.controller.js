@@ -14,6 +14,7 @@ export class CondoModalsAddCondoUserController {
     this.modalInstance = $uibModalInstance;
 
     this.condo = DataSource.condo;
+    this.refWindow = DataSource.refWindow;
 
     this.loggedUser = this.Session.get();
     this.isCondoAdmin = this.Session.isCondoAdmin(this.condo);
@@ -69,15 +70,23 @@ export class CondoModalsAddCondoUserController {
           }).then(() => {
             this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
               if (this.residence.residenceProfile === "Residente") {
-                this.CondoResource.setApproveUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+                this.CondoResource.setApproveUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
+                  this.swal("Adição Concluída", "A adição foi realizada com sucesso!", "success");
+                  this.refWindow.load();
+                  this.close();
+                }).catch((error) => {
+                  this.swal("Aviso", "Você já possui uma residência neste condomínio.", "warning");
+                  this.close();
+                });
               }
 
               if (this.residence.residenceProfile === "Proprietário(direito à voto)") {
-                this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+                this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
+                  this.swal("Adição Concluída", "A adição foi realizada com sucesso!", "success");
+                  this.refWindow.load();
+                  this.close();
+                });
               }
-            }).then(() => {
-              this.swal("Adição Concluída", "A adição foi realizada com sucesso!", "success");
-              this.close();
             });
           });
         }

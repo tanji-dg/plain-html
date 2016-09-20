@@ -52,6 +52,7 @@ export class CondoModalsDeleteCondoUserController {
 
           this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
             this.swal("Integrante Removido", "O integrante foi removido da residência com sucesso!", "success");
+            this.refWindow.load();
             this.close();
           });
         }
@@ -76,6 +77,7 @@ export class CondoModalsDeleteCondoUserController {
         if (isConfirm) {
           this.CondoResource.removeUserFromCondo({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {
             this.swal("Integrante Removido", "O integrante foi removido do condomínio com sucesso!", "success");
+            this.refWindow.load();
             this.close();
           });
         }
