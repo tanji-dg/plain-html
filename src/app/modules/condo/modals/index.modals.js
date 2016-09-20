@@ -22,7 +22,7 @@ export class CondoModals {
     }).result;
   }
 
-  addCondoUser(condo, parent) {
+  addCondoUser(condo, refWindow) {
     return this.modal.open({
       'templateUrl'  : 'app/modules/condo/modals/addCondoUser/add.view.html',
       'controller'   : 'CondoModalsAddCondoUserController',
@@ -31,7 +31,7 @@ export class CondoModals {
         DataSource : function () {
           return {
             condo : condo,
-            parent : parent
+            refWindow : refWindow
           }
         }
       }
@@ -56,7 +56,7 @@ export class CondoModals {
     }).result;
   }
 
-  updateCondoUser(user, residence, condo, parent) {
+  updateCondoUser(user, residence, condo, refWindow) {
     return this.modal.open({
       'templateUrl'  : 'app/modules/condo/modals/updateCondoUser/update.view.html',
       'controller'   : 'CondoModalsUpdateCondoUserController',
@@ -67,7 +67,7 @@ export class CondoModals {
             user : user,
             residence : residence,
             condo : condo,
-            parent : parent
+            refWindow : refWindow
           }
         }
       }

@@ -15,6 +15,7 @@ export class CondoModalsUpdateCondoUserController {
     this.user = DataSource.user;
     this.residence = DataSource.residence;
     this.condo = DataSource.condo;
+    this.refWindow = DataSource.refWindow;
 
     this.currentResidenceId = this.residence._id;
     this.currentCondoProfile = this.user.condoProfile;
