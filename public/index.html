@@ -62,13 +62,13 @@ window.onload = function(){
      imageObj.onload = function(){
          context.drawImage(imageObj, 10, 10, 459, 309);
          context.font = "12pt Comic Sans";
-				 var text = shuffle(texts());
-				 var x = 280;
-				 var y = 40;
-				 var maxWidth = 180;
-				 var lineHeight = 18;
+         var text = shuffle(texts());
+		 var x = 280;
+		 var y = 40;
+		 var maxWidth = 180;
+		 var lineHeight = 18;
 
-				 wrapText(context, text, x, y, maxWidth, lineHeight);
+		 wrapText(context, text, x, y, maxWidth, lineHeight);
          //context.fillText(text, 160, 40);
      };
      imageObj.src = "this-fuckin-guy.jpg"; 
