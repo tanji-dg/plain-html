@@ -1,23 +1,82 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="GitLab Pages">
-    <title>Plain HTML site using GitLab Pages</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
-    </div>
+<script type="text/javascript">
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-    <h1>Hello World!</h1>
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
 
-    <p>
-      This is a simple plain-HTML website on GitLab Pages, without any fancy static site generator.
-    </p>
-  </body>
-</html>
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
 
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array[0];
+}
+
+function wrapText(context, text, x, y, maxWidth, lineHeight) {
+	var cars = text.split("\n");
+
+	for (var ii = 0; ii < cars.length; ii++) {
+
+		var line = "";
+		var words = cars[ii].split(" ");
+
+		for (var n = 0; n < words.length; n++) {
+			var testLine = line + words[n] + " ";
+			var metrics = context.measureText(testLine);
+			var testWidth = metrics.width;
+
+			if (testWidth > maxWidth) {
+				context.fillText(line, x, y);
+				line = words[n] + " ";
+				y += lineHeight;
+			}
+			else {
+				line = testLine;
+			}
+		}
+
+		context.fillText(line, x, y);
+		y += lineHeight;
+	}
+}
+
+function texts() {
+ return [
+	"The historical Buddha was not obese. The 'chubby Buddha' or 'laughing Buddha' is a 10th-century Chinese folk hero by the name of Budai",
+	"The Quran does not promise martyrs 72 virgins in heaven. It does mention virgin companions, houri, to all people-martyr or not-in heaven, but no number is specified",
+	"'Xmas' did not originate as a secular plan to 'take the Christ out of Christmas'. X stands for the Greek letter chi, the starting letter of Χριστός (Christos), or 'Christ' in Greek"
+ ]
+}
+
+window.onload = function(){
+     var canvas = document.getElementById("fuckinguy");
+     var context = canvas.getContext("2d");
+     var imageObj = new Image();
+     imageObj.onload = function(){
+         context.drawImage(imageObj, 10, 10, 459, 309);
+         context.font = "12pt Comic Sans";
+				 var text = shuffle(texts());
+				 var x = 280;
+				 var y = 40;
+				 var maxWidth = 180;
+				 var lineHeight = 18;
+
+				 wrapText(context, text, x, y, maxWidth, lineHeight);
+         //context.fillText(text, 160, 40);
+     };
+     imageObj.src = "this-fuckin-guy.jpg"; 
+};
+</script>
+
+<a href="https://en.wikipedia.org/wiki/List_of_common_misconceptions">List of common misconceptions</a>
+
+<br/>
+
+<canvas id="fuckinguy" width="480" height="329">
+</canvas>
