@@ -50,7 +50,7 @@ export class CondoModalsDeleteCondoUserController {
             this.CondoResource.clearResidenceVoter({
               'condoId': this.condo._id,
               'residenceId' : this.residence._id,
-              'voter' : 'null'
+              'voter' : null
             }).$promise.then(() => {
               this.CondoResource.removeUserFromResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
                 this.swal("Integrante Removido", "O integrante foi removido da residência com sucesso!", "success");
