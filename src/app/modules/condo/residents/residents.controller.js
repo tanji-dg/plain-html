@@ -66,7 +66,7 @@ export class CondoResidentsController {
           let condoOwner = user[1].condosOwner.indexOf(this.condo._id);
           if (condoOwner !== -1)
           {
-            this.users[i].condoProfile = "Super Admin";
+            this.users[i].condoProfile = "Síndico";
           }
 
           i = i + 1;

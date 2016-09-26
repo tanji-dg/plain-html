@@ -42,7 +42,8 @@ export let CondoResource = ($resource, config) => {
     },
     'addResidence'             : {
       'method'                 : 'POST',
-      'url'                    : `${baseUrl}/:_id/residences`
+      'url'                    : `${baseUrl}/:_id/:condoId/residences`,
+      'params'                 : {'condoId' : '@condoId'}
     },
     'addUserToResidence'       : {
       'method'                 : 'PUT',
@@ -56,13 +57,18 @@ export let CondoResource = ($resource, config) => {
     },
     'removeUserFromResidence'  : {
       'method'                 : 'DELETE',
-      'url'                    : `${baseUrl}/:_id/residences/:residenceId/users/:userId`,
-      'params'                 : {'residenceId' : '@residenceId', 'userId' : '@userId'}
+      'url'                    : `${baseUrl}/:_id/:condoId/residences/:residenceId/users/:userId`,
+      'params'                 : {'condoId' : '@condoId', 'residenceId' : '@residenceId', 'userId' : '@userId'}
     },
     'updateResidence'          : {
       'method'                 : 'PUT',
       'url'                    : `${baseUrl}/:_id/residences/:residenceId`,
       'params'                 : {'residenceId' : '@residenceId'}
+    },
+    'clearResidenceVoter'     : {
+      'method'                 : 'PUT',
+      'url'                    : `${baseUrl}/:_id/:condoId/residences/:residenceId`,
+      'params'                 : {'condoId' : '@condoId', 'residenceId' : '@residenceId'}
     },
     'getOccurrences'           : {
       'method'                 : 'GET',

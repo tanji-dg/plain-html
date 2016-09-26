@@ -47,14 +47,25 @@ export class CondoModalsDeleteCondoUserController {
       }, (isConfirm) => {
         if (isConfirm) {
           if (this.user._id === this.residence.voter) {
-            this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId' : this.residence._id, 'userId' : ''}).$promise.then(() => {});
+            this.CondoResource.clearResidenceVoter({
+              'condoId': this.condo._id,
+              'residenceId' : this.residence._id,
+              'voter' : 'null'
+            }).$promise.then(() => {
+              this.CondoResource.removeUserFromResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
+                this.swal("Integrante Removido", "O integrante foi removido da residência com sucesso!", "success");
+                this.refWindow.load();
+                this.close();
+              });
+            });
           }
-
-          this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
-            this.swal("Integrante Removido", "O integrante foi removido da residência com sucesso!", "success");
-            this.refWindow.load();
-            this.close();
-          });
+          else {
+            this.CondoResource.removeUserFromResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
+              this.swal("Integrante Removido", "O integrante foi removido da residência com sucesso!", "success");
+              this.refWindow.load();
+              this.close();
+            });
+          }
         }
       });
     } else {

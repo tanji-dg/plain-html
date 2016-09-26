@@ -39,7 +39,7 @@ export class CondoModalsUpdateCondoUserController {
     }
 
     this.condoProfiles = [
-      "Super Admin",
+      "Síndico",
       "Admin",
       "Morador",
       "Requisitante da Residência"
@@ -51,9 +51,11 @@ export class CondoModalsUpdateCondoUserController {
       "Proprietário(direito à voto)"
     ];
 
-    if (this.currentResidenceProfile.includes("Proprietário(direito à voto)")) {
-      this.residenceProfiles.splice(0, 2);
-    }
+    //if (this.currentResidenceProfile.includes("Proprietário(direito à voto)")) {
+    //  this.residenceProfiles.splice(0, 2);
+    //}
+
+    // https://api.econdos.com.br/condos/121212/residences/12121212
 
     if (!this.isCondoOwner) {
       this.condoProfiles.splice(0, 1);
@@ -91,14 +93,14 @@ export class CondoModalsUpdateCondoUserController {
                 this.CondoResource.addUserToCondoAdmins({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
               }
 
-              if (this.isCondoOwner && this.user.condoProfile === "Super Admin") {
+              if (this.isCondoOwner && this.user.condoProfile === "Síndico") {
                 this.CondoResource.addUserToCondoOwners({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
               }
             }
 
             if (this.currentResidenceId !== this.residence._id || this.currentResidenceProfile !== this.residence.residenceProfile) {
               if (this.user._id === this.residence.voter) {
-                this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId' : this.residence._id, 'userId' : ''}).$promise.then(() => {});
+                this.CondoResource.clearResidenceVoter({'condoId': this.condo._id, 'residenceId' : this.currentResidenceId, 'voter' : 'null'}).$promise.then(() => {});
               }
 
               this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.currentResidenceId, 'userId': this.user._id}).$promise.then(() => {});
