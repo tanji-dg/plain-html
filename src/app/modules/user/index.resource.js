@@ -11,6 +11,10 @@ export let UserResource = ($resource, config) => {
     },
     'update'                  : {
       'method'                : 'PUT',
+      'url'                   : `${baseUrl}`,
+    },
+    'getUser'                  : {
+      'method'                : 'GET',
       'url'                   : `${baseUrl}`
     },
     'activate'                : {
@@ -44,6 +48,10 @@ export let UserResource = ($resource, config) => {
     'markNotificationsAsRead' : {
       'method'                : 'PUT',
       'url'                   : `${baseUrl}/me/notifications`
+    },
+    'createUser'              : {
+      'method'                : 'POST',
+      'url'                   : `${baseUrl}`
     }
   });
 };

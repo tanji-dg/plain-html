@@ -1,7 +1,7 @@
 export class CondoModalsUpdateCondoUserController {
 
   constructor($window, $uibModalInstance,
-              CondoResource, Session, DataSource) {
+              CondoResource, UserResource, Session, DataSource) {
     'ngInject';
 
     this.window = $window;
@@ -9,6 +9,7 @@ export class CondoModalsUpdateCondoUserController {
     this.swal = this.window.swal;
 
     this.CondoResource = CondoResource;
+    this.UserResource = UserResource;
     this.Session = Session;
     this.modalInstance = $uibModalInstance;
 
@@ -39,7 +40,7 @@ export class CondoModalsUpdateCondoUserController {
     }
 
     this.condoProfiles = [
-      "Super Admin",
+      "Síndico",
       "Admin",
       "Morador",
       "Requisitante da Residência"
@@ -50,10 +51,6 @@ export class CondoModalsUpdateCondoUserController {
       "Residente",
       "Proprietário(direito à voto)"
     ];
-
-    if (this.currentResidenceProfile.includes("Proprietário(direito à voto)")) {
-      this.residenceProfiles.splice(0, 2);
-    }
 
     if (!this.isCondoOwner) {
       this.condoProfiles.splice(0, 1);
@@ -79,39 +76,58 @@ export class CondoModalsUpdateCondoUserController {
         if (isConfirm) {
           var updatePromise = new Promise( (resolve, reject) => {
             if (this.currentCondoProfile !== this.user.condoProfile) {
-              if (this.user.condoProfile === "Requisitante de Residência") {
-                this.CondoResource.addUserToCondo({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
-              }
+              this.CondoResource.removeUserFromCondoAdm({'_id' : this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
+              this.CondoResource.removeUserFromCondo({'_id' : this.condo._id, 'userId': this.user._id}).$promise.then(() => {
+                //if (this.user.condoProfile === "Requisitante de Residência") {
+                  this.CondoResource.addUserToCondo({'_id' : this.condo._id, 'userId' : this.user._id}).$promise.then(() => {});
+                //}
 
-              if (this.user.condoProfile === "Morador") {
-                this.CondoResource.setApproveUserToCondo({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
-              }
+                if (this.user.condoProfile === "Morador") {
+                  this.CondoResource.setApproveUserToCondo({'_id' : this.condo._id, 'userId' : this.user._id}).$promise.then(() => {});
+                }
 
-              if ((this.isCondoOwner || this.isCondoAdmin) && this.user.condoProfile === "Admin") {
-                this.CondoResource.addUserToCondoAdmins({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
-              }
+                if ((this.isCondoOwner || this.isCondoAdmin) && this.user.condoProfile === "Admin") {
+                  this.CondoResource.addUserToCondoAdmins({'_id' : this.condo._id, 'userId' : this.user._id}).$promise.then(() => {});
+                }
 
-              if (this.isCondoOwner && this.user.condoProfile === "Super Admin") {
-                this.CondoResource.addUserToCondoOwners({'condoId': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
-              }
+                if (this.isCondoOwner && this.user.condoProfile === "Síndico") {
+                  this.CondoResource.addUserToCondoOwners({'_id': this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
+                }
+              });
             }
 
             if (this.currentResidenceId !== this.residence._id || this.currentResidenceProfile !== this.residence.residenceProfile) {
               if (this.user._id === this.residence.voter) {
-                this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId' : this.residence._id, 'userId' : ''}).$promise.then(() => {});
+                this.CondoResource.clearResidenceVoter({'_id': this.condo._id, 'residenceId' : this.currentResidenceId, 'voter' : null}).$promise.then(() => {});
               }
 
-              this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.currentResidenceId, 'userId': this.user._id}).$promise.then(() => {});
+              if (this.currentResidenceId !== this.residence._id) {
+                this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.currentResidenceId, 'userId': this.user._id}).$promise.then(() => {});
 
-              this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
+                this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
+                  if (this.residence.residenceProfile === "Residente") {
+                    this.CondoResource.setApproveUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+                  }
+
+                  if (this.residence.residenceProfile === "Proprietário(direito à voto)") {
+                    this.CondoResource.setVoterUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+                  }
+                });
+              }
+              else {
+                if (this.residence.residenceProfile === "Requisitante") {
+                  this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.currentResidenceId, 'userId': this.user._id}).$promise.then(() => {});
+                  this.CondoResource.addUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+                }
+
                 if (this.residence.residenceProfile === "Residente") {
-                  this.CondoResource.setApproveUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+                  this.CondoResource.setApproveUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
                 }
 
                 if (this.residence.residenceProfile === "Proprietário(direito à voto)") {
-                  this.CondoResource.setVoterUserToResidence({'condoId': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
+                  this.CondoResource.setVoterUserToResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {});
                 }
-              });
+              }
             }
 
             resolve('OK');
@@ -131,7 +147,7 @@ export class CondoModalsUpdateCondoUserController {
   }
 
   filterResidences () {
-    this.CondoResource.getResidencesFromCondo({'condoId' : this.condo._id}).$promise.then(
+    this.CondoResource.getResidencesFromCondo({'_id' : this.condo._id}).$promise.then(
       residences => {
         this.residences = residences.filter(
           residence => residence.identification.includes(this.filterResidenceTerm)

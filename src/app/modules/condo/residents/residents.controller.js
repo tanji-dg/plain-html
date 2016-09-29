@@ -40,8 +40,8 @@ export class CondoResidentsController {
   load() {
     this.CondoResource.get({'_id': this.stateParams.condoId}).$promise.then((condo) => {
       this.condo = condo;
-      this.residences = this.CondoResource.getResidencesFromCondo({'condoId' : this.condo._id});
-      this.CondoResource.getUsersFromCondo({'condoId': this.condo._id, '$populate' : '_residences'}).$promise.then((users) => {
+      this.residences = this.CondoResource.getResidencesFromCondo({'_id' : this.condo._id});
+      this.CondoResource.getUsersFromCondo({'_id' : this.condo._id, '$populate' : '_residences'}).$promise.then((users) => {
         this.users = users;
         let i = 0;
         for (let user of this.users.entries()) {
@@ -66,7 +66,7 @@ export class CondoResidentsController {
           let condoOwner = user[1].condosOwner.indexOf(this.condo._id);
           if (condoOwner !== -1)
           {
-            this.users[i].condoProfile = "Super Admin";
+            this.users[i].condoProfile = "Síndico";
           }
 
           i = i + 1;
