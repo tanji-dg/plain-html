@@ -11,6 +11,10 @@ export let UserResource = ($resource, config) => {
     },
     'update'                  : {
       'method'                : 'PUT',
+      'url'                   : `${baseUrl}`,
+    },
+    'getUser'                  : {
+      'method'                : 'GET',
       'url'                   : `${baseUrl}`
     },
     'activate'                : {

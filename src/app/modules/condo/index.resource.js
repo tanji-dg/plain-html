@@ -42,13 +42,13 @@ export let CondoResource = ($resource, config) => {
     },
     'addResidence'             : {
       'method'                 : 'POST',
-      'url'                    : `${baseUrl}/:_id/:condoId/residences`,
-      'params'                 : {'condoId' : '@condoId'}
+      'url'                    : `${baseUrl}/:_id/residences`,
+      'params'                 : {'_id' : '@_id'}
     },
     'addUserToResidence'       : {
       'method'                 : 'PUT',
       'url'                    : `${baseUrl}/:_id/residences/:residenceId/users/:userId`,
-      'params'                 : {'residenceId' : '@residenceId', 'userId' : '@userId'}
+      'params'                 : {'_id' : '@_id', 'residenceId' : '@residenceId', 'userId' : '@userId'}
     },
     'rejectUserFromResidence'  : {
       'method'                 : 'PUT',
@@ -57,8 +57,8 @@ export let CondoResource = ($resource, config) => {
     },
     'removeUserFromResidence'  : {
       'method'                 : 'DELETE',
-      'url'                    : `${baseUrl}/:_id/:condoId/residences/:residenceId/users/:userId`,
-      'params'                 : {'condoId' : '@condoId', 'residenceId' : '@residenceId', 'userId' : '@userId'}
+      'url'                    : `${baseUrl}/:_id/residences/:residenceId/users/:userId`,
+      'params'                 : {'_id' : '@_id', 'residenceId' : '@residenceId', 'userId' : '@userId'}
     },
     'updateResidence'          : {
       'method'                 : 'PUT',
@@ -66,10 +66,10 @@ export let CondoResource = ($resource, config) => {
       'params'                 : {'residenceId' : '@residenceId'}
     },
     'clearResidenceVoter'     : {
-      'method'                 : 'PUT',
-      'url'                    : `${baseUrl}/:_id/:condoId/residences/:residenceId`,
-      'params'                 : {'condoId' : '@condoId', 'residenceId' : '@residenceId'}
-    },
+       'method'                 : 'PUT',
+       'url'                    : `${baseUrl}/:_id/residences/:residenceId`,
+       'params'                 : {'_id' : '@_id', 'residenceId' : '@residenceId'}
+     },
     'getOccurrences'           : {
       'method'                 : 'GET',
       'isArray'                : true,
@@ -158,53 +158,55 @@ export let CondoResource = ($resource, config) => {
     'getUsersFromCondo'        : {
       'method'                 : 'GET',
       'isArray'                : true,
-      'url'                    : `${baseUrl}/:_id/:condoId/users`,
-      'params'                 : {'condoId' : '@condoId', '$populate' : '@$populate'}
+      'url'                    : `${baseUrl}/:_id/users`,
+      'params'                 : {'_id' : '@_id', '$populate' : '@$populate'}
     },
     'getResidencesFromCondo'   : {
       'method'                 : 'GET',
       'isArray'                : true,
-      'url'                    : `${baseUrl}/:_id/:condoId/residences`,
-      'params'                 : {'condoId' : '@condoId'}
+      'url'                    : `${baseUrl}/:_id/residences`,
+      'params'                 : {'_id' : '@_id'}
     },
     'setApproveUserToResidence': {
       'method'                 : 'PUT',
-      'url'                    : `${baseUrl}/:_id/:condoId/residences/:residenceId/users/:userId/approve`,
-      'params'                 : {'condoId' : '@condoId', 'residenceId' : '@residenceId', 'userId' : '@userId'}
+      'url'                    : `${baseUrl}/:_id/residences/:residenceId/users/:userId/approve`,
+      'params'                 : {'_id' : '@_id', 'residenceId' : '@residenceId', 'userId' : '@userId'}
     },
     'setVoterUserToResidence'       : {
       'method'                 : 'PUT',
-      'url'                    : `${baseUrl}/:_id/:condoId/residences/:residenceId/users/:userId/voter`,
-      'params'                 : {'condoId' : '@condoId', 'residenceId' : '@residenceId', 'userId' : '@userId'}
+      'url'                    : `${baseUrl}/:_id/residences/:residenceId/users/:userId/voter`,
+      'params'                 : {'_id' : '@_id', 'residenceId' : '@residenceId', 'userId' : '@userId'}
     },
     'addUserToCondo'           : {
       'method'                 : 'PUT',
-      'url'                    : `${baseUrl}/:_id/:condoId/users/:userId`,
-      'params'                 : {'condoId' : '@condoId', 'userId' : '@userId'}
+      'url'                    : `${baseUrl}/:_id/users/:userId`,
+      'params'                 : {'_id' : '@_id', 'userId' : '@userId'}
     },
     'setApproveUserToCondo'    : {
       'method'                 : 'PUT',
-      'url'                    : `${baseUrl}/:_id/:condoId/users/:userId/approve`,
-      'params'                 : {'condoId' : '@condoId', 'userId' : '@userId'}
+      'url'                    : `${baseUrl}/:_id/users/:userId/approve`,
+      'params'                 : {'_id' : '@_id', 'userId' : '@userId'}
     },
     'addUserToCondoAdmins'           : {
       'method'                 : 'PUT',
-      'url'                    : `${baseUrl}/:_id/:condoId/users/:userId/admins`,
-      'params'                 : {'condoId' : '@condoId', 'userId' : '@userId'}
+      'url'                    : `${baseUrl}/:_id/users/:userId/admins`,
+      'params'                 : {'_id' : '@_id', 'userId' : '@userId'}
     },
     'addUserToCondoOwners'     : {
       'method'                 : 'PUT',
-      'url'                    : `${baseUrl}/:_id/:condoId/users/:userId/owners`,
-      'params'                 : {'condoId' : '@condoId', 'userId' : '@userId'}
+      'url'                    : `${baseUrl}/:_id/users/:userId/owners`,
+      'params'                 : {'_id' : '@_id', 'userId' : '@userId'}
     },
     'removeUserFromCondo'      : {
       'method'                 : 'DELETE',
-      'url'                    : `${baseUrl}/:_id/:condoId/users/:userId`,
-      'params'                 : {'condoId' : '@condoId', 'userId' : '@userId'}
+      'url'                    : `${baseUrl}/:_id/users/:userId`,
+      'params'                 : {'_id' : '@_id', 'userId' : '@userId'}
     },
-    'removeUserFromCondoAdmins': 'DELETE',
-    'url'                      : `${baseUrl}/:_id/:condoId/users/:userId/admins`,
-    'params'                   : {'condoId' : '@condoId', 'userId' : '@userId'}
+    'removeUserFromCondoAdm'   : {
+      'method'                 : 'DELETE',
+      'url'                    : `${baseUrl}/:_id/users/:userId/admins`,
+      'params'                 : {'_id' : '@_id', 'userId' : '@userId'}
+    }
   });
 
   function transformSingleResidenceResponse(response) {
