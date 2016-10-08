@@ -1,7 +1,7 @@
 <div class="logged-in" ng-controller="CondoResidentsController as vm">
   <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
   <div class="container">
-    <h2 class="section-title"><i class="fa fa-users fa-circled"></i><strong>Moradores do Condomínio</strong> &raquo; {{ vm.condo.name }}</h2>
+    <h2 class="section-title"><i class="fa fa-users fa-circled"></i><strong>Meu Condomínio</strong> &raquo; {{ vm.condo.name }}</h2>
     <div class="panel panel-box panel-box-residence panel-default" ng-hide="vm.users.$resolved">
       <div class="panel-body">
         <i class="fa fa-spinner fa-spin"></i> Carregando...
@@ -9,9 +9,41 @@
     </div>
     <div class="panel residents panel-default">
       <div class="panel-body" ng-show="vm.isCondoAdmin || vm.isCondoOwner">
-        <a class="btn btn-primary btn-raised pull-right" ng-click="vm.addUser()">Adicionar Morador</a>
+        <a class="btn btn-primary btn-raised pull-right" ng-click="vm.addCondoUserProfile()">Adicionar Morador</a>
       </div>
       <div class="panel-body">
+
+        <center><h3>Moradores</h3></center>
+        <div ng-repeat="user in vm.usersFromCondo">
+          <div ng-style="rowStyle" ng-mouseover="rowStyle={'background-color': '#FFA90C', 'color':'white', 'font-weight': 'bold'};" ng-mouseleave="rowStyle={}" class="row grey">
+            <div class="col-md-4"><p><span style="color:#9999ff"><i class="fa fa-user" aria-hidden="true"></i></span> {{ (user.firstName) ? user.firstName + ' ' + user.lastName : "Sem nome" }}<span ng-if="vm.user._id == user._id">(eu)</span></p></div>
+            <div class="col-md-4"><p>{{ user.condoProfile }}</p></div>
+            <div ng-show="vm.showActionButtons(user)">
+              <div class="col-md-2 text-center">
+                <span style="color:green"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateCondoUserProfile(user)"></i></span>
+              </div>
+              <div class="col-md-2 text-center">
+                <span style="color:red"><i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUserFromCondo(user)"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <center><h3>Residências</h3></center>
+        <div ng-repeat="residence in vm.residencesFromCondo">
+          <div ng-style="rowStyle" ng-mouseover="rowStyle={'background-color': '#FFA90C', 'color':'white', 'font-weight': 'bold'};" ng-mouseleave="rowStyle={}" class="row grey">
+            <div class="col-md-4"><p><span style="color:#9999ff"><i class="fa fa-home" aria-hidden="true"></i></span> {{ residence.identification }}</p></div>
+            <div class="col-md-4"><p>{{ residence.voter }}</p></div>
+            <div class="col-md-2 text-center">
+              <span style="color:green"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateUser(user, residence)"></i></span>
+            </div>
+            <div class="col-md-2 text-center">
+              <span style="color:red"><i class="fa fa-times" aria-hidden="true" ng-click="vm.removeUser(user, residence)"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <center><h3>Relacionamento</h3></center>
         <div ng-repeat="user in vm.users">
           <div ng-repeat="residence in user.residences.allResidences">
             <div ng-if="vm.isResidenceValid(residence)">

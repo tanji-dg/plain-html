@@ -73,4 +73,54 @@ export class CondoModals {
       }
     }).result;
   }
+
+  addCondoUserProfile(condo, refWindow) {
+    return this.modal.open({
+      'templateUrl'  : 'app/modules/condo/modals/addCondoUserProf/add.view.html',
+      'controller'   : 'CondoModalsAddCondoUserProfController',
+      'controllerAs' : 'vm',
+      resolve : {
+        DataSource : function () {
+          return {
+            condo : condo,
+            refWindow : refWindow
+          }
+        }
+      }
+    }).result;
+  }
+
+  updateCondoUserProfile(user, condo, refWindow) {
+    return this.modal.open({
+      'templateUrl'  : 'app/modules/condo/modals/updateCondoUserProf/update.view.html',
+      'controller'   : 'CondoModalsUpdateCondoUserProfController',
+      'controllerAs' : 'vm',
+      resolve : {
+        DataSource : function () {
+          return {
+            user : user,
+            condo : condo,
+            refWindow : refWindow
+          }
+        }
+      }
+    }).result;
+  }
+
+  removeUserFromCondo(user, condo, refWindow) {
+    return this.modal.open({
+      'templateUrl'  : 'app/modules/condo/modals/deleteCondoUserProf/delete.view.html',
+      'controller'   : 'CondoModalsDeleteCondoUserProfController',
+      'controllerAs' : 'vm',
+      resolve : {
+        DataSource : function () {
+          return {
+            user : user,
+            condo : condo,
+            refWindow : refWindow
+          }
+        }
+      }
+    }).result;
+  }
 }

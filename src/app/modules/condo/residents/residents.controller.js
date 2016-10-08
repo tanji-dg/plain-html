@@ -6,12 +6,73 @@ export class CondoResidentsController {
 
     this.window = $window;
     this._ = this.window._;
+    this.swal = this.window.swal;
     this.stateParams = $stateParams;
     this.CondoResource = CondoResource;
     this.CondoModals = CondoModals;
     this.Session = Session;
     this.user = this.Session.get();
     this.load();
+    this.loadAllCollections();
+  }
+
+  loadAllCollections()
+  {
+    this.CondoResource.getUsers({ '_id' : this.stateParams.condoId }).$promise.then((users) => {
+      this.usersFromCondo = users;
+      this.condoId = this.stateParams.condoId;
+      let i = 0;
+      for (let user of this.usersFromCondo.entries()) {
+        let condosRequested = user[1].condosRequested.indexOf(this.condoId);
+        if (condosRequested !== -1)
+        {
+          this.usersFromCondo[i].condoProfile = "Requisitante da Residência";
+        }
+
+        let condos = user[1].condos.indexOf(this.condoId);
+        if (condos !== -1)
+        {
+          this.usersFromCondo[i].condoProfile = "Morador";
+        }
+
+        let condosAdmin = user[1].condosAdmin.indexOf(this.condoId);
+        if (condosAdmin !== -1)
+        {
+          this.usersFromCondo[i].condoProfile = "Admin";
+        }
+
+        let condoOwner = user[1].condosOwner.indexOf(this.condoId);
+        if (condoOwner !== -1)
+        {
+          this.usersFromCondo[i].condoProfile = "Síndico";
+        }
+        i = i + 1;
+      }
+    });
+
+    this.CondoResource.getResidences({ '_id' : this.stateParams.condoId }).$promise.then((residences) => {
+      this.residencesFromCondo = residences;
+    });
+  }
+
+  showActionButtons(userEntry) {
+    if (userEntry._id === this.user._id) {
+      return false;
+    }
+
+    if (this.isCondoOwner) {
+      return true;
+    }
+
+    if (this.isCondoAdmin) {
+      if (userEntry.condoProfile !== "Síndico") {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    return false;
   }
 
   addUser() {
@@ -24,6 +85,32 @@ export class CondoResidentsController {
 
   removeUser(user, residence) {
     this.CondoModals.deleteCondoUser(user, residence, this.condo, this);
+  }
+
+  addCondoUserProfile() {
+    this.CondoModals.addCondoUserProfile(this.condo, this);
+  }
+
+  updateCondoUserProfile(user) {
+    this.loggedUser = this.Session.get();
+    this.isCondoOwner = this.Session.isCondoOwner(this.condo);
+
+    if (this.isCondoOwner && this.loggedUser._id === user._id) {
+      this.swal("Aviso", "É necessário nomear um novo síndico.", "warning");
+    } else {
+      this.CondoModals.updateCondoUserProfile(user, this.condo, this);
+    }
+  }
+
+  removeUserFromCondo(user) {
+    this.loggedUser = this.Session.get();
+    this.isCondoOwner = this.Session.isCondoOwner(this.condo);
+
+    if (this.isCondoOwner && this.loggedUser._id === user._id) {
+      this.swal("Aviso", "É necessário nomear um novo síndico.", "warning");
+    } else {
+      this.CondoModals.removeUserFromCondo(user, this.condo, this);
+    }
   }
 
   isResidenceValid(residence) {

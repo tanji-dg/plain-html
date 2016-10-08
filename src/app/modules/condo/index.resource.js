@@ -206,7 +206,7 @@ export let CondoResource = ($resource, config) => {
       'method'                 : 'DELETE',
       'url'                    : `${baseUrl}/:_id/users/:userId/admins`,
       'params'                 : {'_id' : '@_id', 'userId' : '@userId'}
-    }
+    }    
   });
 
   function transformSingleResidenceResponse(response) {

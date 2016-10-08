@@ -7,6 +7,9 @@ import { CondoModalsCreateUserController } from './modals/createUser/create.cont
 import { CondoModalsAddCondoUserController } from './modals/addCondoUser/add.controller';
 import { CondoModalsDeleteCondoUserController } from './modals/deleteCondoUser/delete.controller';
 import { CondoModalsUpdateCondoUserController } from './modals/updateCondoUser/update.controller';
+import { CondoModalsAddCondoUserProfController } from './modals/addCondoUserProf/add.controller';
+import { CondoModalsDeleteCondoUserProfController } from './modals/deleteCondoUserProf/delete.controller';
+import { CondoModalsUpdateCondoUserProfController } from './modals/updateCondoUserProf/update.controller';
 import { CondoResidentsController } from './residents/residents.controller';
 
 export default angular.module('econdos.modules.condo', [])
@@ -19,5 +22,7 @@ export default angular.module('econdos.modules.condo', [])
   .controller('CondoModalsAddCondoUserController', CondoModalsAddCondoUserController)
   .controller('CondoModalsDeleteCondoUserController', CondoModalsDeleteCondoUserController)
   .controller('CondoModalsUpdateCondoUserController', CondoModalsUpdateCondoUserController)
+  .controller('CondoModalsAddCondoUserProfController', CondoModalsAddCondoUserProfController)
+  .controller('CondoModalsDeleteCondoUserProfController', CondoModalsDeleteCondoUserProfController)
+  .controller('CondoModalsUpdateCondoUserProfController', CondoModalsUpdateCondoUserProfController)
   .controller('CondoResidentsController', CondoResidentsController)
-

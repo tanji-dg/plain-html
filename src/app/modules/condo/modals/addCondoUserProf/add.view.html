@@ -1,0 +1,45 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="vm.close()"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+  <h4 class="modal-title"><strong><i class="fa fa-plus fa-circled"></i> &nbsp;Adicionar Integrante</strong></h4>
+</div>
+<div class="modal-body residents modal-body-crudCondoUser">
+  <div class="panel residents panel-default">
+    <div class="panel-body">
+      <form role="form">
+        <div class="input-group">
+          <span class="input-group-addon"><i class='fa fa-search'></i></span>
+          <input type="text" class="form-control" ng-model="vm.filterUserTerm" ng-model-options="{ debounce: 1000 }" ng-change="vm.filterUsers()" placeholder="Pesquisar pelo e-mail">
+        </div>
+        <br />
+        <div class="list-group" ng-show="vm.users.length">
+          <div class="list-group-item" ng-repeat="user in vm.users">
+            <h5 class="list-roup-item-heading"><button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.chooseUser(user)"><i class="fa fa-plus"></i></button> {{ (user.firstName) ? user.firstName + ' ' + user.lastName : vm.filterUserTerm }}</h5>
+          </div>
+        </div>
+        <div class="invite" ng-show="vm.showInvite && (vm.users.length || (!vm.users.length && vm.filterUserTerm))">
+          <form ng-submit="vm.createUser()">
+            <div class="panel">
+              <div class="panel-heading">
+                <h5><strong>Não encontrou? Convide!</strong></h5>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6"><input ng-model="vm.user.firstName" class="form-control" placeholder="Nome" required/></div>
+                  <div class="col-sm-6"><input ng-model="vm.user.lastName" class="form-control" placeholder="Sobrenome" required/></div>
+                  <div class="col-sm-12"><input ng-model="vm.filterUserTerm" class="form-control" placeholder="E-mail" required/></div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary pull-right" ng-click="vm.createUser()">Cadastrar</button><br clear="all" />
+          </form>
+        </div>
+        <h4><span class = "label residents label-default econdos">Perfil no Condomínio</span></h4>
+        <label class="radio-inline" ng-repeat="profile in vm.condoProfiles">
+          <input type="radio" ng-model="vm.user.condoProfile" ng-value="profile" required/>{{profile}}
+        </label>
+      </form>
+      <hr />
+      <a class="btn btn-primary btn-raised pull-right" ng-click="vm.addUserToCondo()">Salvar</a>
+    </div>
+  </div>
+</div>
