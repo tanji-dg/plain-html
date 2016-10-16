@@ -13,6 +13,7 @@ export class CondoResidentsController {
     this.Session = Session;
     this.user = this.Session.get();
     this.loadAllCollections();
+    this.activeUsers();
   }
 
   loadAllCollections()
@@ -128,6 +129,16 @@ export class CondoResidentsController {
     }
 
     return false;
+  }
+
+  activeUsers() {
+    this.isResidencesActive = false;
+    this.isUsersActive = true;
+  }
+
+  activeResidences() {
+    this.isUsersActive = false;
+    this.isResidencesActive = true;
   }
 
   /* Residence */
