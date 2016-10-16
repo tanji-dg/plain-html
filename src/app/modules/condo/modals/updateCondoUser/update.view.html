@@ -1,34 +1,28 @@
 <div class="modal-header">
   <button type="button" class="close" ng-click="vm.close()"><span aria-hidden="true">&times;</span></button>
-  <h4 class="modal-title"><strong><i class="fa fa-edit fa-circled"></i> &nbsp;Atualizar Integrante / Residência</strong></h4>
+  <h4 class="modal-title"><strong><i class="fa fa-edit fa-circled"></i> &nbsp;Atualizar Perfil na Residência</strong></h4>
 </div>
 <div class="modal-body residents modal-body-crudCondoUser">
   <div class="panel residents panel-default">
     <div class="panel-body">
       <form role="form">
-	      <input type="text" class="form-control" value="{{ vm.userName }}" readonly="checked">
         <div class="input-group">
-          <span class="input-group-addon"><i class='fa fa-search'></i></span>
-          <input type="text" class="form-control" ng-model="vm.filterResidenceTerm" ng-model-options="{ debounce: 1000 }" ng-change="vm.filterResidences()" placeholder="{{ vm.residence.identification }}">
+          <span class="input-group-addon"><i class='fa fa-user'></i></span>
+	        <input type="text" class="form-control" value="{{ vm.userName }}" readonly="checked">
         </div>
         <br />
-        <div class="list-group" ng-show="vm.residences.length">
-          <div class="list-group-item" ng-repeat="residence in vm.residences">
-            <h5 class="list-roup-item-heading"><button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.chooseResidence(residence)"><i class="fa fa-plus"></i></button> {{ residence.identification }}</h5>
-          </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class='fa fa-home'></i></span>
+          <input type="text" class="form-control" value="{{ vm.residence.identification }}" readonly="checked">
         </div>
+        <br />
         <h4><span class="label residents label-default econdos">Perfil na Residência</span></h4>
-        <label ng-show="vm.residenceProfiles.length === 3" class="radio-inline" ng-repeat="profile in vm.residenceProfiles">
-          <input type="radio" ng-model="vm.residence.residenceProfile" ng-value="profile"/>{{profile}}
-        </label>
-        <hr />
-        <h4><span class = "label residents label-default econdos">Perfil no Condomínio</span></h4>
-        <label class="radio-inline" ng-repeat="profile in vm.condoProfiles">
-          <input type="radio" ng-model="vm.user.condoProfile" ng-value="profile"/>{{profile}}
+        <label class="radio-inline" ng-repeat="profile in vm.residenceProfiles">
+          <input type="radio" ng-model="vm.profile" ng-value="profile"/>{{profile}}
         </label>
       </form>
       <hr />
-      <a class="btn btn-primary btn-raised pull-right" ng-click="vm.updateUserFromCondo()">Atualizar</a>
+      <a class="btn btn-primary btn-raised pull-right" ng-click="vm.update()">Atualizar</a>
     </div>
   </div>
 </div>

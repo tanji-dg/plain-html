@@ -12,29 +12,54 @@ export class CondoModalsDeleteCondoUserController {
     this.Session = Session;
     this.modalInstance = $uibModalInstance;
 
-    this.user = DataSource.user;
-    this.residence = DataSource.residence;
+    this.user = DataSource.item.user;
+    this.residence = DataSource.item.residence;
+    this.profile = DataSource.item.profile;
     this.condo = DataSource.condo;
     this.refWindow = DataSource.refWindow;
 
     this.loggedUser = this.Session.get();
-    this.isCondoAdmin = this.Session.isCondoAdmin(this.condo);
-    this.isCondoOwner = this.Session.isCondoOwner(this.condo);
+    this.isCondoAdmin = this.Session.isCondoAdmin(this.condo._id);
+    this.isCondoOwner = this.Session.isCondoOwner(this.condo._id);
+  }
 
-    this.isUserResident = false;
-    if (this.loggedUser._id === this.user._id)
-    {
-      for (let res of this.user.residences.userResidences.entries()) {
-        if (res[1]._id === this.residence._id) {
-          this.isUserResident = true;
-          break;
-        }
-      }
+  remove() {
+    if (this.user === 'none') {
+      this.removeResidence();
+    } else {
+      this.removeUserResidence();
     }
   }
 
-  removeFromResidence() {
-    if (this.isUserResident || this.isCondoAdmin || this.isCondoOwner) {
+  removeResidence() {
+    if (this.isCondoAdmin || this.isCondoOwner) {
+      this.swal({
+        title: "Tem certeza que deseja excluir a residência " + this.residence.identification + "?",
+        text: "Esta ação não poderá ser desfeita.",
+        type: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Não",
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Sim",
+        closeOnConfirm: true
+      }, (isConfirm) => {
+        if (isConfirm) {
+          this.CondoResource.removeResidenceFromCondo({'_id': this.condo._id, 'residenceId': this.residence._id}).$promise.then(() => {
+            this.swal("Residência Removida", "A residência foi removida do condomínio com sucesso!", "success");
+            this.refWindow.loadAllCollections();
+            this.close();
+          }).catch((error) => {
+            this.swal("Erro", error.data, "warning");
+          });
+        }
+      });
+    } else {
+      this.swal("Aviso", "Você não tem permissão para executar está ação.", "warning");
+    }
+  }
+
+  removeUserResidence() {
+    if (this.isCondoAdmin || this.isCondoOwner) {
       this.swal({
         title: "Tem certeza que deseja excluir o usuário " + this.user.firstName + " da residência " + this.residence.identification + "?",
         text: "Esta ação não poderá ser desfeita.",
@@ -46,52 +71,19 @@ export class CondoModalsDeleteCondoUserController {
         closeOnConfirm: true
       }, (isConfirm) => {
         if (isConfirm) {
-          if (this.user._id === this.residence.voter) {
-            this.CondoResource.clearResidenceVoter({
-              '_id': this.condo._id,
-              'residenceId' : this.residence._id,
-              'voter' : null
-            }).$promise.then(() => {
-              this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
-                this.swal("Integrante Removido", "O integrante foi removido da residência com sucesso!", "success");
-                this.refWindow.load();
-                this.close();
-              });
-            });
-          }
-          else {
+          if (this.profile === 'Proprietário(direito à voto)')
+          {
+            this.CondoResource.clearResidenceVoter({'_id': this.condo._id, 'residenceId' : this.residence._id, 'voter' : null}).$promise.then(() => {});
+            this.swal("Integrante Removido", "O integrante foi removido da residência com sucesso!", "success");
+            this.refWindow.loadAllCollections();
+            this.close();
+          } else {
             this.CondoResource.removeUserFromResidence({'_id': this.condo._id, 'residenceId': this.residence._id, 'userId': this.user._id}).$promise.then(() => {
               this.swal("Integrante Removido", "O integrante foi removido da residência com sucesso!", "success");
-              this.refWindow.load();
+              this.refWindow.loadAllCollections();
               this.close();
             });
           }
-        }
-      });
-    } else {
-      this.swal("Aviso", "Você não tem permissão para executar está ação.", "warning");
-    }
-  }
-
-  removeFromCondo() {
-    if (this.isCondoAdmin || this.isCondoOwner) {
-      this.swal({
-        title: "Tem certeza que deseja excluir o usuário " + this.user.firstName + " do condomínio " + this.condo.name + "?",
-        text: "Esta ação não poderá ser desfeita.",
-        type: "warning",
-        showCancelButton: true,
-        cancelButtonText: "Não",
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Sim",
-        closeOnConfirm: true
-      }, (isConfirm) => {
-        if (isConfirm) {
-          this.CondoResource.removeUserFromCondoAdm({'_id' : this.condo._id, 'userId': this.user._id}).$promise.then(() => {});
-          this.CondoResource.removeUserFromCondo({'_id' : this.condo._id, 'userId': this.user._id}).$promise.then(() => {
-            this.swal("Integrante Removido", "O integrante foi removido do condomínio com sucesso!", "success");
-            this.refWindow.load();
-            this.close();
-          });
         }
       });
     } else {

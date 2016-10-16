@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="vm.close()"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title"><strong><i class="fa fa-edit fa-circled"></i> &nbsp;Atualizar Perfil no Condomínio</strong></h4>
+</div>
+<div class="modal-body residents modal-body-crudCondoUser">
+  <div class="panel residents panel-default">
+    <div class="panel-body">
+      <form role="form">
+        <div class="input-group">
+          <span class="input-group-addon"><i class='fa fa-user'></i></span>
+	        <input type="text" class="form-control" value="{{ vm.userName }}" readonly="checked">
+        </div>
+        <br />
+        <h4><span class = "label residents label-default econdos">Perfil no Condomínio</span></h4>
+        <label class="radio-inline" ng-repeat="profile in vm.condoProfiles">
+          <input type="radio" ng-model="vm.user.condoProfile" ng-value="profile"/>{{profile}}
+        </label>
+      </form>
+      <hr />
+      <a class="btn btn-primary btn-raised pull-right" ng-click="vm.updateUserFromCondo()">Atualizar</a>
+    </div>
+  </div>
+</div>

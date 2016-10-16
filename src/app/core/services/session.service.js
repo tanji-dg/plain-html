@@ -109,19 +109,19 @@ export class SessionService {
     return false;
   }
 
-  isCondoAdmin(condo) {
+  isCondoAdmin(condoId) {
     for (let c of this.logged.condosAdmin.entries())
     {
-      if (c[1]._id === condo._id) return true;
+      if (c[1]._id === condoId) return true;
     }
 
     return false;
   }
 
-  isCondoOwner(condo) {
+  isCondoOwner(condoId) {
     for (let c of this.logged.condosOwner.entries())
     {
-      if (c[1]._id === condo._id) return true;
+      if (c[1]._id === condoId) return true;
     }
 
     return false;
