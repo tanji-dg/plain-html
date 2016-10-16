@@ -12,50 +12,97 @@ export class CondoResidentsController {
     this.CondoModals = CondoModals;
     this.Session = Session;
     this.user = this.Session.get();
-    this.load();
     this.loadAllCollections();
   }
 
   loadAllCollections()
   {
-    this.CondoResource.getUsers({ '_id' : this.stateParams.condoId }).$promise.then((users) => {
-      this.usersFromCondo = users;
-      this.condoId = this.stateParams.condoId;
-      let i = 0;
-      for (let user of this.usersFromCondo.entries()) {
-        let condosRequested = user[1].condosRequested.indexOf(this.condoId);
-        if (condosRequested !== -1)
-        {
-          this.usersFromCondo[i].condoProfile = "Requisitante da Residência";
+    this.CondoResource.get({'_id': this.stateParams.condoId}).$promise.then((condo) => {
+      this.condo = condo;
+      this.CondoResource.getUsers({ '_id' : this.condo._id }).$promise.then((users) => {
+        this.usersFromCondo = users;
+        this.condoId = this.stateParams.condoId;
+        let i = 0;
+        for (let user of this.usersFromCondo.entries()) {
+          let condosRequested = user[1].condosRequester.indexOf(this.condo._id);
+          if (condosRequested !== -1)
+          {
+            this.usersFromCondo[i].condoProfile = "Requisitante da Residência";
+          }
+
+          let condos = user[1].condos.indexOf(this.condo._id);
+          if (condos !== -1)
+          {
+            this.usersFromCondo[i].condoProfile = "Morador";
+          }
+
+          let condosAdmin = user[1].condosAdmin.indexOf(this.condo._id);
+          if (condosAdmin !== -1)
+          {
+            this.usersFromCondo[i].condoProfile = "Admin";
+          }
+
+          let condoOwner = user[1].condosOwner.indexOf(this.condo._id);
+          if (condoOwner !== -1)
+          {
+            this.usersFromCondo[i].condoProfile = "Síndico";
+          }
+          i = i + 1;
+
+          if (this.user._id === user[1]._id) {
+            this.isCondoAdmin =
+              (user[1].condosAdmin.indexOf(this.condo._id) !== -1);
+            this.isCondoOwner =
+              (user[1].condosOwner.indexOf(this.condo._id) !== -1);
+          }
         }
 
-        let condos = user[1].condos.indexOf(this.condoId);
-        if (condos !== -1)
-        {
-          this.usersFromCondo[i].condoProfile = "Morador";
-        }
+        this.CondoResource.getResidences({ '_id' : this.condo._id }).$promise.then((residences) => {
+          this.residencesFromCondo = residences;
+          this.residencesSetup = [];
 
-        let condosAdmin = user[1].condosAdmin.indexOf(this.condoId);
-        if (condosAdmin !== -1)
-        {
-          this.usersFromCondo[i].condoProfile = "Admin";
-        }
+          for (let residence of this.residencesFromCondo.entries()) {
+            // residence list
+            this.residencesSetup.push({'residence' : residence[1], 'user' : 'none', 'profile': 'none'});
+            // residence voter
 
-        let condoOwner = user[1].condosOwner.indexOf(this.condoId);
-        if (condoOwner !== -1)
-        {
-          this.usersFromCondo[i].condoProfile = "Síndico";
-        }
-        i = i + 1;
-      }
-    });
-
-    this.CondoResource.getResidences({ '_id' : this.stateParams.condoId }).$promise.then((residences) => {
-      this.residencesFromCondo = residences;
+            if (typeof residence[1].voter !== 'undefined' && residence[1].voter !== null) {
+              let voterUser = this.getCondoUser(this.usersFromCondo, residence[1].voter);
+              if (voterUser !== null && voterUser !== 'none') {
+                this.residencesSetup.push({'residence' : residence[1], 'user' : voterUser, 'profile': 'Proprietário(direito à voto)'});
+              }
+            }
+            // residence users
+            for (let user of residence[1].users.entries()) {
+              let residenceUser = this.getCondoUser(this.usersFromCondo, user[1]);
+              if (user[1] !== null && residenceUser !== 'none') {
+                this.residencesSetup.push({'residence' : residence[1], 'user' : residenceUser, 'profile': 'Residente'});
+              }
+            }
+            // residence requesters
+            for (let requester of residence[1].requesters.entries()) {
+              let requesterUser = this.getCondoUser(this.usersFromCondo, requester[1]);
+              if (requester[1] !== null && requesterUser !== 'none') {
+                this.residencesSetup.push({'residence' : residence[1], 'user' : requesterUser, 'profile': 'Requisitante'});
+              }
+            }
+          }
+        });
+      });
     });
   }
 
-  showActionButtons(userEntry) {
+  getCondoUser(users, id) {
+    for (let user of users.entries()) {
+      if (user[1]._id === id) {
+        return user[1];
+      }
+    }
+
+    return 'none';
+  }
+
+  showCondoProfileActionButtons(userEntry) {
     if (userEntry._id === this.user._id) {
       return false;
     }
@@ -75,17 +122,33 @@ export class CondoResidentsController {
     return false;
   }
 
-  addUser() {
-    this.CondoModals.addCondoUser(this.condo, this);
+  showResidenceProfileActionButtons(item) {
+    if (this.isCondoOwner || this.isCondoAdmin) {
+      return true;
+    }
+
+    return false;
   }
 
-  updateUser(user, residence) {
-    this.CondoModals.updateCondoUser(user, residence, this.condo, this);
+  /* Residence */
+
+  addCondoResidence() {
+    this.CondoModals.addCondoResidence(null, this.condo, this);
   }
 
-  removeUser(user, residence) {
-    this.CondoModals.deleteCondoUser(user, residence, this.condo, this);
+  addCondoResidence(it) {
+    this.CondoModals.addCondoResidence(it, this.condo, this);
   }
+
+  updateCondoResidence(item) {
+    this.CondoModals.updateCondoResidence(item, this.condo, this);
+  }
+
+  removeResidenceFromCondo(item) {
+    this.CondoModals.removeResidenceFromCondo(item, this.condo, this);
+  }
+
+  /* User Condo */
 
   addCondoUserProfile() {
     this.CondoModals.addCondoUserProfile(this.condo, this);
@@ -93,7 +156,7 @@ export class CondoResidentsController {
 
   updateCondoUserProfile(user) {
     this.loggedUser = this.Session.get();
-    this.isCondoOwner = this.Session.isCondoOwner(this.condo);
+    this.isCondoOwner = this.Session.isCondoOwner(this.condo._id);
 
     if (this.isCondoOwner && this.loggedUser._id === user._id) {
       this.swal("Aviso", "É necessário nomear um novo síndico.", "warning");
@@ -104,104 +167,12 @@ export class CondoResidentsController {
 
   removeUserFromCondo(user) {
     this.loggedUser = this.Session.get();
-    this.isCondoOwner = this.Session.isCondoOwner(this.condo);
+    this.isCondoOwner = this.Session.isCondoOwner(this.condo._id);
 
     if (this.isCondoOwner && this.loggedUser._id === user._id) {
       this.swal("Aviso", "É necessário nomear um novo síndico.", "warning");
     } else {
       this.CondoModals.removeUserFromCondo(user, this.condo, this);
     }
-  }
-
-  isResidenceValid(residence) {
-    for(let res of this.residences.entries()) {
-      if (res[1]._id === residence._id) {
-        this.striped = this.striped + 1;
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  load() {
-    this.CondoResource.get({'_id': this.stateParams.condoId}).$promise.then((condo) => {
-      this.condo = condo;
-      this.residences = this.CondoResource.getResidencesFromCondo({'_id' : this.condo._id});
-      this.CondoResource.getUsersFromCondo({'_id' : this.condo._id, '$populate' : '_residences'}).$promise.then((users) => {
-        this.users = users;
-        let i = 0;
-        for (let user of this.users.entries()) {
-          let condosRequested = user[1].condosRequested.indexOf(this.condo._id);
-          if (condosRequested !== -1)
-          {
-            this.users[i].condoProfile = "Requisitante da Residência";
-          }
-
-          let condos = user[1].condos.indexOf(this.condo._id);
-          if (condos !== -1)
-          {
-            this.users[i].condoProfile = "Morador";
-          }
-
-          let condosAdmin = user[1].condosAdmin.indexOf(this.condo._id);
-          if (condosAdmin !== -1)
-          {
-            this.users[i].condoProfile = "Admin";
-          }
-
-          let condoOwner = user[1].condosOwner.indexOf(this.condo._id);
-          if (condoOwner !== -1)
-          {
-            this.users[i].condoProfile = "Síndico";
-          }
-
-          i = i + 1;
-
-          for (let res of user[1].residences.voterResidences.entries()) {
-            res[1].residenceProfile = "Proprietário(direito à voto)";
-          }
-
-          for (let res of user[1].residences.userResidences.entries()) {
-            res[1].residenceProfile = "Residente";
-          }
-
-          for (let res of user[1].residences.requesterResidences.entries()) {
-            res[1].residenceProfile = "Requisitante";
-          }
-
-          user[1].residences.voterResidences.forEach(function (item, index, array) {
-              let idx = user[1].residences.userResidences.findIndex((x) => x._id = item._id);
-              if (idx !== 1) {
-                user[1].residences.userResidences.splice(idx, 1);
-              }
-
-              idx = user[1].residences.requesterResidences.findIndex((x) => x._id = item._id);
-              if (idx !== 1) {
-                user[1].residences.requesterResidences.splice(idx, 1);
-              }
-          });
-
-          user[1].residences.userResidences.forEach(function (item, index, array) {
-              let idx = user[1].residences.requesterResidences.findIndex((x) => x._id = item._id);
-              if (idx !== 1) {
-                user[1].residences.requesterResidences.splice(idx, 1);
-              }
-          });
-
-          user[1].residences.allResidences =
-            user[1].residences.voterResidences
-              .concat(user[1].residences.userResidences
-                .concat(user[1].residences.requesterResidences));
-
-          if (this.user._id === user[1]._id) {
-            this.isCondoAdmin =
-              (user[1].condosAdmin.indexOf(this.condo._id) !== -1);
-            this.isCondoOwner =
-              (user[1].condosOwner.indexOf(this.condo._id) !== -1);
-          }
-        }
-      });
-    });
   }
 }

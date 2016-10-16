@@ -17,20 +17,14 @@ export class CondoModalsAddCondoUserProfController {
     this.refWindow = DataSource.refWindow;
 
     this.loggedUser = this.Session.get();
-    this.isCondoAdmin = this.Session.isCondoAdmin(this.condo);
-    this.isCondoOwner = this.Session.isCondoOwner(this.condo);
+    this.isCondoAdmin = this.Session.isCondoAdmin(this.condo._id);
+    this.isCondoOwner = this.Session.isCondoOwner(this.condo._id);
 
     this.condoProfiles = [
       "Síndico",
       "Admin",
       "Morador",
       "Requisitante da Residência"
-    ];
-
-    this.residenceProfiles = [
-      "Requisitante",
-      "Residente",
-      "Proprietário(direito à voto)"
     ];
 
     if (!this.isCondoOwner) {

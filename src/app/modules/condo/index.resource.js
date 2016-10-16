@@ -42,8 +42,8 @@ export let CondoResource = ($resource, config) => {
     },
     'addResidence'             : {
       'method'                 : 'POST',
-      'url'                    : `${baseUrl}/:_id/residences`,
-      'params'                 : {'_id' : '@_id'}
+      'url'                    : `${baseUrl}/:_idCondo/residences`,
+      'params'                 : {'_idCondo' : '@_idCondo'}
     },
     'addUserToResidence'       : {
       'method'                 : 'PUT',
@@ -206,7 +206,12 @@ export let CondoResource = ($resource, config) => {
       'method'                 : 'DELETE',
       'url'                    : `${baseUrl}/:_id/users/:userId/admins`,
       'params'                 : {'_id' : '@_id', 'userId' : '@userId'}
-    }    
+    },
+    'removeResidenceFromCondo' : {
+      'method'                 : 'DELETE',
+      'url'                    : `${baseUrl}/:_id/residences/:residenceId`,
+      'params'                 : {'_id' : '@_id', 'residenceId' : '@residenceId'}
+    }
   });
 
   function transformSingleResidenceResponse(response) {
