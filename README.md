@@ -1,4 +1,5 @@
-![Build Status](https://gitlab.com/pages/plain-html/badges/master/build.svg)
+[![build status](https://gitlab.com/univali-led/plain-html/badges/master/build.svg)](https://gitlab.com/univali-led/plain-html/commits/master)
+
 
 ---
 
