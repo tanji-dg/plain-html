@@ -1,5 +1,4 @@
-[![build status](https://gitlab.com/univali-led/plain-html/badges/master/build.svg)](https://gitlab.com/univali-led/plain-html/commits/master)
-
+[![build status](https://gitlab.com/univali-led/jogos-texto/badges/master/build.svg)](https://gitlab.com/univali-led/jogos-texto/commits/master)
 
 ---
 
