@@ -6,16 +6,16 @@ cache:
   - node_modules/
   - bower_components/
 
-#before_script:
-#  - npm config set cache /cache/npm
-#  - npm install --silent
+before_script:
+  - npm config set cache /cache/npm
+  - npm install --silent
 
 
 pages:
   stage: deploy
   script:
-    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm config set cache /cache/npm && NODE_ENV=test npm install; fi
-    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm run bower:install && npm run build && mv dist public; fi
+    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm config set cache /cache/npm && NODE_ENV=test npm install && npm run bower:install && npm run build && mv dist public; else echo 'Não executa para o branch $BRANCH' fi
+#    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm run bower:install && npm run build && mv dist public; else echo 'Não executa para o branch $BRANCH' fi
   artifacts:
     paths:
     - public
