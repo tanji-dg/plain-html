@@ -14,7 +14,10 @@ before_script:
 pages:
   stage: deploy
   script:
-    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm config set cache /cache/npm && NODE_ENV=test npm install && npm run bower:install && npm run build && mv dist public; else echo 'Não executa para o branch $BRANCH' fi
+    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then
+    - npm config set cache /cache/npm && NODE_ENV=test npm install && npm run bower:install && npm run build && mv dist public;
+    - else echo 'Não executa para o branch $BRANCH';
+    - fi
 #    - if [ $CI_BUILD_REF_NAME = $BRANCH ]; then npm run bower:install && npm run build && mv dist public; else echo 'Não executa para o branch $BRANCH' fi
   artifacts:
     paths:
