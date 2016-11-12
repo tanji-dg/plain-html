@@ -6,9 +6,9 @@ cache:
   - node_modules/
   - bower_components/
 
-before_script:
-  - npm config set cache /cache/npm
-  - npm install --silent
+#before_script:
+#  - npm config set cache /cache/npm
+#  - NODE_ENV=test npm install
 
 
 pages:
