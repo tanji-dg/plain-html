@@ -4,7 +4,7 @@ body {
   max-width: 1280px;
   background-color:#ffffff;
 font-size:15px;
-color:#656867; }
+color:#656867;
 }
 
 a {
@@ -13,7 +13,7 @@ font-family:calibri;
 font-size:20px;
 color:#40adb7;
 letter-spacing: 3px;
-font-weight: italic;
+/*font-weight: italic;*/
 }
 
 
@@ -52,7 +52,7 @@ background:transparent;
     background-size:100%;
     font-size:12px;
     background-color:#efefef;
-    padding:5px;
+    padding: 5px;
     color:darkgrey;
     overflow: auto;
 } 
@@ -76,5 +76,5 @@ color:#5eccd6;
     
 }
 
-::-webkit-scrollbar {width:7px;background-color:{color:Background};}
-::-webkit-scrollbar-thumb {background-color:{color:Srollbar};}
+/*::-webkit-scrollbar {width:7px;background-color:{color:Background};}*/
+/*::-webkit-scrollbar-thumb {background-color:{color:Srollbar};}*/
