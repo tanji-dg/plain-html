@@ -1,3 +1,20 @@
+.logged-in .nav-tabs li a {
+	border: 0px solid #fff !important;
+	color: #555 !important;
+	font-weight: normal;
+	border-radius: 0px !important;
+	padding: 15px 20px;
+	cursor:pointer;
+}
+
+.logged-in .nav-tabs li a:hover {
+	border: 0px solid #fff !important;
+	color: #fff !important;
+	font-weight: bold;
+	border-radius: 0px !important;
+	padding: 15px 20px;
+}
+
 .residents {
 	.modal-body-crudCondoUser {
 		overflow-y: auto;

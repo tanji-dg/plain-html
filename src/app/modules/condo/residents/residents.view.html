@@ -3,8 +3,8 @@
   <div class="container">
     <h2 class="section-title"><i class="fa fa-users fa-circled"></i><strong>Meu Condomínio</strong> &raquo; {{ vm.condo.name }}</h2>
     <ul class="nav nav-tabs">
-      <li><a ng-click="vm.activeUsers()">Moradores</a></li>
-      <li><a ng-click="vm.activeResidences()">Residências</a></li>
+      <li ng-style="usersLiStyle" ng-mouseover="usersLiStyle={'background-color': '#FFA90C'};" ng-mouseleave="usersLiStyle={}"><a ng-click="vm.activeUsers()"><i class="fa fa-user" aria-hidden="true"></i> Moradores</a></li>
+      <li ng-style="residencesLiStyle" ng-mouseover="residencesLiStyle={'background-color': '#FFA90C'};" ng-mouseleave="residencesLiStyle={}"><a ng-click="vm.activeResidences()"><i class="fa fa-home" aria-hidden="true"></i> Residências</a></li>
     </ul>
     <div class="panel residents panel-default">
       <div class="panel-body" ng-show="vm.isCondoAdmin || vm.isCondoOwner">
