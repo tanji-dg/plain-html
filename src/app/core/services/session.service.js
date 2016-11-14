@@ -74,8 +74,25 @@ export class SessionService {
     return this.logged = this.UserResource.authenticate();
   }
 
-  getCondo () {
-    return this.window._.find(this.logged.condos, {_id: this.logged.defaultCondo});
+  getCondo () {    
+    if (this.logged.defaultCondo && this.logged.condosRequester.indexOf(this.logged.defaultCondo) == -1) {
+      return this.logged.defaultCondo;
+    } else {
+      let allCondos = [].concat(
+        this.logged.condos, 
+        this.logged.condosAdmin, 
+        this.logged.condosOwner, 
+        this.logged.condosGatekeeper, 
+        this.logged.condosRequester
+      );
+
+      if (allCondos.length != 0) {
+        this.logged.defaultCondo = allCondos[0];
+        this.setCondo(this.logged.defaultCondo, false);
+      }
+
+      return this.logged.defaultCondo;
+    }
   }
 
   setCondo (condo, onlyLocal) {

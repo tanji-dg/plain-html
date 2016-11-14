@@ -20,7 +20,7 @@ export class AuthService {
     let token = this.base64.encode(username + ":" + password);
 
     this.http
-      .get(`${this.backendUrl}/users/me?$populate=condos condosRequester condosAdmin condosOwner condosGatekeeper`, {headers: {Authorization: `Basic ${token}`}})
+      .get(`${this.backendUrl}/users/me?$populate=condos condosRequester condosAdmin condosOwner condosGatekeeper defaultCondo`, {headers: {Authorization: `Basic ${token}`}})
       .success((response) => {
         this.localStorage.set('token', token);
         defer.resolve(response.data || response);
