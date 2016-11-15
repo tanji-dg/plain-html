@@ -8,6 +8,7 @@ import AuthorityModule from './authority/index.module';
 import CommentModule from './comment/index.module';
 import ResidenceModule from './residence/index.module';
 import OccurrenceModule from './occurrence/index.module';
+import GateModule from './gate/index.module';
 
 export default angular.module('econdos.modules', [
   AccountModule.name,
@@ -19,5 +20,6 @@ export default angular.module('econdos.modules', [
   AuthorityModule.name,
   CommentModule.name,
   ResidenceModule.name,
-  OccurrenceModule.name
+  OccurrenceModule.name,
+  GateModule.name
 ]);

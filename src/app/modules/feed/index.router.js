@@ -26,4 +26,9 @@ export let routerConfig = ($stateProvider) => {
     'url'         : '/meu-condominio/:condoId/integrantes',
     'templateUrl' : 'app/modules/condo/residents/residents.view.html'
   });
+
+  $stateProvider.state('gateCondo', {
+    'url'         : '/meu-condominio/:condoId/portaria',
+    'templateUrl' : 'app/modules/gate/gate.view.html'
+  });
 };

@@ -75,7 +75,8 @@
           <ul class="dropdown-menu" uib-dropdown-menu>
             <li><a ui-sref="feedUser"><i class="fa fa-user"></i> &nbsp; Meu Dados</a></li>
             <li><a href="#/meu-condominio/{{ vm.condo._id }}/integrantes"><i class="fa fa-building"></i> &nbsp; Meu Condomínio</a></li>
-            <li><a ng-click="vm.logOut()"><i class="fa fa-sign-out"></i> &nbsp; Sair</a></li>
+            <li ng-show="vm.showCondoGate()"><a href="#/meu-condominio/{{ vm.condo._id }}/portaria"><i class="fa fa-calendar"></i> &nbsp; Portaria</a></li>
+            <li><a href="" ng-click="vm.logOut()"><i class="fa fa-sign-out"></i> &nbsp; Sair</a></li>
           </ul>
         </li>
       </ul>
