@@ -105,10 +105,22 @@ export let CondoResource = ($resource, config) => {
       'url'                    : `${baseUrl}/:_id/occurrences`,
       'transformRequest'       : transformOccurrenceRequest
     },
+    'addOccurrenceToCondo'     : {
+      'method'                 : 'POST',
+      'url'                    : `${baseUrl}/:_idCondo/occurrences`,
+      'params'                 : {'_idCondo' : '@_idCondo'},
+      'transformRequest'       : transformOccurrenceRequest
+    },
     'removeOccurrence'         : {
       'method'                 : 'DELETE',
       'url'                    : `${baseUrl}/:_id/occurrences/:occurrenceId`,
       'params'                 : {'occurrenceId' : '@occurrenceId'}
+    },
+    'updateOccurrence'         : {
+      'method'                 : 'PUT',
+      'url'                    : `${baseUrl}/:_idCondo/occurrences/:occurrenceId`,
+      'params'                 : {'_idCondo' : '@_idCondo', 'occurrenceId' : '@occurrenceId'},
+      'transformRequest'       : transformOccurrenceRequest
     },
     'uploadFiles'              : {
       'method'                 : 'POST',

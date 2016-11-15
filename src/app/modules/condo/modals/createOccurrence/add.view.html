@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="vm.close()"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+  <h4 class="modal-title"><strong><i class="fa fa-plus fa-circled"></i> &nbsp;Adicionar Ocorrência</strong></h4>
+</div>
+<div class="modal-body residents modal-body-crudCondoUser">
+  <div class="panel residents panel-default">
+    <div class="panel-body">
+      <form role="form">
+        <div class="input-group">
+          <span class="input-group-addon"><i class='fa fa-align-justify'></i></span>    
+          <input type="text" class="form-control" ng-model="vm.title" ng-model-options="{ debounce: 1000 }" placeholder="Título da ocorrência...">
+        </div>
+        <br />
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <textarea class="form-control" rows="5" ng-model="vm.description" ng-model-options="{ debounce: 1000 }" placeholder="Descrição da ocorrência..."></textarea>
+        </div>
+        <br />
+        <div class="input-group">
+          <span class="input-group-addon"><i class='fa fa-home'></i></span>
+          <input type="text" class="form-control" readonly="checked" ng-model="vm.filterResidenceTerm" ng-model-options="{ debounce: 1000 }" placeholder="Selecione as residências abaixo...">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <button ng-show="!vm.residencesSelection" type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.chooseAllResidences()">Todas</button>
+          <button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.toggleResidencesSelection()">{{ vm.residencesSelection? "Voltar" : "Selecionar..." }}</button>
+          <button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.clearAllResidences()">Limpar</button>
+        </div>
+        <br />
+        <div ng-show="vm.residencesSelection" class="list-group" ng-show="vm.residences.length">
+          <div class="list-group-item" ng-repeat="residence in vm.residences">
+            <h5 class="list-roup-item-heading"><button type="button" class="btn btn-default btn-success btn-xs" ng-click="vm.chooseResidence(residence)"><i class="fa fa-plus"></i></button> {{ residence.identification }}</h5>
+          </div>
+        </div>
+      </form>
+      <hr />
+      <a class="btn btn-primary btn-raised pull-right" ng-click="vm.addOccurrence()">Salvar</a>
+    </div>
+  </div>
+</div>

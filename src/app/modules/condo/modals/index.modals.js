@@ -122,4 +122,57 @@ export class CondoModals {
       }
     }).result;
   }
+
+  // ==========================================================================================
+
+  addCondoOccurrence(item, condo, refWindow) {
+    return this.modal.open({
+      'templateUrl'  : 'app/modules/condo/modals/createOccurrence/add.view.html',
+      'controller'   : 'CreateOccurrenceController',
+      'controllerAs' : 'vm',
+      resolve : {
+        DataSource : function () {
+          return {
+            residence : item,
+            condo : condo,
+            refWindow : refWindow
+          }
+        }
+      }
+    }).result;
+  }
+
+  updateCondoOccurrence(occurrence, condo, refWindow) {
+    return this.modal.open({
+      'templateUrl'  : 'app/modules/condo/modals/updateOccurrence/update.view.html',
+      'controller'   : 'UpdateOccurrenceController',
+      'controllerAs' : 'vm',
+      resolve : {
+        DataSource : function () {
+          return {
+            occurrence : occurrence,
+            condo : condo,
+            refWindow : refWindow
+          }
+        }
+      }
+    }).result;
+  }
+
+  removeOccurrenceFromCondo(occurrence, condo, refWindow) {
+    return this.modal.open({
+      'templateUrl'  : 'app/modules/condo/modals/deleteOccurrence/delete.view.html',
+      'controller'   : 'DeleteOccurrenceController',
+      'controllerAs' : 'vm',
+      resolve : {
+        DataSource : function () {
+          return {
+            occurrence : occurrence,
+            condo : condo,
+            refWindow : refWindow
+          }
+        }
+      }
+    }).result;
+  }
 }

@@ -19,6 +19,8 @@ export class FeedNavbarController {
 
     this.getCondo();
     this.NavbarService.onCondoDeletion((condo) => {this.condo = condo;});
+
+    this.showCondoGate();
   }
 
   getCondo () {
@@ -42,5 +44,16 @@ export class FeedNavbarController {
 
   markNotificationsAsRead () {
     this.UserResource.markNotificationsAsRead();
+  }
+
+  showCondoGate() {
+    let allowedCondoProfile = [].concat(
+      this.user.condosAdmin, 
+      this.user.condosOwner, 
+      this.user.condosGateKeeper
+    );
+
+    allowedCondoProfile = allowedCondoProfile.filter(function(e){return e});
+    return allowedCondoProfile.length != 0 && allowedCondoProfile.findIndex(c => c._id == this.condo._id) != -1;
   }
 }

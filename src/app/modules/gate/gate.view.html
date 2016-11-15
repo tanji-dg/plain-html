@@ -1,0 +1,42 @@
+<div class="logged-in" ng-controller="GateController as vm">
+  <div ng-include="'app/modules/feed/navbar/navbar.view.html'"></div>
+  <div class="container">
+    <h2 class="section-title"><i class="fa fa-calendar fa-circled"></i><strong>Portaria</strong> &raquo; {{ vm.condo.name }}</h2>
+    <div class="panel residents panel-default">
+      <div class="panel-body">
+        <a class="btn btn-primary btn-raised pull-right" ng-click="vm.addCondoOccurrence()">Adicionar Ocorrência</a>
+      </div>
+      <div class="panel-body">
+        <center><h3>Registro de Ocorrências</h3></center>
+        <div ng-repeat="it in vm.gateEntries track by $index">
+          <div ng-if="it.anchor">
+            <div ng-style="rowStyle" ng-mouseover="rowStyle={'background-color': '#FFA90C', 'color':'white', 'font-weight': 'bold'};" ng-mouseleave="rowStyle={}" class="row custom">
+                <div class="col-md-3"><p><span style="color:#9999ff"><i class="fa fa-home" aria-hidden="true"></i></span> {{ it.identification }}</p></div>
+                <div class="col-md-4"><p></p></div>
+                <div class="col-md-3"><p></p></div>
+                <div class="col-md-1 text-center">
+                  <!--<span style="color:red"><i class="fa fa-times" aria-hidden="true" ng-click="vm.removeResidenceFromCondo(it)"></i></span>-->
+                </div>
+                <div class="col-md-1 text-center">
+                  <span style="color:blue"><i class="fa fa-plus" aria-hidden="true" ng-click="vm.addCondoOccurrence(it)"></i></span>
+                </div>
+              </div>
+            </div>
+            <div ng-if="!it.anchor">
+              <div ng-style="rowStyle" ng-mouseover="rowStyle={'background-color': '#FFA90C', 'color':'white', 'font-weight': 'bold'};" ng-mouseleave="rowStyle={}" class="row grey">
+                <div class="col-md-3"><p><span style="color:#9999ff"><i class="fa fa-info-circle" aria-hidden="true"></i></span> {{ it.title }}</p></div>
+                <div class="col-md-2"><p>{{ (it.createdBy.firstName) ? it.createdBy.firstName + ' ' + it.createdBy.lastName : "Sem nome" }}</p></div>
+                <div class="col-md-5"><p>{{ it.description }}</p></div>
+                <div class="col-md-1 text-center">
+                  <span style="color:green"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="vm.updateCondoOccurrence(it)"></i></span>
+                </div>
+                <div class="col-md-1 text-center">
+                  <span style="color:red"><i class="fa fa-times" aria-hidden="true" ng-click="vm.removeOccurrenceFromCondo(it)"></i></span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

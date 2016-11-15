@@ -11,6 +11,9 @@ import { CondoModalsAddCondoUserProfController } from './modals/addCondoUserProf
 import { CondoModalsDeleteCondoUserProfController } from './modals/deleteCondoUserProf/delete.controller';
 import { CondoModalsUpdateCondoUserProfController } from './modals/updateCondoUserProf/update.controller';
 import { CondoResidentsController } from './residents/residents.controller';
+import { CreateOccurrenceController } from './modals/createOccurrence/add.controller';
+import { DeleteOccurrenceController } from './modals/deleteOccurrence/delete.controller';
+import { UpdateOccurrenceController } from './modals/updateOccurrence/update.controller';
 
 export default angular.module('econdos.modules.condo', [])
   .config(routerConfig)
@@ -26,3 +29,7 @@ export default angular.module('econdos.modules.condo', [])
   .controller('CondoModalsDeleteCondoUserProfController', CondoModalsDeleteCondoUserProfController)
   .controller('CondoModalsUpdateCondoUserProfController', CondoModalsUpdateCondoUserProfController)
   .controller('CondoResidentsController', CondoResidentsController)
+  .controller('CreateOccurrenceController', CreateOccurrenceController)
+  .controller('DeleteOccurrenceController', DeleteOccurrenceController)
+  .controller('UpdateOccurrenceController', UpdateOccurrenceController)
+  
