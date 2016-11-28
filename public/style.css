@@ -51,7 +51,7 @@ background:transparent;
     margin-right:8px;
     background-size:100%;
     font-size:12px;
-    background-color:#efefef;
+    background-color:#EDEDED;
     padding: 5px;
     color:darkgrey;
     overflow: auto;
@@ -60,7 +60,7 @@ background:transparent;
 #box a {
 text-decoration:none;
 font-family:calibri;
-color:#40adb7;
+color:#2FA3AD;
 letter-spacing: 1px;
 font-weight: 600;    
 }
@@ -76,5 +76,5 @@ color:#5eccd6;
     
 }
 
-/*::-webkit-scrollbar {width:7px;background-color:{color:Background};}*/
-/*::-webkit-scrollbar-thumb {background-color:{color:Srollbar};}*/
+::-webkit-scrollbar {width:7px;background-color:{color:Background};}
+::-webkit-scrollbar-thumb {background-color:{color:Srollbar};}
