@@ -22,3 +22,16 @@ body {
   color: #ffffff;
 }
 
+.header {
+	height:200px;
+	margin:auto;
+	width:100%;
+	text-align:center;
+	justify-content:center;
+}
+
+.header img: {
+	width:50%;
+	max-width:400px;
+}
+
