@@ -23,7 +23,6 @@ body {
 }
 
 .header {
-	height:200px;
 	margin:auto;
 	width:100%;
 	text-align:center;
@@ -38,5 +37,13 @@ body {
 .mainSection {
 	margin:auto;
 	text-align:left;
+	padding:0 20px 0 20px;
+	max-width:900px;
 	justify-content:center;
+}
+
+.mainSection h2 {
+	font-size: 1em;
+	color: #E6141B;
+	padding: 10px 0 10px 0;
 }
