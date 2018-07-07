@@ -78,7 +78,7 @@ button:focus, .btn:focus {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #1B2733;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
 }
 
@@ -270,7 +270,7 @@ BUTTONS
   line-height: 24px;
   font-weight: 500;
   border-radius: 2px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .btn-default {
@@ -974,7 +974,7 @@ PRICING TABLE
   font-weight: bold;
   font-size: 56px;
   line-height: 58px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .pricing-currency {
