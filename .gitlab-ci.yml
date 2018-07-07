@@ -2,6 +2,8 @@ image: alpine:latest
 
 pages:
   stage: deploy
+  retry: 3
+
   script:
   - echo 'Nothing to do...'
   artifacts:
