@@ -77,7 +77,8 @@ button:focus, .btn:focus {
 /* TYPOGRAPHY */
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: #1B2733;
+  /*color: #1B2733;*/
+  color: #03353E;
   font-family: "Roboto", sans-serif;
   font-weight: 600;
 }
