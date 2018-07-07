@@ -968,6 +968,7 @@ PRICING TABLE
 .pricing-price small {
   display: block;
   color: #637282;
+  text-align: center;
 }
 
 .pricing-value {
@@ -975,6 +976,7 @@ PRICING TABLE
   font-size: 56px;
   line-height: 58px;
   font-family: "Roboto", sans-serif;
+  text-align: center;
 }
 
 .pricing-currency {
