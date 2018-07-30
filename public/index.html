@@ -91,8 +91,8 @@ PRELOADER
         </li>
       </ul>
       <div class="custom-menu__right">
-        <a href="#" class="btn btn-default">Đăng nhập</a>
-        <a href="#" class="btn btn-primary btn-pills">Miễn phí 17 ngày</a>
+        <!-- <a href="#" class="btn btn-default">Đăng nhập</a> -->
+        <a href="#pricing" class="btn btn-primary btn-pills">Miễn phí 17 ngày</a>
         <p class="assistive-text d-md-none">17 days free - No credit card required</p>
       </div>
     </div>
@@ -365,6 +365,31 @@ FEATURES OVERVIEW
 =========================
 pricing TABLE
 ========================= -->
+
+<div class="modal" tabindex="-1" role="dialog" id='regsaleup'>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Đăng ký sử dụng Smartwork</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe  frameborder="0" width="450" height="400" src="https://www.saleupcrm.com/subscribe/4ae59099c55785228ae563405af2cbb8/" id="cjsform-1532939899" ></iframe>
+
+<script src="https//static.cjs.vn/js/form/source.js"></script>
+
+      </div>
+     <!--  <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
 <section id="pricing" class="section-spacer pricing-section bg-very__gray">
   <div class="container">
     <header class="section-header text-center">
@@ -412,7 +437,7 @@ Chức năng quản lý công việc từ đơn giản đến chi tiết        
                 
               </ul>
               <div class="pricing-footer">
-                <a href="#" class="btn btn-primary">Dùng Thử Miễn Phí</a>
+                <a href="#" data-toggle="modal" data-target="#regsaleup" class="btn btn-primary">Dùng Thử Miễn Phí</a>
                 <span class="d-block assistive-text">Hoàn tiền nếu không hài lòng</span>
               </div>
             </div>
