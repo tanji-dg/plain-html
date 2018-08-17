@@ -291,10 +291,10 @@
                                 <span class="description-download">Ngoài sử dụng trực tiếp ứng dụng trên Trình duyệt Web. Bạn có thể tải ứng dụng về máy tính</span>
                             </div>
                             <div class="mg-t-20 mg-bt-100">
-                                <button class="btn btn-primary" style="background-color: #f5a623">
+                                <button @click="downloadDiscordMacOs" class="btn btn-primary" style="background-color: #f5a623">
                                     <span class="text-download-discord" style="">Tải phần mềm cho <strong>Mac OS</strong></span>
                                 </button>
-                                <button class="btn btn-primary mg-l-20" style="background-color: #f5a623">
+                                <button @click="downloadDiscordWin" class="btn btn-primary mg-l-20" style="background-color: #f5a623">
                                     <span class="text-download-discord">Tải phần mềm cho <strong>Window</strong></span>
                                 </button>
                             </div>
@@ -371,6 +371,12 @@
 
         },
         methods: {
+            downloadDiscordMacOs: function(){
+                window.open('https://discordapp.com/api/download?platform=osx', '_blank');
+            },
+            downloadDiscordWin: function (){
+                window.open('https://discordapp.com/api/download?platform=win', '_blank');
+            },
             validEmail: function () {
                 var self = this;
                 var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -395,7 +401,6 @@
             nextStep2: function () {
                 var self = this;
                 if (self.checkValidate()) {
-
                     $("#btn-connect-api").attr("disabled", true);
                     // run api resgister
                     $.ajax({
