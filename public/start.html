@@ -1,151 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Smartwork - Work smart together</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--
-  =========================
-  ICONS
-  ========================= -->
-  <!--IONICONS-->
-  <!-- <link rel="stylesheet" href="css/ionicons.min.css?v=20180707"> -->
-  <link href="https://unpkg.com/ionicons@4.2.4/dist/css/ionicons.min.css?v=20180707" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Smartwork - Work smart together</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+    =========================
+    ICONS
+    ========================= -->
+    <!--IONICONS-->
+    <!-- <link rel="stylesheet" href="css/ionicons.min.css?v=20180707"> -->
+    <link href="https://unpkg.com/ionicons@4.2.4/dist/css/ionicons.min.css?v=20180707" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-  <!-- FONTAWESOME -->
-  <link rel="stylesheet" href="css/fontawesome-all.min.css?v=20180707">
-  <!--
-  =========================
-  THIRD PARTY PLUGINS
-  ========================= -->
-  <!-- MANIFIC POPUPS-->
-  <link rel="stylesheet" href="css/magnific-popup.css?v=20180707?v=20180707">
-  <!-- OWL CAROUSEL-->
-  <link rel="stylesheet" href="css/owl.carousel.min.css?v=20180707">
-  <!--SWIPER CAROUSEL-->
-  <link rel="stylesheet" href="css/swiper.min.css?v=20180707">
-  <!-- BOOTSTRAP -->
-  <link rel="stylesheet" href="css/bootstrap.min.css?v=20180707">
-  <!--
-  =========================
-  MAIN STYLES
-  ========================= -->
-  <!-- MAIN STYLES-->
-  <link rel="stylesheet" href="css/styles.css?v=20180707">
-  <!-- RESPONSIVE -->
-  <link rel="stylesheet" href="css/responsive.css?v=20180707">
-  <!--
-  =========================
-  FAVICONS
-  ========================= -->
-  <link rel="shortcut icon" href="/favicon.ico"><!-- 16x16 size favicon -->
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="css/fontawesome-all.min.css?v=20180707">
+    <!--
+    =========================
+    THIRD PARTY PLUGINS
+    ========================= -->
+    <!-- MANIFIC POPUPS-->
+    <link rel="stylesheet" href="css/magnific-popup.css?v=20180707?v=20180707">
+    <!-- OWL CAROUSEL-->
+    <link rel="stylesheet" href="css/owl.carousel.min.css?v=20180707">
+    <!--SWIPER CAROUSEL-->
+    <link rel="stylesheet" href="css/swiper.min.css?v=20180707">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="css/bootstrap.min.css?v=20180707">
+    <!--
+    =========================
+    MAIN STYLES
+    ========================= -->
+    <!-- MAIN STYLES-->
+    <link rel="stylesheet" href="css/style-custom.css?v=20180707">
+
+    <!-- RESPONSIVE -->
+    <link rel="stylesheet" href="css/responsive.css?v=20180707">
+    <!--
+    =========================
+    FAVICONS
+    ========================= -->
+    <link rel="shortcut icon" href="/favicon.ico"><!-- 16x16 size favicon -->
+
+    <!-- ========================= VUE JS ========================= -->
+    <script src="bower_components/vue/dist/vue.js"></script>
+
+    <!-- ========================= ELEMENT UI ========================= -->
+    <!-- import JavaScript -->
+    <script src="bower_components/element-ui/index.js"></script>
+    <link rel="stylesheet" href="bower_components/element-ui/index.css">
+    <link rel="stylesheet" href="bower_components/material-icon/material-icons.css" type="text/css" media="screen"/>
+
 
 </head>
-<body class="x-hidden">
+<body>
 
-<!--
-=========================
-PRELOADER
-========================= -->
-<div id="loading">
-  <div class="ripple ripple1"></div>
-  <div class="ripple ripple2"></div>
-  <div class="ripple ripple3"></div>
-  <div class="ripple ripple4"></div>
+<div id="container-wrap">
+    <div style="margin-bottom: 15px">
+        <div class="tab-content">
+            <div class="tab-pane active" id="step-0">
+                <!--content in tab-->
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-5 mg-t-40 pd-r-25">
+                            <div class="title-smartwork">
+                                <div class="title">
+                                   Kết nối với<br>Trợ lý Smartwork
+                                </div>
+                            </div>
+                            <div class="mg-t-25">
+                                 <span class="decription-title">Sau khi kết nối bạn chỉ cần gửi một
+                                     câu lệnh đơn giản cho Trợ lý Smartwork là có thể dễ dàng:</span>
+                            </div>
+                            <div class="option mg-t-15 pd-l-30">
+                                <div>
+                                    <i class="material-icons icon-check">check_circle_outline</i>
+                                    <span class="select-option">Cập nhật/ Báo cáo tiến độ công việc</span>
+                                </div>
+                                <div class="mg-t-10">
+                                    <i class="material-icons icon-check">check_circle_outline</i>
+                                    <span class="select-option">Tạo và phân công công việc</span>
+                                </div>
+                                <div class="mg-t-10">
+                                    <i class="material-icons icon-check">check_circle_outline</i>
+                                    <span class="select-option">Quản lý công việc của nhân viên cấp dưới</span>
+                                </div>
+                            </div>
+
+                            <div class="form-content mg-t-30">
+                                <div class="title-input">
+                                    Email <span style="color: red">*</span>
+                                </div>
+                                <div class="mg-t-7">
+                                    <input type="text" class="form-control input-custom" v-model="org_data.email"
+                                           placeholder="Nhập email ...">
+                                    <span v-if="org_data.email<=0 && checkConnect == true" class="text-error">
+                                        Vui lòng nhập email
+                                    </span>
+                                </div>
+
+                                <div class="title-input">
+                                    Số điện thoại <span style="color: red">*</span>
+                                </div>
+                                <div class="mg-t-7">
+                                    <input type="text" class="form-control input-custom" v-model="org_data.phone"
+                                           v-on:keypress="isNumber(event)" placeholder="Nhập số điện thoại ...">
+                                    <span v-if="org_data.phone<=0 && checkConnect == true" class="text-error">
+                                        Vui lòng nhập số điện thoại
+                                    </span>
+                                </div>
+
+                                <div class="mg-t-30">
+                                    <button type="button" id="btn-connect-api" @click="nextStep2" class="btn btn-primary btn-md">
+                                        <span class="text">KẾT NỐI</span>
+                                        <i class="material-icons arrow-forward">arrow_forward</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 offset-1 smart-work">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="avatar">
+                                                <img class="img-avatar" src="images/resource/avatar4.svg"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 no-padding">
+                                            <div class="text-chat">
+                                                <span class="text">/todo Chỉnh sửa tài liệu họp nội bộ</span>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7 offset-md-2 no-padding">
+                                            <div class="text-chat-right">
+                                                <span class="text">
+                                                    <strong>Công việc đã được tạo</strong>
+                                                    <br>
+                                                    #40 Chỉnh sửa tài liệu họp nội bộ <a href="#" class="detail-link">Xem chi tiết</a>
+                                                </span>
+                                                <span class="note">
+                                                    Tip: /doing #48 để đánh dấu là đang thực hiện công việc này
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="avatar">
+                                                <img style="width: 60px;height: 60px;border-radius: 50%;border: 3px solid white;box-shadow: 0 16px 20px 0 #e4e4e4;" src="images/resource/avatar.svg"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 80px">
+                                        <div style="margin-left: 50px">
+                                            <img style="width: 500px" src="images/resource/background-1.svg">
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="step-1">
+                <!--content in tab-->
+                <div class="container">
+                    <div class="row" style="padding-top: 80px">
+                        <div class="col-md-6">
+                            <img src="images/resource/board-step-2.svg"/>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="content-text" style="width: 525px;">
+                                <div class="description">
+                                    <span style="font-family: 'SFProTextBold';line-height: normal; font-size: 52px;font-weight: bold;color: #eba63d;">
+                                        Kết nối<br>thành công
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <span style="font-family: 'SFProTextBold';font-size: 20px;color: #f5a623;">
+                                        Cám ơn bạn đã đăng ký dùng thử Smartwork
+                                    </span>
+                                </div>
+                                <div style="margin-top: 80px">
+                                    <span style="font-size: 16px;color: #666666;">Nếu gặp vấn đề gì trong quá trình cài đặt và sử dụng, bạn có thể liên hệ trực tiếp với nhân viên hỗ trợ qua các hotline:</span>
+                                </div>
+                                <div>
+                                    <span>
+                                        <span style="padding-right: 20px;border-right: 1px solid #e4e4e4;">
+                                            <img style="width: 15px; height: 15px"
+                                                 src="images/resource/messenger.png"/>
+                                            <a style="color: #5694ed;font-size: 12px;" href="#">Facebook</a>
+                                        </span>
+                                        <span style="padding-left: 20px;padding-right: 20px;border-right: 1px solid #e4e4e4;">
+                                            <img style="width: 15px; height: 15px"
+                                                 src="images/resource/zalo.svg"/>
+                                            <a style="color: #5694ed;font-size: 12px;" href="#">Zalo
+                                            </a>
+                                        </span>
+                                        <span style=" padding-left: 20px;padding-right: 20px;">
+                                            <i class="material-icons phone">perm_phone_msg</i>
+                                            <a style="color: #5694ed;font-size: 12px;" href="#">(028) 668 08 662
+                                            </a>
+                                        </span>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="margin-top: calc( 100vh - 498px );text-align: center">
+                            <button class="btn btn-primary"
+                                    id="btn-scroll-guide"
+                                    @click="scrollGuide"
+                                    style="
+                                    font-size: 24px;
+                                    color: #ffffff;
+                                    width: 520px;height: 80px;
+                                    border-top-left-radius: 13px;
+                                    border-top-right-radius: 13px;border-bottom-left-radius: 0px;
+                                    border-bottom-right-radius: 0px">
+                                HƯỚNG DẪN CÀI ĐẶT CHI TIẾT</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="display: inherit;">
+                            <div class="col-md-5" style="margin-top: 96px;padding: 0px">
+                                <div class="parent-text">
+                                    <div>
+                                        <span style="font-family: 'SFProTextBold' ;font-size: 72px;color: #5694ed;">01</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-family: 'SFProTextBold'; font-size: 26px;color: #5694ed">Nhập Username</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-size: 20px;font-weight: normal;color: #333333; line-height: 1.6;">- Nhập Username vào vùng nhập văn bản<br>- Nhấn chọn nút Tiếp tục </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7" style="margin-top: 80px;padding: 0px">
+                                <img style="width: 97%" src="images/resource/screen_1.svg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="display: inherit;">
+
+                            <div class="col-md-7" style="margin-top: 80px;padding: 0px">
+                                <img style="width: 97%" src="images/resource/screen_2.svg" />
+                            </div>
+                            <div class="col-md-5" style="margin-top: 96px;padding-left: 50px;">
+                                <div class="parent-text">
+                                    <div>
+                                        <span style="font-family: 'SFProTextBold' ;font-size: 72px;color: #5694ed;">02</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-family: 'SFProTextBold'; font-size: 26px;color: #5694ed">Xác nhận tài khoản</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-size: 20px;font-weight: normal;color: #333333; line-height: 1.6;">Nhấn chọn “Tôi không phải là robot”</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="display: inherit;">
+                            <div class="col-md-5" style="margin-top: 96px;padding: 0px 40px 0px 0px;">
+                                <div class="parent-text">
+                                    <div>
+                                        <span style="font-family: 'SFProTextBold' ;font-size: 72px;color: #5694ed;">03</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-family: 'SFProTextBold'; font-size: 26px;color: #5694ed">Nhập email và mật khẩu</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-size: 20px;font-weight: normal;color: #333333; line-height: 1.6;">
+                                            - Nhập email <br>
+                                            - Nhập mật khẩu <br>
+                                            - Sau đó nhấn chọn “Claim Account” để đăng ký tài khoản
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7" style="margin-top: 80px;padding: 0px">
+                                <img style="width: 97%" src="images/resource/screen_3.svg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 100px">
+                        <div class="col-md-12" style="text-align: center">
+                            <div>
+                                <span style="font-family: 'SFProTextBold'; font-size: 26px;color: #5694ed">TẢI ỨNG DỤNG</span>
+                                <br>
+                                <span style="font-size: 16px;color: #333333;font-weight: normal;">Ngoài sử dụng trực tiếp ứng dụng trên Trình duyệt Web. Bạn có thể tải ứng dụng về máy tính</span>
+                            </div>
+                            <div style="margin-top: 20px;margin-bottom: 100px">
+                                <button class="btn btn-primary" style="background-color: #f5a623">
+                                    <span style="font-size: 14px;color: #ffffff;">Tải phần mềm cho <strong>Mac OS</strong></span>
+                                </button>
+                                <button class="btn btn-primary" style="margin-left: 20px;background-color: #f5a623">
+                                    <span style="font-size: 14px;color: #ffffff;">Tải phần mềm cho <strong>Window</strong></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <span style="font-size: 12px;color: #ababab;font-weight: normal;">Copyright © 2018 Một sản phẩm của Cloudjet Soluitons.</span>
+            </div>
+            <div class="col-md-6" v-if="active==0">
+                <span style="float:right;padding-right: 60px">
+                    <span style=" padding-left: 20px;padding-right: 20px;border-right: 1px solid #e4e4e4;">
+                        <img style="width: 15px; height: 15px"
+                             src="images/resource/messenger.png"/>
+                        <a style="color: #5694ed;font-size: 12px;" href="#">Facebook</a>
+                    </span>
+                    <span style="padding-left: 20px;padding-right: 20px;border-right: 1px solid #e4e4e4;">
+                        <img style="width: 15px; height: 15px"
+                             src="images/resource/zalo.svg"/>
+                        <a style="color: #5694ed;font-size: 12px;" href="#">Zalo
+                        </a>
+                    </span>
+                    <span style=" padding-left: 20px;padding-right: 20px;">
+                        <i class="material-icons phone">perm_phone_msg</i>
+                        <a style="color: #5694ed;font-size: 12px;" href="#">(028) 668 08 662
+                        </a>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
-<!--END PRELOADER-->
-<nav class="navbar navbar-expand-lg fixed-top custom-menu custom-menu__light">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <!--REPLACE WITH YOUR LOGO-->
-      <img src="images/place-holder-0.png?v=20180707" alt="Image" class="logo-md">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="menu-icon__circle">
-        </span>
-      <span class="menu-icon">
-          <span class="menu-icon__bar"></span>
-          <span class="menu-icon__bar"></span>
-          <span class="menu-icon__bar"></span>
-        </span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-lg-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#overview">Giới thiệu
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#pricing">Bảng giá</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#testimonials">Ý kiến khách hàng</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#faqs">FAQs</a>
-        </li>
-      </ul>
-      <div class="custom-menu__right">
-        <!-- <a href="#" class="btn btn-default">Đăng nhập</a> -->
-        <a href="#pricing" class="btn btn-primary btn-pills">Miễn phí 17 ngày</a>
-        <p class="assistive-text d-md-none">17 days free - No credit card required</p>
-      </div>
-    </div>
-  </div>
-</nav>
+</body>
+<footer>
 
-<!--
-=========================
-FAQs
-========================= -->
-<section id="faqs" class="section-spacer section-faq">
-  <div class="container">
-    <header class="section-header text-center">
-      <h2 class="section-title">Bắt Đầu Sử Dụng Smartwork</h2>
-    </header>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Download Hướng Dẫn Cài Đặt</h5>
-            <p>
-             Việc cài đặt rất đơn giản, bạn có thể xem và làm theo hướng dẫn 
+</footer>
 
-             <a href="https://cloudjet.atlassian.net/wiki/spaces/CKKB/pages/394133505/H+ng+d+n+s+d+ng+Smartwork" target="_blank">tại đây </a> hoặc liên hệ với nhân viên hỗ trợ để được giúp đỡ.
-            
-           </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Liên Hệ Nhân Viên Hỗ Trợ Trực Tuyến</h5>
-            <ul>
-              <li>Chat <a href="http://m.me/cloudjetsolutions" target="_blank">Facebook Messenger</a></li>
-              <li>Chat
-<a href="https://zalo.me/0898698288" target="_blank">
-               Zalo
-<br/>
-<img src="images/zalo.jpg" style="width: 80px"/>
-             </li>
-              </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-   
-    <div class="mt-40 text-center">
-      <a href="http://m.me/cloudjetsolutions" target="_blank" class="btn btn-primary btn-lg">Yêu Cầu Cài Đặt Tại Công Ty</a>
-    </div>
-  </div>
-</section>
-<hr/>
 
 <!-- ========================= VENDORS JS ========================= -->
 <script src="js/vendors/jquery.min.js?v=20180707"></script>
@@ -155,18 +357,122 @@ FAQs
 <script src="js/vendors/swiper.min.js?v=20180707"></script>
 <script src="js/vendors/owl.carousel.min.js?v=20180707"></script>
 
+
 <!-- ========================= CUSTOM JS ========================= -->
 <script src="js/custom.js?v=20180707"></script>
+
+
+<script>
+    var start = new Vue({
+        el: '#container-wrap',
+        delimiters: ["${", "}$"],
+        data: {
+            active: 0,
+
+            // step-1
+            org_data: {
+                email: '',
+                phone: '',
+            },
+            checkConnect : false,
+            // domain
+            domain: 'http://kpi.happyworking.life',
+            // domain: 'http://localhost:8003',
+
+        },
+        methods: {
+            validEmail: function () {
+                var self = this;
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(self.org_data.email);
+            },
+            isNumber: function(evt) {
+                evt = (evt) ? evt : window.event;
+                var charCode = (evt.which) ? evt.which : evt.keyCode;
+                if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+                    evt.preventDefault();
+                }
+                else {
+                    return true;
+                }
+            },
+
+            scrollGuide: function(){
+                $('html, body').animate({
+                    scrollTop: $("#btn-scroll-guide").offset().top
+                }, 2000);
+            },
+            nextStep2: function () {
+                var self = this;
+                if (self.checkValidate()) {
+
+                    $("#btn-connect-api").attr("disabled", true);
+                    // run api resgister
+                    $.ajax({
+                        type: 'post',
+                        url: self.domain + '/api/v2/discordinvite/',
+                        data: JSON.stringify(self.org_data),
+                        contentType: 'application/json',
+                        success: function (res) {
+
+                            // next step
+                            self.active = 1;
+                            self.goToTabNumber(1);
+
+                            // redirect to
+                            if(res.data.link.length > 0){
+                                window.open(res.data.link, '_blank');
+                            }
+                        },
+                        error: function (res) {
+                            alert('Đã có lỗi xãy ra');
+                        }
+                    });
+                }
+            },
+
+            goToTabNumber: function (number) {
+                // remove active class
+                $('#step-0').removeClass('active');
+                $('#step-1').removeClass('active');
+                $('#step-2').removeClass('active');
+                $('#step-3').removeClass('active');
+                $('#step-4').removeClass('active');
+                //add class active
+                $('#step-' + number).addClass('active');
+            },
+            checkValidate: function () {
+                var self = this;
+                self.checkConnect = true;
+                if (self.org_data.email.length <= 0 || self.org_data.phone.length <= 0) {
+                    return false;
+                }
+                return true;
+            },
+        },
+
+        created: function () {
+
+        },
+        mounted: function () {
+
+        },
+    });
+</script>
+
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35744404-25"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-35744404-25');
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-35744404-25');
 </script>
 
-</body>
 </html>
