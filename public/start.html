@@ -366,8 +366,8 @@
             },
             checkConnect : false,
             // domain
-            //domain: 'http://kpi.happyworking.life',
-            domain: 'http://localhost:8003',
+            domain: 'http://kpi.happyworking.life',
+            //domain: 'http://localhost:8003',
 
         },
         methods: {
@@ -396,31 +396,28 @@
                 var self = this;
                 if (self.checkValidate()) {
 
-                     self.active = 1;
+                    $("#btn-connect-api").attr("disabled", true);
+                    // run api resgister
+                    $.ajax({
+                        type: 'post',
+                        url: self.domain + '/api/v2/discordinvite/',
+                        data: JSON.stringify(self.org_data),
+                        contentType: 'application/json',
+                        success: function (res) {
+
+                            // next step
+                            self.active = 1;
                             self.goToTabNumber(1);
 
-                    // $("#btn-connect-api").attr("disabled", true);
-                    // // run api resgister
-                    // $.ajax({
-                    //     type: 'post',
-                    //     url: self.domain + '/api/v2/discordinvite/',
-                    //     data: JSON.stringify(self.org_data),
-                    //     contentType: 'application/json',
-                    //     success: function (res) {
-                    //
-                    //         // next step
-                    //         self.active = 1;
-                    //         self.goToTabNumber(1);
-                    //
-                    //         // redirect to
-                    //         if(res.data.link.length > 0){
-                    //             window.open(res.data.link, '_blank');
-                    //         }
-                    //     },
-                    //     error: function (res) {
-                    //         alert('Đã có lỗi xãy ra');
-                    //     }
-                    // });
+                            // redirect to
+                            if(res.data.link.length > 0){
+                                window.open(res.data.link, '_blank');
+                            }
+                        },
+                        error: function (res) {
+                            alert('Đã có lỗi xãy ra');
+                        }
+                    });
                 }
             },
 
