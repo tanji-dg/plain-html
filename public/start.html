@@ -52,7 +52,8 @@
     <link rel="stylesheet" href="bower_components/element-ui/index.css">
     <link rel="stylesheet" href="bower_components/material-icon/material-icons.css" type="text/css" media="screen"/>
 
-
+    <!--import Sweet alert-->
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 
@@ -418,9 +419,11 @@
                             if(res.data.link.length > 0){
                                 window.open(res.data.link, '_blank');
                             }
+                            $("#btn-connect-api").attr("disabled", false);
                         },
                         error: function (res) {
-                            alert('Đã có lỗi xãy ra');
+                            swal("Đã có lỗi xãy ra", res.responseJSON.message, "error")
+                            $("#btn-connect-api").attr("disabled", false);
                         }
                     });
                 }
