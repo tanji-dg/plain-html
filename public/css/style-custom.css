@@ -1,0 +1,430 @@
+@font-face {
+    font-family: 'SFProTextBold';
+    src: url('../font/SF-Pro-Text-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SFProTextRegular';
+    src: url('../font/SF-Pro-Text-Regular.otf') format('opentype');
+}
+
+body {
+    font-family: 'SFProTextRegular';
+    font-weight: normal;
+    font-style: normal;
+    background-image: url('../images/resource/background-2.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+#container-wrap ul.nav-wizard {
+    background-color: #f1f1f1;
+    border: none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+#container-wrap ul.nav-wizard:before {
+    position: absolute;
+}
+
+#container-wrap ul.nav-wizard:after {
+    display: block;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 138px;
+    height: 47px;
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+    z-index: 11;
+    content: " ";
+}
+
+#container-wrap ul.nav-wizard li {
+    position: relative;
+    float: left;
+    height: 70px;
+    display: inline-block;
+    text-align: left;
+    padding: 12px 0px 0px 25px;
+    margin: 0;
+    font-size: 16px;
+    line-height: initial;
+    width: 20%;
+    background: white;
+}
+
+#container-wrap ul.nav-wizard li a {
+    color: #428bca;
+    padding: 0;
+}
+
+#container-wrap ul.nav-wizard li a:hover {
+    background-color: transparent;
+}
+
+#container-wrap ul.nav-wizard li:before {
+    position: absolute;
+    display: block;
+    border: 37px solid transparent;
+    border-left: 16px solid #ddeafb;
+    border-right: 0;
+    top: -1px;
+    z-index: 10;
+    content: '';
+    right: -16px;
+}
+
+#container-wrap ul.nav-wizard li:after {
+    position: absolute;
+    display: block;
+    border: 37px solid transparent;
+    border-left: 16px solid white;
+    border-right: 0;
+    top: -1px;
+    z-index: 10;
+    content: '';
+    right: -15px;
+}
+
+#container-wrap ul.nav-wizard li.active {
+    color: #3a87ad;
+    background: #5694ed;
+}
+
+#container-wrap ul.nav-wizard li.active:after {
+    border-left: 16px solid #5694ed;
+}
+
+#container-wrap ul.nav-wizard li.active a,
+#container-wrap ul.nav-wizard li.active a:active,
+#container-wrap ul.nav-wizard li.active a:visited,
+#container-wrap ul.nav-wizard li.active a:focus {
+    color: white;
+    background: transparent;
+}
+
+#container-wrap ul.nav-wizard.nav-wizard-backnav li:hover {
+    color: #468847;
+    background: #f6fbfd;
+}
+
+#container-wrap ul.nav-wizard.nav-wizard-backnav li:hover:after {
+    border-left: 16px solid #f6fbfd;
+}
+
+#container-wrap ul.nav-wizard.nav-wizard-backnav li:hover a,
+#container-wrap ul.nav-wizard.nav-wizard-backnav li:hover a:active,
+#container-wrap ul.nav-wizard.nav-wizard-backnav li:hover a:visited,
+#container-wrap ul.nav-wizard.nav-wizard-backnav li:hover a:focus {
+    color: #468847;
+    background: #f6fbfd;
+}
+
+#container-wrap .title {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#container-wrap ul li.active .description {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#container-wrap ul li .description {
+    font-size: 15px;
+    font-weight: bold;
+    color: #5694ed;
+    line-height: 30px;
+}
+
+#container-wrap .material-icons.icon-check {
+    font-size: 16px;
+    position: relative;
+    width: 20px;
+    bottom: -3px;
+    color: #f5a623;
+}
+
+#container-wrap .material-icons.arrow-forward {
+    font-size: 20px;
+    opacity: 0.5;
+    color: #ffffff;
+    float: right;
+    margin-top: 2px;
+}
+
+#container-wrap .material-icons.phone, footer .material-icons.phone {
+    font-size: 18px;
+    position: relative;
+    color: #448aff;
+    bottom: -5px;
+}
+
+#container-wrap .input-custom {
+    height: 40px;
+    font-size: 14px;
+    color: #333333;
+    border-radius: 3px;
+    border: solid 1px #ababab;
+}
+
+#container-wrap .input-custom:focus {
+    border-radius: 3px;
+    background-color: #ffffff;
+    border: solid 1px #5694ed !important;
+    outline: none;
+    box-shadow: none;
+}
+
+#container-wrap .content-wrapper {
+    padding: 15px 40px;
+    top: 0;
+    z-index: 10000;
+    background: white;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#container-wrap .content-wrapper .wizard {
+    width: 100%
+}
+
+#step-0 .smart-work {
+    padding-top: 100px;
+    padding-left: 0px;
+    padding-right: 0px
+}
+
+#step-0 .smart-work .avatar {
+
+}
+
+#step-0 .smart-work .name {
+    font-size: 14px;
+    color: #5694ed;
+    font-weight: bold;
+}
+
+#step-0 .smart-work .text-chat {
+    margin-top: 30px;
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 16px 20px 0 #e4e4e4;
+}
+
+#step-0 .smart-work .text-chat .text {
+    font-size: 14px;
+    color: #333333;
+    font-weight: bold;
+}
+
+#step-0 .title-smartwork .title {
+    font-family: 'SFProTextBold';
+    line-height: normal;
+    font-size: 48px;
+    color: #f5a623;
+    font-weight: bold;
+}
+
+#step-0 .decription-title {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333333;
+}
+
+#step-0 .option .select-option {
+    font-size: 14px;
+    color: #333333;
+}
+
+#step-0 .form-content .title-input {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #ababab;
+}
+
+#step-0 .form-content .text-error {
+    color: red;
+    font-size: 10px
+}
+
+#step-0 .form-content #btn-connect-api {
+    width: 100%;
+    background-color: #5694ed;
+}
+
+#step-0 .form-content #btn-connect-api .text {
+    font-size: 16px;
+    font-weight: bold
+}
+#step-0 .smart-work .row .avatar{
+    float: right;
+}
+#step-0 .smart-work .row .avatar .img-avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 16px 20px 0 #e4e4e4;
+}
+
+#step-0 .smart-work .row .text-chat-right{
+    float: right;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 16px 20px 0 #e4e4e4;
+}
+#step-0 .smart-work .row .text-chat-right .text{
+    font-size: 14px;
+    color: #333333;
+    font-weight: normal;
+}
+#step-0 .smart-work .row .text-chat-right .text .detail-link{
+    margin-left: 10px;
+    color: #5694ed;
+}
+#step-0 .smart-work .row .text-chat-right .note{
+    font-size: 10.5px;
+    font-weight: normal;
+    line-height: 2.1;
+    color: #f5a623;
+}
+
+
+/* The container */
+.checkbox-custom {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-custom input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-custom:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-custom input:checked ~ .checkmark {
+    background-color: #F5A623;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-custom input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-custom .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 7px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+}
+
+.footer .material-icons.phone {
+    font-size: 18px;
+    position: relative;
+    color: #448aff;
+    bottom: -5px;
+}
+
+.mg-t-7 {
+    margin-top: 7px;
+}
+
+.mg-t-10 {
+    margin-top: 10px;
+}
+
+.mg-t-15 {
+    margin-top: 15px;
+}
+
+.mg-t-25 {
+    margin-top: 25px
+}
+
+.mg-t-30 {
+    margin-top: 30px;
+}
+
+.mg-t-40 {
+    margin-top: 40px;
+}
+
+.mg-t-120 {
+    margin-top: 120px;
+}
+
+.pd-r-25 {
+    padding-right: 25px;
+}
+
+.pd-l-0 {
+    padding-left: 0px
+}
+
+.pd-l-30 {
+    padding-left: 30px
+}
+
+.no-padding {
+    padding: 0px;
+}

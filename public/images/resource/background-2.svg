@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1362px" height="768px" viewBox="0 0 1362 768" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Path 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1366" height="768"></rect>
+    </defs>
+    <g id="New-Smartwork-Flow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="BƯớc-1" transform="translate(-4.000000, 0.000000)">
+            <g id="Group-3" transform="translate(4.000000, 0.000000)">
+                <g id="Path-4">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                    <path d="M475,278 C494.967002,318.655464 589.965851,650.671412 1003.11959,538.584068 C1416.27332,426.496725 1473.19462,855.155013 1183.23461,933.638821 C989.927941,985.961359 754.497003,950.392957 476.941798,826.933615 C475.770031,503.020658 475.122765,320.042786 475,278 Z" fill="#F9F9F9" mask="url(#mask-2)" transform="translate(919.670987, 617.500000) scale(-1, 1) translate(-919.670987, -617.500000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
