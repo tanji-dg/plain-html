@@ -215,7 +215,7 @@ body {
 }
 
 #step-0 .smart-work .text-chat {
-    margin-top: 30px;
+    margin-top: 20px;
     width: fit-content;
     padding: 10px 20px;
     background-color: #ffffff;
@@ -279,8 +279,17 @@ body {
     box-shadow: 0 16px 20px 0 #e4e4e4;
 }
 
+#step-0 .smart-work .row .avatar .img-avatar-2{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 16px 20px 0 #e4e4e4;
+}
+
 #step-0 .smart-work .row .text-chat-right{
     float: right;
+    margin-top: 20px;
     width: 100%;
     padding: 10px 20px;
     background-color: #ffffff;
@@ -300,6 +309,119 @@ body {
     font-weight: normal;
     line-height: 2.1;
     color: #f5a623;
+}
+
+#step-1 .content-text{
+    width: 525px;
+}
+
+#step-1 .content-text .description span{
+    font-family: 'SFProTextBold';
+    line-height: normal;
+    font-size: 52px;
+    font-weight: bold;
+    color: #eba63d;
+}
+
+#step-1 .content-text .sub-description span{
+    font-family: 'SFProTextBold';
+    font-size: 20px;
+    color: #f5a623;
+}
+
+#step-1 .content-text .sub-description-2 span{
+    font-size: 16px;
+    color: #666666;
+}
+
+#step-1 .content-text .facebook-wrap{
+    padding-right: 20px;
+    border-right: 1px solid #e4e4e4;
+}
+
+#step-1 .content-text .facebook-wrap .img-fb{
+    width: 15px;
+    height: 15px
+}
+
+#step-1 .content-text .facebook-wrap a{
+    color: #5694ed;
+    font-size: 12px;
+}
+
+#step-1 .content-text .zalo-wrap{
+    padding-left: 20px;
+    padding-right: 20px;
+    border-right: 1px solid #e4e4e4;
+}
+
+#step-1 .content-text .zalo-wrap .img-zalo{
+    width: 15px;
+    height: 15px
+}
+
+#step-1 .content-text .zalo-wrap a{
+    color: #5694ed;
+    font-size: 12px;
+}
+
+#step-1 .content-text .phone-wrap{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#step-1 .content-text .phone-wrap a{
+    color: #5694ed;
+    font-size: 12px;
+}
+
+#step-1 .btn-guide-wrapper{
+    margin-top: calc( 100vh - 498px );
+    text-align: center
+}
+#step-1 #btn-scroll-guide{
+    font-size: 24px;
+    color: #ffffff;
+    width: 520px;height: 80px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px
+}
+
+#step-1 .parent-text .number{
+    font-family: 'SFProTextBold' ;
+    font-size: 72px;
+    color: #5694ed;
+}
+
+#step-1 .parent-text .detail{
+    font-family: 'SFProTextBold';
+    font-size: 26px;
+    color: #5694ed
+}
+
+#step-1 .parent-text .detail-des{
+    font-size: 20px;
+    font-weight: normal;
+    color: #333333;
+    line-height: 1.6;
+}
+
+#step-1 .download-title{
+    font-family: 'SFProTextBold';
+    font-size: 26px;
+    color: #5694ed
+}
+
+#step-1 .description-download{
+    font-size: 16px;
+    color: #333333;
+    font-weight: normal;
+}
+
+#step-1 .text-download-discord{
+    font-size: 14px;
+    color: #ffffff;
 }
 
 
@@ -385,6 +507,7 @@ body {
     bottom: -5px;
 }
 
+
 .mg-t-7 {
     margin-top: 7px;
 }
@@ -395,6 +518,10 @@ body {
 
 .mg-t-15 {
     margin-top: 15px;
+}
+
+.mg-t-20 {
+    margin-top: 20px
 }
 
 .mg-t-25 {
@@ -409,9 +536,36 @@ body {
     margin-top: 40px;
 }
 
+.mg-t-80{
+    margin-top: 80px;
+}
+.mg-t-96{
+    margin-top: 96px
+}
+.mg-t-100{
+    margin-top: 100px
+}
 .mg-t-120 {
     margin-top: 120px;
 }
+
+.mg-bt-100{
+    margin-bottom: 100px;
+}
+
+.mg-l-20{
+    margin-left: 20px;
+}
+
+.mg-l-50{
+    margin-left: 50px;
+}
+
+
+.pd-t-80{
+    padding-top: 80px
+}
+
 
 .pd-r-25 {
     padding-right: 25px;
@@ -423,6 +577,9 @@ body {
 
 .pd-l-30 {
     padding-left: 30px
+}
+.pd-l-50{
+    padding-left: 50px;
 }
 
 .no-padding {

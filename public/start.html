@@ -151,12 +151,12 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="avatar">
-                                                <img style="width: 60px;height: 60px;border-radius: 50%;border: 3px solid white;box-shadow: 0 16px 20px 0 #e4e4e4;" src="images/resource/avatar.svg"/>
+                                                <img class="img-avatar-2" src="images/resource/avatar.svg"/>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" style="margin-top: 80px">
-                                        <div style="margin-left: 50px">
+                                    <div class="row mg-t-80">
+                                        <div class="mg-l-50">
                                             <img style="width: 500px" src="images/resource/background-1.svg">
                                          </div>
                                     </div>
@@ -169,43 +169,41 @@
             <div class="tab-pane" id="step-1">
                 <!--content in tab-->
                 <div class="container">
-                    <div class="row" style="padding-top: 80px">
+                    <div class="row pd-t-80">
                         <div class="col-md-6">
                             <img src="images/resource/board-step-2.svg"/>
                         </div>
                         <div class="col-md-6">
-                            <div class="content-text" style="width: 525px;">
+                            <div class="content-text">
                                 <div class="description">
-                                    <span style="font-family: 'SFProTextBold';line-height: normal; font-size: 52px;font-weight: bold;color: #eba63d;">
+                                    <span>
                                         Kết nối<br>thành công
                                     </span>
                                 </div>
 
-                                <div>
-                                    <span style="font-family: 'SFProTextBold';font-size: 20px;color: #f5a623;">
+                                <div class="sub-description">
+                                    <span>
                                         Cám ơn bạn đã đăng ký dùng thử Smartwork
                                     </span>
                                 </div>
-                                <div style="margin-top: 80px">
-                                    <span style="font-size: 16px;color: #666666;">Nếu gặp vấn đề gì trong quá trình cài đặt và sử dụng, bạn có thể liên hệ trực tiếp với nhân viên hỗ trợ qua các hotline:</span>
+                                <div class="mg-t-80 sub-description-2">
+                                    <span>Nếu gặp vấn đề gì trong quá trình cài đặt và sử dụng,
+                                        bạn có thể liên hệ trực tiếp với nhân viên hỗ trợ qua các hotline:</span>
                                 </div>
                                 <div>
                                     <span>
-                                        <span style="padding-right: 20px;border-right: 1px solid #e4e4e4;">
-                                            <img style="width: 15px; height: 15px"
-                                                 src="images/resource/messenger.png"/>
-                                            <a style="color: #5694ed;font-size: 12px;" href="#">Facebook</a>
+                                        <span class="facebook-wrap">
+                                            <img class="img-fb" src="images/resource/messenger.png"/>
+                                            <a href="#">Facebook</a>
                                         </span>
-                                        <span style="padding-left: 20px;padding-right: 20px;border-right: 1px solid #e4e4e4;">
-                                            <img style="width: 15px; height: 15px"
+                                        <span class="zalo-wrap">
+                                            <img class="img-zalo"
                                                  src="images/resource/zalo.svg"/>
-                                            <a style="color: #5694ed;font-size: 12px;" href="#">Zalo
-                                            </a>
+                                            <a href="#">Zalo</a>
                                         </span>
-                                        <span style=" padding-left: 20px;padding-right: 20px;">
+                                        <span class="phone-wrap">
                                             <i class="material-icons phone">perm_phone_msg</i>
-                                            <a style="color: #5694ed;font-size: 12px;" href="#">(028) 668 08 662
-                                            </a>
+                                            <a href="#">(028) 668 08 662</a>
                                         </span>
                                     </span>
                                 </div>
@@ -214,36 +212,28 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12" style="margin-top: calc( 100vh - 498px );text-align: center">
-                            <button class="btn btn-primary"
-                                    id="btn-scroll-guide"
-                                    @click="scrollGuide"
-                                    style="
-                                    font-size: 24px;
-                                    color: #ffffff;
-                                    width: 520px;height: 80px;
-                                    border-top-left-radius: 13px;
-                                    border-top-right-radius: 13px;border-bottom-left-radius: 0px;
-                                    border-bottom-right-radius: 0px">
-                                HƯỚNG DẪN CÀI ĐẶT CHI TIẾT</button>
+                        <div class="col-md-12 btn-guide-wrapper">
+                            <button class="btn btn-primary" id="btn-scroll-guide" @click="scrollGuide">
+                                HƯỚNG DẪN CÀI ĐẶT CHI TIẾT
+                            </button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12" style="display: inherit;">
-                            <div class="col-md-5" style="margin-top: 96px;padding: 0px">
+                            <div class="col-md-5 mg-t-96 no-padding">
                                 <div class="parent-text">
                                     <div>
-                                        <span style="font-family: 'SFProTextBold' ;font-size: 72px;color: #5694ed;">01</span>
+                                        <span class="number" style="">01</span>
                                     </div>
                                     <div>
-                                        <span style="font-family: 'SFProTextBold'; font-size: 26px;color: #5694ed">Nhập Username</span>
+                                        <span class="detail">Nhập Username</span>
                                     </div>
                                     <div>
-                                        <span style="font-size: 20px;font-weight: normal;color: #333333; line-height: 1.6;">- Nhập Username vào vùng nhập văn bản<br>- Nhấn chọn nút Tiếp tục </span>
+                                        <span class="detail-des">- Nhập Username vào vùng nhập văn bản<br>- Nhấn chọn nút Tiếp tục </span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-7" style="margin-top: 80px;padding: 0px">
+                            <div class="col-md-7 mg-t-80 no-padding">
                                 <img style="width: 97%" src="images/resource/screen_1.svg" />
                             </div>
                         </div>
@@ -251,19 +241,19 @@
                     <div class="row">
                         <div class="col-md-12" style="display: inherit;">
 
-                            <div class="col-md-7" style="margin-top: 80px;padding: 0px">
+                            <div class="col-md-7 mg-t-80 no-padding">
                                 <img style="width: 97%" src="images/resource/screen_2.svg" />
                             </div>
-                            <div class="col-md-5" style="margin-top: 96px;padding-left: 50px;">
+                            <div class="col-md-5 mg-t-96 pd-l-50">
                                 <div class="parent-text">
                                     <div>
-                                        <span style="font-family: 'SFProTextBold' ;font-size: 72px;color: #5694ed;">02</span>
+                                        <span class="number">02</span>
                                     </div>
                                     <div>
-                                        <span style="font-family: 'SFProTextBold'; font-size: 26px;color: #5694ed">Xác nhận tài khoản</span>
+                                        <span class="detail">Xác nhận tài khoản</span>
                                     </div>
                                     <div>
-                                        <span style="font-size: 20px;font-weight: normal;color: #333333; line-height: 1.6;">Nhấn chọn “Tôi không phải là robot”</span>
+                                        <span class="detail-des">Nhấn chọn “Tôi không phải là robot”</span>
                                     </div>
                                 </div>
                             </div>
@@ -271,16 +261,16 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12" style="display: inherit;">
-                            <div class="col-md-5" style="margin-top: 96px;padding: 0px 40px 0px 0px;">
+                            <div class="col-md-5 mg-t-96" style="padding: 0px 40px 0px 0px;">
                                 <div class="parent-text">
                                     <div>
-                                        <span style="font-family: 'SFProTextBold' ;font-size: 72px;color: #5694ed;">03</span>
+                                        <span class="number">03</span>
                                     </div>
                                     <div>
-                                        <span style="font-family: 'SFProTextBold'; font-size: 26px;color: #5694ed">Nhập email và mật khẩu</span>
+                                        <span  class="detail">Nhập email và mật khẩu</span>
                                     </div>
                                     <div>
-                                        <span style="font-size: 20px;font-weight: normal;color: #333333; line-height: 1.6;">
+                                        <span  class="detail-des">
                                             - Nhập email <br>
                                             - Nhập mật khẩu <br>
                                             - Sau đó nhấn chọn “Claim Account” để đăng ký tài khoản
@@ -288,24 +278,24 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-7" style="margin-top: 80px;padding: 0px">
+                            <div class="col-md-7 mg-t-80 no-padding">
                                 <img style="width: 97%" src="images/resource/screen_3.svg" />
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: 100px">
-                        <div class="col-md-12" style="text-align: center">
+                    <div class="row mg-t-100">
+                        <div class="col-md-12 text-center">
                             <div>
-                                <span style="font-family: 'SFProTextBold'; font-size: 26px;color: #5694ed">TẢI ỨNG DỤNG</span>
+                                <span class="download-title">TẢI ỨNG DỤNG</span>
                                 <br>
-                                <span style="font-size: 16px;color: #333333;font-weight: normal;">Ngoài sử dụng trực tiếp ứng dụng trên Trình duyệt Web. Bạn có thể tải ứng dụng về máy tính</span>
+                                <span class="description-download">Ngoài sử dụng trực tiếp ứng dụng trên Trình duyệt Web. Bạn có thể tải ứng dụng về máy tính</span>
                             </div>
-                            <div style="margin-top: 20px;margin-bottom: 100px">
+                            <div class="mg-t-20 mg-bt-100">
                                 <button class="btn btn-primary" style="background-color: #f5a623">
-                                    <span style="font-size: 14px;color: #ffffff;">Tải phần mềm cho <strong>Mac OS</strong></span>
+                                    <span class="text-download-discord" style="">Tải phần mềm cho <strong>Mac OS</strong></span>
                                 </button>
-                                <button class="btn btn-primary" style="margin-left: 20px;background-color: #f5a623">
-                                    <span style="font-size: 14px;color: #ffffff;">Tải phần mềm cho <strong>Window</strong></span>
+                                <button class="btn btn-primary mg-l-20" style="background-color: #f5a623">
+                                    <span class="text-download-discord">Tải phần mềm cho <strong>Window</strong></span>
                                 </button>
                             </div>
                         </div>
@@ -376,8 +366,8 @@
             },
             checkConnect : false,
             // domain
-            domain: 'http://kpi.happyworking.life',
-            // domain: 'http://localhost:8003',
+            //domain: 'http://kpi.happyworking.life',
+            domain: 'http://localhost:8003',
 
         },
         methods: {
@@ -406,28 +396,31 @@
                 var self = this;
                 if (self.checkValidate()) {
 
-                    $("#btn-connect-api").attr("disabled", true);
-                    // run api resgister
-                    $.ajax({
-                        type: 'post',
-                        url: self.domain + '/api/v2/discordinvite/',
-                        data: JSON.stringify(self.org_data),
-                        contentType: 'application/json',
-                        success: function (res) {
-
-                            // next step
-                            self.active = 1;
+                     self.active = 1;
                             self.goToTabNumber(1);
 
-                            // redirect to
-                            if(res.data.link.length > 0){
-                                window.open(res.data.link, '_blank');
-                            }
-                        },
-                        error: function (res) {
-                            alert('Đã có lỗi xãy ra');
-                        }
-                    });
+                    // $("#btn-connect-api").attr("disabled", true);
+                    // // run api resgister
+                    // $.ajax({
+                    //     type: 'post',
+                    //     url: self.domain + '/api/v2/discordinvite/',
+                    //     data: JSON.stringify(self.org_data),
+                    //     contentType: 'application/json',
+                    //     success: function (res) {
+                    //
+                    //         // next step
+                    //         self.active = 1;
+                    //         self.goToTabNumber(1);
+                    //
+                    //         // redirect to
+                    //         if(res.data.link.length > 0){
+                    //             window.open(res.data.link, '_blank');
+                    //         }
+                    //     },
+                    //     error: function (res) {
+                    //         alert('Đã có lỗi xãy ra');
+                    //     }
+                    // });
                 }
             },
 
