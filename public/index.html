@@ -45,8 +45,8 @@
         } else if (sign == 2) {
           a1 = Math.floor((Math.random() * 50) + 1);
           b1 = Math.floor((Math.random() * 50) + 1);
-          a = Math.max(a1, b1)
-          b = Math.min(a1, b1)
+          a = max(a1, b1)
+          b = min(a1, b1)
           sign = " - ";
           c = a - b;
         } else if (sign == 3) {
@@ -57,8 +57,8 @@
         }
         a = base12(a);
         b = base12(b);
-        problem.value = a + sign + b;
-        answer.value = c;
+        problem.innerHTML = a + sign + b;
+        answer.innerHTML = c;
       }
       function doLogic() {
         var given = document.getElementById("solution");
@@ -66,10 +66,10 @@
         var outcome = document.getElementById("outcome");
 
         submitted = base10(given.value);
-        if (submitted == answer.value) {
-          outcome.value = "Correct answer!";
+        if (submitted == answer.innerHTML) {
+          outcome.innerHTML = "Correct answer!";
         } else {
-          outcome.value = "Wrong, the right answer was " + base12(answer.value);
+          outcome.innerHTML = "Wrong, the right answer was " + base12(answer.value);
         }
         giveProblem();
       }
