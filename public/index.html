@@ -2,22 +2,78 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="GitLab Pages">
-    <title>Plain HTML site using GitLab Pages</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Base 12 quiz</title>
   </head>
   <body>
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
-    </div>
-
-    <h1>Hello World!</h1>
-
     <p>
-      This is a simple plain-HTML website on GitLab Pages, without any fancy static site generator.
+      Solve: <label id="problem">problem</label><br>
+      Your answer: <input type="text" id="solution"><br>
+      <input type="submit" value="Submit" id="submitbutton"><br>
+      <label id="outcome">Solve the problem!</label>
+      <div style="display:none;" id="correct">.</div>
     </p>
+    <script>
+      var el = document.getElementById("submitbutton");
+      if (el.addEventListener)
+          el.addEventListener("click", doLogic, false);
+      else if (el.attachEvent)
+          el.attachEvent('onclick', doLogic);
+
+      window.onload = function WindowLoad(event) {
+        giveProblem()
+      }
+
+      function base12(val)
+        {
+            return val.toString(12).replace("a", "X").replace("b", "E")
+        }
+
+      function base10(val)
+        {
+            return parseInt(val.replace("X", "a").replace("E", "b"), 12)
+        }
+
+      function giveProblem() {
+        var problem = document.getElementById("problem");
+        var answer = document.getElementById("correct");
+        sign = Math.floor((Math.random() * 3) + 1);
+        if (sign == 1) {
+          a = Math.floor((Math.random() * 50) + 1);
+          b = Math.floor((Math.random() * 50) + 1);
+          sign = " + ";
+          c = a + b;
+        } else if (sign == 2) {
+          a1 = Math.floor((Math.random() * 50) + 1);
+          b1 = Math.floor((Math.random() * 50) + 1);
+          a = max(a1, b1)
+          b = min(a1, b1)
+          sign = " - ";
+          c = a - b;
+        } else if (sign == 3) {
+          a = Math.floor((Math.random() * 12) + 1);
+          b = Math.floor((Math.random() * 12) + 1);
+          sign = " * ";
+          c = a * b;
+        }
+        a = base12(a);
+        b = base12(b);
+        problem.value = a + sign + b;
+        answer.value = c;
+      }
+      function doLogic() {
+        var given = document.getElementById("solution");
+        var answer = document.getElementById("correct");
+        var outcome = document.getElementById("outcome");
+
+        submitted = base10(given.value);
+        if (submitted == answer.value) {
+          outcome.value = "Correct answer!";
+        } else {
+          outcome.value = "Wrong, the right answer was " + base12(answer.value);
+        }
+        giveProblem();
+      }
+    </script>
   </body>
 </html>
 
