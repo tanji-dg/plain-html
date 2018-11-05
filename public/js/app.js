@@ -1,5 +1,3 @@
-(function () {
-
   let limit = 10;
   let offset = 0;
 
@@ -7,11 +5,14 @@
   let opOut = 1;
 
   let items = [{
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
-    title: 'Fireworks on the 4th'
+    img: 'https://dmm8trq3la0u4.cloudfront.net/wp-content/uploads/2018/04/youtube-832x350.jpg',
+    title: 'Fireworks on the 4th',
+    isYoutube: true,
+    embedId: "bTqVqk7FSmY"
   }, {
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
-    title: 'Fireworks on the 4th'
+    img: 'https://asda.scene7.com/is/image/Asda/0811571016525?hei=532&wid=910&qlt=85&fmt=pjpg&resmode=sharp&op_usm=1.1,0.5,0,0&defaultimage=default_details_George_rd',
+    title: 'Introducing Chromecast',
+    videoUrl: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
   }, {
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
     title: 'Fireworks on the 4th'
@@ -60,7 +61,7 @@
   if (videoEl) {
     loadItems();
 
-    attachModalEvents();
+    //attachModalEvents();
     document.getElementById("loadMore").addEventListener("click", function () {
       // update the offset to load the next 10 items
       offset = offset + limit;
@@ -68,31 +69,57 @@
     });
   }
 
-  function attachModalEvents() {
-    var modal = document.querySelector(".modal");
-    var trigger = document.querySelectorAll(".content-box-thumb");
-    var closeButton = document.querySelector(".close-button");
+  //function attachModalEvents() {
+  var modal = document.querySelector(".modal");
+  //var trigger = document.querySelectorAll(".content-box-thumb");
+  var closeButton = document.querySelector(".close-button");
 
-    function toggleModal() {
+  function toggleModal(ref) {
+    console.log(ref);
+    if (ref && ref.parentElement) {
+
+      //modal.querySelector(".modal-image-preview").src = ref.src;
+      if (ref.hasAttribute("data-youtube") && ref.getAttribute("data-youtube") != 'undefined') {
+        modalYTRef = document.getElementById("youtubeVideoPlayerArea");
+        modalYTRef.style.display = "block";
+        console.log("Looks like a youtube video");
+        modalYTRef.setAttribute("data-plyr-provider", "youtube");
+        modalYTRef.setAttribute("data-plyr-embed-id", ref.getAttribute("data-embed"));
+        initializeVideo("#youtubeVideoPlayerArea");
+
+      } else {
+        modalVideoRef = document.getElementById("normalVideoPlayerArea");
+        modalVideoRef.poster = ref.src;
+        source = document.getElementById("normal-video-player-area-source");
+        source.src = ref.getAttribute("data-videoUrl");
+        modalVideoRef.style.display = "block";
+        initializeVideo("#normalVideoPlayerArea");
+      }
+
+      document.getElementById("video-title").innerHTML = ref.parentElement.querySelector(".content-box-header").innerHTML;
       modal.classList.toggle("show-modal");
-      if (this && this.parentElement) {
-        modal.querySelector(".modal-text-preview").innerHTML = this.parentElement.querySelector(".content-box-header").innerHTML;
-        modal.querySelector(".modal-image-preview").src = this.src;
-      }
     }
+  }
 
-    function windowOnClick(event) {
-      if (event.target === modal) {
-        toggleModal();
-      }
+  function windowOnClick(event) {
+    if (event.target === modal) {
+      toggleModal();
     }
+  }
 
-    trigger.forEach(function (elem) {
-      elem.addEventListener("click", toggleModal);
-    });
+  // trigger.forEach(function (elem) {
+  //   elem.addEventListener("click", toggleModal);
+  // });
 
-    closeButton.addEventListener("click", toggleModal);
-    window.addEventListener("click", windowOnClick);
+  closeButton.addEventListener("click", function () {
+    modal.classList.toggle("show-modal")
+  });
+  window.addEventListener("click", windowOnClick);
+  //}
+
+  function playVideo(data) {
+    toggleModal(data);
+    console.log(data)
   }
 
   function loadItems() {
@@ -103,7 +130,8 @@
 
       let article = `<article class="grid-item content-box">
         <div class="inner">
-        <img class="content-box-thumb"src="${item.img}" alt="tech image" />
+        <img width="450" onclick="toggleModal(this)" data-videoUrl="${item.videoUrl}" class="content-box-thumb"src="${item.img}" alt="tech image"  data-youtube="${item.isYoutube}"
+        data-embed="${item.isYoutube ? item.embedId : ''}"/>
         <h1 class="content-box-header">
           ${item.title + " - "+ i}
         </h1>
@@ -152,4 +180,9 @@
 
   }
 
-})();
+  function initializeVideo(id) {
+    const player = new Plyr(id, {});
+    window.player = player;
+  }
+  //initializeVideo("#youtube-video-player-area");
+  // Expose player so it can be used from the console

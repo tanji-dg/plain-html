@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Project Drift</title>
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.4.6/plyr.css">
   <link href="https://fonts.googleapis.com/css?family=Rosario" rel="stylesheet">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128681089-1"></script>
@@ -21,7 +22,8 @@
       <div class="toolbar">
         <div class="container">
           <div class="toolbar-section">
-            <span class="toolbar-item"><i class="fa fa-picture-o"></i><a href="index.html" class="homepage-logo">Project Drift</a></span>
+            <span class="toolbar-item"><i class="fa fa-picture-o"></i><a href="index.html" class="homepage-logo">Project
+                Drift</a></span>
           </div>
           <div class="toolbar-section">
             <div class="toolbar-item pages-link">
@@ -34,9 +36,10 @@
       <div class="banner">
         <div class="container">
           <div class="banner-section">
-            <div class="banner-title"><i class="fa fa-picture-o"></i>A Platform with great timelapse videos by creators,
+            <div class="banner-title"><i class="fa fa-picture-o"></i>A Platform with great timelapse videos by
+              creators,
               for creators</div>
-              <img src="./assets/androidapp.png" class="mobile-app-badge" />
+            <img src="./assets/androidapp.png" class="mobile-app-badge" />
             <form class="search-container">
               <input type="text" id="search-bar" placeholder="What can I help you with today?">
               <a href="#"><img class="search-icon" src="./assets/search-icon.png"></a>
@@ -45,6 +48,8 @@
         </div>
       </div>
     </div>
+    <div id="playerr" data-plyr-provider="youtube" data-plyr-embed-id="bTqVqk7FSmY"></div>
+
 
     <div class="container dynamic-grid timeline-wrapper video-placeholder">
       <div class="timeline-item">
@@ -90,11 +95,17 @@
   <div class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
-      <h1>Project Drift Video</h1>
-      <img class="modal-image-preview" src="" alt="tech image" />
+      <h1 id="video-title">Project Drift Video</h1>
+      <!-- <img class="modal-image-preview" src="" alt="tech image" /> -->
+      <div id="youtubeVideoPlayerArea" data-plyr-provider="youtube" data-plyr-embed-id="bTqVqk7FSmY"></div>
+      <video id="normalVideoPlayerArea" controls crossorigin playsinline poster="">
+        <source id="normal-video-player-area-source" src="" type="video/mp4">
+      </video>
       <h4 class="modal-text-preview"></h4>
     </div>
   </div>
+
+  <script src="https://cdn.plyr.io/3.4.6/plyr.js"></script>
 
   <script src="./js/app.js"></script>
 </body>
