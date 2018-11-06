@@ -120,6 +120,13 @@
     element.innerHTML = modalHTML;
   }
 
+  // Scroll to make subscription view
+  document.querySelector(".mobile-app-badge-link").addEventListener("click", function () {
+    document.querySelector('.mailjet-subscription').scrollIntoView({
+      behavior: 'smooth'
+    });
+  })
+
 
   // Load video cards with HTML
   function loadItems() {
