@@ -15,7 +15,8 @@
     videoUrl: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
   }, {
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
-    title: 'Fireworks on the 4th'
+    title: 'Sunrise',
+    videoUrl: "https://s3.us-east-2.amazonaws.com/drift-timelapse/Sunrise.mp4"
   }, {
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
     title: 'Fireworks on the 4th'
