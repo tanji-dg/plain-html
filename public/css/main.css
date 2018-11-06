@@ -292,12 +292,12 @@ a.selected-link {
 .footer {
   box-shadow: 0px 3px 5px 0px grey;
   position: relative;
-  background-color: cadetblue;
+  background-color: #777777;
   overflow: auto;
 }
 
 .footer-section {
-  margin: 60px 20px;
+  margin: 0px 50px;
 }
 
 .footer-title {
