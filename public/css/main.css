@@ -519,6 +519,23 @@ a.contribution-link:hover {
   display: none;
 }
 
+div#modal-content-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.modal-content {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 60rem;
+  height: 40rem;
+  border-radius: 0.5rem;
+}
+
 /* modal style - end */
 
 /* mobile app style - start */
