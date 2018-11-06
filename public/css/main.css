@@ -399,7 +399,8 @@ input#search-bar:focus:-ms-placeholder {
 
 /* contribution style - start */
 .contribution-title {
-  margin: 110px;
+  text-align: center;
+  margin: 80px;
 }
 
 a.contribution-link {
@@ -438,6 +439,9 @@ a.contribution-link:hover {
 
 .contribution-description li a {
   font-size: 20px;
+  color: coral;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 /* contribution style - end */
@@ -445,6 +449,17 @@ a.contribution-link:hover {
 /* about-us style - start */
 .about-us-block {
   margin: 100px auto;
+}
+
+.description-page-link {
+  color: coral;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.about-us-description li {
+  line-height: 25px;
 }
 
 /* about-us style - end */
