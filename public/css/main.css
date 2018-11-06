@@ -293,7 +293,7 @@ a.selected-link {
   position: relative;
   background-color: #253a4c;
   overflow: auto;
-  height: 100px;
+  min-height: 140px
 }
 
 .footer-section {
