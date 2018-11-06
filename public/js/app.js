@@ -71,18 +71,17 @@
 
   //function attachModalEvents() {
   var modal = document.querySelector(".modal");
-  //var trigger = document.querySelectorAll(".content-box-thumb");
   var closeButton = document.querySelector(".close-button");
+  let wrapper = document.getElementById("modal-content-wrapper");
+  let modalHTML = wrapper.innerHTML; // Save HTML before making
 
   function toggleModal(ref) {
-    console.log(ref);
     if (ref && ref.parentElement) {
 
-      //modal.querySelector(".modal-image-preview").src = ref.src;
+      // Update modal HTML is its a youtube video
       if (ref.hasAttribute("data-youtube") && ref.getAttribute("data-youtube") != 'undefined') {
         modalYTRef = document.getElementById("youtubeVideoPlayerArea");
         modalYTRef.style.display = "block";
-        console.log("Looks like a youtube video");
         modalYTRef.setAttribute("data-plyr-provider", "youtube");
         modalYTRef.setAttribute("data-plyr-embed-id", ref.getAttribute("data-embed"));
         initializeVideo("#youtubeVideoPlayerArea");
@@ -107,21 +106,22 @@
     }
   }
 
-  // trigger.forEach(function (elem) {
-  //   elem.addEventListener("click", toggleModal);
-  // });
-
+  // Click handler on close button of modal
   closeButton.addEventListener("click", function () {
     modal.classList.toggle("show-modal")
+    resetModal(wrapper);
   });
-  window.addEventListener("click", windowOnClick);
-  //}
 
-  function playVideo(data) {
-    toggleModal(data);
-    console.log(data)
+  window.addEventListener("click", windowOnClick);
+
+  // Reset modal HTML on video close
+  function resetModal(element) {
+    element.innerHTML = "";
+    element.innerHTML = modalHTML;
   }
 
+
+  // Load video cards with HTML
   function loadItems() {
 
     let length = (offset + limit < items.length ? offset + limit : items.length);
@@ -184,5 +184,3 @@
     const player = new Plyr(id, {});
     window.player = player;
   }
-  //initializeVideo("#youtube-video-player-area");
-  // Expose player so it can be used from the console
