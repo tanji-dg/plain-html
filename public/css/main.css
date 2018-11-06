@@ -293,10 +293,11 @@ a.selected-link {
   position: relative;
   background-color: #253a4c;
   overflow: auto;
+  height: 100px;
 }
 
 .footer-section {
-  margin: 0px 50px;
+  margin: 10px 50px;
 }
 
 .footer-title {
@@ -416,11 +417,27 @@ a.contribution-link:hover {
 }
 
 .contribute-description-block {
-  margin: 100px auto;
+  margin: 70px auto;
 }
 
 .contribution-description {
   margin-bottom: 50px;
+}
+
+.submission-submit {
+  margin-top: 50px;
+}
+
+.contribution-description-header {
+  line-height: 40px;
+}
+
+.contribution-description li {
+  margin-bottom: 10px;
+}
+
+.contribution-description li a {
+  font-size: 20px;
 }
 
 /* contribution style - end */
