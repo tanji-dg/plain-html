@@ -403,7 +403,7 @@ input#search-bar:focus:-ms-placeholder {
   margin: 80px;
 }
 
-a.contribution-link {
+.contribution-link a {
   padding: 10px;
   background-color: #ff4646;
   color: white;
@@ -427,6 +427,7 @@ a.contribution-link:hover {
 
 .submission-submit {
   margin-top: 50px;
+  margin-left: 40%;
 }
 
 .contribution-description-header {
