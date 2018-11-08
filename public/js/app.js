@@ -154,19 +154,24 @@
     videoUrl: "https://s3.us-east-2.amazonaws.com/drift-timelapse/Sunrise.mp4"
   }, {
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
-    title: 'Fireworks on the 4th'
+    title: 'Clouds Moving',
+    videoUrl: 'https://s3.us-east-2.amazonaws.com/drift-timelapse/Clouds+Moving.mp4'
   }, {
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
-    title: 'Fireworks on the 4th'
+    title: 'Clouds',
+    videoUrl: 'https://s3.us-east-2.amazonaws.com/drift-timelapse/Clouds.mp4'
   }, {
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
-    title: 'Fireworks on the 4th'
+    title: 'Cold Winter Day',
+    videoUrl: 'https://s3.us-east-2.amazonaws.com/drift-timelapse/Cloud+Winter+Day.mp4'
   }, {
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
-    title: 'Fireworks on the 4th'
+    title: 'Mountains',
+    videoUrl: 'https://s3.us-east-2.amazonaws.com/drift-timelapse/Mountain.mp4'
   }, {
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
-    title: 'Fireworks on the 4th'
+    title: 'Night Sky',
+    videoUrl: 'https://s3.us-east-2.amazonaws.com/drift-timelapse/Night+Sky.mp4'
   }, {
     img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/6234/unsplashed2-photo-1414912925664-0c502cc25dde.jpeg',
     title: 'Fireworks on the 4th'
