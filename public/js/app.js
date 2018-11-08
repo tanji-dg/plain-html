@@ -4,6 +4,141 @@
   let opIn = 0.1;
   let opOut = 1;
 
+  var driftLibrary = window.driftLibrary || {};
+
+  let videoEl = document.querySelector('.dynamic-grid.video-holder');
+  let modal = document.querySelector(".modal");
+  var closeButton = document.querySelector(".close-button");
+  let wrapper = document.getElementById("modal-content-wrapper");
+  let modalHTML = wrapper.innerHTML; // Save HTML before making
+  let loadMoreEl = document.getElementById("loadMore");
+
+  driftLibrary.helpers = {
+    toggleModal: function (ref) {
+      if (ref && ref.parentElement) {
+        // Update modal HTML is its a youtube video
+        if (ref.hasAttribute("data-youtube") && ref.getAttribute("data-youtube") != 'undefined') {
+          modalYTRef = document.getElementById("youtubeVideoPlayerArea");
+          modalYTRef.style.display = "block";
+          modalYTRef.setAttribute("data-plyr-provider", "youtube");
+          modalYTRef.setAttribute("data-plyr-embed-id", ref.getAttribute("data-embed"));
+          driftLibrary.helpers.initializeVideo("#youtubeVideoPlayerArea");
+
+        } else {
+          modalVideoRef = document.getElementById("normalVideoPlayerArea");
+          modalVideoRef.poster = ref.src;
+          source = document.getElementById("normal-video-player-area-source");
+          source.src = ref.getAttribute("data-videoUrl");
+          modalVideoRef.style.display = "block";
+          driftLibrary.helpers.initializeVideo("#normalVideoPlayerArea");
+        }
+
+        document.getElementById("video-title").innerHTML = ref.parentElement.querySelector(".content-box-header").innerHTML;
+        modal.classList.toggle("show-modal");
+      }
+
+    },
+    loadItems: function () {
+      let length = (offset + limit < items.length ? offset + limit : items.length);
+      for (let i = offset; i < length; i++) {
+        let item = items[i];
+
+        let article = `<article class="grid-item content-box">
+        <div class="inner">
+        <img width="450" onclick=" driftLibrary.helpers.toggleModal(this)" data-videoUrl="${item.videoUrl}" class="content-box-thumb"src="${item.img}" alt="tech image"  data-youtube="${item.isYoutube}"
+        data-embed="${item.isYoutube ? item.embedId : ''}"/>
+        <h1 class="content-box-header">
+          ${item.title + " - "+ i}
+        </h1>
+        </div>
+      </article>`;
+
+        videoEl.innerHTML += article;
+        if (length === items.length) {
+          loadMoreEl.style.display = "none";
+        }
+      }
+
+    },
+    initializeView: function () {
+      setTimeout(function () {
+        let placeholder = document.querySelector(".video-placeholder");
+        let holder = document.querySelector(".video-holder");
+
+        timerIn = setInterval(function () {
+          driftLibrary.helpers.fadeIn(holder)
+        }, 100)
+        timerOut = setInterval(function () {
+          driftLibrary.helpers.fadeOut(placeholder)
+        }, 100)
+      }, 300);
+
+    },
+
+    initializeVideo: function (id) {
+      const player = new Plyr(id, {});
+      window.player = player;
+    },
+    // Reset modal HTML on video close
+    resetModal: function (element) {
+      element.innerHTML = "";
+      element.innerHTML = modalHTML;
+    },
+
+    fadeIn: function (element) {
+      if (opIn >= 0.95) {
+        clearInterval(timerIn);
+        element.style.visibility = "visible";
+      }
+      element.style.opacity = opIn;
+      opIn += opIn * 0.1;
+
+    },
+
+    fadeOut: function (element) {
+      if (opOut <= 0.1) {
+        clearInterval(timerOut);
+        element.style.display = "none";
+      }
+      element.style.opacity = opOut;
+      opOut -= opOut * 0.1;
+
+    },
+    modalCloseEvent: function (event) {
+      if (event.target === modal) {
+        driftLibrary.helpers.toggleModal();
+      }
+    },
+    initializeEventHandlers: function () {
+
+      loadMoreEl.addEventListener("click", function () {
+        // update the offset to load the next 10 items
+        offset = offset + limit;
+        driftLibrary.helpers.loadItems();
+      });
+      // Click handler on close button of modal
+      closeButton.addEventListener("click", function () {
+        modal.classList.toggle("show-modal")
+
+        driftLibrary.helpers.resetModal(wrapper);
+      });
+
+      window.addEventListener("click", this.modalCloseEvent);
+
+      // Scroll to make subscription view
+      document.querySelector(".mobile-app-badge-link").addEventListener("click", function () {
+        document.querySelector('.mailjet-subscription').scrollIntoView({
+          behavior: 'smooth'
+        });
+      })
+
+    }
+  };
+
+  /*Each video item will have
+  title, poster, video link (s3 or youtube), isYoutube (if youtube), embedId (if youtube)
+  owner name, owner work profile
+  */
   let items = [{
     img: 'https://dmm8trq3la0u4.cloudfront.net/wp-content/uploads/2018/04/youtube-832x350.jpg',
     title: 'Fireworks on the 4th',
@@ -55,140 +190,9 @@
     title: 'Fireworks on the 4th'
   }, ];
 
-
-  let videoEl = document.querySelector('.dynamic-grid.video-holder');
-
   // load if exist- only home page
   if (videoEl) {
-    loadItems();
-
-    //attachModalEvents();
-    document.getElementById("loadMore").addEventListener("click", function () {
-      // update the offset to load the next 10 items
-      offset = offset + limit;
-      loadItems();
-    });
-  }
-
-  //function attachModalEvents() {
-  var modal = document.querySelector(".modal");
-  var closeButton = document.querySelector(".close-button");
-  let wrapper = document.getElementById("modal-content-wrapper");
-  let modalHTML = wrapper.innerHTML; // Save HTML before making
-
-  function toggleModal(ref) {
-    if (ref && ref.parentElement) {
-
-      // Update modal HTML is its a youtube video
-      if (ref.hasAttribute("data-youtube") && ref.getAttribute("data-youtube") != 'undefined') {
-        modalYTRef = document.getElementById("youtubeVideoPlayerArea");
-        modalYTRef.style.display = "block";
-        modalYTRef.setAttribute("data-plyr-provider", "youtube");
-        modalYTRef.setAttribute("data-plyr-embed-id", ref.getAttribute("data-embed"));
-        initializeVideo("#youtubeVideoPlayerArea");
-
-      } else {
-        modalVideoRef = document.getElementById("normalVideoPlayerArea");
-        modalVideoRef.poster = ref.src;
-        source = document.getElementById("normal-video-player-area-source");
-        source.src = ref.getAttribute("data-videoUrl");
-        modalVideoRef.style.display = "block";
-        initializeVideo("#normalVideoPlayerArea");
-      }
-
-      document.getElementById("video-title").innerHTML = ref.parentElement.querySelector(".content-box-header").innerHTML;
-      modal.classList.toggle("show-modal");
-    }
-  }
-
-  function windowOnClick(event) {
-    if (event.target === modal) {
-      toggleModal();
-    }
-  }
-
-  // Click handler on close button of modal
-  closeButton.addEventListener("click", function () {
-    modal.classList.toggle("show-modal")
-    resetModal(wrapper);
-  });
-
-  window.addEventListener("click", windowOnClick);
-
-  // Reset modal HTML on video close
-  function resetModal(element) {
-    element.innerHTML = "";
-    element.innerHTML = modalHTML;
-  }
-
-  // Scroll to make subscription view
-  document.querySelector(".mobile-app-badge-link").addEventListener("click", function () {
-    document.querySelector('.mailjet-subscription').scrollIntoView({
-      behavior: 'smooth'
-    });
-  })
-
-
-  // Load video cards with HTML
-  function loadItems() {
-
-    let length = (offset + limit < items.length ? offset + limit : items.length);
-    for (let i = offset; i < length; i++) {
-      let item = items[i];
-
-      let article = `<article class="grid-item content-box">
-        <div class="inner">
-        <img width="450" onclick="toggleModal(this)" data-videoUrl="${item.videoUrl}" class="content-box-thumb"src="${item.img}" alt="tech image"  data-youtube="${item.isYoutube}"
-        data-embed="${item.isYoutube ? item.embedId : ''}"/>
-        <h1 class="content-box-header">
-          ${item.title + " - "+ i}
-        </h1>
-        </div>
-      </article>`;
-
-      videoEl.innerHTML += article;
-    }
-
-    if (length === items.length) {
-      document.getElementById("loadMore").style.display = "none";
-    }
-
-    setTimeout(function () {
-      let placeholder = document.querySelector(".video-placeholder");
-      let holder = document.querySelector(".video-holder");
-
-      timerIn = setInterval(function () {
-        fadeIn(holder)
-      }, 100)
-      timerOut = setInterval(function () {
-        fadeOut(placeholder)
-      }, 100)
-    }, 500);
-
-
-    function fadeIn(element) {
-      if (opIn >= 0.95) {
-        clearInterval(timerIn);
-        element.style.visibility = "visible";
-      }
-      element.style.opacity = opIn;
-      opIn += opIn * 0.1;
-
-    }
-
-    function fadeOut(element) {
-      if (opOut <= 0.1) {
-        clearInterval(timerOut);
-        element.style.display = "none";
-      }
-      element.style.opacity = opOut;
-      opOut -= opOut * 0.1;
-
-    }
-
-  }
-
-  function initializeVideo(id) {
-    const player = new Plyr(id, {});
-    window.player = player;
+    driftLibrary.helpers.loadItems();
+    driftLibrary.helpers.initializeView();
+    driftLibrary.helpers.initializeEventHandlers();
   }
