@@ -386,13 +386,14 @@ input#search-bar:focus:-ms-placeholder {
   opacity: 0;
 }
 
-.search-icon {
+.search-icon, .search-clear {
   position: relative;
   float: right;
   width: 75px;
   height: 75px;
   top: -62px;
   right: -45px;
+  cursor: pointer;
 }
 
 /* search bar style - end */

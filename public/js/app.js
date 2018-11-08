@@ -12,6 +12,11 @@
   let wrapper = document.getElementById("modal-content-wrapper");
   let modalHTML = wrapper.innerHTML; // Save HTML before making
   let loadMoreEl = document.getElementById("loadMore");
+  let searchBarEl = document.getElementById("search-bar");
+  let searchIconEl = document.getElementById("search-bar-icon");
+  let currentDataset = [],
+    searchDataset = [],
+    isSearchData = false;
 
   driftLibrary.helpers = {
     toggleModal: function (ref) {
@@ -38,7 +43,7 @@
       }
 
     },
-    loadItems: function () {
+    loadItems: function (items) {
       let length = (offset + limit < items.length ? offset + limit : items.length);
       for (let i = offset; i < length; i++) {
         let item = items[i];
@@ -110,17 +115,19 @@
       }
     },
     initializeEventHandlers: function () {
-
+      var self = this;
       loadMoreEl.addEventListener("click", function () {
         // update the offset to load the next 10 items
         offset = offset + limit;
-        driftLibrary.helpers.loadItems();
+        driftLibrary.helpers.loadItems(currentDataset);
+
       });
+
       // Click handler on close button of modal
       closeButton.addEventListener("click", function () {
-        modal.classList.toggle("show-modal")
-
+        modal.classList.toggle("show-modal");
         driftLibrary.helpers.resetModal(wrapper);
+
       });
 
       window.addEventListener("click", this.modalCloseEvent);
@@ -130,7 +137,77 @@
         document.querySelector('.mailjet-subscription').scrollIntoView({
           behavior: 'smooth'
         });
-      })
+
+      });
+
+      //search event handlers 
+      searchIconEl.addEventListener("click", function (e) {
+
+        if (isSearchData) {
+          isSearchData = false;
+          currentDataset = driftLibrary.allDataItems;
+          self.clearAllItems();
+          self.searchViewUpdate(searchIconEl, "icon");
+          self.loadItems(currentDataset);
+
+        } else {
+          isSearchData = true;
+          self.searchViewUpdate(searchIconEl, "clear");
+          self.dataSearch(searchBarEl.value);
+
+        }
+
+      });
+
+      searchBarEl.addEventListener('keypress', function (e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) {
+
+          e.preventDefault();
+          self.searchViewUpdate(searchIconEl, "clear");
+          isSearchData = true;
+          // code for enter
+          self.dataSearch(searchBarEl.value);
+        }
+
+      });
+
+    },
+
+    dataSearch: function (searchText) {
+
+      searchDataset = [];
+      var data = driftLibrary.allDataItems;
+      for (var i = 0; i < data.length; i++) {
+        if (this.searchTextMatch(data[i], searchText)) {
+          searchDataset.push(data[i]);
+        }
+
+      }
+
+      if (searchDataset.length > 0) {
+        currentDataset = searchDataset;
+        this.clearAllItems();
+        this.loadItems(currentDataset);
+      }
+    },
+
+    searchViewUpdate: function (element, state) {
+      element.src = state == "clear" ? "./assets/search-clear.png" : "./assets/search-icon.png";
+
+    },
+
+    searchTextMatch: function (data, searchText) {
+      if ((data.title && data.title.toLowerCase().indexOf(searchText) != -1) ||
+        (data.description && data.description.toLowerCase().indexOf(searchText) != -1)) {
+        return true
+      }
+      return false;
+
+    },
+
+    clearAllItems: function () {
+      document.getElementsByClassName("video-holder")[0].innerHTML = "";
 
     }
   };
@@ -139,7 +216,7 @@
   title, poster, video link (s3 or youtube), isYoutube (if youtube), embedId (if youtube)
   owner name, owner work profile
   */
-  let items = [{
+  driftLibrary.allDataItems = [{
     img: 'https://dmm8trq3la0u4.cloudfront.net/wp-content/uploads/2018/04/youtube-832x350.jpg',
     title: 'Fireworks on the 4th',
     isYoutube: true,
@@ -192,7 +269,8 @@
 
   // load if exist- only home page
   if (videoEl) {
-    driftLibrary.helpers.loadItems();
+    currentDataset = driftLibrary.allDataItems;
+    driftLibrary.helpers.loadItems(currentDataset);
     driftLibrary.helpers.initializeView();
     driftLibrary.helpers.initializeEventHandlers();
   }
