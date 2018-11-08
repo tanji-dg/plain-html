@@ -396,6 +396,13 @@ input#search-bar:focus:-ms-placeholder {
   cursor: pointer;
 }
 
+#search-no-result {
+  margin-top: 10px;
+  color: white;
+  font-size: 20px;
+  display: none
+}
+
 /* search bar style - end */
 
 /* contribution style - start */

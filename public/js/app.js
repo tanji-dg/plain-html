@@ -14,6 +14,7 @@
   let loadMoreEl = document.getElementById("loadMore");
   let searchBarEl = document.getElementById("search-bar");
   let searchIconEl = document.getElementById("search-bar-icon");
+  let searchNoResult = document.getElementById("search-no-result");
   let currentDataset = [],
     searchDataset = [],
     isSearchData = false;
@@ -175,7 +176,7 @@
     },
 
     dataSearch: function (searchText) {
-
+      
       searchDataset = [];
       var data = driftLibrary.allDataItems;
       for (var i = 0; i < data.length; i++) {
@@ -186,14 +187,19 @@
       }
 
       if (searchDataset.length > 0) {
+        searchNoResult.style.display="none";
         currentDataset = searchDataset;
         this.clearAllItems();
         this.loadItems(currentDataset);
+
+      } else {
+        searchNoResult.style.display="block"
       }
     },
 
     searchViewUpdate: function (element, state) {
       element.src = state == "clear" ? "./assets/search-clear.png" : "./assets/search-icon.png";
+      searchNoResult.style.display="none";
 
     },
 
