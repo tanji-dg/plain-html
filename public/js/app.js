@@ -208,8 +208,8 @@
     },
 
     searchTextMatch: function (data, searchText) {
-      if ((data.title && data.title.toLowerCase().indexOf(searchText) != -1) ||
-        (data.description && data.description.toLowerCase().indexOf(searchText) != -1)) {
+      if ((data.title && data.title.toLowerCase().indexOf(searchText.toLowerCase()) != -1) ||
+        (data.description && data.description.toLowerCase().indexOf(searchText.toLowerCase()) != -1)) {
         return true
       }
       return false;
