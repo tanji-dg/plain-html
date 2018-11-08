@@ -386,7 +386,8 @@ input#search-bar:focus:-ms-placeholder {
   opacity: 0;
 }
 
-.search-icon, .search-clear {
+.search-icon,
+.search-clear {
   position: relative;
   float: right;
   width: 75px;
@@ -401,6 +402,10 @@ input#search-bar:focus:-ms-placeholder {
   color: white;
   font-size: 20px;
   display: none
+}
+
+.body-overflow-hidden {
+  overflow: hidden;
 }
 
 /* search bar style - end */
@@ -501,10 +506,12 @@ a.contribution-link:hover {
 
 .close-button {
   float: right;
-  width: 1.5rem;
-  line-height: 1.5rem;
+  width: 2.5rem;
+  line-height: 2.5rem;
   text-align: center;
   cursor: pointer;
+  color: grey;
+  font-size: 45px;
   border-radius: 0.25rem;
   background-color: lightgray;
 }

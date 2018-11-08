@@ -15,6 +15,7 @@
   let searchBarEl = document.getElementById("search-bar");
   let searchIconEl = document.getElementById("search-bar-icon");
   let searchNoResult = document.getElementById("search-no-result");
+  let bodyEl = document.getElementsByTagName("body")[0];
   let currentDataset = [],
     searchDataset = [],
     isSearchData = false;
@@ -41,6 +42,8 @@
 
         document.getElementById("video-title").innerHTML = ref.parentElement.querySelector(".content-box-header").innerHTML;
         modal.classList.toggle("show-modal");
+        
+        bodyEl.classList.toggle("body-overflow-hidden");
       }
 
     },
@@ -127,6 +130,7 @@
       // Click handler on close button of modal
       closeButton.addEventListener("click", function () {
         modal.classList.toggle("show-modal");
+        bodyEl.classList.toggle("body-overflow-hidden");
         driftLibrary.helpers.resetModal(wrapper);
 
       });
