@@ -24,7 +24,8 @@
     toggleModal: function (ref) {
       if (ref && ref.parentElement) {
         // Update modal HTML is its a youtube video
-        if (ref.hasAttribute("data-youtube") && ref.getAttribute("data-youtube") != 'undefined') {
+        if (ref.hasAttribute("data-youtube") && (ref.getAttribute("data-youtube") != 'undefined' &&
+            ref.getAttribute("data-youtube") != "false")) {
           modalYTRef = document.getElementById("youtubeVideoPlayerArea");
           modalYTRef.style.display = "block";
           modalYTRef.setAttribute("data-plyr-provider", "youtube");
