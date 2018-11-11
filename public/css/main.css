@@ -145,6 +145,7 @@ a.selected-link {
 .content-box-thumb {
   display: block;
   width: 480px;
+  cursor: pointer;
 }
 
 .content-box-header {
@@ -167,6 +168,15 @@ a.selected-link {
   -webkit-line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+img.video-pl-icon {
+  width: 70px;
+  top: 120px;
+  position: absolute;
+  left: 220px;
+  opacity: 1;
+  cursor: pointer;
 }
 
 .readmore-link {
@@ -267,16 +277,22 @@ a.selected-link {
   top: 74px;
 }
 
+#video-title {
+  font-size: 25px;
+}
+
 span.contributer-name {
   font-size: 17px;
-  background-color: #efefef;;
+  background-color: #1e3345;
   padding: 5px;
   border-radius: 5px;
+  color: white;
 }
 
 span.contributer-name a {
-  color: black;
+  color: #ffffff;
   font-size: 15px;
+  font-weight: 700;
 }
 
 a.drift-download {
@@ -286,6 +302,9 @@ a.drift-download {
   border-radius: 8px;
   color: rgba(255, 255, 255, .9);
   font-weight: 700;
+}
+.drift-download img {
+  width: 40px;
 }
 
 .video-container-download-link {
@@ -579,7 +598,7 @@ div#modal-content-wrapper {
 
 .modal-content {
   position: absolute;
-  top: 55%;
+  top: 51%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;

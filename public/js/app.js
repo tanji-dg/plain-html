@@ -22,6 +22,7 @@
 
   driftLibrary.helpers = {
     toggleModal: function (ref) {
+      ref = ref.parentElement.getElementsByClassName("content-box-thumb")[0];
       if (ref && ref.parentElement) {
         // Update modal HTML is its a youtube video
         if (ref.hasAttribute("data-youtube") && (ref.getAttribute("data-youtube") != 'undefined' &&
@@ -57,7 +58,7 @@
         let item = items[i];
 
         let article = `<article class="grid-item content-box">
-        <div class="inner">
+        <div class="inner"><img src="./assets/vpl.jpg" class="video-pl-icon" onclick=" driftLibrary.helpers.toggleModal(this)">
         <img width="450" data-contributer="${item.contributer}" data-contributer-link="${item.contributerLink}" onclick=" driftLibrary.helpers.toggleModal(this)" 
         data-videoUrl="${driftLibrary.dataVariables.s3VideoRoot + item.videoUrl}" class="content-box-thumb" src="${ driftLibrary.dataVariables.s3AssetsRoot + item.poster}" 
         alt="${item.title}" title="${item.title}"  data-youtube="${item.isYoutube}"
