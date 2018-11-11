@@ -37,6 +37,9 @@
           modalVideoRef.poster = ref.src;
           source = document.getElementById("normal-video-player-area-source");
           source.src = ref.getAttribute("data-videoUrl");
+          document.getElementsByClassName("drift-download")[0].href = ref.getAttribute("data-videoUrl");
+          document.getElementsByClassName("contributer-name")[0].innerHTML = "by <a href='" + ref.getAttribute("data-contributer-link") + "'>" +
+            ref.getAttribute("data-contributer") + "</a";
           modalVideoRef.style.display = "block";
           driftLibrary.helpers.initializeVideo("#normalVideoPlayerArea");
         }
@@ -55,7 +58,7 @@
 
         let article = `<article class="grid-item content-box">
         <div class="inner">
-        <img width="450" onclick=" driftLibrary.helpers.toggleModal(this)" 
+        <img width="450" data-contributer="${item.contributer}" data-contributer-link="${item.contributerLink}" onclick=" driftLibrary.helpers.toggleModal(this)" 
         data-videoUrl="${driftLibrary.dataVariables.s3VideoRoot + item.videoUrl}" class="content-box-thumb" src="${ driftLibrary.dataVariables.s3AssetsRoot + item.poster}" 
         alt="${item.title}" title="${item.title}"  data-youtube="${item.isYoutube}"
         data-embed="${item.isYoutube ? item.embedId : ''}"/>
@@ -103,7 +106,7 @@
         element.style.visibility = "visible";
       }
       element.style.opacity = opIn;
-      opIn += opIn * 0.1;
+      opIn += opIn * 0.2;
 
     },
 
@@ -113,7 +116,7 @@
         element.style.display = "none";
       }
       element.style.opacity = opOut;
-      opOut -= opOut * 0.1;
+      opOut -= opOut * 0.2;
 
     },
     modalCloseEvent: function (event) {

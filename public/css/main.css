@@ -83,7 +83,7 @@ a:hover {
   width: 45px;
   float: left;
   margin: 5px 10px;
-} 
+}
 
 a.homepage-logo {
   opacity: 1;
@@ -265,6 +265,31 @@ a.selected-link {
 .background-masker.content-second-end {
   left: 420px;
   top: 74px;
+}
+
+span.contributer-name {
+  font-size: 17px;
+  background-color: #efefef;;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+span.contributer-name a {
+  color: black;
+  font-size: 15px;
+}
+
+a.drift-download {
+  letter-spacing: 1px;
+  background-color: coral;
+  padding: 10px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, .9);
+  font-weight: 700;
+}
+
+.video-container-download-link {
+  margin-top: 20px;
 }
 
 /* Video Placeholder - End */
@@ -544,7 +569,7 @@ a.contribution-link:hover {
 
 #normalVideoPlayerArea {
   display: none;
-  
+
 }
 
 div#modal-content-wrapper {
