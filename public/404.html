@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <title>404 - lost in time | Project Drift</title>
+  <link rel="stylesheet" href="./css/main.css">
+  
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.4.6/plyr.css">
+  <link href="https://fonts.googleapis.com/css?family=Rosario" rel="stylesheet">
+
+  <!-- Meta tags -->
+  <meta name="description" content="Project Drift aims to provide a great collection of stunning time-lapse videos which are created by the
+  community for everyone. Creators can submit their video">
+  <meta name="keywords" content="Project Drift, Timelapse Videos, Free Timelapse Videos, community project">
+
+  <!-- Open graph & twitter -->
+  <meta property="og:title" content="Project Drift | A Platform with great timelapse videos by
+  creators,
+  for creators">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://projectdrift.co/">
+
+  <!-- TODO: Update the image path-->
+  <meta property="og:image" content="">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@projectdrift">
+
+  <meta name="google-site-verification" content="">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128681089-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-128681089-1');
+  </script>
+</head>
+
+<body>
+  <div id="contentBoxApp">
+    <div id="GridCtrl">
+      <div class="toolbar">
+        <div class="container">
+          <div class="toolbar-section">
+            <div class="drift-logo"><img src="./assets/logo.png" alt="Project Drift logo" alt="Project Drift | A time lapse platform" /></div>
+            <span class="toolbar-item"><a href="./" class="homepage-logo">Project Drift</a></span>
+          </div>
+          <div class="toolbar-section">
+            <div class="toolbar-item pages-link">
+              <a href="./about.html" class="pages-link-action selected-link "><strong>About</strong></a>
+              <a href="./contribute.html" class="pages-link-action ">Contribute</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="banner">
+        <div class="container">
+          <div class="banner-section contribution">
+            <div class="banner-title contribution-title"><i class="fa fa-picture-o"></i>Not Again!!! </br>this is where
+              we take nap...go go
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lost-block">
+      <div class="lost-area">
+        <video id="lostAreaPlayer" crossorigin="true" playsinline="" poster="https://s3.us-east-2.amazonaws.com/drift-timelapse/assets/dubrovnik-sunset-sea-city-12866.jpg"
+          style="display: block;">
+          <source src="https://s3.us-east-2.amazonaws.com/drift-timelapse/xpcco/dubrovnik-sunset-sea-city-12866.mp4"
+            type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="footer-section">
+          <div class="footer-social">
+            <div class="footer-title"> Follow us on</div>
+            <a href="#"><img src="./assets/f.png" alt="facebook" title="Facebook" class="footer-social-icons"></a>
+            <a href="#"><img src="./assets/t.png" alt="Instagram" title="Instagram" class="footer-social-icons"></a>
+            <a href="#"><img src="./assets/i.png" class="footer-social-icons" alt="Twitter" title="Twitter" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.plyr.io/3.4.6/plyr.js"></script>
+  <script>
+    const player = new Plyr("#lostAreaPlayer", {});
+    window.player = player;
+  </script>
+</body>
+
+</html>

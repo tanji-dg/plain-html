@@ -618,3 +618,8 @@ img.mobile-app-badge {
 }
 
 /* mobile app style - end */
+
+/* 404 page */
+video#lostAreaPlayer {
+  width: 100%;
+}
