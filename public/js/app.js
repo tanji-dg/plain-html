@@ -60,7 +60,7 @@
         let article = `<article class="grid-item content-box">
         <div class="inner"><img src="./assets/vpl.jpg" class="video-pl-icon" onclick=" driftLibrary.helpers.toggleModal(this)">
         <img width="450" data-contributer="${item.contributer}" data-contributer-link="${item.contributerLink}" onclick=" driftLibrary.helpers.toggleModal(this)" 
-        data-videoUrl="${driftLibrary.dataVariables.s3VideoRoot + item.videoUrl}" class="content-box-thumb" src="${ driftLibrary.dataVariables.s3AssetsRoot + item.poster}" 
+        data-videoUrl="${driftLibrary.dataVariables.cloudFrontVideoRoot + item.videoUrl}" class="content-box-thumb" src="${ driftLibrary.dataVariables.cloudFrontAssetsRoot + item.poster}" 
         alt="${item.title}" title="${item.title}"  data-youtube="${item.isYoutube}"
         data-embed="${item.isYoutube ? item.embedId : ''}"/>
         <h1 class="content-box-header">
@@ -236,7 +236,9 @@
 
   driftLibrary.dataVariables = {
     s3AssetsRoot: "https://s3.us-east-2.amazonaws.com/drift-timelapse/assets",
-    s3VideoRoot: "https://s3.us-east-2.amazonaws.com/drift-timelapse"
+    s3VideoRoot: "https://s3.us-east-2.amazonaws.com/drift-timelapse",
+    cloudFrontVideoRoot: "https://d1xwcjm8hjd4g.cloudfront.net",
+    cloudFrontAssetsRoot: "https://d1xwcjm8hjd4g.cloudfront.net/assets"
   }
 
   driftLibrary.allDataItems = [{
