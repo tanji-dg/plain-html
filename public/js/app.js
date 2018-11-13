@@ -59,7 +59,7 @@
 
         let article = `<article class="grid-item content-box">
         <div class="inner"><img src="./assets/vpl.jpg" class="video-pl-icon" onclick=" driftLibrary.helpers.toggleModal(this)">
-        <img width="450" data-contributer="${item.contributer}" data-contributer-link="${item.contributerLink}" onclick=" driftLibrary.helpers.toggleModal(this)" 
+        <img data-contributer="${item.contributer}" data-contributer-link="${item.contributerLink}" onclick=" driftLibrary.helpers.toggleModal(this)" 
         data-videoUrl="${driftLibrary.dataVariables.cloudFrontVideoRoot + item.videoUrl}" class="content-box-thumb" src="${ driftLibrary.dataVariables.cloudFrontAssetsRoot + item.poster}" 
         alt="${item.title}" title="${item.title}"  data-youtube="${item.isYoutube}"
         data-embed="${item.isYoutube ? item.embedId : ''}"/>
