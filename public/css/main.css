@@ -315,7 +315,7 @@ a.drift-download {
 
 .video-holder {
   margin-top: 50px;
-  min-height: 400px;
+  /* min-height: 400px; */
   visibility: hidden;
 }
 
@@ -457,7 +457,7 @@ form.search-form input {
   border: 0px;
   font-size: 1rem;
   background: none;
-  margin-top: 1.3%;
+  margin-top: 2.3%;
   border-radius-top-right: 5px;
   -moz-border-radius-top-right: 5px;
   -webkit-border-radius-top-right: 5px;
@@ -481,6 +481,10 @@ form.search-form input {
 
   .search-clear {
     margin-top: 2.3%;
+  }
+
+  .search {
+    max-width: 70%;
   }
 
 }
@@ -593,8 +597,7 @@ a.contribution-link:hover {
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 1rem 1.5rem;
-  width: 50rem;
-  /* height: 40rem; */
+  width: 80%;
   border-radius: 0.5rem;
 }
 
@@ -633,18 +636,6 @@ a.contribution-link:hover {
 div#modal-content-wrapper {
   width: 80%;
   margin: 0 auto;
-}
-
-.modal-content {
-  position: absolute;
-  top: 51%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 1rem 1.5rem;
-  width: 60rem;
-  height: 40rem;
-  border-radius: 0.5rem;
 }
 
 /* modal style - end */
@@ -711,6 +702,21 @@ video#lostAreaPlayer {
 
   .dynamic-grid.video-holder {
     width: 100%;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 0px;
+    top: 45%;
+  }
+
+  div#modal-content-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #video-title {
+    font-size: 1rem;
   }
 }
 
