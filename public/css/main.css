@@ -480,11 +480,15 @@ form.search-form input {
   }
 
   .search-clear {
-    margin-top: 2.3%;
+    margin-top: 4%;
   }
 
   .search {
     max-width: 70%;
+  }
+
+  img.mobile-app-badge {
+    width: 100px;
   }
 
 }
