@@ -410,59 +410,91 @@ button#loadMore:hover {
 
 /* search bar style - start */
 
-.search-container {
-  width: 90%;
-  display: block;
-  margin: 40px 0px;
+.search {
+  border: 2px solid #ff8263;
+  overflow: auto;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin: 30px auto;
+  border-radius: 8px;
+  max-width: 60%;
 }
 
-input#search-bar {
-  margin: 0 auto;
-  width: 40%;
-  height: 45px;
-  padding: 0 20px;
+.search input[type="text"] {
+  border: 0px;
+  width: 67%;
+  padding: 10px 10px;
+}
+
+.search input[type="text"]:focus {
+  outline: 0;
+}
+
+form.search-form input {
   font-size: 1rem;
-  border: 3px solid #5f9ea0;
-  outline: none;
-  border-radius: 15px;
 }
 
-input#search-bar:focus {
-  border: 1px solid #008ABF;
-  transition: 0.35s ease;
-  color: #008ABF;
-}
-
-input#search-bar:focus::-webkit-input-placeholder {
-  transition: opacity 0.45s ease;
-  opacity: 0;
-}
-
-input#search-bar:focus::-moz-placeholder {
-  transition: opacity 0.45s ease;
-  opacity: 0;
-}
-
-input#search-bar:focus:-ms-placeholder {
-  transition: opacity 0.45s ease;
-  opacity: 0;
-}
-
-.search-icon {
-  position: relative;
-  /* float: right; */
-  width: 40px;
-  height: 40px;
-  top: 15px;
-  right: 40px;
+.search-submit {
+  border: 0px;
+  background: none;
+  background-color: #ff8263;
+  color: #fff;
+  float: right;
+  padding: 10px;
+  border-radius-top-right: 5px;
+  -moz-border-radius-top-right: 5px;
+  -webkit-border-radius-top-right: 5px;
+  border-radius-bottom-right: 5px;
+  -moz-border-radius-bottom-right: 5px;
+  -webkit-border-radius-bottom-right: 5px;
   cursor: pointer;
 }
 
-#search-no-result {
+.search-clear {
+  display: none;
+  float: right;
+  border: 0px;
+  font-size: 1rem;
+  background: none;
+  margin-top: 1.3%;
+  border-radius-top-right: 5px;
+  -moz-border-radius-top-right: 5px;
+  -webkit-border-radius-top-right: 5px;
+  border-radius-bottom-right: 5px;
+  -moz-border-radius-bottom-right: 5px;
+  -webkit-border-radius-bottom-right: 5px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width : 150px) and (max-width : 780px) {
+  .search {
+    width: 95%;
+    margin: 10px auto;
+  }
+
+  .search input[type="text"] {
+    border: 0px;
+    width: 50%;
+    padding: 10px 10px;
+  }
+
+  .search-clear {
+    margin-top: 2.3%;
+  }
+
+}
+
+form.search-form {
+  background-color: white;
+}
+
+#search-result-status {
   margin-top: 10px;
   color: white;
   font-size: 20px;
-  display: none
+  display: none;
+  text-shadow: none;
 }
 
 .body-overflow-hidden {

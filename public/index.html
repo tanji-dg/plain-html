@@ -67,11 +67,14 @@
         <a href="#mailSubscription" class="mobile-app-badge-link">
           <img src="./assets/androidapp.png" class="mobile-app-badge" />
         </a>
-        <form class="search-container">
-          <input type="text" id="search-bar" placeholder="What can I help you with today?">
-          <img id="search-bar-icon" class="search-icon" src="./assets/search-icon.png">
-          <span id="search-no-result">Sorry !! No results found</span>
-        </form>
+        <div class="search">
+          <form class="search-form">
+            <input type="text" placeholder='Search "cloud "' class="search-text" required>
+            <input type="submit" value="Search" class="search-submit">
+            <input type="submit" value="X" class="search-clear">
+          </form>
+        </div>
+        <span id="search-result-status" style="display: none;max-width: 60%;">Sorry !! No results found</span>
       </div>
     </div>
   </div>
@@ -108,7 +111,7 @@
 
     <div class="container">
       <div class="footer-section">
-       
+
         <div class="footer-social">
           <div class="footer-title"> Follow us on</div>
           <a href="https://www.instagram.com/projectdrift.co/"><img src="./assets/i.png" alt="Instagram" title="Instagram"

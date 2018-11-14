@@ -12,9 +12,10 @@
   let wrapper = document.getElementById("modal-content-wrapper");
   let modalHTML = wrapper.innerHTML; // Save HTML before making
   let loadMoreEl = document.getElementById("loadMore");
-  let searchBarEl = document.getElementById("search-bar");
-  let searchIconEl = document.getElementById("search-bar-icon");
-  let searchNoResult = document.getElementById("search-no-result");
+  let searchBarEl = document.getElementsByClassName("search-text")[0];
+  let searchIconEl = document.getElementsByClassName("search-submit")[0];
+  let searchClearEl = document.getElementsByClassName("search-clear")[0];
+  let searchResultStatusEl = document.getElementById("search-result-status");
   let bodyEl = document.getElementsByTagName("body")[0];
   let currentDataset = [],
     searchDataset = [],
@@ -154,20 +155,31 @@
 
       //search event handlers 
       searchIconEl.addEventListener("click", function (e) {
+        e.preventDefault();
 
-        if (isSearchData) {
-          isSearchData = false;
-          currentDataset = driftLibrary.allDataItems;
-          self.clearAllItems();
-          self.searchViewUpdate(searchIconEl, "icon");
-          self.loadItems(currentDataset);
+        if (searchBarEl.value && searchBarEl.value.length > 0) {
+          if (isSearchData) {
+            isSearchData = false;
+            currentDataset = driftLibrary.allDataItems;
+            self.clearAllItems();
+            self.loadItems(currentDataset);
 
+          } else {
+            isSearchData = true;
+            self.dataSearch(searchBarEl.value);
+
+          }
         } else {
-          isSearchData = true;
-          self.searchViewUpdate(searchIconEl, "clear");
-          self.dataSearch(searchBarEl.value);
-
+          return;
         }
+
+      });
+
+      searchClearEl.addEventListener("click", function (e) {
+        isSearchData = false;
+        e.preventDefault();
+        searchBarEl.value = "";
+        searchResultStatusEl.style.display = "none";
 
       });
 
@@ -176,7 +188,7 @@
         if (key === 13) {
 
           e.preventDefault();
-          self.searchViewUpdate(searchIconEl, "clear");
+          self.searchViewUpdate(searchClearEl, "clear");
           isSearchData = true;
           // code for enter
           self.dataSearch(searchBarEl.value);
@@ -187,7 +199,6 @@
     },
 
     dataSearch: function (searchText) {
-
       searchDataset = [];
       var data = driftLibrary.allDataItems;
       for (var i = 0; i < data.length; i++) {
@@ -198,19 +209,26 @@
       }
 
       if (searchDataset.length > 0) {
-        searchNoResult.style.display = "none";
+        searchResultStatusEl.style.display = "block";
+        searchResultStatusEl.innerHTML = "Showing results for '" + searchText + "'";
         currentDataset = searchDataset;
         this.clearAllItems();
         this.loadItems(currentDataset);
 
       } else {
-        searchNoResult.style.display = "block"
+        searchResultStatusEl.innerHTML = "Sorry !! No results found for '" + searchText + "'";
+        searchResultStatusEl.style.display = "block"
       }
     },
 
     searchViewUpdate: function (element, state) {
-      element.src = state == "clear" ? "./assets/search-clear.png" : "./assets/search-icon.png";
-      searchNoResult.style.display = "none";
+      if (state == "clear") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+
+      searchResultStatusEl.style.display = "none";
 
     },
 
