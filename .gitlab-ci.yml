@@ -12,7 +12,7 @@ test:
   - tags
 
 release:
-  image: alpine:latest
+  image: alpine/git:latest
   stage: release
   script:
   - TAG=$(date +%s)
