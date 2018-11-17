@@ -1,11 +1,42 @@
-image: alpine:latest
+stages:
+  - test
+  - release
+  - deploy
 
-pages:
-  stage: deploy
+test:
+  image: alpine:latest
+  stage: test
   script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public
+  - echo 'Testing'
+  except:
+  - tags
+
+release:
+  image: alpine:latest
+  stage: release
+  script:
+  - TAG=$(date +%s)
+  - git tag $TAG
   only:
   - master
+
+deploy:staging:
+  image: alpine:latest
+  stage: deploy
+  script:
+  - echo 'Deploying to staging'
+  - cat public/index.html
+  only:
+  - tags
+
+deploy:production:
+  image: alpine:latest
+  stage: deploy
+  script:
+  - echo 'Deploying to production'
+  - cat public/index.html
+  when: manual
+  only:
+  - master
+
+
