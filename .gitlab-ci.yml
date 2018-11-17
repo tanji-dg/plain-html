@@ -1,6 +1,5 @@
 stages:
   - test
-  - release
   - deploy
 
 test:
@@ -11,15 +10,6 @@ test:
   except:
   - tags
 
-release:
-  image: samueldebruyn/debian-git:latest
-  stage: release
-  script:
-  - TAG=$(date +%s)
-  - git tag $TAG
-  only:
-  - master
-
 deploy:staging:
   image: alpine:latest
   stage: deploy
@@ -27,7 +17,7 @@ deploy:staging:
   - echo 'Deploying to staging'
   - cat public/index.html
   only:
-  - tags
+  - master
 
 deploy:production:
   image: alpine:latest
