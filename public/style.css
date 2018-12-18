@@ -1,16 +1,33 @@
-body {
-  font-family: sans-serif;
-  margin: auto;
-  max-width: 1280px;
+html, body {
+  font-family: Century Gothic, Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/prism.png");
+
+  background-color: rgba(209, 206, 209, 0.3);
+  background-size: 300px;
+  background-repeat: repeat;
+  background-blend-mode: screen;
+
+  overflow-y:hidden;
 }
 
-.navbar {
+h1{
+  font-size: 16px; 
+  font-size: 2.5vw;
+}
+p{
+  font-size: 12px;
+  font-size: 1.5vw;
+}
+
+nav {
   background-color: #313236;
   border-radius: 2px;
-  max-width: 800px;
+  text-align:right;
 }
 
-.navbar a {
+nav a {
   color: #aaa;
   display: inline-block;
   font-size: 15px;
@@ -18,7 +35,55 @@ body {
   text-decoration: none;
 }
 
-.navbar a:hover {
+nav a:hover {
   color: #ffffff;
 }
 
+main{
+  /*background-color:red;*/
+
+  height: 100%;
+  padding: 10px 0;
+}
+
+main.article{
+  margin: auto;
+}
+
+article{
+  background-color:white;
+  
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  border-radius: 2px;
+  display:flex;
+  padding: 15px 10px;
+  max-width: 45vw;
+}
+
+address{
+  /*background-color:yellow;*/
+
+  display:block;
+  padding: 0 15px;
+  float: right;
+  width: 80%;
+  font-style: normal;
+  text-align:right;
+}
+
+img{
+  /*background-color:orange;*/
+
+  display: block;
+  float: left;
+  width: auto;
+  height: auto;
+  max-width: 7.5vw;
+  max-height: 7.5vw;
+  margin: 10px;
+  
+}
