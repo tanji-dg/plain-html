@@ -5,7 +5,12 @@
     <title>MFU Count</title>
   </head>
   <body>
-      <p>0 MFUs since Wednesday, December 19, 2018.</p>
+    <script type="text/javascript">
+                      // December 4, 2018
+      const lastMfu = new Date(2018, 11, 4);
+      const daysSince = Math.round((new Date() - lastMfu) / (1000 * 60 * 60 * 24));
+      document.write(`<p>${daysSince} days since the last MFU.</p>`);
+    </script>
   </body>
 </html>
 
