@@ -1,11 +1,10 @@
 var calculate = function(){
-    let start = moment("2018-08-01");
-    let end = moment();
-    let diff = end.diff(start);
-    let duration = moment.duration(diff);
-    let answer = duration.asDays().toFixed(0) + " Days"
-    document.getElementById('place').textContent = answer;
+    const lastMfu = new Date(2018, 11, 4);
+    const daysSince = Math.round((new Date() - lastMfu) / (1000 * 60 * 60 * 24));
+    document.getElementById('place').textContent = daysSince + " Days";
 };
+
+
 
 window.setInterval(function(){
 calculate();

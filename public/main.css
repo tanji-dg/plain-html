@@ -11,13 +11,18 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    font-size: 2rem;
     color:white;
 }
 
-.main > h1, h3 {
-    margin: .2em
+h1 {
+    font-size: 8rem;
 }
 
-.under {
+h3 {
+    font-size: 2rem;
+}
+
+.main > h1, h3 {
+    margin-top: 0;
+    margin-bottom: .2em
 }
