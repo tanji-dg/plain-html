@@ -1,11 +1,12 @@
-image: alpine:latest
+image: node:alpine
 
 pages:
   stage: deploy
   script:
-  - echo 'Nothing to do...'
+  - npm install
+  - npm test && npm run-script build
   artifacts:
     paths:
-    - public
+    - dist
   only:
   - master
