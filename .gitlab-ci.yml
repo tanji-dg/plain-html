@@ -7,6 +7,6 @@ pages:
   - npm test && npm run-script build
   artifacts:
     paths:
-    - dist
+    - public
   only:
   - master

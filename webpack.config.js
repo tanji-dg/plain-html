@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackIncludeAssetsPlugin = require("html-webpack-include-assets-plugin");
 
-const DESTINATION_PATH = path.resolve(__dirname, "./dist");
+const DESTINATION_PATH = path.resolve(__dirname, "./public");
 
 const devMode = process.env.NODE_ENV !== "production";
 
