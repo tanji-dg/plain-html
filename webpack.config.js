@@ -1,6 +1,5 @@
 const path = require("path");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const SriPlugin = require("webpack-subresource-integrity");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -68,10 +67,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: devMode ? "[name].css" : "[name].[contenthash].css",
       chunkFilename: devMode ? "[id].css" : "[id].[contenthash].css"
-    }),
-    new SriPlugin({
-      hashFuncNames: ["sha256", "sha384"],
-      enabled: !devMode
     }),
     new CopyWebpackPlugin([
       {
