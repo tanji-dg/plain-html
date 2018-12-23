@@ -2,10 +2,10 @@ html, body {
   font-family: Century Gothic, Arial, sans-serif;
   margin: 0;
   height: 100%;
-  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/prism.png");
-
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/christmas-colour.png");
+  /*background-image: url("https://www.toptal.com /designers/subtlepatterns/patterns/dust_scratches.png");*/
   background-color: rgba(209, 206, 209, 0.3);
-  background-size: 300px;
+  background-size: 500px;
   background-repeat: repeat;
   background-blend-mode: screen;
 
@@ -13,12 +13,20 @@ html, body {
 }
 
 h1{
-  font-size: 16px; 
-  font-size: 2.5vw;
+  /*background-color: pink;/**/
+  
+  font-size: 12px; 
+  font-size: 1.8vw;
+  font-size:calc(12px + 1.8vw);
+
+  font-style: normal;
 }
 p{
-  font-size: 12px;
-  font-size: 1.5vw;
+  font-size: 10px;
+  font-size: 0.9vw;
+  font-size:calc(10px + 0.9vw);
+
+  text-align: left;
 }
 
 nav {
@@ -40,7 +48,7 @@ nav a:hover {
 }
 
 main{
-  /*background-color:red;*/
+  /*background-color:red;/**/
 
   height: 100%;
   padding: 10px 0;
@@ -51,7 +59,7 @@ main.article{
 }
 
 article{
-  background-color:white;
+  background-color:white;/**/
   
   position: absolute;
   left: 50%;
@@ -60,30 +68,36 @@ article{
   margin: auto;
   border-radius: 2px;
   display:flex;
-  padding: 15px 10px;
-  max-width: 45vw;
+  padding: 1% 10px;
+  min-width: 400px;
 }
 
 address{
-  /*background-color:yellow;*/
+  /*background-color:cyan;/**/
 
   display:block;
-  padding: 0 15px;
+  padding: 0 5px 0 10px;
   float: right;
   width: 80%;
+  text-align:left;
+  min-width: 200px;
+}
+
+address .keyWord{
+  font-size: 12px;
+  font-size: 1vw;
+  font-size:calc(12px + 1vw);
   font-style: normal;
-  text-align:right;
 }
 
 img{
-  /*background-color:orange;*/
+  /*background-color:orange;/**/
 
   display: block;
   float: left;
   width: auto;
   height: auto;
-  max-width: 7.5vw;
-  max-height: 7.5vw;
-  margin: 10px;
-  
+  max-width: 18vw;
+  max-height: 18vw;
+  margin: auto 0px;
 }
