@@ -1,6 +1,14 @@
 import { deepEqual, throws, equal } from "assert";
 import faker from "faker";
-import { parseDate, getDenominator, DAYS, MINUTES, HOURS } from "./domain";
+import moment from "moment";
+import {
+  parseDate,
+  getDenominator,
+  DAYS,
+  MINUTES,
+  HOURS,
+  getTimeForUnit
+} from "./domain";
 
 describe("domain", () => {
   describe("parseDate", () => {
@@ -42,6 +50,77 @@ describe("domain", () => {
     context("unknown unit", () => {
       it("throws an error", () => {
         throws(() => getDenominator(faker.commerce.color()), /unknown unit/);
+      });
+    });
+  });
+
+  describe("getTimeForUnit()", () => {
+    context("inputs are valid", () => {
+      context(`unit is ${MINUTES}`, () => {
+        [1, 2, 3, 4, 5].forEach(delta => {
+          it(`returns the difference in minutes (${delta})`, () => {
+            const currentDate = faker.date.future();
+            const lastMfuDate = moment(currentDate).subtract(delta, "minutes");
+            const actual = getTimeForUnit(currentDate, lastMfuDate, MINUTES);
+            equal(actual, delta);
+          });
+        });
+      });
+
+      context(`unit is ${DAYS}`, () => {
+        [1, 2, 3, 4, 5].forEach(delta => {
+          it(`returns the difference in days (${delta})`, () => {
+            const currentDate = faker.date.future();
+            const lastMfuDate = moment(currentDate).subtract(delta, "day");
+            const actual = getTimeForUnit(currentDate, lastMfuDate, DAYS);
+            equal(actual, delta);
+          });
+        });
+      });
+
+      context(`unit is ${HOURS}`, () => {
+        [1, 2, 3, 4, 5].forEach(delta => {
+          it(`returns the difference in days (${delta})`, () => {
+            const currentDate = faker.date.future();
+            const lastMfuDate = moment(currentDate).subtract(delta, "hours");
+            const actual = getTimeForUnit(currentDate, lastMfuDate, HOURS);
+            equal(actual, delta);
+          });
+        });
+      });
+    });
+
+    context("lastMfuDate is after current date", () => {
+      it("should throw an error", () => {
+        const currentDate = faker.date.past();
+        const lastMfuDate = faker.date.future();
+        throws(
+          () => getTimeForUnit(currentDate, lastMfuDate, HOURS),
+          /Cannot predict future MFUs/
+        );
+      });
+    });
+
+    context("invalid unit given", () => {
+      it("should throw an error", () => {
+        throws(
+          () =>
+            getTimeForUnit(
+              faker.date.future(),
+              faker.date.past(),
+              "INVALID_UNIT"
+            ),
+          /unknown unit/
+        );
+      });
+    });
+
+    context("lastMfuDate is after the current date", () => {
+      it("throws an error", () => {
+        throws(
+          () => getTimeForUnit(faker.date.past(), faker.date.future(), DAYS),
+          /Cannot predict future MFUs/
+        );
       });
     });
   });

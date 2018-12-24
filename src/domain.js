@@ -24,12 +24,12 @@ export const getDenominator = unit => {
 };
 
 export const getTimeForUnit = (currentDate, lastMfuDate, unit) => {
-  const days =
+  const delta =
     Math.floor(((currentDate - lastMfuDate) / getDenominator(unit)) * 10) / 10;
 
-  if (days < 0) {
+  if (delta < 0) {
     throw new Error("Cannot predict future MFUs!");
   }
 
-  return days;
+  return delta;
 };
