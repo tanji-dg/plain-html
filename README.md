@@ -1,5 +1,4 @@
-![Build Status](https://gitlab.com/pages/plain-html/badges/master/build.svg)
-
+[![Build Status](https://img.shields.io/gitlab/pipeline/lyri_c/lyri.c.gitlab.io.svg?style=flat-square)](https://gitlab.com/lyri_c/lyri.c.gitlab.io/pipelines)
 ---
 
 Example plain HTML site using GitLab Pages.
