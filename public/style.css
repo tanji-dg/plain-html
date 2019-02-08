@@ -2,8 +2,7 @@ html, body {
   font-family: Century Gothic, Arial, sans-serif;
   margin: 0;
   height: 100%;
-  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/christmas-colour.png");
-  /*background-image: url("https://www.toptal.com /designers/subtlepatterns/patterns/dust_scratches.png");*/
+  background-image: url("https://www.toptal.com /designers/subtlepatterns/patterns/dust_scratches.png");
   background-color: rgba(209, 206, 209, 0.3);
   background-size: 500px;
   background-repeat: repeat;
