@@ -1,4 +1,5 @@
 [![Build Status](https://img.shields.io/gitlab/pipeline/lyri_c/lyri.c.gitlab.io.svg?style=flat-square)](https://gitlab.com/lyri_c/lyri.c.gitlab.io/pipelines)
+[![Website Status](https://img.shields.io/website-up-down-green-red/https/grossenbacher.io.svg?style=flat-square)](https://grossenbacher.io)
 ---
 
 Example plain HTML site using GitLab Pages.
