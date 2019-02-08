@@ -1,19 +1,27 @@
-html, body {
+*{
   font-family: Century Gothic, Arial, sans-serif;
+  color: #EEE ;
   margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+html, body {
   height: 100%;
-  background-image: url("https://www.toptal.com /designers/subtlepatterns/patterns/dust_scratches.png");
-  background-color: rgba(209, 206, 209, 0.3);
-  background-size: 500px;
-  background-repeat: repeat;
-  background-blend-mode: screen;
+  background-image: url("img/Frosty_Raftsundet_landscape_with_Trolltindan_in_morning\,_2012_October.JPG"), url("https://upload.wikimedia.org/wikipedia/commons/7/78/Frosty_Raftsundet_landscape_with_Trolltindan_in_morning%2C_2012_October.JPG");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   overflow-y:hidden;
 }
 
 h1{
   /*background-color: pink;/**/
-  
+
+  margin-top: 5px; 
+  margin-bottom: 40px;
+  min-width: 100%;
   font-size: 12px; 
   font-size: 1.8vw;
   font-size:calc(12px + 1.8vw);
@@ -21,11 +29,16 @@ h1{
   font-style: normal;
 }
 p{
+  /*background-color: red;/**/
+  
+  margin-top: 5px;
+
   font-size: 10px;
   font-size: 0.9vw;
   font-size:calc(10px + 0.9vw);
 
   text-align: left;
+  font-style: normal;
 }
 
 nav {
@@ -47,39 +60,53 @@ nav a:hover {
 }
 
 main{
-  /*background-color:red;/**/
-
-  height: 100%;
-  padding: 10px 0;
+  background:inherit;
+  top:0; bottom:0;
+  left:0; right:0;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  max-height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center
 }
-
-main.article{
-  margin: auto;
+.center{
+  background:inherit;
 }
-
-article{
-  background-color:white;/**/
-  
+article+.blur{
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin: auto;
+}
+article{
+  position: relative;
+  z-index: 9999;
+}
+.blur{
+  overflow: hidden;
+  background: inherit;
+  position: absolute;
   border-radius: 2px;
-  display:flex;
-  padding: 1% 10px;
-  min-width: 400px;
+}
+.blur:before{
+  content: "";
+  background: inherit; 
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: -25px;  
+  right: 0;
+  top: -25px;   
+  bottom: 0;
+  box-shadow: inset 0 0 0 200px rgba(0, 0, 0, 0.3);
+
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  filter: blur(10px);
 }
 
 address{
-  /*background-color:cyan;/**/
-
-  display:block;
-  padding: 0 5px 0 10px;
-  float: right;
-  width: 80%;
+  /*background-color:grey;/**/
   text-align:left;
-  min-width: 200px;
 }
 
 address .keyWord{
@@ -89,14 +116,41 @@ address .keyWord{
   font-style: normal;
 }
 
-img{
-  /*background-color:orange;/**/
+address a{
+  color:#DDD;
+  font-style: normal;
+  text-decoration: none;
+}
 
-  display: block;
-  float: left;
+img{
   width: auto;
-  height: auto;
-  max-width: 18vw;
-  max-height: 18vw;
-  margin: auto 0px;
+  height: 100%;
+}
+
+.imgContainer{
+  /*background-color:blue;/**/
+}
+footer{
+  background-color: #111;/**/
+  background-blend-mode: soft-light;
+  opacity: 0.6;
+  color: #CCC;
+  font-style: italic;
+  text-align: right;
+  font-weight: lighter;
+  font-size: 11px;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+a{
+  color: #CCC;
+}
+a:hover{
+  color:#888;
+}
+a:active{
+  color: #333;
 }

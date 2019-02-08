@@ -1,0 +1,119 @@
+
+  /* Mobile Styles */
+  @media only screen and (max-width: 400px) {
+    .blur{
+        border-radius: 5px;
+    }
+    article+.blur{
+        width: 45vw;
+        min-width: 192px;
+        height: 375px;
+    }
+    address{
+        float: left;
+        min-width: 192px;
+
+        width:100%;
+    }
+    h1{ 
+        max-width: 198px;
+    }
+    h1, p{
+        margin: 0 10px;
+    }
+
+    address hr{
+        margin: 5px 5px 15px 5px;
+    }
+    .imgContainer{
+        float: left;
+        width:45vw;
+        height:200px;
+        min-width: 192px;
+
+        margin: 5px auto;
+    }
+    .imgContainer img{
+        display: block;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
+    .center{
+        background-color:yellow;
+        width:45vw;
+        margin: auto;
+    }
+  }
+  
+  /* Tablet Styles */
+  @media only screen and (min-width: 401px) and (max-width: 960px) {  
+    .blur{
+        border-radius: 5px;
+    }
+    article+.blur{
+        width: 45vw;
+        height: 375px;
+    }
+    address{
+        float: left;
+        width:100%;
+    }
+    h1{ 
+        max-width: 198px;
+    }
+    h1, p{
+        margin: 0 10px;
+    }
+
+    address hr{
+        margin: 5px 5px 15px 5px;
+    }
+    .imgContainer{
+        float: left;
+        width:45vw;
+        height:200px;
+
+        margin: 5px auto;
+    }
+    .imgContainer img{
+        display: block;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
+    .center{
+        background-color:yellow;
+        width:45vw;
+        margin: auto;
+    }
+  }
+  
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+    .center{
+        width:55vw;
+    }
+    article{
+        float: left;
+    }
+    .blur{
+        display: flex;
+        height: 215px;
+    }
+    article+.blur{
+        height:275px;
+        width: 55vw;   
+    }
+    .imgContainer{
+        float:left;
+        height:275px;
+    }
+    
+    .imgContainer img{
+        border-radius: 4px 0 0 4px;
+    }
+    address{
+        float: left;
+        margin: 10px 0 10px 10px;
+        height:250px;
+    }
+}
