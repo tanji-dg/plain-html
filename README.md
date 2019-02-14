@@ -1,5 +1,6 @@
 [![Build Status](https://img.shields.io/gitlab/pipeline/lyri_c/lyri.c.gitlab.io.svg?style=flat-square)](https://gitlab.com/lyri_c/lyri.c.gitlab.io/pipelines)
-[![Website Status](https://img.shields.io/website-up-down-green-red/https/grossenbacher.io.svg?style=flat-square)](https://grossenbacher.io)
+[![Website Status](https://img.shields.io/website-up-down-green-red/https/lyri_c.gitlab.io.svg?style=flat-square&label=lyri_c.gitlab.io)](https://lyri_c.gitlab.io)
+[![DNS Reroute Status](https://img.shields.io/website-up-down-green-red/https/grossenbacher.io.svg?style=flat-square&label=grossenbacher.io)](https://grossenbacher.io)
 ---
 
 Example plain HTML site using GitLab Pages.

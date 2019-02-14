@@ -1,11 +1,56 @@
-image: alpine:latest
+image: ubuntu:latest
 
-pages:
-  stage: deploy
+stages:
+  - build
+  - deploy
+
+before_script:
+  # Install the sshpass client
+  - apt-get update -qq && apt-get install -y -qq sshpass
+
+build::local:
+  stage: build
+  environment: 
+    name: Development
+    url: https://lyri_c.gitlab.io
+  before_script:
+    - echo "We don't need sshpass here"
   script:
-  - echo 'Nothing to do...'
+    - echo "If anything needs to be done before deployment do it here..."
   artifacts:
     paths:
     - public
   only:
-  - master
+  - development
+
+# Deployment to staging on local gitlab pages path
+deploy::staging:
+  stage: deploy 
+  environment: 
+    name: Staging
+    url: https://staging.grossenbacher.io
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
+  script:  
+    - sshpass -V
+    - export SSHPASS=$USERPASS
+    # username@host.com:/var/www/html
+    - sshpass -e scp -o StrictHostKeyChecking=no -r public/* grossen1@grossenbacher.io:~/staging.grossenbacher.io/
+
+# Deployment to production server
+deploy::production:
+  stage: deploy
+  environment: 
+    name: Production
+    url: https://grossenbacher.io
+  only:
+    - tags
+  script:
+    - sshpass -V
+    - export SSHPASS=$USERPASS
+    # username@host.com:/var/www/html
+    # Try workaroung https://stackoverflow.com/questions/35717436/scp-permission-denied-public-key/35721469
+    - sshpass -e scp -o StrictHostKeyChecking=no -r public/* grossen1@grossenbacher.io:~/public_html/
