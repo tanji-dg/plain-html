@@ -1,0 +1,59 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "BlkSail Site"
+theme = "blksail"
+
+# The site's parameters
+[params]
+  home = "Home"
+  
+  [menu]
+
+    [[menu.header]]
+      weight = 2
+      name = "Blog"
+      url = "/Blog"
+    
+    [[menu.header]]
+      weight = 5
+      name = "Contact"
+      url = "/contact"
+
+
+   [params.GlobalContainer]
+    enable = true
+    vidBoat1 =  "img/boat_sail.mov"
+    url = "#"
+
+  
+
+[params.wrapper]
+    enable = true
+    image = "img/beach12.mp4"
+    title = "Completely autonomous in complex environments"
+    paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are driving in cities and on highways. Making unprotected lefts and rights on red. Yielding to pedestrians and passing double parked boats."
+
+[params.icons-box]
+    enable = true
+    title = "BLKSAIL is developing the future of autonomous boats, today."
+    first_paragraph = "BLKASAIL"
+    second_paragraph = "BLKASAIL"
+    third_paragraph = "BLKASAIL"
+
+    [[menu.footer]]
+      weight = 1
+      name = "About us"
+      url = "#"
+    [[menu.footer]]
+      weight = 2
+      name = "Contact us"
+      url = "#"
+    
+    [[menu.footer]]
+      weight = 4
+      name = "Blog"
+      url = "#"
+    [[menu.footer]]
+      weight = 5
+      name = "Terms"
+      url = "#"

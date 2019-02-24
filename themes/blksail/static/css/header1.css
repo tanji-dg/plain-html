@@ -1,0 +1,33 @@
+
+  .site-header-menu {
+    position : absolute;
+    top: 0.75em;
+    width : 100%;
+    
+  }
+  .section-container{
+      position: relative;
+  }
+  .site-header-menu-items{
+    position: absolute;
+    right: 0.75em;
+    display :flex;
+  }
+  .site-header-menu-item{
+    padding : 1em;
+    font-size :14px;
+    text-transform : uppercase;
+  }
+  .current-menu-item a{
+        color: #9B9B9B;
+  }
+  a{
+      color: #353535;
+    text-decoration: none;                 
+  }
+
+
+  
+  a:hover{
+       color : #9B9B9B;
+  }

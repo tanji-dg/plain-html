@@ -1,0 +1,23 @@
+<section id="intro">
+        <div class="container">
+          <div class="flex-row">
+            <div class="col-md-6 col-sm-12">
+                  <div class="left_content">
+                  <h2>{{ .Site.Params.wrapper.title }}</h2>
+                <p>{{ .Site.Params.wrapper.paragraph }}</p>
+              </div>
+            </div>
+        
+        <!-- .col-md-7 close -->
+            <div class="col-md-6 col-sm-12">
+              <div class="block">
+                    <video playsinline="" loop="" autoplay="" muted="" prelad="auto">
+                            <source src="{{ with .Site.Params.wrapper.image }} {{ . | absURL }} {{ end }}">
+                    </video>               
+            </div>
+            </div><!-- .col-md-5 close -->
+          </div>
+        </div>
+      </section>
+
+ <!--    -->
