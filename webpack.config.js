@@ -80,10 +80,16 @@ module.exports = {
       }
     ]),
     new HtmlWebpackPlugin({
+      inject: false,
+      template: require('html-webpack-template'),
+      appMountId: '🍻',
+      googleAnalytics: {
+        trackingId: 'UA-135007596-1',
+        pageViewOnLoad: true
+      },
       title: "MFU Count",
-      meta: {
-        viewport: "width=device-width, initial-scale=1.0, shrink-to-fit=no"
-      }
+      mobile: true,
+      lang: 'en-US',
     }),
     new HtmlWebpackIncludeAssetsPlugin({
       assets: ["odometer/themes/odometer-theme-car.css"],
