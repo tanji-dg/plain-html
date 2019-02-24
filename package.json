@@ -3,7 +3,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --mode=production --verbose --no-color",
     "start": "webpack-dev-server",
-    "test": "NODE_ENV=test mocha"
+    "test": "NODE_ENV=test mocha 'src/**/*.spec.js'"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
