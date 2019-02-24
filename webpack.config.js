@@ -14,8 +14,8 @@ module.exports = {
   output: {
     path: DESTINATION_PATH,
     crossOriginLoading: "anonymous",
-    filename: !devMode ? "[contenthash].js" : "[name].js",
-    chunkFilename: !devMode ? "[contenthash].js" : "[name].js"
+    filename: !devMode ? "[name].[contenthash].js" : "[name].js",
+    chunkFilename: !devMode ? "[name].[contenthash].js" : "[name].js"
   },
   optimization: {
     runtimeChunk: "single",
