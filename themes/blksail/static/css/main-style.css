@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'Planer Light';
+    src: url('../fonts/Planer_Light.ttf')  format('truetype');
+ }
+ @font-face {
+  font-family: 'Rogan Light';
+  src: url('../fonts/Rogan_Light.otf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'Rogan Light italic';
+  src: url('../fonts/Rogan_LightItalic.otf')  format('truetype');
+}
+
+
+
+
+.navbar-brand {
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+  }
+
+  .navbar-brand img{
+    width: 45px;
+    height: 45px;
+    margin-left: 2em;
+  }
+
+  .nav li{
+    color: #353535;
+    font-weight: 600;
+    font-style: normal;
+    font-family: 'Planer Light';
+    font-size: 14px;
+    text-transform: uppercase;
+    
+}
+
+.nav li a{
+    text-decoration: none;
+    font-weight: 600;
+
+}
+
+.nav li a:hover{
+    color: #9b9b9b;    
+}
+
+    @media only screen and (min-width: 600px) {
+        .site-header {
+          justify-content: center;
+          padding: 2em 0;
+        }
+      }
+
+      .site-header-container {
+        width: 100%;
+        overflow: hidden;
+      }
+      .site-header {
+        display: flex;
+        justify-content: flex-start;
+        padding: 1.5em 0;
+        position: relative;
+        transition: left 0.4s ease;
+        left: 0;
+      }
+
+
+      /*Grid style*/
+    
+      /*container style*/
+      
+      @lost flexbox flex;
+      .container {
+        lost-center: 1240px 10px;
+      }
+   
+
+      @media only screen and (min-width: 600px){
+        .container {
+            padding: 6px 20px;
+        }
+      }
+  
+        .container{
+          max-width: 1240px;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 2px 4px;        
+        }
+
+
+      /*First container style*/
+      .first-container{
+        max-width: max-content;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 2px 4px
+      
+          +above('m');
+          padding: 6px 20px;
+          margin-block-end: 20px; 
+      }
+      
+      .video-container{
+        left: 0px;
+        top: 0px;
+        height: 80%;
+        width: 100%;
+        overflow: hidden;
+        z-index: 0;
+        background-size: cover;
+        background-position: center center;
+      }
+      
+      .background-video{
+        position: absolute;
+      
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        min-width: calc(100% + 2px);
+        min-height: calc(100% + 2px) +above('m'); 
+        height: 130% +below('m');
+          max-width: 190%;
+          height: 200%;
+          width: 200%;
+      }
+
+   

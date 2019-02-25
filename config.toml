@@ -20,7 +20,7 @@ theme = "blksail"
       url = "/contact"
 
 
-   [params.GlobalContainer]
+   [params.bgVideo]
     enable = true
     vidBoat1 =  "img/boat_sail.mov"
     url = "#"

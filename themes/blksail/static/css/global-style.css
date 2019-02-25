@@ -148,12 +148,13 @@ header .navbar {
   .site-header .site-logo {
     width: 25px;
     height: 25px;
-    display: block;
-  margin: 0 auto;
+    display: flex;
+    justify-content:center;
+    margin: 0 auto;
   }
 
   #navigation-header img{
-   display: block;
+   display: flex;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
@@ -214,16 +215,17 @@ font header .navbar-default .navbar-nav li a:hover {
   opacity: 0.8;
 }
 
-
-.section-container{
-	max-width: max-content;
+#first-container{
+  max-width: max-content;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 2px 4px
 
 	+above('m');
-		padding: 6px 20px;
+    padding: 6px 20px;
+    margin-block-end: 20px; 
 }
+
 .video-container{
   left: 0px;
   top: 0px;
@@ -297,7 +299,7 @@ font header .navbar-default .navbar-nav li a:hover {
   
 }
 #intro .left_content {
-  display: inline-block;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -3659,6 +3661,7 @@ div.wpcf7-response-output {
 }
 .section--green {
   background-color: #5f857a;
+  margin-top: 50px;
 }
 .section--green .section--full__container {
   max-width: 800px;
