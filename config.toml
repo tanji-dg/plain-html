@@ -38,7 +38,7 @@ theme = "blksail"
     title = "BLKSAIL is developing the future of autonomous boats, today."
     first_paragraph = "Zero-emissions "
     second_paragraph = "Fully autonomous "
-    third_paragraph = "BLKASAIL"
+    third_paragraph = "Mobility-as-a-service"
     bgImg = "img/background_image.jpg"
 
     [params.wrapper2]

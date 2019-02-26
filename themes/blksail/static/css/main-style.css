@@ -37,7 +37,7 @@ background-color: transparent;
   }
 
   .navbar-brand img{
-    width: 45px;
+    width: 128px;
     height: 45px;
     margin-left: 2em;
   }
@@ -148,68 +148,7 @@ background-color: transparent;
 
    
 
-      /*section iconbox*/
-
-    
-/*style*/
-/*
-
-  
-  
-    @media only screen and (min-width: 800px){
-    .section {
-        padding-top: 67px;
-        padding-bottom: 67px;
-    }
-
-    }
-
-
-
-      @media only screen and (min-width: 600px){
-
-      .full-width-spacer {
-          padding-bottom: 50%;
-      }
-    }
-      .full-width-spacer {
-        padding-bottom: 100%;
-    }
-    @media only screen and (min-width: 600px){
-    .section-green-icons {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: end;
-        -ms-flex-align: end;
-        align-items: flex-end;
-    }
-    }
-
-    .section-green-icons>div {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-    }
-
-    .section-green-icon {
-        margin: 0 30px;
-    }
-    .section--full__container {
-        max-width: 560px;
-        margin: auto;
-    }
-
-
-*/
-
+     
 .section--full__container {
   max-width: 560px;
   margin: auto;
@@ -322,7 +261,7 @@ background-color: transparent;
  
   .is-white{
       color: white;
-    
+    font-size: 18px;
   }
 
 
