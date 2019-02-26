@@ -343,16 +343,18 @@ background-color: transparent;
     -ms-flex-pack: center;
     justify-content: center;
   }
+
+ 
 .section-green-icon-1 img{
-   width: +below('s') 63px;
+   width:100px  ;
   }
     .section-green-icon-2 img
   {
-    width: +below('s') 66px;
+    width:  140px;
   }
   .section-green-icon-3 img
     {
-        width: +below('s') 49px;
+        width: 120px;
       }
 
 

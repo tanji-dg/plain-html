@@ -36,8 +36,8 @@ theme = "blksail"
 [params.iconsbox]
     enable = true
     title = "BLKSAIL is developing the future of autonomous boats, today."
-    first_paragraph = "BLKASAILiuytr"
-    second_paragraph = "BLKASAIL"
+    first_paragraph = "Zero-emissions "
+    second_paragraph = "Fully autonomous "
     third_paragraph = "BLKASAIL"
     bgImg = "img/background_image.jpg"
 
@@ -48,7 +48,7 @@ theme = "blksail"
     paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are driving in cities and on highways. Making unprotected lefts and rights on red. Yielding to pedestrians and passing double parked boats."
 
     [params.openPositions]
-    title = "open Positions, Join us."
+    title = "Some text goes here."
 
 
     [params.info]
