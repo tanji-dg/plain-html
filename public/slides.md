@@ -1,11 +1,11 @@
 <!-- .slide: data-state="no-toc-progress" --> <!-- don't show toc progress bar on this slide -->
 
-# REVEAL.JS TEMPLATE
+# CLT 2019 Git Intro workshop
 <!-- .element: class="no-toc-progress" --> <!-- slide not in toc progress bar -->
 
-## [reveal.js][3] presentation written in [markdown][4] set up with [fabric][5] & [fabsetup][6]
+## [reveal.js][3] presentation written in [markdown][4] set up with Gitlab Pages
 
-created by [theno](https://github.com/theno) | 2017-01-05 | [online][1] | [src][2]
+created by GK Guys | 2019-03-11 | [online][1] | [src][2]
 
 
 [1]: https://theno.github.io/revealjs_template
@@ -19,13 +19,13 @@ created by [theno](https://github.com/theno) | 2017-01-05 | [online][1] | [src][
 
 ----  ----
 
-# 1. reveal.js
+# 1. friggin Version Control
 
 ----
 
-## reveal.js
+## git it!
 
-> "A framework for easily creating __beautiful presentations__ using HTML."
+> "I dont get it... why you git it?"
 >
 > -- <cite>https://github.com/hakimel/reveal.js</cite>
 
