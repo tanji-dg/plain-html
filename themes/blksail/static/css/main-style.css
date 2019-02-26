@@ -13,7 +13,22 @@
 }
 
 
+body{
+    font-family: 'Planer Light';
 
+}
+.navbar.navbar-default {
+background-color: transparent;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar.navbar-default .navbar-collapse {
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
 
 .navbar-brand {
     transform: translateX(-50%);
@@ -107,7 +122,7 @@
       .video-container{
         left: 0px;
         top: 0px;
-        height: 80%;
+        height: 100%;
         width: 100%;
         overflow: hidden;
         z-index: 0;
@@ -130,3 +145,390 @@
       }
 
    
+
+      /*section iconbox*/
+
+    
+/*style*/
+/*
+
+  
+  
+    @media only screen and (min-width: 800px){
+    .section {
+        padding-top: 67px;
+        padding-bottom: 67px;
+    }
+
+    }
+
+
+
+      @media only screen and (min-width: 600px){
+
+      .full-width-spacer {
+          padding-bottom: 50%;
+      }
+    }
+      .full-width-spacer {
+        padding-bottom: 100%;
+    }
+    @media only screen and (min-width: 600px){
+    .section-green-icons {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+    }
+    }
+
+    .section-green-icons>div {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .section-green-icon {
+        margin: 0 30px;
+    }
+    .section--full__container {
+        max-width: 560px;
+        margin: auto;
+    }
+
+
+*/
+
+
+
+
+
+.section--full{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+
+  text-align: center;
+
+  padding: 0;
+  position :relative;
+}
+.section--full .has-bottom-image{
+    padding-bottom: 0;
+}
+    p .section--full .has-bottom-image :last-of-type{
+        margin-bottom: 1.2em;
+
+}
+  .has-bottom-image{
+    padding-bottom: 0;
+}
+  
+.bottom-image{
+  margin: auto
+}
+.section--full__container{
+  max-width: 560px;
+  margin: auto;
+}
+.slick-slider--full .slick-track{
+    display: flex;
+}
+
+    .slick-slide{
+      display: flex;
+      height: auto;
+      align-items :center;
+      justify-content :center;
+    }
+.section-hero .section--full{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items :center;
+}
+
+@media only screen and (min-width: 600px){
+.full-width-spacer {
+    padding-bottom: 50%;
+}
+}
+    .full-width-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 55px 15px;
+
+}
+
+/*section icons*/
+
+
+
+.section--green {
+    background-color: #393e46;
+}
+
+  .section--green .section--full__container{
+    max-width: 800px +below('m');
+  }
+  .section--green  .section--full__container .full-width-spacer{
+      display: flex;
+  }
+  .section--green  .section--full__container .full-width-content{
+      position: relative;
+  }
+  .section--green h2{
+    max-width: 400px;
+    margin: auto;
+    padding-bottom: 20%;
+  }
+  .section--full__container  > div{
+    display: flex;
+    flex-direction: column +above('m');
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+ 
+  .is-white{
+      color: white;
+    
+  }
+
+
+.section-green-icon{
+  margin: 0 30px;
+ 
+  }
+.section--green__image{
+  margin-top: 20px;
+    height: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+.section-green-icon-1 img{
+   width: +below('s') 63px;
+  }
+    .section-green-icon-2 img
+  {
+    width: +below('s') 66px;
+  }
+  .section-green-icon-3 img
+    {
+        width: +below('s') 49px;
+      }
+
+
+
+      .wrapper{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          min-width: 1240px;
+          justify-content: center;
+      }
+     
+      .third-container{
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+          margin-block-start: 1%;
+      }
+
+    .button_a {
+      color: black;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin: .2em 0;
+      display: inline-block;
+      padding: 14px 16px 10px;
+      border: 1px solid #00adb5;
+      font-size: 18px;
+      -webkit-transition: color .4s ease,background .4s ease;
+      transition: color .4s ease,background .4s ease;
+   }
+   .third-container a{
+     text-decoration: none;
+   }
+   .third-container a:hover{
+    background-color: #00adb5;
+    color: #eeeeee;
+  }
+ 
+      @media only screen and (max-width: 800px) {
+        .third-container.section-split--news {
+          flex-direction: column-reverse;
+        }
+      }
+      @media only screen and (min-width: 600px) {
+        .third-container {
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+        .third-container.section-split--flip {
+          flex-direction: row-reverse;
+        }
+      }
+      @media only screen and (min-width: 600px) {
+        .third-container .left-content,
+        .third-container .rigth-content {
+          width: 50%;
+        }
+      }
+      .left-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5%;
+
+      }
+      .third-container .left-content {
+        display: flex;
+        align-items: center;
+      }
+
+      
+      @media only screen and (max-width: 800px) {
+        .third-container .left-content {
+          text-align: center !important;
+        }
+        .section-split--news.third-container .left-content {
+          text-align: left !important;
+        }
+      }
+      .third-container .rigth-content img {
+        width: 100%;
+        height: 100%;
+      }
+      .third-container .rigth-content video {
+        width: 100%;
+        height: 100%;
+      }
+      .section-split__left__container {
+        padding: 1em;
+        width: 100%;
+        max-width: calc(440px + 2em);
+        margin: auto;
+      }
+      .video-split-container {
+        position: relative;
+        padding-bottom: 100%;
+      }
+      .split-spacer {
+        padding-bottom: 100%;
+      }
+      @media only screen and (min-width: 600px) {
+        .split-spacer {
+          padding-bottom: 50%;
+        }
+      }
+
+
+      /*green icons*/
+
+      .section-green-icons > div{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+
+  
+.section-green-icon{
+  margin: 0 30px;
+}
+
+.section--green .section--full__container {
+  max-width: 800px;
+}
+@media only screen and (max-width: 800px) {
+  .section--green .full-width-spacer {
+    display: none;
+  }
+  .section--green .full-width-content {
+    position: relative;
+  }
+}
+.section--green h2 {
+  max-width: 400px;
+  margin: auto;
+}
+.section-green-icons > div {
+  display: flex;
+  flex-direction: column
+}
+@media only screen and (min-width: 600px) {
+  .section-green-icons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
+.section--green__image{
+  margin-top: 20px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .section--green__image {
+    height: 100px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .section-green-icon-1 img {
+    width: 63px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .section-green-icon-2 img {
+    width: 66px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .section-green-icon-3 img {
+    width: 49px;
+  }
+}

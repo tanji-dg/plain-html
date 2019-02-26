@@ -1,21 +1,16 @@
 {{ if .Site.Params.bgVideo.enable }}
 {{ "<!-- container Start -->" | safeHTML}}
 
-<div class="container first-container">
-<section class="hero">
+<div class="container">
+<section class="section section--full">
             
-                                <div class="flex-row">  
-                                        <div class="container">
+       
 
-                                                <div class="col-md-12">
    
                         <video playsinline="" loop="" autoplay="" muted="" prelad="auto" class="video-container  b-lazy b-loaded">
                                 <source src="{{ .Site.Params.bgVideo.vidBoat1}}">
                         </video>
-                </div>
-        </div>
-
-        </div>
+            
         </section>
 </div>
 {{end}}

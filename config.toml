@@ -33,12 +33,20 @@ theme = "blksail"
     title = "Completely autonomous in complex environments"
     paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are driving in cities and on highways. Making unprotected lefts and rights on red. Yielding to pedestrians and passing double parked boats."
 
-[params.icons-box]
+[params.iconsbox]
     enable = true
     title = "BLKSAIL is developing the future of autonomous boats, today."
-    first_paragraph = "BLKASAIL"
+    first_paragraph = "BLKASAILiuytr"
     second_paragraph = "BLKASAIL"
     third_paragraph = "BLKASAIL"
+    bgImg = "img/background_image.jpg"
+
+    [params.openPositions]
+    title = "open Positions, Join us."
+
+
+    [params.info]
+    bgVideo="img/background_video.mp4"
 
     [[menu.footer]]
       weight = 1
