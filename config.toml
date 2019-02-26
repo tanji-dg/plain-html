@@ -41,6 +41,12 @@ theme = "blksail"
     third_paragraph = "BLKASAIL"
     bgImg = "img/background_image.jpg"
 
+    [params.wrapper2]
+    enable = true
+    video = "img/boat_sailing2.mp4"
+    title = "Completely autonomous in complex environments"
+    paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are driving in cities and on highways. Making unprotected lefts and rights on red. Yielding to pedestrians and passing double parked boats."
+
     [params.openPositions]
     title = "open Positions, Join us."
 
