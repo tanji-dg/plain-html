@@ -54,6 +54,32 @@ theme = "blksail"
     [params.info]
     bgVideo="img/background_video.mp4"
 
+
+    [params.contact]
+    enable = true
+    title = "Contact us"
+    subtitle ="Check out some of our latest work. "
+    bgImage = "img/background_img.jpg"
+
+
+ [params.contact.box]
+      title = "Stop by for a visit"
+      address = "Your complete adresse + USA"
+      email = "Email: contact@mail.com"
+      phone = "Phone: +1 489 904 8 868 202 "
+
+    [params.contact.gmaps]
+      title = "We Also Count in Google Maps"
+
+    [params.contact.social]
+    title = "Let's keep in touch"
+    facebook = "facebook url "
+    faIcon = "ionicon fa"
+    lkIcon ="ionicon linkedIn"
+    linkedIn = " Linkedin url "
+    instgram = "  Insta url "
+
+
     [[menu.footer]]
       weight = 1
       name = "About us"

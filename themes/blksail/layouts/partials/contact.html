@@ -1,0 +1,46 @@
+
+
+<!--Contact form start-->
+{{ with .Site.Params.contact }}
+<div class="container" >
+<section id="contact-section" class="section section-full" >
+    <div class="section-header">
+<h1>Contact Us</h1>
+<h2>Our team of black sail is ready to hear from you</h2>
+
+    </div>
+    <div class=".full-width-spacer"> </div>
+        <div id="contact-box">
+                <h2>{{ .box.title }}</h2>
+                <ul class="address-block">
+                  <li>
+                    <i class="fa fa-map-marker"></i>{{ .box.address }}
+                  </li>
+                  <li>
+                    <i class="fa fa-envelope-o"></i>{{ .box.email }}
+                  </li>
+                  <li>
+                    <i class="fa fa-phone"></i>{{ .box.phone }}
+                  </li>
+                  <li>
+                        <a href="{{ .social.facebook }}"><i class="fa {{ .social.faIcon }}"></i>{{ .social.facebook }}</a>
+                    </li>
+                </ul>
+                {{ with .social }}  
+                <h2>{{ .title }}</h2>
+                <ul >
+                  <li>
+                    <a href="{{ .facebook }}"><i class="fa {{ .faIcon }}"></i>{{ .facebook }}</a>
+                </li>
+                <li>
+                    <a href="{{ .linkedIn }}"><i class="fa {{ .lkIcon }}"></i></a>
+                  </li>
+                {{ end }}
+                </ul>
+
+        
+
+  
+</section>
+</div>
+{{end}}
