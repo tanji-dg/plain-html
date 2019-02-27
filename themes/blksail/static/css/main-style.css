@@ -574,11 +574,18 @@ background-color: transparent;
 
 footer {
   text-align: center;
-  font-size: 20px;
-  font-weight: 400;
   padding-top: 48px;
   padding-bottom: 55px;
+
+  color: #353535;
+    font-weight: 600;
+    font-style: normal;
+    font-family: 'Planer Light';
+    font-size: 14px;
+    text-transform: uppercase;
+    
 }
+
 
 footer p {
   font-size: 13px;
@@ -590,6 +597,7 @@ footer a {
   color: #595959;
 }
 
+
 footer .footer-manu {
   padding-bottom: 25px;
 }
@@ -599,18 +607,30 @@ footer .footer-manu ul {
   padding: 0px;
 }
 
+
+
+.nav li a{
+    text-decoration: none;
+    font-weight: 600;
+
+}
+
+.nav li a:hover{
+    color: #9b9b9b;    
+}
 footer .footer-manu ul li {
   display: inline-block;
   padding: 0px 20px;
 }
 
 footer .footer-manu ul li a {
-  display: inline-block;
-  color: #494949;
+  text-decoration: none;
+    font-weight: 600;
+
 }
 
 footer .footer-manu ul li a:hover {
-  color: #000;
+  color: #9b9b9b;    
 }
 
 

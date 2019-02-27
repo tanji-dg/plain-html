@@ -87,12 +87,12 @@ theme = "blksail"
     [[menu.footer]]
       weight = 2
       name = "Contact us"
-      url = "#"
+      url = "/Contact"
     
     [[menu.footer]]
       weight = 4
       name = "Blog"
-      url = "#"
+      url = "/Blog"
     [[menu.footer]]
       weight = 5
       name = "Terms"
