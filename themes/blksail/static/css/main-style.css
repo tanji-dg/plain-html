@@ -566,6 +566,9 @@ background-color: transparent;
   text-align: center;
 }
 
+.overlay-desc h3{
+  padding: 2% 5% 2% 5%;
+}
 
 
 
@@ -657,7 +660,7 @@ color: #f2f2f0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20%;
+  padding: 10%;
 }
 
 #contact-box img{

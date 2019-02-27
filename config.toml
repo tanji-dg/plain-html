@@ -31,7 +31,7 @@ theme = "blksail"
     enable = true
     image = "img/beach12.mp4"
     title = "Completely autonomous in complex environments"
-    paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are driving in cities and on highways. Making unprotected lefts and rights on red. Yielding to pedestrians and passing double parked boats."
+    paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are sailing in oceans and seas.  ................"
 
 [params.iconsbox]
     enable = true
@@ -45,7 +45,7 @@ theme = "blksail"
     enable = true
     video = "img/boat_sailing2.mp4"
     title = "Completely autonomous in complex environments"
-    paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are driving in cities and on highways. Making unprotected lefts and rights on red. Yielding to pedestrians and passing double parked boats."
+    paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are sailing in oceans and seas.  ................"
 
     [params.openPositions]
     title = "Some text goes here."
