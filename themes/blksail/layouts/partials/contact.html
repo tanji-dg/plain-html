@@ -9,37 +9,87 @@
             <h2>Our team of black sail is ready to hear from you</h2>
 
     </div>
+    <div class="contact-info">
+    <div class="contact-box">
+            <h2>{{ .box.title }}</h2>
+            <ul class="address-block">
+                <li>
+                        <a class="icon" href="{{.box.map}}" >
+
+                        <i class="icon ion-md-navigate"></i>
+                        {{ .box.address }}
+                        </a>
+                </li>
+                <li>
+                       
+                        <a class="icon" href="mailto:{{ .box.mail}}">
+                       <i class="icon ion-md-mail"></i>
+                                {{ .box.mail }}
+                    </a>
+                </li>
+                <li>
+                        <a class="icon" >
+                                <i class="icon ion-md-call"></i>
+                                {{ .box.phone }}
+                             </a>
+                    
+                </li>
+              
+            </ul>
+
+        
+    </div>
+
+   <!-- <div class="social-media">
+
+            <ul class="social-icons">
+                    {{ with .social }}  
+                      <li>
+                        <a href="{{ .facebook }}"><i class="icon ion-logo-facebook"></i>
+                    </a>
+                      </li>
+                    {{ end }}
+
+                    <li>
+                            <a class="icon" >
+                                    <i class="icon ion-md-call"></i>
+                                    {{ .box.phone }}
+                                 </a>
+                        
+                    </li>
+        </ul>
+    </div>  -->
     <div id="contact-box">
             <h2>{{ .box.title }}</h2>
             <ul class="address-block">
                 <li>
-                    <i class="fa fa-map-marker"></i>{{ .box.address }}
+                        <a class="icon" href="{{.box.map}}" >
+
+                        <i class="icon ion-md-navigate"></i>
+                        {{ .box.address }}
+                        </a>
                 </li>
                 <li>
-                    <i class="fa fa-envelope-o"></i>{{ .box.email }}
+                       
+                        <a class="icon" href="mailto:{{ .box.mail}}">
+                       <i class="icon ion-md-mail"></i>
+                                {{ .box.mail }}
+                    </a>
                 </li>
                 <li>
-                    <i class="fa fa-phone"></i>{{ .box.phone }}
+                        <a class="icon" >
+                                <i class="icon ion-md-call"></i>
+                                {{ .box.phone }}
+                             </a>
+                    
                 </li>
-                <li>
-                    <a href="{{ .social.facebook }}"><i class="fa {{ .social.faIcon }}"></i>{{ .social.facebook }}</a>
-                </li>
+              
             </ul>
-                {{ with .social }}  
-                <h2>{{ .title }}</h2>
-                <ul >
-                  <li>
-                    <a href="{{ .facebook }}"><i class="fa {{ .faIcon }}"></i>{{ .facebook }}</a>
-                </li>
-                <li>
-                    <a href="{{ .linkedIn }}"><i class="fa {{ .lkIcon }}"></i></a>
-                  </li>
-                {{ end }}
-                </ul>
 
         
+    </div>
 
-  
+</div>
 </section>
 </div>
 {{end}}

@@ -80,16 +80,34 @@ theme = "blksail"
     [params.contact.box]
       title = "Stop by for a visit"
       address = "Your complete adresse + USA"
-      email = "Email: contact@mail.com"
-      phone = "Phone: +1 489 904 8 868 202 "
+      map = "https://www.google.com/maps"
+      mail = "contact@mail.com"
+      phone = "+1 489 904 8 868 202 "
 
     [params.contact.gmaps]
       title = "We Also Count in Google Maps"
 
     [params.contact.social]
-      title = "Let's keep in touch"
-      facebook = "facebook url "
-      faIcon = "ionicon fa"
-      lkIcon ="ionicon linkedIn"
-      linkedIn = " Linkedin url "
-      instgram = "  Insta url "
+    title = "Let's keep in touch"
+    facebook = "facebook url "
+    linkedIn = " Linkedin url "
+    instgram = "  Insta url "
+
+
+    [[menu.footer]]
+      weight = 1
+      name = "About us"
+      url = "#"
+    [[menu.footer]]
+      weight = 2
+      name = "Contact us"
+      url = "/Contact"
+    
+    [[menu.footer]]
+      weight = 4
+      name = "Blog"
+      url = "/Blog"
+    [[menu.footer]]
+      weight = 5
+      name = "Terms"
+      url = "#"
