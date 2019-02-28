@@ -1,68 +1,83 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "BlkSail Site"
+title = "blkSAIL - Marine Autonomy As A Service"
 theme = "blksail"
 
-# The site's parameters
-[params]
-  home = "Home"
-  
-  [menu]
+[menu]
 
-    [[menu.header]]
-      weight = 2
-      name = "Blog"
-      url = "/Blog"
-    
-    [[menu.header]]
-      weight = 5
-      name = "Contact"
-      url = "/contact"
+  [[menu.header]]
+    weight = 2
+    name = "Blog"
+    url = "/Blog"
 
+  [[menu.header]]
+    weight = 5
+    name = "Contact"
+    url = "/contact"
 
-   [params.bgVideo]
-    enable = true
-    vidBoat1 =  "img/boat_sail.mov"
+  [[menu.footer]]
+    weight = 1
+    name = "About us"
     url = "#"
 
-  
+  [[menu.footer]]
+    weight = 2
+    name = "Contact us"
+    url = "/Contact"
 
-[params.wrapper]
-    enable = true
-    image = "img/beach12.mp4"
-    title = "Completely autonomous in complex environments"
-    paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are sailing in oceans and seas.  ................"
+  [[menu.footer]]
+    weight = 4
+    name = "Blog"
+    url = "/Blog"
+  [[menu.footer]]
+    weight = 5
+    name = "Terms"
+    url = "#"
 
-[params.iconsbox]
-    enable = true
-    title = "BLKSAIL is developing the future of autonomous boats, today."
-    first_paragraph = "Zero-emissions "
-    second_paragraph = "Fully autonomous "
-    third_paragraph = "Mobility-as-a-service"
-    bgImg = "img/background_image.jpg"
+[params]
+  home = "Home"
 
-    [params.wrapper2]
+  [params.bgVideo]
+  enable = true
+  vidBoat1 =  "img/boat_sail.mov"
+  url = "#"
+
+  [params.wrapper]
+      enable = true
+      image = "img/beach12.mp4"
+      title = "Completely autonomous in complex environments"
+      paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are sailing in oceans and seas.  ................"
+
+  [params.iconsbox]
+      enable = true
+      title = "BLKSAIL is developing the future of autonomous boats, today."
+      first_paragraph = "Zero-emissions "
+      second_paragraph = "Fully autonomous "
+      third_paragraph = "Mobility-as-a-service"
+      bgImg = "img/background_image.jpg"
+
+  [params.wrapper2]
     enable = true
     video = "img/boat_sailing2.mp4"
     title = "Completely autonomous in complex environments"
     paragraph = "Completely autonomous in complex environments, BLKSAIL is driving autonomously in ways that no one else has shown. We are sailing in oceans and seas.  ................"
 
-    [params.openPositions]
+  [params.openPositions]
     title = "Some text goes here."
 
 
-    [params.info]
+  [params.info]
     bgVideo="img/background_video.mp4"
 
 
-    [params.contact]
+  [params.contact]
     enable = true
     title = "Contact us"
     subtitle ="Check out some of our latest work. "
     bgImage = "img/background_img.jpg"
 
 
- [params.contact.box]
+    [params.contact.box]
       title = "Stop by for a visit"
       address = "Your complete adresse + USA"
       email = "Email: contact@mail.com"
@@ -72,28 +87,9 @@ theme = "blksail"
       title = "We Also Count in Google Maps"
 
     [params.contact.social]
-    title = "Let's keep in touch"
-    facebook = "facebook url "
-    faIcon = "ionicon fa"
-    lkIcon ="ionicon linkedIn"
-    linkedIn = " Linkedin url "
-    instgram = "  Insta url "
-
-
-    [[menu.footer]]
-      weight = 1
-      name = "About us"
-      url = "#"
-    [[menu.footer]]
-      weight = 2
-      name = "Contact us"
-      url = "/Contact"
-    
-    [[menu.footer]]
-      weight = 4
-      name = "Blog"
-      url = "/Blog"
-    [[menu.footer]]
-      weight = 5
-      name = "Terms"
-      url = "#"
+      title = "Let's keep in touch"
+      facebook = "facebook url "
+      faIcon = "ionicon fa"
+      lkIcon ="ionicon linkedIn"
+      linkedIn = " Linkedin url "
+      instgram = "  Insta url "
