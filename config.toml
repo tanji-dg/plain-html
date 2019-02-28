@@ -60,12 +60,14 @@ theme = "blksail"
     enable = true
     video = "img/boat_sailing2.mp4"
     title = "Autonomy for the Maritime is not just a gimmick, it is the game changer."
-    paragraph = "Autonomy and Captain-Assistance will create new business models and potentially change the way marine operations are run forever. blkS▵IL technology enables \"Just-In-Time\" sailing, fuel-savings, and reduces any risk of collision."
+    paragraph = "Autonomy and Captain-Assistance will create new business models and potentially change the way marine operations are run forever. <br> blkS▵IL technology enables \"Just-In-Time\" sailing, fuel-savings, and reduces any risk of collision."
 
   
 
   [params.info]
     bgVideo="img/background_video.mp4"
+    title ="FORGET ROBO-CARS AND HIT <br> THE WATER ON AN AUTONOMOUS BOAT"
+    paragraph =" Large and small—self-piloting boats, could save fuel, prevent expensive accidents and groundings, and relieve crews of some of mundanity of life on the water."
 
 
   [params.contact_wrapper]
