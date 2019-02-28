@@ -1,46 +1,92 @@
 
+<div class="container">
+        <section id="contact-us" class="section section-split section-contact" style="background-color:#e6ecf0;">
+                  
+                <div class="section-split__left">
+                        <div class="split-spacer"></div>
+<div class="section-split__left__container ">
+        <h2>{{ .Site.Params.contact.title }}</h2>
+        <a href="#" class="button_a">Something</a>       
+                </div>
+                        
+             </div>
 
-<!--Contact form start-->
+             <div class="section-split__right">
+                            <div class="blog-images">
+                                    
+
+                                    {{ with .Site.Params.contact }}
+                                            <ul class="address-block">
+                                                    <li>
+                                                            <a class="icon" href="{{.box.map}}" >
+                                    
+                                                            <i class="icon ion-md-navigate"></i>
+                                                            {{ .box.address }}
+                                                            </a>
+                                                    </li>
+                                                    <li>
+                                                           
+                                                            <a class="icon" href="mailto:{{ .box.mail}}">
+                                                           <i class="icon ion-md-mail"></i>
+                                                                    {{ .box.mail }}
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                            <a class="icon" >
+                                                                    <i class="icon ion-md-call"></i>
+                                                                    {{ .box.phone }}
+                                                                 </a>
+                                                        
+                                                    </li>
+                                                  
+                                                </ul>
+
+
+
+                            {{ end}}
+
+            </div>
+            
+</section>
+</div>
+
+
+
+
+<!--
 {{ with .Site.Params.contact }}
 <div class="container" >
 <section id="contact-section">
-    <div class="section-header">
-            <h1>Contact Us</h1>
-            <h2>Our team of black sail is ready to hear from you</h2>
-
-    </div>
-    <div class="contact-info">
-    <div class="contact-box">
-            <h2>{{ .box.title }}</h2>
+    
+        <div>
             <ul class="address-block">
-                <li>
-                        <a class="icon" href="{{.box.map}}" >
-
-                        <i class="icon ion-md-navigate"></i>
-                        {{ .box.address }}
+                    <li>
+                            <a class="icon" href="{{.box.map}}" >
+    
+                            <i class="icon ion-md-navigate"></i>
+                            {{ .box.address }}
+                            </a>
+                    </li>
+                    <li>
+                           
+                            <a class="icon" href="mailto:{{ .box.mail}}">
+                           <i class="icon ion-md-mail"></i>
+                                    {{ .box.mail }}
                         </a>
-                </li>
-                <li>
-                       
-                        <a class="icon" href="mailto:{{ .box.mail}}">
-                       <i class="icon ion-md-mail"></i>
-                                {{ .box.mail }}
-                    </a>
-                </li>
-                <li>
-                        <a class="icon" >
-                                <i class="icon ion-md-call"></i>
-                                {{ .box.phone }}
-                             </a>
-                    
-                </li>
-              
-            </ul>
+                    </li>
+                    <li>
+                            <a class="icon" >
+                                    <i class="icon ion-md-call"></i>
+                                    {{ .box.phone }}
+                                 </a>
+                        
+                    </li>
+                  
+                </ul>
+ 
+            </div>
 
-        
-    </div>
-
-   <!-- <div class="social-media">
+  <div class="social-media">
 
             <ul class="social-icons">
                     {{ with .social }}  
@@ -58,38 +104,13 @@
                         
                     </li>
         </ul>
-    </div>  -->
-    <div id="contact-box">
-            <h2>{{ .box.title }}</h2>
-            <ul class="address-block">
-                <li>
-                        <a class="icon" href="{{.box.map}}" >
-
-                        <i class="icon ion-md-navigate"></i>
-                        {{ .box.address }}
-                        </a>
-                </li>
-                <li>
-                       
-                        <a class="icon" href="mailto:{{ .box.mail}}">
-                       <i class="icon ion-md-mail"></i>
-                                {{ .box.mail }}
-                    </a>
-                </li>
-                <li>
-                        <a class="icon" >
-                                <i class="icon ion-md-call"></i>
-                                {{ .box.phone }}
-                             </a>
-                    
-                </li>
-              
-            </ul>
+    </div>  
+    
 
         
-    </div>
-
 </div>
 </section>
 </div>
 {{end}}
+
+-->

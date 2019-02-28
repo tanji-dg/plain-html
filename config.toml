@@ -13,7 +13,7 @@ theme = "blksail"
   [[menu.header]]
     weight = 5
     name = "Contact"
-    url = "/contact"
+    url = "contact-us"
 
   [[menu.footer]]
     weight = 1
@@ -62,13 +62,16 @@ theme = "blksail"
     title = "Autonomy for the Maritime is not just a gimmick, it is the game changer."
     paragraph = "Autonomy and Captain-Assistance will create new business models and potentially change the way marine operations are run forever. blkS▵IL technology enables \"Just-In-Time\" sailing, fuel-savings, and reduces any risk of collision."
 
-  [params.openPositions]
-    title = "Some text goes here."
-
+  
 
   [params.info]
     bgVideo="img/background_video.mp4"
 
+
+  [params.contact_wrapper]
+  title = " The title of this section "
+  paragraph = " The content of this section that called (contcat_wrapper) in config.toml "
+  bgImage = "img/contact_background.jpg"
 
   [params.contact]
     enable = true
