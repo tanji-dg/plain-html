@@ -19,7 +19,7 @@
                               <span class="icon-bar"></span>
                             </button>
                             <a class="navbar-brand" href="{{ .Site.BaseURL }}">
-                              <img src="{{ .Site.BaseURL }}img/blkSAIL_logo.png" alt="{{ .Site.Title }} Logo">
+                              <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }} Logo">
                             </a>
                           </div>
                           
@@ -29,7 +29,7 @@
                             <ul class="nav navbar-nav navbar-right">
                               <li><a href="{{ .Site.BaseURL }}">{{ .Site.Params.home }}</a></li>
                               {{ range .Site.Menus.header }}
-                              <li><a href="#{{ .URL }}/">{{ .Name }}</a></li>
+                              <li><a href="{{ .URL }}/">{{ .Name }}</a></li>
                               {{ end }}
                             </ul>
                           </div><!-- /.navbar-collapse -->

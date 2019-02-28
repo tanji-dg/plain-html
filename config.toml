@@ -36,6 +36,7 @@ theme = "blksail"
 
 [params]
   home = "Home"
+  logo = "/img/logo.svg"
 
   [params.bgVideo]
   enable = true
