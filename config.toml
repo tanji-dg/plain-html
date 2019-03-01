@@ -9,12 +9,14 @@ theme = "blksail"
     weight = 2
     name = "Blog"
     url = "/Blog"
+    local = false
 
   [[menu.header]]
     weight = 5
     name = "Contact"
-    url = "contact-us"
-
+    url = "#contact-us"
+    local = true
+    
   [[menu.footer]]
     weight = 1
     name = "About us"
@@ -22,7 +24,7 @@ theme = "blksail"
 
   [[menu.footer]]
     weight = 2
-    name = "Contact us"
+    name = "Contact"
     url = "/Contact"
 
   [[menu.footer]]

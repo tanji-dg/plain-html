@@ -18,7 +18,10 @@
                               <span class="icon-bar"></span>
                               <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="{{ .Site.BaseURL }}">
+
+                            {{"<!-- logo -->" | safeHTML}}
+
+                            <a class="navbar-brand logo" href="{{ .Site.BaseURL }}">
                               <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }} Logo">
                             </a>
                           </div>
@@ -28,8 +31,8 @@
                           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
                               <li><a href="{{ .Site.BaseURL }}">{{ .Site.Params.home }}</a></li>
-                              {{ range .Site.Menus.header }}
-                              <li><a href="{{ .URL }}/">{{ .Name }}</a></li>
+                              {{ range $.Site.Menus.header }}
+                              <li><a href="{{ $.Site.BaseURL }}{{ .URL }}">{{ .Name }}</a></li>
                               {{ end }}
                             </ul>
                           </div><!-- /.navbar-collapse -->
