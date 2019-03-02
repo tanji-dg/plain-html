@@ -101,21 +101,3 @@ theme = "blksail"
     linkedIn = " Linkedin url "
     instgram = "  Insta url "
 
-
-    [[menu.footer]]
-      weight = 1
-      name = "About us"
-      url = "#"
-    [[menu.footer]]
-      weight = 2
-      name = "Contact us"
-      url = "/Contact"
-    
-    [[menu.footer]]
-      weight = 4
-      name = "Blog"
-      url = "/Blog"
-    [[menu.footer]]
-      weight = 5
-      name = "Terms"
-      url = "#"
