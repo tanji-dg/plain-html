@@ -232,68 +232,10 @@ background-color: transparent;
 
 
 
-.section--green {
-    background-color: #456173;
-}
-
-  .section--green .section--full__container{
-    max-width: 800px +below('m');
-  }
-  .section--green  .section--full__container .full-width-spacer{
-      display: flex;
-  }
-  .section--green  .section--full__container .full-width-content{
-      position: relative;
-  }
-  .section--green h2{
-    max-width: 400px;
-    margin: auto;
-    padding-bottom: 20%;
-  }
-  .section--full__container  > div{
-    display: flex;
-    flex-direction: column +above('m');
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-  }
- 
   .is-white{
       color: white;
     font-size: 18px;
   }
-
-
-.section-green-icon{
-  margin: 0 30px;
- 
-  }
-.section--green__image{
-  margin-top: 20px;
-    height: 200px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-
- 
-.section-green-icon-1 img{
-   width:100px  ;
-  }
-    .section-green-icon-2 img
-  {
-    width:  140px;
-  }
-  .section-green-icon-3 img
-    {
-        width: 120px;
-      }
 
 
 
@@ -415,88 +357,69 @@ background-color: transparent;
       }
 
 
-      /*green icons*/
-
-      .section-green-icons > div{
+      /*section iconsbox*/
+      .section--iconsbox {
+        background-color: #456173;
+    }
     
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
+      .section--iconsbox .section--full__container {
+        max-width: 800px;
+      }
+      @media only screen and (max-width: 800px) {
+        .section--iconsbox .full-width-spacer {
+          display: none;
+        }
+        .section--iconsbox .full-width-content {
+          position: relative;
+        }
+      }
+      .section--iconsbox h2 {
+        max-width: 400px;
+        margin: auto;
+      }
+      .section-iconsbox-icons > div {
+        display: flex;
+        flex-direction: column;
+      }
+      @media only screen and (min-width: 600px) {
+        .section-iconsbox-icons {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+        }
+      }
+      .section-iconsbox-icon {
+        margin: 0 30px;
+      }
+      .section--iconsbox__image {
+        margin-top: 20px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media only screen and (max-width: 600px) {
+        .section--iconsbox__image {
+          height: 100px;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .section-iconsbox-icon-1 img {
+          width: 63px;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .section-iconsbox-icon-2 img {
+          width: 66px;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .section-iconsbox-icon-3 img {
+          width: 49px;
+        }
+      }
 
-.section-green-icons p{
-  margin-top: 50%;
-}
-  
-.section-green-icon{
-  margin: 0 30px;
-}
-
-.section--green .section--full__container {
-  max-width: 800px;
-}
-@media only screen and (max-width: 800px) {
-  .section--green .full-width-spacer {
-    display: none;
-  }
-  .section--green .full-width-content {
-    position: relative;
-  }
-}
-.section--green h2 {
-  max-width: 400px;
-  margin: auto;
-}
-.section-green-icons > div {
-  display: flex;
-  flex-direction: column
-}
-@media only screen and (min-width: 600px) {
-  .section-green-icons {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-  }
-}
-.section--green__image{
-  margin-top: 20px;
-  height: 100px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-@media only screen and (max-width: 600px) {
-  .section--green__image {
-    height: 100px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .section-green-icon-1 img {
-    width: 63px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .section-green-icon-2 img {
-    width: 66px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .section-green-icon-3 img {
-    width: 49px;
-  }
-}
-
-
-/**/
+/*End of section iconsbox*/
 
 
 @media only screen and (min-width: 600px){
