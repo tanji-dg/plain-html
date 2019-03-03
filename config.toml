@@ -16,25 +16,6 @@ theme = "blksail"
     name = "Contact"
     url = "#contact-us"
     local = true
-    
-  [[menu.footer]]
-    weight = 1
-    name = "About us"
-    url = "#"
-
-  [[menu.footer]]
-    weight = 2
-    name = "Contact"
-    url = "/Contact"
-
-  [[menu.footer]]
-    weight = 4
-    name = "Blog"
-    url = "/Blog"
-  [[menu.footer]]
-    weight = 5
-    name = "Terms"
-    url = "#"
 
 [params]
   home = "Home"
@@ -54,8 +35,11 @@ theme = "blksail"
   [params.iconsbox]
       enable = true
       title = "blkS▵IL is developing future of Maritime, today."
+      first_glyph = "fa-ship"
       first_paragraph = "Custom Built for the Maritime"
+      second_glyph = "fa-compass"
       second_paragraph = "Auto-Pilot & DP Compatible"
+      third_glyph = "fa-random"
       third_paragraph = "Modular & Customizable"
       bgImg = "img/background_image.jpg"
 
@@ -65,7 +49,7 @@ theme = "blksail"
     title = "Autonomy for the Maritime is not just a gimmick, it is the game changer."
     paragraph = "Autonomy and Captain-Assistance will create new business models and potentially change the way marine operations are run forever. <br> blkS▵IL technology enables \"Just-In-Time\" sailing, fuel-savings, and reduces any risk of collision."
 
-  
+
 
   [params.info]
     bgVideo="img/background_video.mp4"
