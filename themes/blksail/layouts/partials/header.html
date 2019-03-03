@@ -1,34 +1,27 @@
 <!-- Header Start -->
 <!-- Header Start -->
 <header >
-                <div class="site-header-container">
 
-        <div class="site-header">
-
-                <div class="container">
-                  <div class="flex-row">
+                <div class="jumbotron">
                       <!-- header Nav Start -->
                       <nav class="navbar navbar-default">
-                        <div >
-                          <!-- Brand and toggle get grouped for better mobile display -->
                           <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" >
-                              <span >Menu</span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                            </button>
 
-                            {{"<!-- logo -->" | safeHTML}}
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse_target" >
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
 
                             <a class="navbar-brand logo" href="{{ .Site.BaseURL }}">
                               <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }} Logo">
                             </a>
                           </div>
-                          
+     
               
                           <!-- Collect the nav links, forms, and other content for toggling -->
-                          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                          <div class="collapse navbar-collapse" id="collapse_target">
                             <ul class="nav navbar-nav navbar-right">
                               <li><a href="{{ .Site.BaseURL }}">{{ .Site.Params.home }}</a></li>
                               {{ range $.Site.Menus.header }}
@@ -39,9 +32,8 @@
                         </div><!-- /.container-fluid -->
                       </nav>
                     </div>
-                </div>
-        </div>
-                </div>
+        
+        
               </header>
               
     

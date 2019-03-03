@@ -17,19 +17,18 @@ body{
     font-family: 'Planer Light';
 
 }
-.navbar.navbar-default {
-background-color: transparent;
-    border: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+.jumbotron{
+  background-color: transparent;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+ 
 }
-
-.navbar.navbar-default .navbar-collapse {
-    border: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+.navbar-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-
 .navbar-brand {
     transform: translateX(-50%);
     left: 50%;
@@ -505,7 +504,33 @@ background-color: transparent;
   padding: 2% 5% 2% 5%;
 }
 
+@media (min-width:576px)
+{
+  .overlay_text{
+    padding:4rem 2rem; 
+  }
+}
 
+@media (min-width:576px)
+{
+  .overlay_text h2{
+    font-size:14px; 
+  }
+}
+@media (min-width:576px)
+{
+  .overlay_text h3{
+    font-size:12px; 
+  }
+}
+
+
+.overlay_text h2{
+  font-size:24px; 
+}
+.overlay_text h3{
+  font-size:20px; 
+}
 
 /*footer*/
 
