@@ -5,7 +5,7 @@
                 <div class="section-split__left">
                         <div class="split-spacer"></div>
 <div class="section-split__left__container">
-                <h2>Stay connected</h2>
+                <h2>{{ .Site.Params.contact.title}}</h2>
                 <br>
                 <div id="mc_embed_signup">
                                 <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
@@ -31,7 +31,6 @@
 
 
              <div class="section-split__right">
-                            <div class="blog-images">
                                     
 
                                     {{ with .Site.Params.contact }}
@@ -57,14 +56,28 @@
                                                                  </a>
                                                         
                                                     </li>
-                                                  
-                                                </ul>
+                                                    <li style="display:inline-block;">
+                                                                <a href="{{ .social.facebook }}"><i class="fa {{ .social.fa_glyph }}"></i>
+                                                                </a>
+                                                           </li>
+                                                           <li style="display:inline-block;">
+                                                                        <a href="{{ .social.linkedin }}"><i class="fa {{ .social.lkd_glyph }}"></i>
+                                                                        </a>
+                                                                   </li>
+
+                                                                   <li style="display:inline-block;">
+                                                                                <a href="{{ .social.instagram }}"><i class="fa {{ .social.insta_glyph }}"></i>
+                                                                                </a>
+                                                                           </li>
+                                        </ul>
 
 
 
                             {{ end}}
-
+            
+     
             </div>
+
             
 </section>
 </div>

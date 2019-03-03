@@ -57,31 +57,24 @@ theme = "blksail"
     paragraph =" Large and small—self-piloting boats, could save fuel, prevent expensive accidents and groundings, and relieve crews of some of mundanity of life on the water."
 
 
-  [params.contact_wrapper]
-  title = " The title of this section "
-  paragraph = " The content of this section that called (contcat_wrapper) in config.toml "
-  bgImage = "img/contact_background.jpg"
-
   [params.contact]
     enable = true
-    title = "Contact us"
-    subtitle ="Check out some of our latest work. "
-    bgImage = "img/background_img.jpg"
+    title = "Stay connected"
+   
 
 
     [params.contact.box]
-      title = "Stop by for a visit"
       address = "Your complete adresse + USA"
       map = "https://www.google.com/maps"
       mail = "contact@mail.com"
       phone = "+1 489 904 8 868 202 "
 
-    [params.contact.gmaps]
-      title = "We Also Count in Google Maps"
 
     [params.contact.social]
-    title = "Let's keep in touch"
     facebook = "facebook url "
-    linkedIn = " Linkedin url "
-    instgram = "  Insta url "
+    fa_glyph = "fa-facebook"
+    linkedIn = "Linkedin url "
+    lkd_glyph ="fa-linkedin"
+    instgram = " Insta url "
+    insta_glyph ="fa-instagram"
 
