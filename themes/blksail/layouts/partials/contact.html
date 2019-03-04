@@ -1,14 +1,13 @@
 
 <div class="container">
         <section id="contact-us" class="section section-split section-contact" style="background-color:#e6ecf0;">
-                  
                 <div class="section-split__left">
                         <div class="split-spacer"></div>
 <div class="section-split__left__container">
                 <h2>{{ .Site.Params.contact.title}}</h2>
                 <br>
                 <div id="mc_embed_signup">
-                                <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+                                <form method="POST" onsubmit="return contact()" accept-charset="UTF-8" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate="novalidate">
                                   <div id="mc_embed_signup_scroll">
                                     <div class="mc-field-group">
                                       <div class="subscribe-form">
@@ -22,9 +21,13 @@
                                                   <div class="response" id="mce-success-response" style="display:none"></div>
                                           </div>    
 
+                                        <div id="mce-responses" class="clear">
+                                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                                <div class="response" id="mce-success-response" style="display:none"></div>
                                         </div>
-                                </form>
                                 </div>
+                        </form>
+                </div>
                         
              </div>
         </div>
