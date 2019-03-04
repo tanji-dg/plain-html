@@ -224,7 +224,7 @@ body{
         -ms-flex-align: center;
         align-items: center;
         padding: 55px 15px;
-
+        background-color: #456173;
 }
 
 /*section icons*/
@@ -298,7 +298,10 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
+        /*
+        Removed as a fix for mobile display
         width: 50%;
+        */
         padding: 5%;
 
       }
