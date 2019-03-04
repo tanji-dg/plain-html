@@ -270,8 +270,6 @@ body{
       .third-container{
           display: flex;
           flex-direction: column;
-          padding: 0;
-          margin-block-start: 1%;
       }
 
     .button_a {
@@ -302,8 +300,7 @@ body{
       @media only screen and (min-width: 600px) {
         .third-container {
           flex-direction: row;
-          justify-content: center;
-          align-items: center;
+          
         }
         .third-container.section-split--flip {
           flex-direction: row-reverse;
@@ -315,47 +312,38 @@ body{
           width: 50%;
         }
       }
-      .left-content{
+      .left-content.text_cont{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        /*
-        Removed as a fix for mobile display
-        width: 50%;
-        */
+        align-content: center;
         padding: 5%;
 
       }
-      .third-container .left-content {
+      .left-content.text_content{
         display: flex;
-        align-items: center;
-      }
+        flex-direction: column;
+        align-content: center;
+        padding-left: 10px;
+        padding-right: 10px;
 
-   
-
-      .third-container .left-content-img img{
-        display:flex;
-        flex-direction: row;
-        align-items: flex-start;
-        max-width: 50%;
       }
     
       
       @media only screen and (max-width: 800px) {
-        .third-container .left-content {
+        .third-container .left-content.text_cont {
           text-align: center !important;
         }
-        .section-split--news.third-container .left-content {
-          text-align: left !important;
-        }
       }
-      .third-container .rigth-content img {
-        width: 100%;
-        height: 100%;
-      }
+       
+      
       .third-container .rigth-content video {
         width: 100%;
         height: 100%;
+      }
+      .third-container .left-content video {
+        width: 100%;
+        height: 100%;
+        padding: 0%;
       }
       .section-split__left__container {
         padding: 1em;
@@ -883,3 +871,10 @@ color: #f5f5f5;
 font-size: 20px;
 padding-top: 5%;
 }
+
+
+/**************************************/
+/*************************************/
+
+
+
