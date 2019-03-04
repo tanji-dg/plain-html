@@ -4,6 +4,7 @@
 
                 <div class="jumbotron">
                       <!-- header Nav Start -->
+                      <div class="container">
                       <nav class="navbar navbar-default">
                           <div class="navbar-header">
 
@@ -23,16 +24,16 @@
                           <!-- Collect the nav links, forms, and other content for toggling -->
                           <div class="collapse navbar-collapse" id="collapse_target">
                             <ul class="nav navbar-nav navbar-right">
-                              <li><a href="{{ .Site.BaseURL }}">{{ .Site.Params.home }}</a></li>
+                              <li class="nav-item"><a class="nav-link"  href="{{ .Site.BaseURL }}">{{ .Site.Params.home }}</a></li>
                               {{ range $.Site.Menus.header }}
-                              <li><a href="{{ $.Site.BaseURL }}{{ .URL }}">{{ .Name }}</a></li>
+                              <li class="nav-item"><a class="nav-link" href="{{ $.Site.BaseURL }}{{ .URL }}">{{ .Name }}</a></li>
                               {{ end }}
                             </ul>
                           </div><!-- /.navbar-collapse -->
                         </div><!-- /.container-fluid -->
                       </nav>
                     </div>
-        
+                  </div>
         
               </header>
               
