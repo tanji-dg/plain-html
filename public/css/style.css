@@ -13,6 +13,7 @@
 }
 
 
+
 body{
     font-family: 'Planer Light';
 
@@ -22,6 +23,7 @@ body{
     max-width: 1240px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0;
  
 }
 .navbar-header{
@@ -50,6 +52,7 @@ body{
     
 }
 
+
 .nav li a{
     text-decoration: none;
     font-weight: 600;
@@ -60,6 +63,14 @@ body{
     color: #9b9b9b;    
 }
 
+.navbar-default{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+   border-color: transparent; 
+}
     @media only screen and (min-width: 600px) {
         .site-header {
           justify-content: center;
@@ -67,6 +78,24 @@ body{
         }
       }
 
+
+      #first-wrapper .row{
+        max-width: 1240px;
+        margin-left: auto;
+        margin-right: auto;
+            
+      }
+
+      .split-img {
+        max-width: 100%;
+        width: auto;
+        vertical-align: right;
+    }
+
+    .vid-split {
+      max-width: 100%;
+      height: auto;
+  }
       .site-header-container {
         width: 100%;
         overflow: hidden;
@@ -198,11 +227,7 @@ body{
       right: 0;
       top: 0;
       bottom: 0;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
   }
 
@@ -217,11 +242,7 @@ body{
         right: 0;
         top: 0;
         bottom: 0;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
         padding: 55px 15px;
         background-color: #456173;
@@ -249,8 +270,6 @@ body{
       .third-container{
           display: flex;
           flex-direction: column;
-          padding: 0;
-          margin-block-start: 1%;
       }
 
     .button_a {
@@ -281,8 +300,7 @@ body{
       @media only screen and (min-width: 600px) {
         .third-container {
           flex-direction: row;
-          justify-content: center;
-          align-items: center;
+          
         }
         .third-container.section-split--flip {
           flex-direction: row-reverse;
@@ -294,47 +312,37 @@ body{
           width: 50%;
         }
       }
-      .left-content{
+      .left-content.text_cont{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        /*
-        Removed as a fix for mobile display
-        width: 50%;
-        */
+        align-content: center;
         padding: 5%;
 
       }
-      .third-container .left-content {
+      .text_content{
         display: flex;
-        align-items: center;
-      }
+        flex-direction: column;
+        align-content: center;
+        padding:5%;
 
-   
-
-      .third-container .left-content-img img{
-        display:flex;
-        flex-direction: row;
-        align-items: flex-start;
-        max-width: 50%;
       }
     
       
       @media only screen and (max-width: 800px) {
-        .third-container .left-content {
+        .third-container .left-content.text_cont {
           text-align: center !important;
         }
-        .section-split--news.third-container .left-content {
-          text-align: left !important;
-        }
       }
-      .third-container .rigth-content img {
-        width: 100%;
-        height: 100%;
-      }
+       
+      
       .third-container .rigth-content video {
         width: 100%;
         height: 100%;
+      }
+      .third-container .left-content video {
+        width: 100%;
+        height: 100%;
+        padding: 0%;
       }
       .section-split__left__container {
         padding: 1em;
@@ -395,7 +403,7 @@ body{
       }
       .section--iconsbox__image {
         margin-top: 20px;
-        height: 200px;
+        height: 150px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -424,64 +432,6 @@ body{
 /*End of section iconsbox*/
 
 
-@media only screen and (min-width: 600px){
-.section-hero {
-    padding-bottom: 50%;
-}
-}
-.section-hero {
-    position: relative;
-    padding: 0;
-    padding-bottom: 100%;
-}
-.section-hero__background {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  -webkit-transition: opacity .4s ease;
-  transition: opacity .4s ease;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-
-.background-video-desktop {
-  display: none;
-}
-@media only screen and (min-width: 600px) {
-  .background-video-desktop {
-    display: block;
-  }
-}
-@media only screen and (min-width: 600px) {
-  .background-video-mobile {
-    display: none;
-  }
-}
-
-.background-video-cover {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 100%;
-  width: 100%;
-}
-@media only screen and (min-width: 600px){
-.background-video {
-    height: 130%;
-}
-}
-.section-container {
-  max-width: 1240px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2px 4px;
-}
-
 .bgvideo-container {
   position: relative;
 }
@@ -507,32 +457,28 @@ body{
   padding: 2% 5% 2% 5%;
 }
 
-@media (min-width:576px)
-{
-  .overlay_text{
-    padding:4rem 2rem; 
-  }
-}
-
-@media (min-width:576px)
-{
+@media screen and (min-width: 601px) {
   .overlay_text h2{
-    font-size:14px; 
+    font-size: 20px;
   }
 }
-@media (min-width:576px)
-{
+
+@media screen and (min-width: 601px) {
   .overlay_text h3{
-    font-size:12px; 
+    font-size: 18px;
   }
 }
 
-
-.overlay_text h2{
-  font-size:24px; 
+@media screen and (max-width: 600px) {
+  .overlay_text h2{
+    font-size: 12px;
+  }
 }
-.overlay_text h3{
-  font-size:20px; 
+
+@media screen and (max-width: 600px) {
+  .overlay_text h3{
+    font-size: 8px;
+  }
 }
 
 /*footer*/
@@ -925,6 +871,9 @@ font-size: 20px;
 padding-top: 5%;
 }
 
-.navbar-default{
-  background-color: transparent;
-}
+
+/**************************************/
+/*************************************/
+
+
+

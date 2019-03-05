@@ -26,6 +26,7 @@ body{
     margin-bottom: 0;
  
 }
+
 .navbar-header{
   display: flex;
   flex-direction: row;
@@ -45,13 +46,12 @@ body{
   .nav li{
     color: #353535;
     font-weight: 600;
-    font-style: normal;
+    font-style : normal;
     font-family: 'Planer Light';
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
     
-}
-
+  }
 
 .nav li a{
     text-decoration: none;
@@ -63,14 +63,7 @@ body{
     color: #9b9b9b;    
 }
 
-.navbar-default{
-  background-color: transparent;
-  border-color: transparent;
-}
 
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-   border-color: transparent; 
-}
     @media only screen and (min-width: 600px) {
         .site-header {
           justify-content: center;
@@ -873,7 +866,17 @@ padding-top: 5%;
 
 
 /**************************************/
+        /****BLOG Style*****/
 /*************************************/
 
 
+.blog-heading{
+background-image: transparent url('/img/blogHeaderBg.jpg');
+background-repeat:  no-repeat;
+background-position:  center center; 
+background-size: cover;
+}
 
+.heading-text{
+text-align: center;
+}

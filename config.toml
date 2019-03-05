@@ -78,3 +78,11 @@ theme = "blksail"
     instgram = " Insta url "
     insta_glyph ="fa-instagram"
 
+    [params.blog]
+    enable = true
+    paginate = 4
+    title ="my blog"
+    subtitle=" subtitle "
+    bgimage = "img/blogHeaderBg.jpg"
+
+ 
