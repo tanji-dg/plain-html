@@ -113,7 +113,7 @@ body{
       }
    
 
-      @media only screen and (min-width: 600px){
+      @media only screen and (min-width: 800px){
         .container {
             padding: 6px 20px;
         }
@@ -265,6 +265,17 @@ body{
           flex-direction: column;
       }
 
+      
+      
+    
+    
+      @media only screen and (max-width:800){
+        .container-contact{
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      }
     .button_a {
       color: black;
       text-transform: uppercase;
@@ -290,7 +301,7 @@ body{
           flex-direction: column-reverse;
         }
       }
-      @media only screen and (min-width: 600px) {
+      @media only screen and (min-width: 800px) {
         .third-container {
           flex-direction: row;
           
@@ -299,7 +310,7 @@ body{
           flex-direction: row-reverse;
         }
       }
-      @media only screen and (min-width: 600px) {
+      @media only screen and (min-width: 800px) {
         .third-container .left-content,
         .third-container .rigth-content {
           width: 50%;
@@ -359,7 +370,34 @@ body{
         }
       }
 
+@media only screen and (max-width: 600px){
+  .logo{
+    margin-left: 30px;
+  }
+}
+@media only screen and (max-width: 600px){
+  .container{
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+@media only screen and (min-width: 800px){
+  .vid-container{
+    width: 100%;
+    height : 100%;
+  }
+}
 
+@media only screen and (min-width: 800px){
+  .vid-container video{
+    width: 100%;
+    height : 100%;
+  }
+}
+.third-container .left-content video {
+  width: 100%;
+  height: 100%;
+}
       /*section iconsbox*/
       .section--iconsbox {
         background-color: #456173;
@@ -447,30 +485,30 @@ body{
 }
 
 .overlay-desc h3{
-  padding: 2% 5% 2% 5%;
+  padding: 2% 10% 0% 10%;
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 800px) {
   .overlay_text h2{
-    font-size: 20px;
+    font-size: 40px;
   }
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 800px) {
   .overlay_text h3{
-    font-size: 18px;
+    font-size: 26px;
   }
 }
 
 @media screen and (max-width: 600px) {
   .overlay_text h2{
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
 @media screen and (max-width: 600px) {
   .overlay_text h3{
-    font-size: 8px;
+    font-size: 13px;
   }
 }
 
@@ -569,6 +607,7 @@ color: #f2f2f0;
     align-items: center;
 
   }
+  
 #contact-box{
   display: flex;
   flex-direction: column;
@@ -754,20 +793,25 @@ color: #f2f2f0;
   display: flex;
   flex-direction: column;
 }
+
+
+@media only screen and (min-width: 800px) {
+  #contact-us .section-split{
+    display: flex;
+    flex-direction: row;
+  }
+}
 @media only screen and (max-width: 800px) {
   .section-split.section-split--news {
     flex-direction: column-reverse;
   }
 }
-@media only screen and (min-width: 600px) {
-  .section-split {
-    flex-direction: row;
-  }
+
   .section-split.section-split--flip {
     flex-direction: row-reverse;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   .section-split .section-split__left,
   .section-split .section-split__right {
     width: 50%;
@@ -777,10 +821,16 @@ color: #f2f2f0;
   display: flex;
   align-items: center;
 }
-@media only screen and (max-width: 800px) {
-  .section-split .section-split__left {
-    text-align: center !important;
-  }
+.section-split .section-split__right {
+  display: flex;
+  align-items: center;
+}
+
+  @media only screen and (max-width: 800px) {
+    .section-split .section-split__right {
+      justify-content: center !important;
+      
+    }
   .section-split--news.section-split .section-split__left {
     text-align: left !important;
   }
