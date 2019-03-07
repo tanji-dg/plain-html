@@ -1,68 +1,26 @@
 <div class="container">
   <section id="contact-us" class="section section-split section-contact" style="background-color:#e6ecf0;">
-    <div class="container container-contact row">
-      <div class="section-split__left">
-        <div class="section-split__left__container">
-          <h2>{{ .Site.Params.contact.title}}</h2>
-          <br>
-          <div id="mc_embed_signup">
-            <form method="POST" onsubmit="return contact()" accept-charset="UTF-8" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate="novalidate">
-              <div id="mc_embed_signup_scroll">
-                <div class="mc-field-group">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 my-auto">
+          <h2 class="text-center align-middle">{{ .Site.Params.contact.title}}</h2>
+        </div>
+        <div class="col-12 col-md-6 my-auto">
+          <form class="form-inline">
+            <input type="email" class="form-control mt-2 mb-2 mr-2 col-12 col-md-8" required="true" placeholder="Your email">
+            <button type="submit" class="btn mt-2 mb-2 col-12 col-md-3">Submit</button>
+          </form>
+          <!-- <div id="mc_embed_signup"> -->
+            <!-- <form method="POST" onsubmit="return contact()" accept-charset="UTF-8" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate="novalidate"> -->
+              <!-- <div id="mc_embed_signup_scroll">
+                <div class="mc-field-group form-group">
                   <div class="subscribe-form">
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email" aria-required="true">
+                    <input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Email" aria-required="true">
                     <input type="submit" value="Submit" name="subscribe" id="mc-embedded-subscribe" class="button">
                   </div>
                 </div>
-                <div id="mce-responses" class="clear">
-                  <div class="response" id="mce-error-response" style="display:none"></div>
-                  <div class="response" id="mce-success-response" style="display:none"></div>
-                </div>
-                <div id="mce-responses" class="clear">
-                  <div class="response" id="mce-error-response" style="display:none"></div>
-                  <div class="response" id="mce-success-response" style="display:none"></div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="section-split__right">
-        <div class="section-split__right__container">
-          {{ with .Site.Params.contact }}
-          <ul class="address-block">
-            <li>
-              <a class="icon" href="{{.box.map}}" >
-                <i class="icon ion-md-navigate"></i>
-                {{ .box.address }}
-              </a>
-            </li>
-            <li>
-              <a class="icon" href="mailto:{{ .box.mail}}">
-                <i class="icon ion-md-mail"></i>
-                {{ .box.mail }}
-              </a>
-            </li>
-            <li>
-              <a class="icon" >
-                <i class="icon ion-md-call"></i>
-                {{ .box.phone }}
-              </a>
-            </li>
-            <li style="display:inline-block;">
-              <a href="{{ .social.facebook }}"><i class="fa {{ .social.fa_glyph }}"></i>
-              </a>
-            </li>
-            <li style="display:inline-block;">
-              <a href="{{ .social.linkedin }}"><i class="fa {{ .social.lkd_glyph }}"></i>
-              </a>
-            </li>
-            <li style="display:inline-block;">
-              <a href="{{ .social.instagram }}"><i class="fa {{ .social.insta_glyph }}"></i>
-              </a>
-            </li>
-          </ul>
-          {{ end}}
+              </div> -->
+          <!-- </div> -->
         </div>
       </div>
     </div>
