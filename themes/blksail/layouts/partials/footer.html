@@ -1,15 +1,14 @@
 <!-- footer Start -->
 <footer>
-    <div class="container">
-     
-          <div class="footer-manu">
-            <ul>
-              {{ range .Site.Menus.footer }}
-              <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-              {{ end }}
-            </ul>
-          </div>
-        
+  <div class="container">
+
+    <div class="footer-manu">
+      <ul>
+        {{ range .Site.Menus.footer }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
     </div>
-  </footer>
-  
+
+  </div>
+</footer>

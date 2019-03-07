@@ -1,18 +1,13 @@
 <div class="container">
-        <section id="second-wrapper" class="section section--full third-container section-split--news" style="background-color:#e6ecf0;">
-                  <div class="rigth-content" >
-                        <video  playsinline="" loop="" autoplay="" muted="" prelad="auto">
-                                <source src="{{ with .Site.Params.wrapper2.video }} {{ . | absURL }} {{ end }}">
-                        </video>   
-                </div>
-                <div class="left-content text_content">
-                        <h2>{{ .Site.Params.wrapper2.title |safeHTML }}</h2>
-                        <p >{{ .Site.Params.wrapper2.paragraph |safeHTML }}</p>     
-                </div>
-</section>
+  <section id="second-wrapper" class="section section--full third-container section-split--news" style="background-color:#e6ecf0;">
+    <div class="rigth-content" >
+      <video  playsinline="" loop="" autoplay="" muted="" prelad="auto">
+        <source src="{{ with .Site.Params.wrapper2.video }} {{ . | absURL }} {{ end }}">
+      </video>
+    </div>
+    <div class="left-content text_content">
+      <h2>{{ .Site.Params.wrapper2.title |safeHTML }}</h2>
+      <p >{{ .Site.Params.wrapper2.paragraph |safeHTML }}</p>
+    </div>
+  </section>
 </div>
-
-</div>
-
-
- <!--    -->

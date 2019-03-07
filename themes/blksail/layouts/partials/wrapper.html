@@ -1,20 +1,13 @@
 <div class="container">
-        <section id="second-wrapper" class="section section--full third-container" style="background-color:#e6ecf0;">
-                  
-                <div class="left-content text_cont" style="text-align: center;">
-                  <h2>{{ .Site.Params.wrapper.title }}</h2>
-
-                  <p >{{ .Site.Params.wrapper.paragraph }}</p>
-                </div>
-                <div class="rigth-content">
-                    <video playsinline="" loop="" autoplay="" muted="" prelad="auto">
-                            <source src="{{ with .Site.Params.wrapper.image }} {{ . | absURL }} {{ end }}">
-                    </video>               
-                </div>
-</section>
+  <section id="second-wrapper" class="section section--full third-container" style="background-color:#e6ecf0;">
+    <div class="left-content text_cont" style="text-align: center;">
+      <h2>{{ .Site.Params.wrapper.title }}</h2>
+      <p >{{ .Site.Params.wrapper.paragraph }}</p>
+    </div>
+    <div class="rigth-content">
+      <video playsinline="" loop="" autoplay="" muted="" prelad="auto">
+        <source src="{{ with .Site.Params.wrapper.image }} {{ . | absURL }} {{ end }}">
+      </video>
+    </div>
+  </section>
 </div>
-
-</div>
-
-
- <!--    -->
