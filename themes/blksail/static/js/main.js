@@ -2,7 +2,7 @@
 function contact() {
 
   var data = {
-    email: $('#mce-EMAIL').val()
+    email: $('#email').val()
   };
 
   /* Preparing the request with method, headers, url and data (body or payload)
@@ -20,7 +20,9 @@ function contact() {
   };
 
   $.ajax(request).done(function (response) {
-    console.log(response);
+    // console.log(response);
+    // Update the label after a successful submission
+    $("#contact-response").text("Thank you for subscribing!").css({'color': '#51ecaf', 'display': 'block'});
   }).fail(function( jqXHR, textStatus ) {
     console.log(textStatus);
   });
