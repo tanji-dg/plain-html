@@ -38,19 +38,18 @@ theme = "blksail"
         glyph = "fa-random"
         description = "Modular & Customizable"
 
-  [params.wrapper]
+  [params.splitVideos]
       enable = true
-      image = "img/beach12.mp4"
-      title = "SAIL INTO THE FUTURE WITH AUTONOMY"
-      paragraph = "blkS▵IL is bringing Autonomy and Captain Assistance to the Maritime Industry. Hope on-board and be with the pioneers."
-
-  [params.wrapper2]
-    enable = true
-    video = "img/boat_sailing2.mp4"
-    title = "Autonomy for the Maritime is not just a gimmick, it is the game changer."
-    paragraph = "Autonomy and Captain-Assistance will create new business models and potentially change the way marine operations are run forever. <br> blkS▵IL technology enables \"Just-In-Time\" sailing, fuel-savings, and reduces any risk of collision."
-
-
+      [[params.splitVideos.video]]
+        right_side = true
+        video_url = "img/beach12.mp4"
+        title = "SAIL INTO THE FUTURE WITH AUTONOMY"
+        paragraph = "blkS▵IL is bringing Autonomy and Captain Assistance to the Maritime Industry. Hope on-board and be with the pioneers."
+      [[params.splitVideos.video]]
+        right_side = false
+        video_url = "img/boat_sailing2.mp4"
+        title = "Autonomy for the Maritime is not just a gimmick, it is the game changer."
+        paragraph = "Autonomy and Captain-Assistance will create new business models and potentially change the way marine operations are run forever. <br> blkS▵IL technology enables \"Just-In-Time\" sailing, fuel-savings, and reduces any risk of collision."
 
   [params.info]
     bgVideo="img/background_video.mp4"
