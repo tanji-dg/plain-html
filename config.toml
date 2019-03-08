@@ -26,22 +26,24 @@ theme = "blksail"
   video_url = "img/boat_sail.mov"
   url = "#"
 
+  [params.mission]
+      enable = true
+      title = "blkS▵IL is developing the future of Maritime, today."
+      [[params.mission.item]]
+        glyph = "fa-ship"
+        description = "Custom Built for the Maritime"
+      [[params.mission.item]]
+        glyph = "fa-compass"
+        description = "Auto-Pilot & DP Compatible"
+      [[params.mission.item]]
+        glyph = "fa-random"
+        description = "Modular & Customizable"
+
   [params.wrapper]
       enable = true
       image = "img/beach12.mp4"
       title = "SAIL INTO THE FUTURE WITH AUTONOMY"
       paragraph = "blkS▵IL is bringing Autonomy and Captain Assistance to the Maritime Industry. Hope on-board and be with the pioneers."
-
-  [params.iconsbox]
-      enable = true
-      title = "blkS▵IL is developing future of Maritime, today."
-      first_glyph = "fa-ship"
-      first_paragraph = "Custom Built for the Maritime"
-      second_glyph = "fa-compass"
-      second_paragraph = "Auto-Pilot & DP Compatible"
-      third_glyph = "fa-random"
-      third_paragraph = "Modular & Customizable"
-      bgImg = "img/background_image.jpg"
 
   [params.wrapper2]
     enable = true

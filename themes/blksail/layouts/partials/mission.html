@@ -1,0 +1,43 @@
+{{ if .Site.Params.mission.enable }}
+<div class="container" >
+  <div class="row text-center">
+    <h1 class="col-12" id="mission-title">{{ .Site.Params.mission.title }}</h1>
+  </div>
+  <div class="row mt-sm-5">
+    {{ range .Site.Params.mission.item }}
+    <div class="mx-auto col-sm mb-sm-5 text-center">
+      <i class="fa {{ .glyph }}" style="font-size:4em;"></i>
+      <p>{{ .description }}</p>
+    </div>
+    {{ end }}
+  </div>
+  <!-- <div class="section section--full section--mission " >
+    <div class="full-width-spacer"> </div>
+    <div class="full-width-content">
+      <div class="section--full__container">
+        <h2 style="color:#eeeeee;">{{ .Site.Params.mission.title }}</h2>
+        <div class="section-mission-icons">
+          <div class="section-mission-icon section-mission-icon-1">
+            <div class="section--mission__image">
+              <i class="fa {{ .Site.Params.mission.first_glyph }}" style="font-size:4em;color:whitesmoke"></i>
+            </div>
+            <p class="is-white">{{ .Site.Params.mission.first_paragraph }}</p>
+          </div>
+          <div class="section-mission-icon section-green-icon-2">
+            <div class="section--mission__image">
+              <i class="fa {{ .Site.Params.mission.second_glyph }}" style="font-size:4em;color:whitesmoke"></i>
+            </div>
+            <p class="is-white">{{ .Site.Params.mission.second_paragraph }}</p>
+          </div>
+          <div class="section-mission-icon section-mission-icon-3">
+            <div class="section--mission__image">
+              <i class="fa {{ .Site.Params.mission.third_glyph }}" style="font-size:4em;color:whitesmoke"></i>
+            </div>
+            <p class="is-white">{{ .Site.Params.mission.third_paragraph }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+{{ end }}
