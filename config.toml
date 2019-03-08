@@ -24,7 +24,6 @@ theme = "blksail"
   [params.hero]
   enable = true
   video_url = "img/boat_sail.mov"
-  url = "#"
 
   [params.mission]
       enable = true
