@@ -6,16 +6,9 @@ theme = "blksail"
 [menu]
 
   [[menu.header]]
-    weight = 2
-    name = "Blog"
-    url = "/Blog"
-    local = false
-
-  [[menu.header]]
     weight = 5
     name = "Contact"
     url = "#contact-us"
-    local = true
 
 [params]
   home = "Home"
@@ -27,7 +20,7 @@ theme = "blksail"
 
   [params.mission]
       enable = true
-      title = "blkS▵IL is developing the future of Maritime, today."
+      title = "<span class=\"blk\">blk</span><span class=\"sail\">s▵il</span> is developing the future of Maritime, today."
       [[params.mission.item]]
         glyph = "fa-ship"
         description = "Custom Built for the Maritime"
@@ -43,28 +36,28 @@ theme = "blksail"
       [[params.splitVideos.video]]
         right_side = true
         video_url = "img/beach12.mp4"
-        title = "SAIL INTO THE FUTURE WITH AUTONOMY"
-        paragraph = "blkS▵IL is bringing Autonomy and Captain Assistance to the Maritime Industry. Hope on-board and be with the pioneers."
+        title = "Sail Into The Future With Autonomy"
+        paragraph = "<span class=\"blk\">blk</span><span class=\"sail\">s▵il</span> is bringing Autonomy and Captain Assistance to the Maritime Industry. Hop on-board and join the pioneers."
       [[params.splitVideos.video]]
         right_side = false
         video_url = "img/boat_sailing2.mp4"
         title = "Autonomy for the Maritime is not just a gimmick, it is the game changer."
-        paragraph = "Autonomy and Captain-Assistance will create new business models and potentially change the way marine operations are run forever. <br> blkS▵IL technology enables \"Just-In-Time\" sailing, fuel-savings, and reduces any risk of collision."
+        paragraph = "<span class=\"blk\">blk</span><span class=\"sail\">s▵il</span> technology enables \"Just-In-Time\" sailing, fuel-savings, and reduces any risk of collision."
 
-  [params.info]
-    bgVideo="img/background_video.mp4"
-    title ="FORGET ROBO-CARS AND HIT <br> THE WATER ON AN AUTONOMOUS BOAT"
-    paragraph =" Large and small—self-piloting boats, could save fuel, prevent expensive accidents and groundings, and relieve crews of some of mundanity of life on the water."
+  [params.punch]
+    video_url="img/background_video.mp4"
+    title ="The -autonomous- ships are sailing,<br>time is running out."
+    paragraph ="Autonomy and Captain-Assistance will create new business models and potentially change the way marine operations are run forever."
 
 
   [params.contact]
     enable = true
     title = "Stay connected!"
 
-  [params.blog]
-    enable = false
-    paginate = 4
-    title ="my blog"
-    subtitle=" subtitle "
-    bgimage = "img/blogHeaderBg.jpg"
-
+  [params.footer]
+    [[params.footer.item]]
+      text = "© blkSAIL LLC, 2019"
+      url = "#"
+    [[params.footer.item]]
+      text = "contact@blksail.xyz"
+      url = "mailto:contact@blksail.xyz"

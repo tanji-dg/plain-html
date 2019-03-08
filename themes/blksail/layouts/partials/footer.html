@@ -1,14 +1,7 @@
-<!-- footer Start -->
-<footer>
-  <div class="container">
-
-    <div class="footer-manu">
-      <ul>
-        {{ range .Site.Menus.footer }}
-        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{ end }}
-      </ul>
-    </div>
-
+<footer class="container">
+  <div class="d-flex justify-content-between">
+    {{ range .Site.Params.footer.item}}
+      <a href="{{ .url | safeHTML }}">{{ .text }}</a>
+    {{ end}}
   </div>
 </footer>

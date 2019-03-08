@@ -1,28 +1,15 @@
-<div class="container">
-  <section id="contact-us" class="section section-split section-contact" style="background-color:#e6ecf0;">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6 my-auto">
-          <h2 class="text-center align-middle">{{ .Site.Params.contact.title}}</h2>
-        </div>
-        <div class="col-12 col-md-6 my-auto">
-          <form class="form-inline">
-            <input type="email" class="form-control mt-2 mb-2 mr-2 col-12 col-md-8" required="true" placeholder="Your email">
-            <button type="submit" class="btn mt-2 mb-2 col-12 col-md-3">Submit</button>
-          </form>
-          <!-- <div id="mc_embed_signup"> -->
-            <!-- <form method="POST" onsubmit="return contact()" accept-charset="UTF-8" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate="novalidate"> -->
-              <!-- <div id="mc_embed_signup_scroll">
-                <div class="mc-field-group form-group">
-                  <div class="subscribe-form">
-                    <input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Email" aria-required="true">
-                    <input type="submit" value="Submit" name="subscribe" id="mc-embedded-subscribe" class="button">
-                  </div>
-                </div>
-              </div> -->
-          <!-- </div> -->
-        </div>
-      </div>
+{{ if .Site.Params.contact.enable }}
+<div class="container mb-3" id="contact-us">
+  <div class="row" style="background-color:#e6ecf0;">
+    <div class="col-12 col-md-6 my-auto text-center">
+      <h2 class="align-middle">{{ .Site.Params.contact.title}}</h2>
     </div>
-  </section>
+    <div class="col-12 col-md-6 my-auto">
+      <form class="form-inline">
+        <input type="email" class="form-control mt-2 mb-2 mr-2 col-12 col-md-8" required="true" placeholder="Your email">
+        <button type="submit" class="btn mt-2 mb-2 col-12 col-md-3">Subscribe</button>
+      </form>
+    </div>
+  </div>
 </div>
+{{ end }}
