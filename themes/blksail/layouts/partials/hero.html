@@ -1,0 +1,15 @@
+{{ if .Site.Params.hero.enable }}
+{{ "<!-- container Start -->" | safeHTML}}
+<div class="jumbotron">
+  <video autoplay muted loop class="video-container b-lazy b-loaded" >
+    <source src="{{ .Site.Params.hero.video_url}}">
+  </video>
+  <!-- <video playsinline="" loop="" autoplay="" muted="" prelad="auto" class="video-container b-lazy b-loaded">
+    <source src="{{ .Site.Params.bgVideo.vidBoat1}}">
+  </video> -->
+</div>
+{{end}}
+
+
+
+

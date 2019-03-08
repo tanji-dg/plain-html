@@ -21,9 +21,9 @@ theme = "blksail"
   home = "Home"
   logo = "/img/logo.svg"
 
-  [params.bgVideo]
+  [params.hero]
   enable = true
-  vidBoat1 =  "img/boat_sail.mov"
+  video_url = "img/boat_sail.mov"
   url = "#"
 
   [params.wrapper]
@@ -59,30 +59,12 @@ theme = "blksail"
 
   [params.contact]
     enable = true
-    title = "Stay connected"
-   
+    title = "Stay connected!"
 
-
-    [params.contact.box]
-      address = "Your complete adresse + USA"
-      map = "https://www.google.com/maps"
-      mail = "contact@mail.com"
-      phone = "+1 489 904 8 868 202 "
-
-
-    [params.contact.social]
-    facebook = "facebook url "
-    fa_glyph = "fa-facebook"
-    linkedIn = "Linkedin url "
-    lkd_glyph ="fa-linkedin"
-    instgram = " Insta url "
-    insta_glyph ="fa-instagram"
-
-    [params.blog]
-    enable = true
+  [params.blog]
+    enable = false
     paginate = 4
     title ="my blog"
     subtitle=" subtitle "
     bgimage = "img/blogHeaderBg.jpg"
 
- 
