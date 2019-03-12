@@ -56,7 +56,7 @@ created by GK Guys | 2019-03-11 | [online][1] | [src][2]
 <div class="fragment" />
 
 * lokalen Branch remote ablegen (nur initial, nicht für push normaler Änderungen)
-> git push origin <feature_branch>
+> git push -u origin <feature_branch>
 
 * <!-- .element: class="fragment" -->Branch wurde im remote Repo (origin) abgelegt.
 
