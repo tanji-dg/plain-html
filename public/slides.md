@@ -63,6 +63,31 @@ created by GK Guys | 2019-03-11 | [online][1] | [src][2]
 
 ----
 
+## Historie + Diffs
+
+* komplette lokal verfügbare Historie auflisten (aus ".git", neueste Changes zuerst, incl. Diffs)
+> git log -p
+
+* lokal verfügbare Historie limitiert auf <n> neueste Commits  (aus ".git", neueste Changes zuerst, incl. Diffs)
+> git log -p -<n>
+
+<div class="fragment" />
+
+* zeige Unterschiede (Diffs) zwischen aktuellem gewähltem Branch und lokalem ".git" (Diffs die noch nicht committed wurden)
+> git diff
+
+* zeige Unterschiede (Diffs) der staging changes (Änderungen bereits mit <git add> markiert aber noch nicht committed)
+> git diff -staged
+
+* zeige Unterschiede zu bestimmtem commit 
+> git diff <commit hash>
+
+* zeige Unterschiede zwischen commits 
+> git diff <commit hash 1> <commit hash 2>
+
+
+----
+
 ## reveal.js supports Markdown
 
 Writing slides in Markdown is easy:
