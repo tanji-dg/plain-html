@@ -17,6 +17,73 @@ created by GK Guys | 2019-03-11 | [online][1] | [src][2]
 [6]: https://github.com/theno/fabsetup
 
 
+
+----  ----
+
+# 0.1 Git Branches
+
+----
+
+## Listing Branches
+
+* alle Branches (remote und lokal in ".git" vorhanden)
+> git branch -a
+
+* lokale Branches (lokal in ".git" vorhanden)
+> git branch
+
+* remote Branches (alle im remote repo vorhandenen)
+> git branch -r
+
+* <!-- .element: class="fragment" -->1 Branch pro Zeile wurde gelistet. Der aktuell verwendete Branch wird am Zeilenanfang mit * markiert. Remote branches beginnen im Pfad mit "remote/"
+
+----
+
+## Erstellung eines Branches
+
+* einen lokalen Branch erstellen
+> git branch <feature_branch>
+
+* <!-- .element: class="fragment" -->der Branch wurde lokal in ".git" erzeugt und kann nun verwendet werden
+
+<div class="fragment" />
+
+* Branch wechseln (zwischen lokalen Branches, remote Branches müssen erst mit pull lokal abgelegt werden)
+> git checkout <feature_branch>
+
+* <!-- .element: class="fragment" -->Branch wurde auf den jeweiligen (lokal, in ".git") stand geswitcht
+
+<div class="fragment" />
+
+* lokalen Branch remote ablegen (nur initial, nicht für push normaler Änderungen)
+> git push origin <feature_branch>
+
+* <!-- .element: class="fragment" -->Branch wurde im remote Repo (origin) abgelegt.
+
+
+----
+
+## reveal.js supports Markdown
+
+Writing slides in Markdown is easy:
+
+```markdown
+## reveal.js
+
+> "A framework for easily creating beautiful presentations using HTML."
+>
+> -- <cite>https://github.com/hakimel/reveal.js</cite>
+
+* It's basically a website displayed in a browser
+* Works better with Chrome than Firefox
+* Markdown support -> easy editing:
+  * Don't bother with xml syntax
+  * Write slides in a markdown file
+```
+
+----
+
+
 ----  ----
 
 # 1. friggin Version Control
