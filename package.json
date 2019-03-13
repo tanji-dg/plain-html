@@ -15,8 +15,8 @@
   "license": "SEE LICENSE IN LICENSE",
   "private": true,
   "scripts": {
-    "build": "parcel build src/public/index.html --public-url . --no-source-maps && cp -R src/public/.well-known dist/.well-known",
-    "start": "parcel serve src/public/index.html --port 3000",
+    "build": "parcel build src/public/index.html --out-dir public --public-url . --no-source-maps && cp -R src/public/.well-known public/.well-known",
+    "start": "parcel serve src/public/index.html --port 3000 --out-dir public",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint 'src/**/*.ts(x)'",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx src"
