@@ -1,0 +1,5 @@
+# robotstxt.org
+
+# Allow all content to be crawled
+User-agent: *
+Disallow:

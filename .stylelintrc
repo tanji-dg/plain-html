@@ -1,0 +1,3 @@
+{
+  "extends": "@greylocklabs/stylelint-config-styled-components"
+}
