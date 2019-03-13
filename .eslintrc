@@ -1,0 +1,12 @@
+{
+  "extends": "@greylocklabs",
+  "rules": {
+    "arrow-body-style": [ "error", "as-needed" ],
+    "default-case": "off",
+    "curly": [ "error", "multi-line" ],
+    "quotes": [ "error", "single", { "avoidEscape": true } ],
+    "implicit-arrow-linebreak": "off",
+    "nonblock-statement-body-position": [ "error", "any" ],
+    "@typescript-eslint/no-type-alias": [ "error", { "allowAliases": "in-unions" } ]
+  }
+}

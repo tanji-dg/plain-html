@@ -1,0 +1,111 @@
+/* Thin */
+
+@font-face {
+  font-family: 'Styrene B';
+  src: url('fonts/styrene-b/StyreneB-Thin-Web.otf'), format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Styrene B';
+  src: url('fonts/styrene-b/StyreneB-Thin-Italic-Web.otf'), format('opentype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+/* Light */
+
+@font-face {
+  font-family: 'Styrene B';
+  src: url('fonts/styrene-b/StyreneB-Light-Web.otf'), format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Styrene B';
+  src: url('fonts/styrene-b/StyreneB-Light-Italic-Web.otf'), format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Regular */
+
+@font-face {
+  font-family: 'Styrene B';
+  src:
+    url('fonts/styrene-b/StyreneB-Regular-Web.otf'), format('opentype'),
+    url('fonts/styrene-b/StyreneB-Regular-Web.eot'), format('embedded-opentype'),
+    url('fonts/styrene-b/StyreneB-Regular-Web.woff'), format('woff'),
+    url('fonts/styrene-b/StyreneB-Regular-Web.woff2'), format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Styrene B';
+  src:
+    url('fonts/styrene-b/StyreneB-Regular-Italic-Web.otf'), format('opentype'),
+    url('fonts/styrene-b/StyreneB-Regular-Italic-Web.eot'), format('embedded-opentype'),
+    url('fonts/styrene-b/StyreneB-Regular-Italic-Web.woff'), format('woff'),
+    url('fonts/styrene-b/StyreneB-Regular-Italic-Web.woff2'), format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Medium */
+
+@font-face {
+  font-family: 'Styrene B';
+  src: url('fonts/styrene-b/StyreneB-Medium-Web.otf'), format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Styrene B';
+  src: url('fonts/styrene-b/StyreneB-Medium-Italic-Web.otf'), format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Bold */
+
+@font-face {
+  font-family: 'Styrene B';
+  src:
+    url('fonts/styrene-b/StyreneB-Bold-Web.otf'), format('opentype'),
+    url('fonts/styrene-b/StyreneB-Bold-Web.eot'), format('embedded-opentype'),
+    url('fonts/styrene-b/StyreneB-Bold-Web.woff'), format('woff'),
+    url('fonts/styrene-b/StyreneB-Bold-Web.woff2'), format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Styrene B';
+  src:
+    url('fonts/styrene-b/StyreneB-Bold-Italic-Web.otf'), format('opentype'),
+    url('fonts/styrene-b/StyreneB-Bold-Italic-Web.eot'), format('embedded-opentype'),
+    url('fonts/styrene-b/StyreneB-Bold-Italic-Web.woff'), format('woff'),
+    url('fonts/styrene-b/StyreneB-Bold-Italic-Web.woff2'), format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Black */
+
+@font-face {
+  font-family: 'Styrene B';
+  src: url('fonts/styrene-b/StyreneB-Black-Web.otf'), format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Styrene B';
+  src: url('fonts/styrene-b/StyreneB-Black-Italic-Web.otf'), format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}

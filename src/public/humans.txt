@@ -1,0 +1,17 @@
+# Project
+
+    Site Name:      My DSA
+    Site URL:       https://my.dsausa.org
+    Created:        2/6/2019
+    Standards:      HTML5, CSS3
+    Web Developer:  Ty-Lucas Kelley
+
+# Author
+
+    Name:       Ty-Lucas Kelley
+    Site:       https://tylucaskelley.com
+    Twitter:    @tylucaskelley
+
+# Thanks
+
+    To everyone who enjoys the site!
