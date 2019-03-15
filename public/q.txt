@@ -1,1 +1,1 @@
-9 DOWNLOAD C:\Users\Ivanq\Desktop\hello.txt https://imachug.gitlab.io/test.gitlab.io/index.html
+PASS
