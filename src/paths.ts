@@ -4,8 +4,11 @@ const supportEmail = 'dsausatech@gmail.com';
 const gitlabEmail = 'incoming+dsausa-issue-tracker-11284343-issue-@incoming.gitlab.com';
 const emailParams = qs.stringify({
   cc: supportEmail,
-  subject: 'New support ticket',
+  subject: 'Report an issue',
   body: `
+Please note that we cannot make any promises to get around to fixing this issue quickly; we have limited capacity as
+a group and will try to review your request as soon as we can.
+
 Is this a feature request or bug report?
 
 ANSWER HERE
@@ -32,7 +35,7 @@ const paths = {
       link:
         'https://docs.google.com/forms/d/e/1FAIpQLSejt71aXXUjH0l0Nj1SnvV1KuhJ66N9Dfih4EiLu5W151H_Uw/viewform',
     },
-    { text: 'Submit a Support Ticket', link: `mailto:${gitlabEmail}?${emailParams}` },
+    { text: 'Report an Issue', link: `mailto:${gitlabEmail}?${emailParams}` },
     { text: 'Email Us', link: `mailto:${supportEmail}` },
   ],
 };

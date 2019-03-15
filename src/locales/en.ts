@@ -12,11 +12,12 @@ const translation = {
   'Interested in tech': "I'm really interested in technology! How can I help?",
   'Welcome aboard':
     'Welcome aboard! Fill out our volunteer signup form to give us your contact info and skillset. We will get you onboarded into our communications and set you to work on a project ASAP!',
-  'I found a bug': 'I found a bug on a DSA website or want to request a new feature. Can I reach out for support?',
-  'Fill out a ticket': 'Yup! Just fill out a support ticket using the link above, with details about the nature of your bug report or feature request. You will be notified via email as the ticket is updated.',
+  'I found a problem': 'I found a bug on a DSA website or want to request a new feature. Can I reach out for support?',
+  'Just fill out a ticket':
+    'Just fill out a ticket using the "Report an Issue" link above. Please note that we cannot make any promises to get around to fixing this issue quickly; we have limited capacity as a group and will try to review your request as soon as we can.',
   'Volunteer Signup Form': 'Volunteer Signup Form',
   'Help Form': 'Help Form',
-  'Submit a Support Ticket': 'Submit a Support Ticket',
+  'Report an Issue': 'Report an Issue',
   'Email Us': 'Email Us',
 };
 
