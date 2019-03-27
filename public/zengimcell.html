@@ -1,0 +1,185 @@
+<p>OVERVIEW
+    <br />
+    <br />Application works by making HTTP GET request to the following url
+    <br />`http://apps.lsim.az/rbt/app?&amp;user=USER&amp;pass=PASSWORD&amp;mod=MODE&amp;cmd=COMMAND[&amp;param1=val1...]`.
+    <br />Response will be in xml format. For all responses there is `responsecode`, where will be the
+    <br />result of command. Beside that there can be additional parameters for data. Definitions of the
+    <br />parameters are as follows.
+    <br />`user` - user name (request from admin while using this api)
+    <br />`pass` - user password (request from admin while using this api)
+    <br />`mod` - which api mode to use
+    <br />`cmd` - which command of the mode to execute
+    <br />These four parameters are mandatory. There can be extra paramaters, control parameters from now,
+    <br />to control the resulting output.
+    <br />
+    <br />
+    <br />MODES
+    <br />
+    <br />There are four modes - `content`, `category`, `statistics`, `shortcode` and `tone`. Every mode
+    <br />has its own commands.
+    <br />`content` - all procedures related to zengimcell contents
+    <br />`category` - all procedures related to zengimcell categorys
+    <br />`shortcode` - all procedures related to zengimcell short codes
+    <br />`tone` - all procedures related to zengimcell tones provided by operator
+    <br />`statistics` - all procedures related to statistics (load logs)
+    <br />
+    <br />
+    <br />COMMANDS
+    <br />
+    <br />&nbsp;`CONTENT`
+    <br />
+    <br />&nbsp; `ADD` (only for admin)
+    <br />&nbsp; This command is used to add new content. Below are the parameters for this command.
+    <br />&nbsp; `category_id` - id of category to which the content belongs (use `catalog`
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; command of `category` mode to get ids)
+    <br />&nbsp; `code` - content code provided by operator
+    <br />&nbsp; `artist` - artist name
+    <br />&nbsp; `song` - song name
+    <br />&nbsp; `pid` - partner exclusive content, leave empty for all partners
+    <br />&nbsp; `visible` - visible or not
+    <br />
+    <br />&nbsp; `UPDATE` (only for admin)
+    <br />&nbsp; This command is used to update content data. Below are the parameters for this command.
+    <br />&nbsp; `id` - id of content (use `catalog` command to get the ids)
+    <br />&nbsp; `category_id` - id of category to which the content belongs (use `catalog`
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; command of `category` mode to get ids)
+    <br />&nbsp; `code` - content code provided by operator
+    <br />&nbsp; `artist` - artist name
+    <br />&nbsp; `song` - song name
+    <br />&nbsp; `pid` - partner exclusive content, leave empty for all partners
+    <br />&nbsp; `visible` - visible or not
+    <br />
+    <br />&nbsp; `DELETE` (only for admin)
+    <br />&nbsp; This command is used to delete content. Below are the parameters for this command.
+    <br />&nbsp; `id` - id of content (use `catalog` command to get the ids)
+    <br />
+    <br />&nbsp; `GET`
+    <br />&nbsp; This command is used to get the details of content by its id. To get the id the content
+    <br />&nbsp; use `catalog` command. Below are the parameters for this command.
+    <br />&nbsp; `id` - id of the content
+    <br />&nbsp; `pid` - include partner exclusive content (only for admin)
+    <br />
+    <br />&nbsp; `CATALOG`
+    <br />&nbsp; This command is used to get the whole list of contents. There is parameters that can control
+    <br />&nbsp; how the result will be sorted. There is also a search parameter and a control parameter to
+    <br />&nbsp; define where to search. The result will be in pages. Number of contents can be controlled
+    <br />&nbsp; by control parameter. To navigate by pages use page control parameter. Below are the
+    <br />&nbsp; parameters for this command.
+    <br />&nbsp; `sort` - define sorting
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 - sort by artist name
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 - sort by added date (descending)
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6 - sort by song name
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7 - sort by code (default)
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 - sort by id (asc)
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9 - sort by id (desc)
+    <br />&nbsp; `category_id` - id of category (use `catalog` command of `category` mode to get ids)
+    <br />&nbsp; `pid` - the partner id (only for admin)
+    <br />&nbsp; `ov` - only visibles (only for admin)
+    <br />&nbsp; `page` - page number to show
+    <br />&nbsp; `num_per_page` - number of contents per page (default is 10)
+    <br />&nbsp; `search_string` - the string to search
+    <br />&nbsp; `search` - where to search
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 - search by artist name
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 - search by song name
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 - search by code
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 - search by all above
+    <br />
+    <br />&nbsp; `TOP`
+    <br />&nbsp; This command is used to get the top downloaded contents. By setting control parameter
+    <br />&nbsp; number of contents can be controlled. Below are the parameters for this command.
+    <br />&nbsp; `num` - number of top content
+    <br />&nbsp; `pid` - include partner exclusive content (only for admin)
+    <br />
+    <br />&nbsp; `LAST`
+    <br />&nbsp; This command is used to get the last added contents. By setting control parameter number
+    <br />&nbsp; of contents can be controlled. Below are the parameters for this command.
+    <br />&nbsp; `num` - number of top content
+    <br />&nbsp; `pid` - include partner exclusive content (only for admin)
+    <br />
+    <br />
+    <br />&nbsp;`CATEGORY`
+    <br />
+    <br />&nbsp; `ADD` (only for admin)
+    <br />&nbsp; This command is used to add new category. Below are the parameters for this command.
+    <br />&nbsp; `name` - category name
+    <br />&nbsp; `position` - category position
+    <br />&nbsp; `visible` - visible or not
+    <br />
+    <br />&nbsp; `UPDATE` (only for admin)
+    <br />&nbsp; This command is used to update category data. Below are the parameters for this command.
+    <br />&nbsp; `id` - id of category (use `catalog` command to get the ids)
+    <br />&nbsp; `name` - category name
+    <br />&nbsp; `position` - category position
+    <br />&nbsp; `visible` - visible or not
+    <br />
+    <br />&nbsp; `DELETE` (only for admin)
+    <br />&nbsp; This command is used to delete category and all its contents. Below are the parameters for this command.
+    <br />&nbsp; `id` - id of category (use `catalog` command to get the ids)
+    <br />
+    <br />&nbsp; `GET`
+    <br />&nbsp; This command is used to get the details of category by its id. To get the id the category
+    <br />&nbsp; use `catalog` command. Below are the parameters for this command.
+    <br />&nbsp; `id` - id of the category
+    <br />
+    <br />&nbsp; `CATALOG`
+    <br />&nbsp; This command is used to get the whole list of categories. There is parameters that can control
+    <br />&nbsp; how the result will be sorted. Below are the parameters for this command.
+    <br />&nbsp; `sort` - define sorting
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 - sort by category name
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 - sort by position (default)
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 - sort by added date (descending)
+    <br />
+    <br />&nbsp;`TONE`
+    <br />
+    <br />&nbsp; `SUBSCRIBE`
+    <br />&nbsp; This command is used to load the tone to subscriber. Below are the parameters for this command.
+    <br />&nbsp; `msisdn` - subscribers number
+    <br />&nbsp; `tone` - content code provided by operator
+    <br />
+    <br />&nbsp;`SHORTCODE` (only for admin)
+    <br />
+    <br />&nbsp;`STATISTICS`
+    <br />
+    <br />&nbsp; `UDPATE` (only for admin)
+    <br />&nbsp; This command is used to update the logs from operator provided interface.
+    <br />
+    <br />&nbsp; `GET`
+    <br />&nbsp; This command is used to get logs. By setting control parameters the resulting output can be
+    <br />&nbsp; controlled. Result will be in pages. Below are the parameters for this command.
+    <br />&nbsp; `from` - logs from given date (yyyy-mm-dd hh:mi:ss)
+    <br />&nbsp; `to` - log to date, given date not included (yyyy-mm-dd hh:mi:ss)
+    <br />&nbsp; `msisdn` - subscribers msisdn
+    <br />&nbsp; `pid` - only given partner logs (only for admin)
+    <br />&nbsp; `code` - search by code provided by operator
+    <br />&nbsp; `amount` - search by amount
+    <br />&nbsp; `page` - page number to show
+    <br />&nbsp; `num_per_page` - number of contents per page (default is 10)
+    <br />
+    <br />RESPONSE CODES
+    <br />
+    <br />0 - Success
+    <br />1 - System error (try later)
+    <br />2 - Duplicate position given error
+    <br />3 - Update error
+    <br />4 - Invalid category id error
+    <br />5 - Null value error
+    <!--<br />6 - Tone load error (try later)-->
+    <br />6 - mod is wrong.Accepted modes (content,category,shortcode,tone,statistics)
+    <br />7 - Access denied - username or password is wrong
+    <br />8 - The number exists on comverse rbt
+    <br />9 - Subscribtion already exists
+    <br />10 - The rbt does not exist
+    <br />11 - The coding format error
+    <br />12 - Msisdn does not exist
+    <br />13 - Balance is insufficient
+    <br />14 - Msisdn is not specified
+    <br />15 - The code is not specified
+    <br />16 - Tone code doesnt belong to originator
+    <br />17 - This tone already exists
+    <br />18 - Msisdn format error
+    <br />19 - Tone code does not exist
+    <br />20 - Internal rbt gateway error
+    <br />21 - Msisdn format error
+    <br />
+    <br />
+</p>

@@ -1,0 +1,44 @@
+<style>
+label{
+color:red;
+}
+
+</style>
+<h2>Getting started:</h2>
+For getting started you have to register your company and service in LSIM.<br/><br/>
+1.For registering company we need only Company name.After registeration you will get partnerid.This id represents your company<br/>
+2.For registering service we need: <br/>
+  &nbsp;&nbsp;&nbsp;<b>service name</b> (exp. hava proqnozu)<br/>
+  &nbsp;&nbsp;&nbsp;<b>service description</b> (explain service)<br/>
+  &nbsp;&nbsp;&nbsp;<b>service detail</b> (explain service in detail, exp. You will be charged daily 0.10 azn)<br/>
+  &nbsp;&nbsp;&nbsp;<b>feedbackurl</b> (when user press yes or no user will redirect to feedbackurl page,like index.php)<br/>
+  &nbsp;&nbsp;&nbsp;<b>charge amount</b> (service price)<br/>
+  &nbsp;&nbsp;&nbsp;<b>servicetype</b> (daily,weekly,monthly etc.)<br/>
+  &nbsp;&nbsp;&nbsp;After service registration you will get serviceid
+<br/><br/><br/>
+
+<h2>Usage:</h2>
+Request:<br/><br/>
+
+<b>type:</b>POST<br/><br/>
+<b>url:</b>http://apps.lsim.az/landingpage/partner.jsp?<b>actionname=</b><label>gotolandingpage</label>&<b>serviceid=</b><label>n</label>&<b>partnerid=</b><label>n</label>&<b>partnertransactionid=</b><label>n</label><br/><br/>
+<b>parameters:</b><br/><br/>
+
+ <b>actionname:</b><label>String</label><br>
+ this parameter represents action name <br/><br/>
+
+ <b>serviceid:</b><label>integer</label><br>
+ this parameter represents service which is registered in LSIM and user will be redirected to.You will get this id from LSIM<br/><br/>
+
+ <b>partnerid:</b><label>integer</label><br/>
+ represents company which is registered in LSIM.You will get this id from LSIM<br/><br/>
+
+ <b>partnertransactionid:</b><label>String or integer</label>.This is unique id which is registered in your database.
+ <br/><br/><br/><br/>
+
+
+
+
+If client press yes we will send "1",partnertransactionid and msisdn to your <b>vpnurl</b> which is registered before in LSIM.
+ And you will find request by this transactionid in your table and do some operations what you need.
+ 

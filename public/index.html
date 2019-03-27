@@ -1,23 +1,90 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="GitLab Pages">
-    <title>Plain HTML site using GitLab Pages</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
-    </div>
+<style>
+    .mytbl{
+        border-collapse: collapse;
+        border:1px solid;
+        margin: 0 auto;
+        margin-top: 5%;
+        font-size: 32px;
+    }
+    .mytbl th{
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 1px solid;
+    }
+    .mytbl td{
+        border: 1px solid;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
 
-    <h1>Hello World!</h1>
+    .mytbl tr:hover{
+        background-color: activecaption;
+        cursor: pointer;
+    }
 
-    <p>
-      This is a simple plain-HTML website on GitLab Pages, without any fancy static site generator.
-    </p>
-  </body>
-</html>
+    .mytbl a{
+        text-decoration: none;
+        color: black;
+    }
+</style>
 
+<table class="mytbl">
+    <thead>
+        <tr>
+            <th colspan="2">LSIM APIs</th>
+        </tr>
+        <tr>
+            <th>API name</th>
+            <th>API description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr onclick="document.location = 'quicksms.html';">
+            <td>
+                QUICKSMS 
+            </td>
+            <td> - Send notification SMS</td>
+        </tr>
+        <tr onclick="document.location = 'mopos.html';">
+            <td>
+               MOPOS
+            </td>
+            <td> - Clear funds from balance
+            </td>
+        </tr>
+        <tr onclick="document.location = 'bulkxmlapi.html';">
+            <td>
+                BULKSMS 
+            </td>
+            <td> - Send bulk SMS
+            </td>
+        </tr>
+        <tr onclick="document.location = 'zengimcell.html';">
+            <td>
+                ZENGIMCELL 
+            </td>
+            <td> - Ringback tone API (Azercell)</td>
+        </tr>
+        <tr onclick="document.location = 'landingpage.html';">
+            <td>
+                LANDINGPAGE 
+            </td>
+            <td> - Landing Page</td>
+        </tr>
+        <tr onclick="document.location = 'mnp.html';">
+            <td>
+                MNP 
+            </td>
+            <td> - Check operator of subscriber</td>
+        </tr>
+        <tr onclick="document.location = 'SMPP_v3_4_Issue1_2.pdf';">
+            <td>
+                SMPP 
+            </td>
+            <td> - Short Message Peer-to-Peer</td>
+        </tr>
+
+    </tbody>
+</table>

@@ -1,0 +1,1159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>BulkSMS API2</title>
+        <style type="text/css">
+
+            body {margin-top: 0px;margin-left: 0px;}
+
+            #page_1 {position:relative; overflow: hidden;margin: 0px 0px 0px 76px;padding: 0px;border: none;width: 740px;}
+
+            #page_1 #p1dimg1 {margin: 0 auto;width:222px;height:110px;}
+            #page_1 #p1dimg1 #p1img1 {width:222px;height:110px;}
+
+
+
+
+            #page_2 {position:relative; overflow: hidden;margin: 80px 0px 0px 76px;padding: 0px;border: none;width: 740px;}
+            #page_2 #id_1 {border:none;margin: 0px 0px 0px 13px;padding: 0px;border:none;width: 727px;overflow: hidden;}
+            #page_2 #id_2 {border:none;margin: 45px 0px 0px 24px;padding: 0px;border:none;width: 600px;overflow: hidden;}
+
+            #page_2 #p2dimg1 {position:absolute;top:0px;left:0px;z-index:-1;width:661px;height:187px;}
+            #page_2 #p2dimg1 #p2img1 {width:661px;height:187px;}
+
+
+
+
+            #page_3 {position:relative; overflow: hidden;margin: 40px 0px 0px 76px;padding: 0px;border: none;width: 740px;}
+            #page_3 #id_1 {border:none;margin: 40px 0px 0px 0px;padding: 0px;border:none;width: 740px;overflow: hidden;}
+            #page_3 #id_2 {border:none;margin: 447px 0px 0px 656px;padding: 0px;border:none;width: 84px;overflow: hidden;}
+
+            #page_3 #p3dimg1 {position:absolute;top:0px;left:0px;z-index:-1;width:222px;height:110px;}
+            #page_3 #p3dimg1 #p3img1 {width:222px;height:110px;}
+
+
+
+
+            #page_4 {position:relative; overflow: hidden;margin: 76px 0px 80px 75px;padding: 0px;border: none;width: 741px;}
+            #page_4 #id_1 {border:none;margin: 0px 0px 0px 1px;padding: 0px;border:none;width: 740px;overflow: hidden;}
+            #page_4 #id_2 {border:none;margin: 2px 0px 0px 657px;padding: 0px;border:none;width: 84px;overflow: hidden;}
+
+            #page_4 #p4dimg1 {position:absolute;top:0px;left:0px;z-index:-1;width:668px;height:545px;}
+            #page_4 #p4dimg1 #p4img1 {width:668px;height:545px;}
+
+
+
+
+            #page_5 {position:relative; overflow: hidden;margin: 76px 0px 87px 76px;padding: 0px;border: none;width: 740px;}
+            #page_5 #id_1 {border:none;margin: 161px 0px 0px 0px;padding: 0px;border:none;width: 740px;overflow: hidden;}
+            #page_5 #id_2 {border:none;margin: 342px 0px 0px 656px;padding: 0px;border:none;width: 84px;overflow: hidden;}
+
+            #page_5 #p5dimg1 {position:absolute;top:0px;left:0px;z-index:-1;width:222px;height:110px;}
+            #page_5 #p5dimg1 #p5img1 {width:222px;height:110px;}
+
+
+
+
+            #page_6 {position:relative; overflow: hidden;margin: 76px 0px 84px 75px;padding: 0px;border: none;width: 741px;}
+            #page_6 #id_1 {border:none;margin: 0px 0px 0px 1px;padding: 0px;border:none;width: 740px;overflow: hidden;}
+            #page_6 #id_2 {border:none;margin: 35px 0px 0px 657px;padding: 0px;border:none;width: 84px;overflow: hidden;}
+
+            #page_6 #p6dimg1 {position:absolute;top:0px;left:0px;z-index:-1;width:668px;height:844px;}
+            #page_6 #p6dimg1 #p6img1 {width:668px;height:844px;}
+
+
+
+
+            #page_7 {position:relative; overflow: hidden;margin: 76px 0px 0px 75px;padding: 0px;border: none;width: 741px;}
+            #page_7 #id_1 {border:none;margin: 0px 0px 0px 1px;padding: 0px;border:none;width: 740px;overflow: hidden;}
+            #page_7 #id_2 {border:none;margin: 184px 0px 0px 657px;padding: 0px;border:none;width: 84px;overflow: hidden;}
+
+            #page_7 #p7dimg1 {position:absolute;top:0px;left:0px;z-index:-1;width:668px;height:383px;}
+            #page_7 #p7dimg1 #p7img1 {width:668px;height:383px;}
+
+
+
+
+            #page_8 {position:relative; overflow: hidden;margin: 0px 0px 0px 75px;padding: 0px;border: none;width: 741px;}
+            #page_8 #id_1 {border:none;margin: 40px 0px 0px 10px;padding: 0px;border:none;width: 731px;overflow: hidden;}
+            #page_8 #id_2 {border:none;margin: 569px 0px 0px 657px;padding: 0px;border:none;width: 84px;overflow: hidden;}
+
+            #page_8 #p8dimg1 {position:absolute;top:0px;left:0px;z-index:-1;width:668px;height:319px;}
+            #page_8 #p8dimg1 #p8img1 {width:668px;height:319px;}
+
+            #page_8 #p8inl_img1 {position:relative;width:1px;height:24px;}
+            #page_8 #p8inl_img2 {position:relative;width:1px;height:24px;}
+            #page_8 #p8inl_img3 {position:relative;width:1px;height:24px;}
+
+
+
+            #page_9 {position:relative; overflow: hidden;margin: 76px 0px 77px 75px;padding: 0px;border: none;width: 741px;}
+            #page_9 #id_1 {border:none;margin: 0px 0px 0px 1px;padding: 0px;border:none;width: 740px;overflow: hidden;}
+            #page_9 #id_2 {border:none;margin: 313px 0px 0px 657px;padding: 0px;border:none;width: 84px;overflow: hidden;}
+
+            #page_9 #p9dimg1 {position:absolute;top:0px;left:0px;z-index:-1;width:668px;height:359px;}
+            #page_9 #p9dimg1 #p9img1 {width:668px;height:359px;}
+
+
+
+
+            #page_10 {position:relative; overflow: hidden;margin: 76px 0px 81px 75px;padding: 0px;border: none;width: 741px;}
+            #page_10 #id_1 {border:none;margin: 0px 0px 0px 1px;padding: 0px;border:none;width: 740px;overflow: hidden;}
+            #page_10 #id_2 {border:none;margin: 65px 0px 0px 657px;padding: 0px;border:none;width: 84px;overflow: hidden;}
+
+            #page_10 #p10dimg1 {position:absolute;top:0px;left:0px;z-index:-1;width:669px;height:817px;}
+            #page_10 #p10dimg1 #p10img1 {width:669px;height:817px;}
+
+
+
+
+            .dclr {clear:both;float:none;height:1px;margin:0px;padding:0px;overflow:hidden;}
+
+            .ft0{font: 50px 'Verdana';color: #ffd320;line-height: 97px;}
+            .ft1{font: bold 19px 'Verdana';color: #ffd320;line-height: 23px;}
+            .ft2{font: 13px 'Wingdings';line-height: 15px;}
+            .ft3{font: 12px 'Verdana';line-height: 14px;}
+            .ft4{font: 13px 'Verdana';line-height: 16px;}
+            .ft5{font: 12px 'Wingdings';line-height: 14px;}
+            .ft6{font: bold 13px 'Verdana';line-height: 17px;}
+            .ft7{font: 13px 'Verdana';line-height: 17px;}
+            .ft8{font: bold 18px 'Verdana';color: #ffd320;line-height: 22px;}
+            .ft9{font: bold 19px 'Verdana';color: #ffd320;margin-left: 21px;line-height: 23px;}
+            .ft10{font: 15px 'Courier New';line-height: 17px;}
+            .ft11{font: 1px 'Verdana';line-height: 1px;}
+            .ft12{font: bold 13px 'Verdana';line-height: 16px;}
+            .ft13{font: italic 13px 'Verdana';line-height: 16px;}
+            .ft14{font: bold 12px 'Courier New';line-height: 16px;}
+            .ft15{font: bold 12px 'Courier New';color: #ff0000;line-height: 16px;}
+            .ft16{font: bold 12px 'Courier New';color: #00ae00;line-height: 16px;}
+            .ft17{font: bold 12px 'Courier New';line-height: 13px;}
+            .ft18{font: 1px 'Verdana';line-height: 13px;}
+            .ft19{font: bold 12px 'Courier New';line-height: 14px;}
+            .ft20{font: 1px 'Verdana';line-height: 14px;}
+            .ft21{font: 12px 'Courier New';line-height: 13px;}
+            .ft22{font: 12px 'Courier New';line-height: 14px;}
+            .ft23{font: 12px 'Courier New';line-height: 9px;}
+            .ft24{font: bold 12px 'Courier New';line-height: 9px;}
+            .ft25{font: 1px 'Verdana';line-height: 9px;}
+            .ft26{font: 1px 'Courier New';line-height: 14px;}
+            .ft27{font: 1px 'Courier New';line-height: 13px;}
+            .ft28{font: 1px 'Courier New';line-height: 1px;}
+            .ft29{font: 14px 'Courier New';line-height: 17px;}
+            .ft30{font: 13px 'Verdana';margin-left: 19px;line-height: 16px;}
+            .ft31{font: 1px 'Verdana';line-height: 3px;}
+
+            .p0{text-align: left;margin-top: 0px;margin-bottom: 0px;}
+            .p1{text-align: left;padding-left: 27px;margin-top: 11px;margin-bottom: 0px;}
+            .p2{text-align: left;margin-top: 0px;margin-bottom: 0px;}
+            .p3{text-align: left;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p4{text-align: right;padding-right: 1px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p5{text-align: right;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p6{text-align: right;padding-right: 3px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p7{text-align: left;padding-left: 9px;margin-top: 0px;margin-bottom: 0px;}
+            .p8{text-align: justify;padding-right: 76px;margin-top: 49px;margin-bottom: 0px;text-indent: 17px;}
+            .p9{text-align: justify;padding-right: 76px;margin-top: 34px;margin-bottom: 0px;text-indent: 15px;}
+            .p10{text-align: left;padding-left: 9px;margin-top: 30px;margin-bottom: 0px;}
+            .p11{text-align: left;padding-left: 6px;margin-top: 0px;margin-bottom: 0px;}
+            .p12{text-align: left;padding-right: 76px;margin-top: 49px;margin-bottom: 0px;text-indent: 15px;}
+            .p13{text-align: left;padding-left: 3px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p14{text-align: left;padding-left: 2px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p15{text-align: left;padding-left: 7px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p16{text-align: left;padding-left: 14px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p17{text-align: left;padding-left: 7px;margin-top: 0px;margin-bottom: 0px;}
+            .p18{text-align: left;padding-left: 9px;margin-top: 38px;margin-bottom: 0px;}
+            .p19{text-align: left;padding-left: 13px;margin-top: 0px;margin-bottom: 0px;}
+            .p20{text-align: left;padding-right: 90px;margin-top: 49px;margin-bottom: 0px;text-indent: 9px;}
+            .p21{text-align: left;padding-left: 21px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p22{text-align: center;padding-left: 1px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p23{text-align: center;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p24{text-align: left;padding-right: 83px;margin-top: 49px;margin-bottom: 0px;text-indent: 9px;}
+            .p25{text-align: left;padding-left: 6px;margin-top: 17px;margin-bottom: 0px;}
+            .p26{text-align: left;padding-left: 6px;margin-top: 1px;margin-bottom: 0px;}
+            .p27{text-align: left;padding-left: 6px;margin-top: 6px;margin-bottom: 0px;}
+            .p28{text-align: left;padding-right: 117px;margin-top: 49px;margin-bottom: 0px;text-indent: 9px;}
+            .p29{text-align: left;padding-left: 20px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+            .p30{text-align: left;padding-left: 251px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+
+            .td0{padding: 0px;margin: 0px;width: 24px;vertical-align: bottom;}
+            .td1{padding: 0px;margin: 0px;width: 564px;vertical-align: bottom;}
+            .td2{padding: 0px;margin: 0px;width: 12px;vertical-align: bottom;}
+            .td3{padding: 0px;margin: 0px;width: 588px;vertical-align: bottom;}
+            .td4{border-left: #000000 1px solid;border-right: #000000 1px solid;border-top: #000000 1px solid;padding: 0px;margin: 0px;width: 76px;vertical-align: bottom;}
+            .td5{border-right: #000000 1px solid;border-top: #000000 1px solid;padding: 0px;margin: 0px;width: 46px;vertical-align: bottom;}
+            .td6{border-right: #000000 1px solid;border-top: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 105px;vertical-align: bottom;}
+            .td7{border-top: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 2px;vertical-align: bottom;}
+            .td8{border-right: #000000 1px solid;border-top: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 434px;vertical-align: bottom;}
+            .td9{border-left: #000000 1px solid;border-right: #000000 1px solid;padding: 0px;margin: 0px;width: 76px;vertical-align: bottom;}
+            .td10{border-right: #000000 1px solid;padding: 0px;margin: 0px;width: 46px;vertical-align: bottom;}
+            .td11{border-right: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 105px;vertical-align: bottom;}
+            .td12{border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 2px;vertical-align: bottom;}
+            .td13{border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 145px;vertical-align: bottom;}
+            .td14{border-right: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 289px;vertical-align: bottom;}
+            .td15{border-right: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 434px;vertical-align: bottom;}
+            .td16{border-right: #000000 1px solid;padding: 0px;margin: 0px;width: 105px;vertical-align: bottom;}
+            .td17{padding: 0px;margin: 0px;width: 2px;vertical-align: bottom;}
+            .td18{border-right: #000000 1px solid;padding: 0px;margin: 0px;width: 434px;vertical-align: bottom;}
+            .td19{border-right: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 46px;vertical-align: bottom;}
+            .td20{border-left: #000000 1px solid;border-right: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 76px;vertical-align: bottom;}
+            .td21{padding: 0px;margin: 0px;width: 125px;vertical-align: bottom;}
+            .td22{padding: 0px;margin: 0px;width: 106px;vertical-align: bottom;}
+            .td23{padding: 0px;margin: 0px;width: 145px;vertical-align: bottom;}
+            .td24{padding: 0px;margin: 0px;width: 290px;vertical-align: bottom;}
+            .td25{padding: 0px;margin: 0px;width: 378px;vertical-align: bottom;}
+            .td26{padding: 0px;margin: 0px;width: 233px;vertical-align: bottom;}
+            .td27{padding: 0px;margin: 0px;width: 273px;vertical-align: bottom;}
+            .td28{border-right: #000000 1px solid;border-top: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 436px;vertical-align: bottom;}
+            .td29{border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 147px;vertical-align: bottom;}
+            .td30{border-right: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 436px;vertical-align: bottom;}
+            .td31{padding: 0px;margin: 0px;width: 231px;vertical-align: bottom;}
+            .td32{padding: 0px;margin: 0px;width: 147px;vertical-align: bottom;}
+            .td33{padding: 0px;margin: 0px;width: 78px;vertical-align: bottom;}
+            .td34{padding: 0px;margin: 0px;width: 47px;vertical-align: bottom;}
+            .td35{border-left: #000000 1px solid;border-right: #000000 1px solid;border-top: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 102px;vertical-align: bottom;}
+            .td36{border-right: #000000 1px solid;border-top: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 563px;vertical-align: bottom;}
+            .td37{border-left: #000000 1px solid;border-right: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 102px;vertical-align: bottom;}
+            .td38{border-right: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 563px;vertical-align: bottom;}
+            .td39{border-left: #000000 1px solid;border-right: #000000 1px solid;border-top: #000000 1px solid;padding: 0px;margin: 0px;width: 77px;vertical-align: bottom;}
+            .td40{border-right: #000000 1px solid;border-top: #000000 1px solid;padding: 0px;margin: 0px;width: 589px;vertical-align: bottom;}
+            .td41{border-left: #000000 1px solid;border-right: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 77px;vertical-align: bottom;}
+            .td42{border-right: #000000 1px solid;border-bottom: #000000 1px solid;padding: 0px;margin: 0px;width: 589px;vertical-align: bottom;}
+
+            .tr0{height: 22px;}
+            .tr1{height: 33px;}
+            .tr2{height: 32px;}
+            .tr3{height: 31px;}
+            .tr4{height: 24px;}
+            .tr5{height: 23px;}
+            .tr6{height: 25px;}
+            .tr7{height: 18px;}
+            .tr8{height: 17px;}
+            .tr9{height: 29px;}
+            .tr10{height: 13px;}
+            .tr11{height: 14px;}
+            .tr12{height: 9px;}
+            .tr13{height: 34px;}
+            .tr14{height: 28px;}
+            .tr15{height: 3px;}
+
+            .t0{width: 600px;font: 12px 'Verdana';}
+            .t1{width: 668px;margin-top: 8px;font: bold 12px 'Courier New';}
+            .t2{width: 651px;font: bold 12px 'Courier New';}
+            .t3{width: 667px;margin-top: 10px;font: 13px 'Verdana';}
+            .t4{width: 667px;margin-top: 8px;font: 15px 'Courier New';}
+            .t5{width: 651px;margin-top: 12px;font: bold 12px 'Courier New';}
+            .t6{width: 668px;margin-top: 48px;font: 13px 'Verdana';}
+            a{
+                cursor:pointer;
+            }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+            function scroll_(id) {
+                $('html, body').animate({
+                    scrollTop: $("#" + id).offset().top
+                }, 1000);
+            }
+        </script>
+    </head>
+
+    <body>
+        <!-- #include virtual="/convert-pdf-to-html/includes/pdf-to-word-body-tag-02242014.htm" -->
+        
+           
+     
+        <!-- #include virtual="/convert-pdf-to-html/includes/pdf-to-word-body-tag-between-content.htm" --><div id="page_2">
+            <div id="id_1">
+		<p class="p0 ft0">Technical Documentation</p>
+                <p class="p2 ft1">Contents</p>
+            </div>
+            <div id="id_2">
+                <table cellpadding="0" cellspacing="0" class="t0">
+                    <tbody><tr>
+                            <td class="tr0 td0"><p class="p3 ft2"></p></td>
+                            <td class="tr0 td1" >
+                                <p class="p3 ft3">
+                                    <a onclick="scroll_(1)">   
+                                        Introduction....................................................................................................
+                                    </a>
+                                </p></td>
+                            <td class="tr0 td2"><p class="p4 ft4">1</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="tr1 td3"><p class="p3 ft3"><span class="ft5"> </span>
+                                    <a  onclick="scroll_(2)">   
+                                        Submit requests for broadcasting.......................................................................
+                                    </a>
+                                </p>
+                            </td>
+                            <td class="tr1 td2"><p class="p5 ft4">2</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="tr2 td3">
+                                <p class="p3 ft3"><span class="ft5"> </span>
+                                    <a onclick="scroll_(3)">     Get delivery reports (only numbers)...................................................................
+                                    </a></p>
+                            </td>
+                            <td class="tr2 td2"><p class="p4 ft4">3</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="tr2 td3"><p class="p3 ft3"><span class="ft5"> </span>
+                                    <a onclick="scroll_(4)">Get detailed delivery reports.............................................................................
+                                    </a></p></td>
+                            <td class="tr2 td2"><p class="p6 ft4">4</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr1 td0"><p class="p3 ft2"></p></td>
+                            <td class="tr1 td1"><p class="p3 ft3">
+                                    <a  onclick="scroll_(5)">
+                                        Get remained units..........................................................................................
+                                    </a>
+                                </p></td>
+                            <td class="tr1 td2"><p class="p6 ft4">5</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr2 td0"><p class="p3 ft2"></p></td>
+                            <td class="tr2 td1"><p class="p3 ft3">
+                                    <a  onclick="scroll_(6)">Response codes...............................................................................................
+                                    </a>
+                                </p>
+                            </td>
+                            <td class="tr2 td2"><p class="p4 ft4">6</p></td>
+                        </tr>
+                    </tbody></table>
+            </div>
+        </div>
+        <div id="page_3">
+
+
+
+
+            <div id="id_1">
+                <p class="p7 ft1" id="1">1. Introduction</p>
+                <p class="p8 ft7">This document covers instructions for integrating <span class="ft6">SMS Broadcasting </span>service into different systems using our application programming interface (API). Using this API you can submit requests for broadcasting, get delivery reports (only numbers or detailed) and information about remained units in your account.</p>
+                <p class="p9 ft7">All requests are HTTP POST requests with XML body sent to the appropriate host and port. Responses to submitted requests will be in XML form too. To issue a request you will be supplied with personal account.</p>
+                <p class="p10 ft4">At the end you can find reponse codes and their descriptions as a result of sent requests.</p>
+            </div>
+
+        </div>
+        <div id="page_4">
+
+
+
+
+            <div id="id_1">
+                <p class="p11 ft1" id="2">
+                    <span class="ft8">2.</span>
+                    <span class="ft9">Submit requests for broadcasting</span>
+                </p>
+                <p class="p12 ft7">
+                    To submit a request for broadcasting you must prepare XML string with elements from the following table and submit as body of the HTTP POST request.
+                </p>
+                <br/>
+                <span>
+                    Requests must be send to : 
+                    <b>http://www.sendsms.az/smxml/api</b>
+                </span>
+                <table cellpadding="0" cellspacing="0" class="t1">
+                    <tbody>
+                        <tr>
+                            <td class="tr2 td4"><p class="p13 ft10">request</p></td>
+                            <td class="tr2 td5"><p class="p14 ft10">head</p></td>
+                            <td class="tr3 td6"><p class="p13 ft10">operation</p></td>
+                            <td class="tr3 td7"><p class="p3 ft11">&nbsp;</p></td>
+                            <td colspan="2" class="tr3 td8"><p class="p3 ft4">Type of operation, "submit" in this case</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td9"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr4 td10"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">login</p></td>
+                            <td class="tr5 td12"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td13"><p class="p3 ft4">Supplied login</p></td>
+                            <td class="tr5 td14"><p class="p3 ft11">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td9"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr4 td10"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">password</p></td>
+                            <td class="tr5 td12"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td13"><p class="p3 ft4">Supplied password</p></td>
+                            <td class="tr5 td14"><p class="p3 ft11">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td9"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr4 td10"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">controlid</p></td>
+                            <td class="tr5 td12"><p class="p3 ft11">&nbsp;</p></td>
+                            <td colspan="2" class="tr5 td15"><p class="p3 ft4">Control ID (to prevent multiple submition of the same task)</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td9"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr4 td10"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">title</p></td>
+                            <td class="tr5 td12"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td13"><p class="p3 ft4">Message title</p></td>
+                            <td class="tr5 td14"><p class="p3 ft11">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr6 td9"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr6 td10"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr4 td11"><p class="p13 ft10">bulkmessage</p></td>
+                            <td class="tr4 td12"><p class="p3 ft11">&nbsp;</p></td>
+                            <td colspan="2" class="tr4 td15"><p class="p3 ft4">Message for all recipients, if <span class="ft10">isbulk </span>is "true"</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td9"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr4 td10"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">scheduled</p></td>
+                            <td class="tr5 td12"><p class="p3 ft11">&nbsp;</p></td>
+                            <td colspan="2" class="tr5 td15"><p class="p3 ft4">Scheduled date for broadcasting, <nobr>"YYYY-MM-DD</nobr> HH:mm:ss"</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr5 td9"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr5 td10"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr5 td16"><p class="p13 ft10">isbulk</p></td>
+                        <td class="tr5 td17"><p class="p3 ft11">&nbsp;</p></td>
+                        <td colspan="2" class="tr5 td18"><p class="p3 ft4">"true" - <span class="ft10">bulkmessage </span>will be used for all recipients</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr7 td9"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr8 td19"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr8 td11"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr8 td12"><p class="p3 ft11">&nbsp;</p></td>
+                        <td colspan="2" class="tr8 td15"><p class="p3 ft4">"false" - individual messages will be used</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr4 td9"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr4 td10"><p class="p14 ft10">body</p></td>
+                        <td class="tr5 td11"><p class="p13 ft10">msisdn</p></td>
+                        <td class="tr5 td12"><p class="p3 ft11">&nbsp;</p></td>
+                        <td colspan="2" class="tr5 td15"><p class="p3 ft4">Recipients phone number</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr5 td20"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr5 td19"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr5 td11"><p class="p13 ft10">message</p></td>
+                        <td class="tr5 td12"><p class="p3 ft11">&nbsp;</p></td>
+                        <td colspan="2" class="tr5 td15"><p class="p3 ft4">Individual message for current recipient</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tr1 td21"><p class="p3 ft12">Examples:</p></td>
+                        <td class="tr1 td22"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr1 td17"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr1 td23"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr1 td24"><p class="p3 ft11">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tr2 td21"><p class="p3 ft13">Request (bulk):</p></td>
+                        <td class="tr2 td22"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr2 td17"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr2 td23"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr2 td24"><p class="p3 ft13">Response:</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="tr9 td25"><p class="p3 ft16"><span class="ft14">&lt;?xml </span>version=<span class="ft15">"1.0" </span><nobr>encoding=<span class="ft15">"UTF-8"</span><span class="ft14">?&gt;</span></nobr></p></td>
+                    <td class="tr9 td24"><p class="p3 ft16"><span class="ft14">&lt;?xml </span>version=<span class="ft15">"1.0" </span><nobr>encoding=<span class="ft15">"UTF-8"</span><span class="ft14">?&gt;</span></nobr></p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tr10 td21"><p class="p3 ft17">&lt;request&gt;</p></td>
+                        <td class="tr10 td22"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td17"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td23"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p3 ft17">&lt;response&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tr11 td21"><p class="p15 ft19">&lt;head&gt;</p></td>
+                        <td class="tr11 td22"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td17"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td23"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p15 ft19">&lt;head&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="tr10 td26"><p class="p16 ft17">&lt;operation&gt;<span class="ft21">submit</span>&lt;/operation&gt;</p></td>
+                        <td class="tr10 td23"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p16 ft17">&lt;responsecode&gt;<span class="ft21">000</span>&lt;/responsecode&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="tr11 td26"><p class="p16 ft19">&lt;login&gt;<span class="ft22">login</span>&lt;/login&gt;</p></td>
+                        <td class="tr11 td23"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p15 ft19">&lt;/head&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="tr11 td26"><p class="p16 ft19">&lt;password&gt;<span class="ft22">password</span>&lt;/password&gt;</p></td>
+                        <td class="tr11 td23"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p15 ft19">&lt;body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="tr10 td26"><p class="p16 ft17"><nobr>&lt;controlid&gt;<span class="ft21">123-abc</span>&lt;/controlid&gt;</nobr></p></td>
+                    <td class="tr10 td23"><p class="p3 ft18">&nbsp;</p></td>
+                    <td class="tr10 td24"><p class="p16 ft17">&lt;taskid&gt;<span class="ft21">4837</span>&lt;/taskid&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="tr11 td26"><p class="p16 ft19">&lt;title&gt;<span class="ft22">TITLE</span>&lt;/title&gt;</p></td>
+                        <td class="tr11 td23"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p15 ft19">&lt;/body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="tr10 td25"><p class="p16 ft17">&lt;bulkmessage&gt;<span class="ft21">message</span>&lt;/bulkmessage&gt;</p></td>
+                        <td class="tr10 td24"><p class="p3 ft17">&lt;/response&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="tr11 td25"><p class="p16 ft19"><nobr>&lt;scheduled&gt;<span class="ft22">2011-10-01</span></nobr><span class="ft22"> 15:40:05</span>&lt;/scheduled&gt;</p></td>
+                    <td class="tr11 td24"><p class="p3 ft20">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="tr11 td26"><p class="p16 ft19">&lt;isbulk&gt;<span class="ft22">true</span>&lt;/isbulk&gt;</p></td>
+                        <td class="tr11 td23"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p3 ft20">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tr10 td21"><p class="p15 ft17">&lt;/head&gt;</p></td>
+                        <td class="tr10 td22"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td17"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td23"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p3 ft18">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tr11 td21"><p class="p15 ft19">&lt;body&gt;</p></td>
+                        <td class="tr11 td22"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td17"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td23"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p3 ft20">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="tr10 td26"><p class="p16 ft17">&lt;msisdn&gt;<span class="ft21">994519574083</span>&lt;/msisdn&gt;</p></td>
+                        <td class="tr10 td23"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p3 ft18">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tr11 td21"><p class="p15 ft19">&lt;/body&gt;</p></td>
+                        <td class="tr11 td22"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td17"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td23"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p3 ft20">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tr11 td21"><p class="p15 ft19">&lt;body&gt;</p></td>
+                        <td class="tr11 td22"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td17"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td23"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p3 ft20">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="tr12 td26"><p class="p16 ft24">&lt;msisdn&gt;<span class="ft23">994518989447</span>&lt;/msisdn&gt;</p></td>
+                        <td class="tr12 td23"><p class="p3 ft25">&nbsp;</p></td>
+                        <td class="tr12 td24"><p class="p3 ft25">&nbsp;</p></td>
+                    </tr>
+                    </tbody></table>
+                <p class="p17 ft17">&lt;/body&gt;</p>
+                <p class="p2 ft14">&lt;/request&gt;</p>
+            </div>
+
+        </div>
+        <div id="page_5">
+
+
+
+
+            <div id="id_1">
+                <table cellpadding="0" cellspacing="0" class="t2">
+                    <tbody><tr>
+                            <td class="tr0 td25"><p class="p3 ft13">Request (individual):</p></td>
+                            <td class="tr0 td27"><p class="p3 ft13">Response:</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr9 td25"><p class="p3 ft16"><span class="ft14">&lt;?xml </span>version=<span class="ft15">"1.0" </span><nobr>encoding=<span class="ft15">"UTF-8"</span><span class="ft14">?&gt;</span></nobr></p></td>
+                    <td class="tr9 td27"><p class="p3 ft16"><span class="ft14">&lt;?xml </span>version=<span class="ft15">"1.0" </span><nobr>encoding=<span class="ft15">"UTF-8"</span><span class="ft14">?&gt;</span></nobr></p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p3 ft17">&lt;request&gt;</p></td>
+                        <td class="tr10 td27"><p class="p3 ft17">&lt;response&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p15 ft19">&lt;head&gt;</p></td>
+                        <td class="tr11 td27"><p class="p15 ft19">&lt;head&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p16 ft17">&lt;operation&gt;<span class="ft21">submit</span>&lt;/operation&gt;</p></td>
+                        <td class="tr10 td27"><p class="p16 ft17">&lt;responsecode&gt;<span class="ft21">000</span>&lt;/responsecode&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p16 ft19">&lt;login&gt;<span class="ft22">login</span>&lt;/login&gt;</p></td>
+                        <td class="tr11 td27"><p class="p15 ft19">&lt;/head&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p16 ft19">&lt;password&gt;<span class="ft22">password</span>&lt;/password&gt;</p></td>
+                        <td class="tr11 td27"><p class="p15 ft19">&lt;body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p16 ft17"><nobr>&lt;controlid&gt;<span class="ft21">123-abc</span>&lt;/controlid&gt;</nobr></p></td>
+                    <td class="tr10 td27"><p class="p16 ft17">&lt;taskid&gt;<span class="ft21">4837</span>&lt;/taskid&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p16 ft19">&lt;title&gt;<span class="ft22">TITLE</span>&lt;/title&gt;</p></td>
+                        <td class="tr11 td27"><p class="p15 ft19">&lt;/body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p16 ft17"><nobr>&lt;scheduled&gt;<span class="ft21">2011-10-01</span></nobr><span class="ft21"> 15:40:05</span>&lt;/scheduled&gt;</p></td>
+                    <td class="tr10 td27"><p class="p3 ft17">&lt;/response&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p16 ft19">&lt;isbulk&gt;<span class="ft22">false</span>&lt;/isbulk&gt;</p></td>
+                        <td class="tr11 td27"><p class="p3 ft26">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p15 ft19">&lt;/head&gt;</p></td>
+                        <td class="tr11 td27"><p class="p3 ft26">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p15 ft17">&lt;body&gt;</p></td>
+                        <td class="tr10 td27"><p class="p3 ft27">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p16 ft19">&lt;msisdn&gt;<span class="ft22">994519574083</span>&lt;/msisdn&gt;</p></td>
+                        <td class="tr11 td27"><p class="p3 ft26">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p16 ft17">&lt;message&gt;<span class="ft21">message one</span>&lt;/message&gt;</p></td>
+                        <td class="tr10 td27"><p class="p3 ft27">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p15 ft19">&lt;/body&gt;</p></td>
+                        <td class="tr11 td27"><p class="p3 ft26">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p15 ft19">&lt;body&gt;</p></td>
+                        <td class="tr11 td27"><p class="p3 ft26">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p16 ft17">&lt;msisdn&gt;<span class="ft21">994518989447</span>&lt;/msisdn&gt;</p></td>
+                        <td class="tr10 td27"><p class="p3 ft27">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p16 ft19">&lt;message&gt;<span class="ft22">message two</span>&lt;/message&gt;</p></td>
+                        <td class="tr11 td27"><p class="p3 ft26">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p15 ft17">&lt;/body&gt;</p></td>
+                        <td class="tr10 td27"><p class="p3 ft27">&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr5 td25"><p class="p3 ft14">&lt;/request&gt;</p></td>
+                        <td class="tr5 td27"><p class="p3 ft28">&nbsp;</p></td>
+                    </tr>
+                    </tbody></table>
+                <p class="p18 ft4">After successful operation you will get <span class="ft10">taskid</span>. With this value you can get delivery reports.</p>
+            </div>
+
+        </div>
+        <div id="page_6">
+
+
+
+
+            <div id="id_1">
+                <p class="p19 ft1" id="3">3. Get delivery reports (only numbers)</p>
+                <p class="p20 ft7">To get a report you must prepare XML string with elements from the following table and submit as body of the HTTP POST request. This kind of report contains only numbers.</p>
+                <table cellpadding="0" cellspacing="0" class="t1">
+                    <tbody><tr>
+                            <td class="tr2 td4"><p class="p13 ft10">request</p></td>
+                            <td class="tr2 td5"><p class="p14 ft10">head</p></td>
+                            <td class="tr3 td6"><p class="p13 ft10">operation</p></td>
+                            <td colspan="2" class="tr3 td28"><p class="p14 ft4">Type of operation, "report" in this case</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td9"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr4 td10"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">login</p></td>
+                            <td class="tr5 td29"><p class="p14 ft4">Supplied login</p></td>
+                            <td class="tr5 td14"><p class="p3 ft11">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td9"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr4 td10"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">password</p></td>
+                            <td class="tr5 td29"><p class="p14 ft4">Supplied password</p></td>
+                            <td class="tr5 td14"><p class="p3 ft11">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td20"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td19"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">taskid</p></td>
+                            <td colspan="2" class="tr5 td30"><p class="p14 ft4">Unique id of the submitted request for broadcasting</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="tr13 td31"><p class="p3 ft12">Examples:</p></td>
+                            <td class="tr13 td32"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr13 td24"><p class="p3 ft11">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="tr1 td31"><p class="p3 ft13">Request:</p></td>
+                            <td class="tr1 td32"><p class="p3 ft11">&nbsp;</p></td>
+                            <td class="tr1 td24"><p class="p3 ft13">Response:</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="tr14 td25"><p class="p3 ft16"><span class="ft14">&lt;?xml </span>version=<span class="ft15">"1.0" </span><nobr>encoding=<span class="ft15">"UTF-8"</span><span class="ft14">?&gt;</span></nobr></p></td>
+                    <td class="tr14 td24"><p class="p3 ft16"><span class="ft14">&lt;?xml </span>version=<span class="ft15">"1.0" </span><nobr>encoding=<span class="ft15">"UTF-8"</span><span class="ft14">?&gt;</span></nobr></p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr11 td31"><p class="p3 ft19">&lt;request&gt;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p3 ft19">&lt;response&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr10 td31"><p class="p15 ft17">&lt;head&gt;</p></td>
+                        <td class="tr10 td32"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p15 ft17">&lt;head&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr11 td31"><p class="p16 ft19">&lt;operation&gt;<span class="ft22">report</span>&lt;/operation&gt;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p16 ft19">&lt;responsecode&gt;<span class="ft22">000</span>&lt;/responsecode&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr11 td31"><p class="p16 ft19">&lt;login&gt;<span class="ft22">login</span>&lt;/login&gt;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p15 ft19">&lt;/head&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr10 td31"><p class="p16 ft17">&lt;password&gt;<span class="ft21">password</span>&lt;/password&gt;</p></td>
+                        <td class="tr10 td32"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p15 ft17">&lt;body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr11 td31"><p class="p16 ft19">&lt;taskid&gt;<span class="ft22">4837</span>&lt;/taskid&gt;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p16 ft19">&lt;pending&gt;<span class="ft22">0</span>&lt;/pending&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr10 td31"><p class="p15 ft17">&lt;/head&gt;</p></td>
+                        <td class="tr10 td32"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p16 ft17">&lt;delivered&gt;<span class="ft21">1</span>&lt;/delivered&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr11 td31"><p class="p3 ft19">&lt;/request&gt;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p16 ft19">&lt;failed&gt;<span class="ft22">1</span>&lt;/failed&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td33"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td34"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td22"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p16 ft19">&lt;removed&gt;<span class="ft22">0</span>&lt;/removed&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td33"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td34"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td22"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td32"><p class="p3 ft18">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p16 ft17">&lt;error&gt;<span class="ft21">0</span>&lt;/error&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td33"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td34"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td22"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft20">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p15 ft19">&lt;/body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr5 td33"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr5 td34"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr5 td22"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr5 td32"><p class="p3 ft11">&nbsp;</p></td>
+                        <td class="tr5 td24"><p class="p3 ft14">&lt;/response&gt;</p></td>
+                    </tr>
+                    </tbody></table>
+                <p class="p18 ft4">Descriptions of the statuses are as followed:</p>
+                <table cellpadding="0" cellspacing="0" class="t3">
+                    <tbody><tr>
+                            <td class="tr3 td35"><p class="p21 ft10">pending</p></td>
+                            <td class="tr3 td36"><p class="p13 ft4">Message is queued</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td37"><p class="p22 ft29">delivered</p></td>
+                            <td class="tr5 td38"><p class="p13 ft4">Message was successfully delivered</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td37"><p class="p22 ft29">failed</p></td>
+                            <td class="tr5 td38"><p class="p13 ft4">Message delivery failed</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td37"><p class="p22 ft29">removed</p></td>
+                            <td class="tr5 td38"><p class="p13 ft4">Message was removed from list</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td37"><p class="p23 ft29">error</p></td>
+                            <td class="tr5 td38"><p class="p13 ft4">System error</p></td>
+                        </tr>
+                    </tbody></table>
+            </div>
+
+        </div>
+        <div id="page_7">
+
+
+
+
+            <div id="id_1">
+                <p class="p19 ft1" id="4">4. Get detailed delivery reports</p>
+                <p class="p24 ft7">To get a detailed report you must prepare XML string with elements from the following table and submit as body of the HTTP POST request. This kind of report contains full report.</p>
+                <table cellpadding="0" cellspacing="0" class="t1">
+                    <tbody><tr>
+                            <td class="tr2 td4"><p class="p13 ft10">request</p></td>
+                            <td class="tr2 td5"><p class="p14 ft10">head</p></td>
+                            <td class="tr3 td6"><p class="p13 ft10">operation</p></td>
+                            <td colspan="2" class="tr3 td28"><p class="p14 ft4">Type of operation, "detailedreport" in this case</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td9"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr4 td10"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">login</p></td>
+                            <td class="tr5 td29"><p class="p14 ft4">Supplied login</p></td>
+                            <td class="tr5 td14"><p class="p3 ft28">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td9"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr4 td10"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">password</p></td>
+                            <td class="tr5 td29"><p class="p14 ft4">Supplied password</p></td>
+                            <td class="tr5 td14"><p class="p3 ft28">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td20"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr5 td19"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">taskid</p></td>
+                            <td colspan="2" class="tr5 td30"><p class="p14 ft4">Unique id of the submitted request for broadcasting</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="tr13 td31"><p class="p3 ft12">Examples:</p></td>
+                            <td class="tr13 td32"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr13 td24"><p class="p3 ft28">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="tr1 td31"><p class="p3 ft13">Request:</p></td>
+                            <td class="tr1 td32"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr1 td24"><p class="p3 ft13">Response:</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="tr14 td25"><p class="p3 ft16"><span class="ft14">&lt;?xml </span>version=<span class="ft15">"1.0" </span><nobr>encoding=<span class="ft15">"UTF-8"</span><span class="ft14">?&gt;</span></nobr></p></td>
+                    <td class="tr14 td24"><p class="p3 ft16"><span class="ft14">&lt;?xml </span>version=<span class="ft15">"1.0" </span><nobr>encoding=<span class="ft15">"UTF-8"</span><span class="ft14">?&gt;</span></nobr></p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr11 td31"><p class="p3 ft19">&lt;request&gt;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p3 ft19">&lt;response&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr10 td31"><p class="p15 ft17">&lt;head&gt;</p></td>
+                        <td class="tr10 td32"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p15 ft17">&lt;head&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="tr11 td25"><p class="p16 ft19">&lt;operation&gt;<span class="ft22">detailedreport</span>&lt;/operation&gt;</p></td>
+                        <td class="tr11 td24"><p class="p16 ft19">&lt;responsecode&gt;<span class="ft22">000</span>&lt;/responsecode&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr11 td31"><p class="p16 ft19">&lt;login&gt;<span class="ft22">login</span>&lt;/login&gt;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p15 ft19">&lt;/head&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr10 td31"><p class="p16 ft17">&lt;password&gt;<span class="ft21">password</span>&lt;/password&gt;</p></td>
+                        <td class="tr10 td32"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p15 ft17">&lt;body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr11 td31"><p class="p16 ft19">&lt;taskid&gt;<span class="ft22">4837</span>&lt;/taskid&gt;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p16 ft19">&lt;msisdn&gt;<span class="ft22">994519574083</span>&lt;/msisdn&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr10 td31"><p class="p15 ft17">&lt;/head&gt;</p></td>
+                        <td class="tr10 td32"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p16 ft17">&lt;message&gt;<span class="ft21">message one</span>&lt;/message&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="tr11 td31"><p class="p3 ft19">&lt;/request&gt;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p16 ft19">&lt;status&gt;<span class="ft22">2</span>&lt;/status&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td33"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td34"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td22"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p15 ft19">&lt;/body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td33"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td34"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td22"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td32"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p15 ft17">&lt;body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td33"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td34"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td22"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p16 ft19">&lt;msisdn&gt;<span class="ft22">994518989447</span>&lt;/msisdn&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td33"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td34"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td22"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td32"><p class="p3 ft27">&nbsp;</p></td>
+                        <td class="tr10 td24"><p class="p16 ft17">&lt;message&gt;<span class="ft21">message two</span>&lt;/message&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td33"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td34"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td22"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p16 ft19">&lt;status&gt;<span class="ft22">3</span>&lt;/status&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td33"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td34"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td22"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td32"><p class="p3 ft26">&nbsp;</p></td>
+                        <td class="tr11 td24"><p class="p15 ft19">&lt;/body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr5 td33"><p class="p3 ft28">&nbsp;</p></td>
+                        <td class="tr5 td34"><p class="p3 ft28">&nbsp;</p></td>
+                        <td class="tr5 td22"><p class="p3 ft28">&nbsp;</p></td>
+                        <td class="tr5 td32"><p class="p3 ft28">&nbsp;</p></td>
+                        <td class="tr5 td24"><p class="p3 ft14">&lt;/response&gt;</p></td>
+                    </tr>
+                    </tbody></table>
+            </div>
+
+        </div>
+        <div id="page_8">
+
+
+
+
+            <div id="id_1">
+                <p class="p2 ft4">Descriptions of the statuses are as followed:</p>
+                <table>
+                    <tr>
+                        <td>1.</td>
+                        <td>Message is queued</td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Message was successfully delivered</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Message delivery failed</td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>Message was removed from list</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>System error</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <div id="page_9">
+
+
+
+
+            <div id="id_1">
+                <p class="p19 ft1" id="5">5. Get remained units</p>
+                <p class="p28 ft7">To get remained units in your account you must prepare XML string with elements from the following table and submit as body of the HTTP POST request.</p>
+                <table cellpadding="0" cellspacing="0" class="t4">
+                    <tbody><tr>
+                            <td class="tr2 td4"><p class="p13 ft10">request</p></td>
+                            <td class="tr2 td5"><p class="p14 ft10">head</p></td>
+                            <td class="tr3 td6"><p class="p13 ft10">operation</p></td>
+                            <td class="tr3 td28"><p class="p14 ft4">Type of operation, "units" in this case</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td9"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr4 td10"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">login</p></td>
+                            <td class="tr5 td30"><p class="p14 ft4">Supplied login</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td20"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr5 td19"><p class="p3 ft28">&nbsp;</p></td>
+                            <td class="tr5 td11"><p class="p13 ft10">password</p></td>
+                            <td class="tr5 td30"><p class="p14 ft4">Supplied password</p></td>
+                        </tr>
+                    </tbody></table>
+                <table cellpadding="0" cellspacing="0" class="t5">
+                    <tbody><tr>
+                            <td class="tr0 td25"><p class="p3 ft12">Examples:</p></td>
+                            <td class="tr0 td27"><p class="p3 ft28">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr1 td25"><p class="p3 ft13">Request:</p></td>
+                            <td class="tr1 td27"><p class="p3 ft13">Response:</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr14 td25"><p class="p3 ft16"><span class="ft14">&lt;?xml </span>version=<span class="ft15">"1.0" </span><nobr>encoding=<span class="ft15">"UTF-8"</span><span class="ft14">?&gt;</span></nobr></p></td>
+                    <td class="tr14 td27"><p class="p3 ft16"><span class="ft14">&lt;?xml </span>version=<span class="ft15">"1.0" </span><nobr>encoding=<span class="ft15">"UTF-8"</span><span class="ft14">?&gt;</span></nobr></p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p3 ft19">&lt;request&gt;</p></td>
+                        <td class="tr11 td27"><p class="p3 ft19">&lt;response&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p15 ft17">&lt;head&gt;</p></td>
+                        <td class="tr10 td27"><p class="p15 ft17">&lt;head&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p16 ft19">&lt;operation&gt;<span class="ft22">units</span>&lt;/operation&gt;</p></td>
+                        <td class="tr11 td27"><p class="p16 ft19">&lt;responsecode&gt;<span class="ft22">000</span>&lt;/responsecode&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p16 ft19">&lt;login&gt;<span class="ft22">login</span>&lt;/login&gt;</p></td>
+                        <td class="tr11 td27"><p class="p15 ft19">&lt;/head&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p16 ft17">&lt;password&gt;<span class="ft21">password</span>&lt;/password&gt;</p></td>
+                        <td class="tr10 td27"><p class="p15 ft17">&lt;body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr11 td25"><p class="p15 ft19">&lt;/head&gt;</p></td>
+                        <td class="tr11 td27"><p class="p16 ft19">&lt;units&gt;<span class="ft22">234</span>&lt;/units&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr10 td25"><p class="p3 ft17">&lt;/request&gt;</p></td>
+                        <td class="tr10 td27"><p class="p15 ft17">&lt;/body&gt;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tr4 td25"><p class="p3 ft28">&nbsp;</p></td>
+                        <td class="tr4 td27"><p class="p3 ft14">&lt;/response&gt;</p></td>
+                    </tr>
+                    </tbody></table>
+            </div>
+
+        </div>
+        <div id="page_10">
+
+
+
+
+            <div id="id_1">
+                <p class="p11 ft1" id="6"><span class="ft8">6.</span><span class="ft9">Response Codes</span></p>
+                <table cellpadding="0" cellspacing="0" class="t6">
+                    <tbody><tr>
+                            <td class="tr0 td39"><p class="p29 ft12">Code</p></td>
+                            <td class="tr0 td40"><p class="p30 ft12">Description</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr15 td41"><p class="p3 ft31">&nbsp;</p></td>
+                            <td class="tr15 td42"><p class="p3 ft31">&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">000</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Operation is successfull</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">001</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Processing, report is not ready</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td41"><p class="p22 ft29">002</p></td>
+                            <td class="tr4 td42"><p class="p14 ft4">Task by supplied <span class="ft10">controlid </span>is already submitted</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">100</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Bad request</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">101</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Operation type is empty</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">102</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Invalid operation</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">103</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Login is empty</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">104</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Password is empty</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">105</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Invalid authentification information</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">106</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Title is empty</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">107</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Invalid title</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">108</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Task id is empty</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">109</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Invalid task id</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">110</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Empty control id</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">111</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Scheduled date is empty</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">112</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Invalid scheduled date</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">113</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Old scheduled date</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td41"><p class="p22 ft29">114</p></td>
+                            <td class="tr4 td42"><p class="p14 ft4"><span class="ft10">isbulk </span>is empty</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr4 td41"><p class="p22 ft29">115</p></td>
+                            <td class="tr4 td42"><p class="p14 ft4">Invalid <span class="ft10">isbulk </span>value</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">116</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Invalid bulk message</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">117</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Invalid body</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">118</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">Not enough units</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tr5 td41"><p class="p22 ft29">2XX</p></td>
+                            <td class="tr5 td42"><p class="p14 ft4">System error, report to administrator</p></td>
+                        </tr>
+                    </tbody></table>
+            </div>
+
+        </div>
+
+
+
+
+    </body></html>

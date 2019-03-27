@@ -1,0 +1,310 @@
+<style>
+    .mytbl{
+        border:1px solid;
+        border-collapse: collapse;
+    }
+    .mytbl th{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .mytbl td{
+        border: 1px solid;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+
+    .mytbl tr:hover{
+        /*background-color: activecaption;*/
+    }
+</style>
+<table class="mytbl">
+    <thead>
+        <tr>
+            <th colspan="6">
+    <center>
+        <h2>
+            CONTENT SERVICE API
+        </h2>
+    </center>
+</th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Operation</td>
+        <td>URL</td>
+        <td>Method</td>
+        <td>Params details</td>
+        <td>Response</td>
+        <td>Additional information</td>
+    </tr>
+
+    <tr>
+        <td>subscribe by text message</td>
+        <td>http://apps.lsim.az/contentservice/restful/subscribers/subscribe?
+            <br/>msisdn=xxx-xxx-xx-xx&
+            <br/>text=xxxx&
+            <br/>user=xxxx&
+            <br/>password=xxxx&
+            <br/>format=xxxx
+        </td>
+        <td>HTTP GET</td>
+        <td>
+            <table  class="mytbl">
+                <tr>
+                    <td>username (required)</td>
+                    <td>your username on lsim</td>
+                </tr>
+                <tr>
+                    <td>password (required)</td>
+                    <td>your password on lsim</td>
+                </tr>
+                <tr>
+                    <td>msisdn (required)</td>
+                    <td>subscriber number (country code + operator code + number)</td>
+                </tr>
+                <tr>
+                    <td>text (required)</td>
+                    <td>message sent by subscriber</td>
+                </tr>
+                <tr>
+                    <td>format (optional)</td>
+                    <td>if you want to get result as boolean send format=bool then<br>
+                        you will get response as 0 or 1.If there is some success operation such as 
+                        successfully subscribed,unsubscribed so you will get 1 otherwise 0</td>
+                </tr>
+            </table> 
+        </td>
+        <td>
+            you will get json object:
+            {"errorCode":null,"errorMessage":null,"obj":"29","successMessage":null}
+            <br/>
+            <br/>
+            <table  class="mytbl">
+                <tr>
+                    <td>successMessage</td>
+                    <td>Success message of operation</td>
+                </tr>
+                <tr>
+                    <td>obj</td>
+                    <td>integer that represents transaction id
+                    </td>
+                </tr>
+                <tr>
+                    <td>errorMessage</td>
+                    <td>Error message of operation if some error occured</td>
+                </tr>
+                <tr>
+                    <td>errorCode</td>
+                    <td>If some error occured then it will show error code</td>
+                </tr> 
+            </table> 
+        </td>
+        <td></td>
+    </tr> 
+
+    <tr>
+        <td>subscribe by subserviceid</td>
+        <td>http://apps.lsim.az/contentservice/restful/subscribers/subscribebysid?
+            <br/>msisdn=xxx-xxx-xx-xx&
+            <br/>subserviceid=xx&
+            <br/>addinfo=xxxx&
+            <br/>user=xxxx&
+            <br/>password=xxxx
+        </td>
+        <td>HTTP GET</td>
+        <td>
+            <table  class="mytbl"> 
+                <tr>
+                    <td>msisdn (required)</td>
+                    <td>subscriber number (country code + operator code + number)</td>
+                </tr>
+                <tr>
+                    <td>subserviceid (required)</td>
+                    <td>subservice id which subscriber will be subscribed</td>
+                </tr>
+                <tr>
+                    <td>addinfo (optional)</td>
+                    <td>additional information about subsciber(optional)</td>
+                </tr>   
+                <tr>
+                    <td>username (required)</td>
+                    <td>your username on lsim</td>
+                </tr>
+                <tr>
+                    <td>password (required)</td>
+                    <td>your password on lsim</td>
+                </tr>
+            </table> 
+        </td>
+        <td>
+            you will get json object:
+            {"errorCode":null,"errorMessage":null,"obj":"29","successMessage":null}
+            <br/>
+            <br/>
+            <table  class="mytbl">
+                <tr>
+                    <td>successMessage</td>
+                    <td>Success message of operation</td>
+                </tr>
+                <tr>
+                    <td>obj</td>
+                    <td>integer that represents transaction id
+                    </td>
+                </tr>
+                <tr>
+                    <td>errorMessage</td>
+                    <td>Error message of operation if some error occured</td>
+                </tr>
+                <tr>
+                    <td>errorCode</td>
+                    <td>If some error occured then it will show error code</td>
+                </tr> 
+            </table> 
+        </td>
+        <td></td>
+    </tr> 
+
+    <tr>
+        <td>check subscriber's subscribtion history</td>
+        <td>http://apps.lsim.az/contentservice/restful/subscribers/subscribtionhistory?
+            <br/>msisdn=xxx-xxx-xx-xx&
+            <br/>subserviceid=xx&
+            <br/>subscribtionstatus=xx&
+            <br/>user=xxxx&
+            <br/>password=xxxx
+        </td>
+        <td>HTTP GET</td>
+        <td>
+            <table  class="mytbl"> 
+                <tr>
+                    <td>msisdn (required)</td>
+                    <td>subscriber number (country code + operator code + number)</td>
+                </tr>
+                <tr>
+                    <td>subserviceid (optional)</td>
+                    <td>select subscriber's subscribtion history of only this subservice id </td>
+                </tr>
+                <tr>
+                    <td>subscribtionstatus (optional, default ONLY_ACTIVE)</td>
+                    <td>
+                        ONLY_ACTIVE - select only active subscribtions<br>
+                        ONLY_DEACTIVE - select only deactive subscribtions<br>
+                        ALL - select all subscribtions<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>username (required)</td>
+                    <td>your username on lsim</td>
+                </tr>
+                <tr>
+                    <td>password (required)</td>
+                    <td>your password on lsim</td>
+                </tr>
+            </table> 
+        </td>
+        <td>
+            you will get json object:
+            {"errorCode":null,"errorMessage":null,"obj":[],"successMessage":null}
+            <br/>
+            <br/>
+            <table  class="mytbl">
+                <tr>
+                    <td>successMessage</td>
+                    <td>Success message of operation</td>
+                </tr>
+                <tr>
+                    <td>obj</td>
+                    <td>list describes subscribtions.Include subscriber information and subservice information susbcribed
+                    </td>
+                </tr>
+                <tr>
+                    <td>errorMessage</td>
+                    <td>Error message of operation if some error occured</td>
+                </tr>
+                <tr>
+                    <td>errorCode</td>
+                    <td>If some error occured then it will show error code</td>
+                </tr> 
+            </table> 
+        </td>
+        <td></td>
+    </tr> 
+
+    <tr>
+        <td>check subscriber's transaction history</td>
+        <td>http://apps.lsim.az/contentservice/restful/subscribers/transactionhistory?
+            <br/>msisdn=xxx-xxx-xx-xx&
+            <br/>subserviceid=xx&
+            <br/>transactiontype=xx&
+            <br/>result=xx&
+            <br/>user=xxxx&
+            <br/>password=xxxx
+        </td>
+        <td>HTTP GET</td>
+        <td>
+            <table  class="mytbl"> 
+                <tr>
+                    <td>msisdn (required)</td>
+                    <td>subscriber number (country code + operator code + number)</td>
+                </tr>
+                <tr>
+                    <td>subserviceid (optional)</td>
+                    <td>select subscriber's transaction history of only this subservice id </td>
+                </tr>
+                <tr>
+                    <td>transactiontype (required)</td>
+                    <td>
+                        CHARGE - select only CHARGE transactions<br>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>result (optional)</td>
+                    <td>
+                        0 - select only success charges<br>
+                        2 - select only insufficcient charges<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>username (required)</td>
+                    <td>your username on lsim</td>
+                </tr>
+                <tr>
+                    <td>password (required)</td>
+                    <td>your password on lsim</td>
+                </tr>
+            </table> 
+        </td>
+        <td>
+            you will get json object:
+            {"errorCode":null,"errorMessage":null,"obj":[],"successMessage":null}
+            <br/>
+            <br/>
+            <table  class="mytbl">
+                <tr>
+                    <td>successMessage</td>
+                    <td>Success message of operation</td>
+                </tr>
+                <tr>
+                    <td>obj</td>
+                    <td>list describes transactions.
+                    </td>
+                </tr>
+                <tr>
+                    <td>errorMessage</td>
+                    <td>Error message of operation if some error occured</td>
+                </tr>
+                <tr>
+                    <td>errorCode</td>
+                    <td>If some error occured then it will show error code</td>
+                </tr> 
+            </table> 
+        </td>
+        <td></td>
+    </tr>
+</tbody>
+</table>
+
+

@@ -1,0 +1,287 @@
+<style>
+    .mytbl{
+        border:1px solid;
+        border-collapse: collapse;
+    }
+    .mytbl th{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .mytbl td{
+        border: 1px solid;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+
+    .mytbl tr:hover{
+        /*background-color: activecaption;*/
+    }
+</style>
+<table class="mytbl">
+    <thead>
+        <tr>
+            <th colspan="6">
+    <center>
+        <h2>
+            SMS sending (over HTTP) API
+        </h2>
+    </center>
+</th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Operation</td>
+        <td>URL</td>
+        <td>Method</td>
+        <td>Params details</td>
+        <td>Response</td>
+        <td>Additional information</td>
+    </tr>
+    <tr>
+        <td>Send</td>
+        <td>http://apps.lsim.az/quicksms/v1/send?
+            <br/>login=LOGIN
+            <br/>&msisdn=MSISDN
+            <br/>&text=MSG_BODY
+            <br/>&sender=SENDER
+            <br/>&key=KEY</td>
+        <td>HTTP GET</td>
+        <td>
+            <table  class="mytbl">
+                <tr>
+                    <td>LOGIN</td>
+                    <td>your login</td>
+                </tr>
+                <tr>
+                    <td>MSISDN</td>
+                    <td>subscriber number (country code + operator code + number)</td>
+                </tr>
+                <tr>
+                    <td>MSG_BODY</td>
+                    <td>url encoded message</td>
+                </tr>
+                <tr>
+                    <td>SENDER</td>
+                    <td>title to use when sending message (will be supplied)</td>
+                </tr>
+                <tr>
+                    <td>KEY</td>
+                    <td>md5 of (md5 of your password) + LOGIN + MSG_BODY + MSISDN + SENDER</td>
+                </tr>
+            </table> 
+        </td>
+        <td>
+            you will get json object:
+            {"successMessage":null,"errorMessage":null,"obj":integer,"errorCode":integer}
+            <br/>
+            <br/>
+            <table  class="mytbl">
+                <tr>
+                    <td>successMessage</td>
+                    <td>Success message of operation</td>
+                </tr>
+                <tr>
+                    <td>errorMessage</td>
+                    <td>Error message of operation if some error occured</td>
+                </tr>
+                <tr>
+                    <td>obj</td>
+                    <td>integer that represents transactionId </td>
+                </tr>
+                <tr>
+                    <td>errorCode</td>
+                    <td>If some error occured then it will show error code</td>
+                </tr> 
+            </table> 
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Check balance</td>
+        <td>http://apps.lsim.az/quicksms/v1/balance?
+            <br/>login=LOGIN
+            <br/>&key=KEY 
+        </td>
+        <td>HTTP GET</td>
+        <td>
+            <table  class="mytbl">
+                <tr>
+                    <td>LOGIN</td>
+                    <td>your login</td>
+                </tr>
+                <tr>
+                    <td>KEY</td>
+                    <td>md5 of (md5 of your password) + LOGIN</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            you will get json object:
+            {"successMessage":null,"errorMessage":null,"obj":integer,"errorCode":integer}
+            <br/>
+            <br/>
+            <table  class="mytbl">
+                <tr>
+                    <td>successMessage</td>
+                    <td>Success message of operation</td>
+                </tr>
+                <tr>
+                    <td>errorMessage</td>
+                    <td>Error message of operation if some error occured</td>
+                </tr>
+                <tr>
+                    <td>obj</td>
+                    <td>integer that represents balance </td>
+                </tr>
+                <tr>
+                    <td>errorCode</td>
+                    <td>If some error occured then it will show error code</td>
+                </tr> 
+            </table> 
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Get report</td>
+        <td>http://apps.lsim.az/quicksms/v1/report?
+            <br/>login=LOGIN
+            <br/>&trans_id=TRANS_ID</td>
+        <td>HTTP GET</td>
+        <td>
+            <table  class="mytbl">
+                <tr>
+                    <td colspan="2">Params</td>
+                </tr>
+                <tr>
+                    <td>LOGIN</td>
+                    <td>your login</td>
+                </tr>
+                <tr>
+                    <td>TRANS_ID</td>
+                    <td>transaction id received upon successfull sms submit operation</td>
+                </tr>
+            </table>
+        </td>
+        <td> 
+            <table  class="mytbl">
+                <tr>
+                    <td  style="border: 0px;">
+                        <table  class="mytbl">
+                            <tr>
+                                <td colspan="2"><b>Positive responses</b></td>
+                            </tr>
+                            <tr>
+                                <td>100</td>
+                                <td>In queue</td>
+                            </tr>
+                            <tr>
+                                <td>101</td>
+                                <td>Delivered</td>
+                            </tr>
+                            <tr>
+                                <td>102</td>
+                                <td>Undelivered</td>
+                            </tr>
+                            <tr>
+                                <td>103</td>
+                                <td>Expired</td>
+                            </tr>
+                            <tr>
+                                <td>104</td>
+                                <td>Rejected</td>
+                            </tr>
+                            <tr>
+                                <td>105</td>
+                                <td>Cancelled</td>
+                            </tr>
+                            <tr>
+                                <td>106</td>
+                                <td>Error</td>
+                            </tr>
+                            <tr>
+                                <td>107</td>
+                                <td>Unknown (contact us)</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td  style="border: 0px;">
+                        <table  class="mytbl">
+                            <tr>
+                                <td colspan="2"><b>Error responses</b></td>
+                            </tr>
+                            <tr>
+                                <td>-100</td>
+                                <td>invalid key</td>
+                            </tr>
+                            <tr>
+                                <td>-101</td>
+                                <td>text more than allowed length</td>
+                            </tr>
+                            <tr>
+                                <td>-102</td>
+                                <td>wrong number format</td>
+                            </tr>
+                            <tr>
+                                <td>-103</td>
+                                <td>invalid sender name</td>
+                            </tr>
+                            <tr>
+                                <td>-104</td>
+                                <td>insufficient balance</td>
+                            </tr>
+                            <tr>
+                                <td>-105</td>
+                                <td>number in black list</td>
+                            </tr>
+                            <tr>
+                                <td>-106</td>
+                                <td>invalid transaction id</td>
+                            </tr>
+                            <tr>
+                                <td>-107</td>
+                                <td>IP address not allowed</td>
+                            </tr>
+
+                            <tr>
+                                <td>-108</td>
+                                <td>invalid hash</td>
+                            </tr>
+                            <tr>
+                                <td>-109</td>
+                                <td>no host</td>
+                            </tr>
+                        <tr>
+                                <td>-110</td>
+                                <td>reporting limit exceed</td>
+                            </tr>
+                            <tr>
+                                <td>-500</td>
+                                <td>internal error</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+
+            </table>
+* From 01.02.2019 we defined reporting limit per minute. If you exceed the limit you will receive -110 response. The beginning of every minute system reset the counter. Default TPM(transaction per minute) limit is 150 transaction.
+
+
+        </td>
+        <td>
+            Delivery reports can also be pushed by HTTP GET to you if you provide us a URL in<br/>
+            the following form:<br/> 
+            http[s]://hostname/?trans_id={trans_id}&status={status} 
+            {trans_id} will be replaced with transaction id<br/>
+            {status} will be replaced with one of above delivery reports 
+        </td>
+    </tr>
+</tbody>
+</table>
+
+

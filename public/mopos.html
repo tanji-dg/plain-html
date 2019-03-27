@@ -1,0 +1,231 @@
+<style>
+    .mytbl{
+        borde-spacing: 0px;
+border-collapse: collapse;
+    }
+    .mytbl th{
+        padding-left: 15px;
+        padding-right: 15px;
+        border-spacing: 0px;
+    }
+    .mytbl td{
+        border: 1px solid ;
+        border-spacing: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+
+    .mytbl tr:hover{
+        /*background-color: activecaption;*/
+    }
+</style>
+<table class="mytbl">
+    <thead>
+        <tr>
+            <th colspan="7">
+    <center>
+        <h2>
+            Charging (over HTTP) API
+        </h2>
+    </center>
+</th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Operation</td>
+        <td>URL</td>
+        <td>Method</td>
+        <td>Params details</td>
+        <td>Response</td>
+        <td>Response codes</td>
+        <td>Additional information</td>
+    </tr>
+    <tr>
+        <td>Clear funds</td>
+        <td>http://apps.lsim.az/mopos/v1/charge?
+            <br/>login=LOGIN
+            <br/>&msisdn=MSISDN
+            <br/>&service_id=SERVICEID
+            <br/>&client_trans_id=UNIQID
+            <br/>&async=ASYNC
+            <br/>&desc=DESC
+            <br/>&key=KEY</td>
+        <td>HTTP GET</td>
+        <td> 
+            <table  class="mytbl">
+                <tr>
+                    <td>LOGIN</td>
+                    <td>your login</td>
+                </tr>
+                <tr>
+                    <td>MSISDN</td>
+                    <td>subscriber number</td>
+                </tr>
+                <tr>
+                    <td>SERVICEID</td>
+                    <td>service id (will be supplied)</td>
+                </tr>
+                <tr>
+                    <td>UNIQID</td>
+                    <td>uniqid for every request to prevent multiple submission the same request</td>
+                </tr>
+                <tr>
+                    <td>ASYNC</td>
+                    <td>0 - synchronous, 1 - asynchronous</td>
+                </tr>
+                <tr>
+                    <td>DESC</td>
+                    <td>charing purpose (max 2000)</td>
+                </tr>
+                <tr>
+                    <td>KEY</td>
+                    <td>md5 of (md5 of your password) + LOGIN + MSISDN +  SERVICEID + UNIQID + ASYNC</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <p>Answer will be in xml format as followed:<br/>
+            <pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;result&gt;
+&lt;code&gt;CODE&lt;/code&gt;
+&lt;operator_id&gt;OPERATOR&lt;/operator_id&gt;
+&lt;orig_code&gt;ORICODE&lt;/orig_code&gt;
+&lt;transaction_id&gt;TRANSACTION&lt;/transaction_id&gt;
+&lt;/result&gt;</pre>
+            <table  class="mytbl">
+                <tr>
+                    <td style="border: 0px;">
+                        <table  class="mytbl">
+                            <tr>
+                                <td colspan="2"><center><b>Parameters</b></center></td>
+                </tr>
+                <tr>
+                    <td>CODE</td>
+                    <td>current operation response code</td>
+                </tr>
+                <tr>
+                    <td>OPERATOR</td>
+                    <td>id of the mobile operator (look below)</td>
+                </tr>
+                <tr>
+                    <td>ORICODE</td>
+                    <td>if duplicate request response code of original operation</td>
+                </tr>
+                <tr>
+                    <td>TRASACTION</td>
+                    <td>transaction id</td>
+                </tr> 
+
+            </table>
+        </td>
+        <td style="border: 0px;">
+            <table  class="mytbl">
+                <tr>
+                    <td colspan="2"> <center><b>Operator ids</b></center></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Bakcell</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Nar mobile</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Azercell</td>
+    </tr>
+</table> </td>
+</tr>
+</table>
+
+
+</td>
+
+<td>
+    <table  class="mytbl">
+        <tr>
+            <td>0</td>
+            <td>success</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td> invalid msisdn</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>insufficient balance</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>invalid tariff</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>in black list</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>not active</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td> ported out</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>operator error</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>invalid login</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>invalid key</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>invalid service id</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>duplicate request</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>invalid tariff</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>access denied</td>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>parameter not set</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>system error</td>
+        </tr>
+        <tr>
+            <td>501</td>
+            <td>async system error</td>
+        </tr>
+
+    </table>
+
+
+</td>
+<td>
+    If you want asynchronous mode then provide us the url where we can submit the response upon completion.<br/>
+    The response will be in xml format as written earlier and will be submitted by HTTP POST request by parameter<br/>
+    'result' the value which is xml.
+</td>
+</tr>
+
+</tbody>
+</table>

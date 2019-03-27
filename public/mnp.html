@@ -1,0 +1,83 @@
+<style>
+    .mytbl{
+        border:1px solid;
+        border-collapse: collapse;
+    }
+    .mytbl th{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .mytbl td{
+        border: 1px solid;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+
+    .mytbl tr:hover{
+        /*background-color: activecaption;*/
+    }
+</style>
+<table class="mytbl">
+    <thead>
+        <tr>
+            <th colspan="6">
+    <center>
+        <h2>
+            MNP API
+        </h2>
+    </center>
+</th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Operation</td>
+        <td>URL</td>
+        <td>Method</td>
+        <td>Params details</td>
+        <td>Response</td>
+        <td>Additional information</td>
+    </tr>
+    <tr>
+        <td>checking mobile operator</td>
+        <td>http://apps.lsim.az/lsimrest/mnp/check?
+            <br/>username=USERNAME&
+            <br/>password=PASSWORD&
+            <br/>prefix=PREFIX&
+            <br/>msisdn=MSISDN
+        </td>
+        <td>HTTP GET</td>
+        <td>
+            <table  class="mytbl">
+                <tr>
+                    <td>username</td>
+                    <td>your username on lsim</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>your password on lsim</td>
+                </tr>
+                <tr>
+                    <td>prefix</td>
+                    <td>050,051,055,070 etc.</td>
+                </tr>
+                <tr>
+                    <td>msisdn</td>
+                    <td>xxxxxxx</td>
+                </tr>
+            </table> 
+        </td>
+        <td>
+            Azercell,Bakcell,Azerfon
+            <br/>
+            <br/>
+             
+        </td>
+        <td></td>
+    </tr> 
+</tbody>
+</table>
+
+

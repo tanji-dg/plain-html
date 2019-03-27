@@ -1,0 +1,80 @@
+</p>application url: http://apps.lsim.az/mikrodeme</p>
+</p>all requests are POST or GET (repeated parameters values will be overwritten by POST). 'username' and 'password' parameters are mandatory in each request. you will get an xml response to each request.  each request must include 'cmd' parameter also, to identify an API interface. the 'cmd' parameters value is interfaces name.</p>
+</p>'addservice' interface:<br/>
+first you must add service. after adding service it goes to moderation. service can be used after activation. on success you will get service id. following are the POST parameters for this interface:<br/><br/>
+<table>
+<tr><td>approvemessage*</td><td> - service description message. will be sent to subscriber during code generation. %t (tariff) and %c (code) placeholders must be present.</td></tr>
+<tr><td>successmessage       </td><td> - message after successfull subscription/charge. leave empty for no  message.</td></tr>
+<tr><td>tariff               </td><td> - select your tariff from given list.</td></tr>
+<tr><td>subscription         </td><td> - y/n. services can be for subscription or one-off.</td></tr>
+<tr><td>chargemessage*       </td><td> - message before charging. %t (tariff) placeholder must be present. (only if subscription is 'y')</td></tr>
+<tr><td>unsubscriptionmessage</td><td> - message after successfull unsubscription. leave empty for no  message. (only if subscription is 'y')</td></tr>
+<tr><td>rechargedays         </td><td> - subscriber can be charged only after specified days. (only if subscription is 'y')</td></tr>
+<tr><td>immediatecharge      </td><td> - y/n. wether charge subscriber immediately after subscription. (only if subscription is 'y')</td></tr>
+<tr><td>unsubscribemessage*  </td><td> - a message template to unsubscribe from service (only if subscription is 'y')</td></tr>
+<tr><td>unsubscribeurl*1     </td><td> - URL to report about unsubscription (only if subscription is 'y')</td></tr>
+<tr><td>multi                </td><td> - y/n. (use 'n')</td></tr>
+</table>
+<table>
+<tr><td>*</td><td> - all messages must be 160 length in ASCII.</td></tr>
+<tr><td>1</td><td> - request will be HTTP GET with the following parameters added:</td></tr>
+<tr><td></td><td>subscriberid - subscriber id to unsubscribe no answer will be checked.</td></tr>
+</table></p>
+<p>'getservicestatus' interface:<br/>
+after creating service service status can be get by this interface with following POST parameters:<br/><br/>
+serviceid - service id number</p>
+<p>'getcode' interface:<br/>
+to generate a code and send a message about service to subscriber use this interface.<br/><br/>
+<table>
+<tr><td>serviceid</td><td> - service id number</td></tr>
+<tr><td>msisdn</td><td> - subscriber mobile number. must be in format 994XXXXXXXXX.</td></tr>
+</table></p>
+<p>'approve' interface:<br/>
+for subscriber to approve code this interface must be used. if approval will be successfull subscribers id will be returned for further reference (only if subscription is 'y', watch 'addservice' interface).<br/><br/>
+<table>
+<tr><td>serviceid</td><td> - service id number.</td></tr>
+<tr><td>code</td><td> - the generated code.</td></tr>
+</table></p>
+<p>'charge' interface:<br/>
+to charge subscribers, only for subscription services, this interface must be used.<br/><br/>
+<table>
+<tr><td>serviceid</td><td> - service id number.</td></tr>
+<tr><td>subscriberid</td><td> - subscriber id number.</td></tr>
+</table></p>
+<p>'checksub' interface:<br/>
+to check if subscriber activated or not. 211 - activated, 407 - else.<br/><br/>
+<table>
+<tr><td>serviceid</td><td> - service id number.</td></tr>
+<tr><td>msisdn</td><td> - subscriber msisdn.</td></tr>
+</table></p>
+<p>following are the response codes from API:<br/><br/>
+2XX - success responses<br/>
+4XX - client error<br/>
+5XX - internal error (please report administrator with details)<br/><br/>
+<table>
+<tr><td>SERVICE_ADDED_FOR_MODERATION </td><td> - 201</td></tr>
+<tr><td>SERVICE_ACTIVATED            </td><td> - 202</td></tr>
+<tr><td>APPROVE_CODE_SENT            </td><td> - 203</td></tr>
+<tr><td>CODE_APPROVED                </td><td> - 204</td></tr>
+<tr><td>UNSUBSCRIBED                 </td><td> - 205</td></tr>
+<tr><td>SERVICE_NOT_ACTIVATED        </td><td> - 206</td></tr>
+<tr><td>CHARGED                      </td><td> - 209</td></tr>
+<tr><td>INSUFFICIENT_BALANCE         </td><td> - 210</td></tr>
+<tr><td>ALREADY_SUBSCRIBED          </td><td>  - 211</td></tr>
+<tr><td>MESSAGE_T_NOT_PRESENT       </td><td>  - 401</td></tr>
+<tr><td>MESSAGE_C_NOT_PRESENT       </td><td>  - 402</td></tr>
+<tr><td>MESSAGE_INVALID_LENGTH      </td><td>  - 403</td></tr>
+<tr><td>MESSAGE_INVALID_ENCODING    </td><td>  - 404</td></tr>
+<tr><td>INVALID_TARIFF              </td><td>  - 405</td></tr>
+<tr><td>INVALID_BOOL_VALUE          </td><td>  - 406</td></tr>
+<tr><td>INVALID_MSISDN               </td><td> - 407</td></tr>
+<tr><td>INVALID_RECHARGE_DAYS_VALUE  </td><td> - 411</td></tr>
+<tr><td>INVALID_SERVICE_ID           </td><td> - 413</td></tr>
+<tr><td>SERVICE_IS_NOT_SUBSCRIPTION  </td><td> - 414</td></tr>
+<tr><td>INVALID_APPROVE_CODE         </td><td> - 416</td></tr>
+<tr><td>INVALID_SUBSCRIBER_ID        </td><td> - 417</td></tr>
+<tr><td>DAYS_REMAINING_TO_CHARGE     </td><td> - 418</td></tr>
+<tr><td>INVALID_USER                 </td><td> - 421</td></tr>
+<tr><td>INVALID_REQUEST              </td><td> - 422</td></tr>
+<tr><td>ACESS_DENIED                 </td><td> - 423</td></tr>
+</table></p>

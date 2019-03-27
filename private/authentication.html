@@ -1,0 +1,160 @@
+<style>
+    .mytbl{
+        border:1px solid;
+        border-collapse: collapse;
+    }
+    .mytbl th{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .mytbl td{
+        border: 1px solid;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+
+    .mytbl tr:hover{
+        /*background-color: activecaption;*/
+    }
+</style>
+<table class="mytbl">
+    <thead>
+        <tr>
+            <th colspan="6">
+    <center>
+        <h2>
+            AUTHENTICATION API
+        </h2>
+    </center>
+</th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Operation</td>
+        <td>URL</td>
+        <td>Method</td>
+        <td>Params details</td>
+        <td>Response</td>
+        <td>Additional information</td>
+    </tr>
+
+    <tr>
+        <td>sending authentication code</td>
+        <td>http://apps.lsim.az/lsimrest/authentication/sendcode?
+            <br/>username=test&
+            <br/>password=test&
+            <br/>msisdn=xxx-xxx-xx-xx&
+            <br/>sendername=xxxx
+        </td>
+        <td>HTTP GET</td>
+        <td>
+            <table  class="mytbl">
+                <tr>
+                    <td>username</td>
+                    <td>your username on lsim</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>your password on lsim</td>
+                </tr>
+                <tr>
+                    <td>msisdn</td>
+                    <td>subscriber number (country code + operator code + number)</td>
+                </tr>
+                <tr>
+                    <td>sendername</td>
+                    <td>from which number code will be sent</td>
+                </tr>
+            </table> 
+        </td>
+        <td>
+            you will get json object:
+            {"errorCode":null,"errorMessage":null,"obj":"29","successMessage":null}
+            <br/>
+            <br/>
+            <table  class="mytbl">
+                <tr>
+                    <td>successMessage</td>
+                    <td>Success message of operation</td>
+                </tr>
+                <tr>
+                    <td>obj</td>
+                    <td>integer that represents transaction id
+                    </td>
+                </tr>
+                <tr>
+                    <td>errorMessage</td>
+                    <td>Error message of operation if some error occured</td>
+                </tr>
+                <tr>
+                    <td>errorCode</td>
+                    <td>If some error occured then it will show error code</td>
+                </tr> 
+            </table> 
+        </td>
+        <td></td>
+    </tr> 
+
+    <tr>
+        <td>checking authentication code</td>
+        <td>http://apps.lsim.az/lsimrest/authentication/checkcode?
+            <br/>username=USERNAME&
+            <br/>password=PASSWORD&
+            <br/>transactionid=TRANSACTIONID&
+            <br/>code=client's code
+        </td>
+        <td>HTTP GET</td>
+        <td>
+            <table  class="mytbl">
+                <tr>
+                    <td>username</td>
+                    <td>your username on lsim</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>your password on lsim</td>
+                </tr>
+                <tr>
+                    <td>transactionid</td>
+                    <td>transaction id given you when you called /sendcode rest service</td>
+                </tr>
+                <tr>
+                    <td>code</td>
+                    <td>code which client entered</td>
+                </tr>
+            </table> 
+        </td>
+        <td>
+            you will get json object:
+            {"errorCode":null,"errorMessage":null,"obj":"true","successMessage":null}
+            <br/>
+            <br/>
+            <table  class="mytbl">
+                <tr>
+                    <td>successMessage</td>
+                    <td>Success message of operation</td>
+                </tr>
+                <tr>
+                    <td>obj</td>
+                    <td>boolean that represents code entered right
+                    </td>
+                </tr>
+                <tr>
+                    <td>errorMessage</td>
+                    <td>Error message of operation if some error occured</td>
+                </tr>
+                <tr>
+                    <td>errorCode</td>
+                    <td>If some error occured then it will show error code</td>
+                </tr> 
+            </table> 
+        </td>
+        <td></td>
+    </tr>  
+</tbody>
+</table>
+
+
