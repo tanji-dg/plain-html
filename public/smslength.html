@@ -1,0 +1,67 @@
+<style>
+    .mytbl{
+        border-collapse: collapse;
+        border:1px solid;
+        margin: 0 auto;
+        margin-top: 5%;
+        font-size: 32px;
+    }
+    .mytbl th{
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 1px solid;
+    }
+    .mytbl td{
+        border: 1px solid;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+
+    .mytbl tr:hover{
+        background-color: activecaption;
+        cursor: pointer;
+    }
+
+    .mytbl a{
+        text-decoration: none;
+        color: black;
+    }
+</style>
+
+<table class="mytbl">
+    <thead>
+        <tr>
+            <th colspan="2">SMS count calculation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> 
+GSM encoding:
+<br/>
+<br/>1 standard SMS message = up to 160 characters
+<br/>2 concatenated SMS messages = up to 306 characters
+<br/>3 concatenated SMS messages = up to 459 characters
+<br/>4 concatenated SMS messages = up to 612 characters
+<br/>5 concatenated SMS messages = up to 765 characters
+<br/>through to
+<br/>9 concatenated SMS messages = up to 1,377 characters</td>
+        </tr>
+        <tr>
+            <td> 
+UCS-2 encoding (2-byte Universal Character Set):
+<br/>
+<br/>1 standard SMS message = up to 70 characters
+<br/>2 concatenated SMS messages = up to 134 characters
+<br/>3 concatenated SMS messages = up to 201 characters
+<br/>4 concatenated SMS messages = up to 268 characters
+<br/>5 concatenated SMS messages = up to 335 characters
+<br/>through to
+<br/>9 concatenated SMS messages = up to 603 characters
+            </td>
+        </tr>
+
+    </tbody>
+</table>

@@ -47,7 +47,11 @@
             <br/>&msisdn=MSISDN
             <br/>&text=MSG_BODY
             <br/>&sender=SENDER
-            <br/>&key=KEY</td>
+            <br/>&key=KEY
+            <br/>[&unicode=UNICODE]
+        </td>
+
+
         <td>HTTP GET</td>
         <td>
             <table  class="mytbl">
@@ -70,6 +74,10 @@
                 <tr>
                     <td>KEY</td>
                     <td>md5 of (md5 of your password) + LOGIN + MSG_BODY + MSISDN + SENDER</td>
+                </tr>
+                <tr>
+                    <td>UNICODE</td>
+                    <td>use true (&unicode=true) when you intend to send Unicode character inside msg_body</td>
                 </tr>
             </table> 
         </td>
@@ -97,7 +105,15 @@
                 </tr> 
             </table> 
         </td>
-        <td></td>
+        <td>        
+        </br>
+        * parameters inside square parentheses [] are not mandatory
+        </br>
+        * if you intend to use optional parameters use without parentheses
+        </br>
+        * before use Unicode take a look <a href="smslength.html">this</a> page
+
+    </td>
     </tr>
 
     <tr>
