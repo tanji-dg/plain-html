@@ -6,7 +6,8 @@ html, body {
 
   box-sizing: border-box;
   height: 100%;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/78/Frosty_Raftsundet_landscape_with_Trolltindan_in_morning%2C_2012_October.JPG");
+  /*background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/78/Frosty_Raftsundet_landscape_with_Trolltindan_in_morning%2C_2012_October.JPG");*/
+  background-image: url("../img/Frosty_Raftsundet_landscape_with_Trolltindan_in_morning_2012_October.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
