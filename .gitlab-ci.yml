@@ -28,17 +28,13 @@ deploy::staging:
   stage: deploy 
   environment: 
     name: Staging
-    url: https://staging.grossenbacher.io
   artifacts:
     paths:
     - public
   only:
     - master
   script:  
-    - sshpass -V
-    - export SSHPASS=$USERPASS
-    # username@host.com:/var/www/html
-    - sshpass -e scp -o StrictHostKeyChecking=no -r public/* grossen1@grossenbacher.io:~/staging.grossenbacher.io/
+    echo "Something to do when staging needed"
 
 # Deployment to production server
 deploy::production:
@@ -47,10 +43,10 @@ deploy::production:
     name: Production
     url: https://grossenbacher.io
   only:
-    - tags
+    - master
   script:
     - sshpass -V
     - export SSHPASS=$USERPASS
     # username@host.com:/var/www/html
-    # Try workaroung https://stackoverflow.com/questions/35717436/scp-permission-denied-public-key/35721469
+    # Try workaround https://stackoverflow.com/questions/35717436/scp-permission-denied-public-key/35721469
     - sshpass -e scp -o StrictHostKeyChecking=no -r public/* grossen1@grossenbacher.io:~/public_html/
