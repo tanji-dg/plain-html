@@ -3,13 +3,14 @@ body {
   margin: auto;
   max-width: 1280px;
 }
+/*(0,0,0,1)*/
 
 .navbar {
   background-color: #313236;
   border-radius: 2px;
   max-width: 800px;
 }
-
+/*(0,0,1,0)*/
 .navbar a {
   color: #aaa;
   display: inline-block;
@@ -17,8 +18,10 @@ body {
   padding: 10px;
   text-decoration: none;
 }
+/*(0,0,1,1)*/
 
 .navbar a:hover {
   color: #ffffff;
 }
+/*(0,0,2,1)*/
 
