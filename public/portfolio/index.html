@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="portfolio.css">
+    <title></title>
+</head>
+<body>
+ 
+  <div id="app">
+  <div :class="[ 'g-cursor', { 'g-cursor_hover': hover }, {'g-cursor_hide': hideCursor} ]">
+    <div
+      :style="`transform: translateX(${xParent}px) translateY(${yParent}px) translateZ(0) translate3d(0, 0, 0);`"
+      class="g-cursor__circle"
+    ></div>
+    <div
+      class="g-cursor__point"
+      ref="point"
+      :style="`transform: translateX(${xChild - 3}px) translateY(${yChild - 3}px) translateZ(0) translate3d(0, 0, 0);`"
+    ></div>
+  </div>
+
+
+<div class="navbar">
+	<h1>Nicolas Sckittekatte</h1>
+	<div class="select">
+		<a href="#Présentation">Présentation</a>
+		<a href="#études">Etudes</a>
+		<a href="#Projets">Projets</a>
+		<a href="#Compétences">Compétences</a>
+		<a href="#contact">Recruter</a>
+	</div>
+</div>
+
+<div class="Présentation">
+	
+</div>		
+				
+<div class="parcour">
+	<div class="parcours">
+		<h1>Parcours Scolaire <img src="./images/student.png"></h1>
+			<p>2014-2015 Obtention du brevet des colléges</p>
+			<p>2015-2016 Obtention du B0</p>
+			<p>2016-2017 Obtention du B1V</p>
+			<P>2015-2017 Niveau bac pro SEN ( Service de l'électronique et du numérique ) </P>
+			<p>2019-2019 Formation a Média-Management sur le codage informatique </p>
+	</div>
+
+	<div class="parcours">
+		<h1>Parcours professionnel<img src="./images/business.png"></h1>
+			<p>2015-2016 Stage dans la structure Microcom (réparation informatique)</p>
+			<p>2018-2019 Service civique de 9 Mois dans l'entreprise Coallia ( Centre d'accompagnement social)</p>
+			<p>-Gestion d'une salle informatique (vérification du matériel, aide a la personne pour l'informatique)</p>
+	</div>
+
+</div>
+
+
+
+<div class="centre">
+    <a name="Portfolio"></a>
+   		<h1>Projets</h1>
+
+	<div class="photo">
+		<div class="img">
+    		<a href="./images/kda.jpg"target="_blank"><img src="./images/kda.jpg"></a>
+		</div>
+		<div class="img">
+    		<p>Site réalisé entiérement Html et css</p>
+		</div>
+	</div>
+
+	<div class="photo">
+    	<div class="img">
+        	<a href="./images/brown.jpg"target="_blank"><img src="./images/brown.jpg"></a>
+    	</div>
+    	<div class="img">
+        	<p>Site réalisé entiérement en bootstrap et css</p>
+		</div>
+	</div>
+	
+	<div class="photo">
+		<div class="img">
+    		<a href="./images/fleure.jpg"target="_blank"><img src="./images/fleure.jpg"></a>
+		</div>
+		<div class="img">
+    		<p>Site réalisé entiérement</p>
+		</div>
+	</div>
+
+</div>
+
+<div class="compétences">
+	
+	<h1>Compétences</h1>
+	
+	<div class="comp">
+	
+		<div class="compétence">
+			<img src="./images/1.png">
+		</div>
+		
+		<div class="compétence">
+			<img src="./images/2.png">	
+		</div>	
+		
+		<div class="compétence">
+			<img src="./images/3.png">	
+		</div>	
+		
+		<div class="compétence">
+			<img src="./images/4.png">	
+		</div>	
+		
+		<div class="compétence">
+			<img src="./images/5.png">	
+		</div>	
+		
+		<div class="compétence">
+			<img src="./images/6.png">	
+		</div>	
+		
+		<div class="compétence">
+			<img src="./images/7.png">	
+		</div>	
+		
+		<div class="compétence">
+			<img src="./images/8.png">	
+		</div>		
+
+	</div>	
+</div>
+
+</div>
+
+  <script src='js/vue.min.js'></script>
+
+  
+
+    <script  src="js/mouse.js"></script>
+</body>
+</html>
