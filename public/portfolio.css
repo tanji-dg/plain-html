@@ -72,7 +72,7 @@ p
 
 .parcour
 	{
-		background-color: #C1BFBF;
+		background-color: #AEAEAE;
 		text-align: center;
 		padding: 15px;
 		border-top: 5px solid black;
@@ -87,7 +87,7 @@ p
 .centre
 	{
 	 	text-align: center;
-	    background-color: #838383 ;
+	    background-color: #767676 ;
 	    padding: 15px;
 	    border-top: 5px solid black;
 	}
@@ -110,6 +110,27 @@ p
 	    border: thick double black;
 	}
 
+.Premier
+	{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
+
+.Deuxieme
+	{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
+
+
 
 .compétences
 	{
@@ -128,37 +149,50 @@ p
 	align-content: center;
 	}
 
+
+.compe
+	{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	}
+
+
 .compétence img
 	{
 		width: 80px;
 		height: auto;
+		padding: 20px;
+	}
+
+.fin
+	{
+		background-color: #767676 ;
+		text-align: center;
+		padding: 30px;
+		border-top: 5px solid black;
+	    color: white;
+	}
+
+.selecte a
+	{
 		padding: 10px;
+	    color: white;
+	    text-decoration: none;
 	}
 
 
-.g-cursor {
-  transition: width .6s ease, height .6s ease, opacity .6s ease;
-}
+
 .g-cursor_hide {
   opacity: 0;
   width: 60px;
   height: 60px;
   transition: width .6s ease, height .6s ease, opacity .6s ease;
 }
-.g-cursor__circle {
-  pointer-events: none;
-  user-select: none;
-  top: 0;
-  left: 0;
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  border: 2px solid #000;
-  border-radius: 100%;
-  z-index: 5555;
-  backface-visibility: hidden;
-  transition: opacity .6s ease;
-}
+
 .g-cursor__point {
   top: 0;
   left: 0;
@@ -173,13 +207,32 @@ p
   backface-visibility: hidden;
   will-change: transform;
 }
-.g-cursor_hover .g-cursor__circle {
-  opacity: 0;
-  width: 60px;
-  height: 60px;
-  transition: width .6s ease, height .6s ease, opacity .6s ease;
-}
 
+
+
+
+@media screen and (max-width: 970px)
+{
+	.Premier
+	{
+		display: flex;
+    	flex-direction: column;
+    	flex-wrap: nowrap;
+   		justify-content: center;
+   		align-items: center;
+    	align-content: center;
+	}
+
+.Deuxieme
+	{
+		display: flex;
+   		flex-direction: column;
+    	flex-wrap: nowrap;
+    	justify-content: center;
+    	align-items: center;
+    	align-content: center;
+	}
+}
 
 @media screen and (max-width: 900px)
 {
@@ -191,7 +244,7 @@ p
 
 	.navbar a
 	{
-		font-size: 12px;
+		font-size: 14px;
 		padding: 5px;
 	    color: white;
 	    text-decoration: none;
