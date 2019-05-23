@@ -6,19 +6,6 @@
     <title></title>
 </head>
 <body>
- 
-  <div id="app">
-  <div :class="[ 'g-cursor', { 'g-cursor_hover': hover }, {'g-cursor_hide': hideCursor} ]">
-    <div
-      :style="`transform: translateX(${xParent}px) translateY(${yParent}px) translateZ(0) translate3d(0, 0, 0);`"
-      class="g-cursor__circle"
-    ></div>
-    <div
-      class="g-cursor__point"
-      ref="point"
-      :style="`transform: translateX(${xChild - 3}px) translateY(${yChild - 3}px) translateZ(0) translate3d(0, 0, 0);`"
-    ></div>
-  </div>
 
 
 <div class="navbar">
@@ -169,7 +156,7 @@
 </div>
 
 
-<a name="contact">
+<a name="contact"></a>
 
 <div class="fin">
 		<div class="selecte">
@@ -185,12 +172,5 @@
 		<p>Portfolio crée par Nicolas Sckittekatte</p>
 </div>
 
-</div>
-
-  <script src='js/vue.min.js'></script>
-
-  
-
-    <script  src="js/mouse.js"></script>
 </body>
-</html>
+</html> 

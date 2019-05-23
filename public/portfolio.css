@@ -6,7 +6,6 @@ body, html {
   height: 100%;
   background: #AEAEAE;
   margin: 0;
-  cursor: none;
 }
 
 
@@ -184,29 +183,6 @@ p
 	    text-decoration: none;
 	}
 
-
-
-.g-cursor_hide {
-  opacity: 0;
-  width: 60px;
-  height: 60px;
-  transition: width .6s ease, height .6s ease, opacity .6s ease;
-}
-
-.g-cursor__point {
-  top: 0;
-  left: 0;
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  pointer-events: none;
-  user-select: none;
-  border-radius: 100%;
-  background: #000;
-  z-index: 55555555;
-  backface-visibility: hidden;
-  will-change: transform;
-}
 
 
 
