@@ -1,24 +1,31 @@
+* {
+  padding: 10px;
+}
+
 body {
   font-family: sans-serif;
   margin: auto;
   max-width: 1280px;
+  text-align: center;
 }
 
-.navbar {
-  background-color: #313236;
-  border-radius: 2px;
-  max-width: 800px;
+p:hover {
+  background-color: red;
+  animation-name: bg_transition;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 
-.navbar a {
-  color: #aaa;
-  display: inline-block;
-  font-size: 15px;
-  padding: 10px;
-  text-decoration: none;
+@keyframes bg_transition {
+  0% { background-color: red; }
+  50% { background-color: blue; }
+  100% { background-color: red; }
 }
 
-.navbar a:hover {
-  color: #ffffff;
+h1 {
+  color: blue;
+  background-color: red;
+  animation-name: bg_transition;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
-
