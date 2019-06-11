@@ -1,23 +1,402 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="GitLab Pages">
-    <title>Plain HTML site using GitLab Pages</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
-    </div>
 
-    <h1>Hello World!</h1>
+<head>
 
-    <p>
-      This is a simple plain-HTML website on GitLab Pages, without any fancy static site generator.
-    </p>
-  </body>
+	<title>DashGL MML Tools</title>
+	<meta charset="utf-8"/>
+
+	<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+
+</head>
+
+<body>
+
+	<div class="fixed">
+
+		<img src="img/others_20171117_dashgl_dash_transparent.png"/>
+
+		<h1>Dashie</h1>
+
+		<p>
+		Copyright &copy; 2017,2018 DashGL.com<br>
+		Code for exporting Megaman Legends Assets available under GPLv3 License
+		</p>
+
+		<p>
+		Capcom, Mega Man, and all related characters are registered trademarks of Capcom Co., Ltd. 
+		</p>
+
+		<p>
+		 Mascot character designed by Tyson Tan. Tyson Tan offers mascot design service for free and open source software, free of charge, under free license. Homepage: tysontan.com
+		</p>
+
+	</div>
+
+	<main>
+
+		<a href='https://megamanlegends.gitlab.io/mml1-psx/'>
+		<li>
+			<header>
+				<table>
+					<tr>
+						<td class="title">Megaman Legends 1</td>
+						<td class="platform">Platform : PSX</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Textures
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Mesh
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Animations
+						</td>
+						<td class="padding">
+				
+						</td>
+						<td class="fork"><a href='https://gitlab.com/megamanlegends/mml1-psx'>Fork on Gitlab</a></td>
+					</tr>
+				</table>
+			</header>
+			<section style="background-image: url('img/HPJPGpM.png')">
+
+			</section>
+			<footer>
+				<p>
+				Model and Animation viewer for Megaman Legends 1.<br>
+				Models can be exported in gltf or dmf format, color palettes can also be edited. 
+				</p>
+			</footer>
+		</li>
+		</a>
+
+		<a href='https://megamanlegends.gitlab.io/mml1-psx/mdt/'>
+		<li>
+			<header>
+				<table>
+					<tr>
+						<td class="title">Megaman Legends 1</td>
+						<td class="platform">Platform : PSX</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Textures
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Mesh
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Animations
+						</td>
+						<td class="padding">
+				
+						</td>
+						<td class="fork"><a href='https://gitlab.com/megamanlegends/mml1-psx'>Fork on Gitlab</a></td>
+					</tr>
+				</table>
+			</header>
+			<section style="background-image: url('img/aasassa.png')">
+
+			</section>
+			<footer>
+				<p>
+			Stage tile viewer for Megaman Legends 1. Tiles can be downloaded as .gltf<br>
+				Right now I don't have a way to match textures to models, so they need to be adjusted by hand. 
+				</p>
+			</footer>
+		</li>
+		</a>
+
+		<a href='tools/mml1_psx_pbd/'>
+		<li>
+			<header>
+				<table>
+					<tr>
+						<td class="title">Megaman Legends 1</td>
+						<td class="platform">Platform : PSX</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Textures
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Mesh
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Animations
+						</td>
+						<td class="padding">
+				
+						</td>
+						<td class="fork"></td>
+					</tr>
+				</table>
+			</header>
+			<section style="background-image: url('img/D8NhjNI.png')">
+
+			</section>
+			<footer>
+				<p>
+				Debug viewer to view the meshes that make up the Megaman Model<br>
+				Textures are currently broken, and I forgot to add this to Gitlab, be gentle
+				</p>
+			</footer>
+		</li>
+		</a>
+
+		<a href='islands/'>
+		<li>
+			<header>
+				<table>
+					<tr>
+						<td class="title">Megaman Legends 1</td>
+						<td class="platform">Platform : WebGL</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Textures
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Mesh
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Animations
+						</td>
+						<td class="padding">
+				
+						</td>
+						<td class="fork"></td>
+					</tr>
+				</table>
+			</header>
+			<section style="background-image: url('img/island-walk.png')">
+
+			</section>
+			<footer>
+				<p>
+				Quick and dirty test for using characters in WebGL<br>
+				Demo uses the first collision hull from Sealos island and MeshWalk.js
+				</p>
+			</footer>
+		</li>
+		</a>
+
+		<a href='tools/mml2_pc_mesh'>
+		<li>
+			<header>
+				<table>
+					<tr>
+						<td class="title">Megaman Legends 2</td>
+						<td class="platform">Platform : PC</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Textures
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Mesh
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Animations
+						</td>
+						<td class="padding">
+				
+						</td>
+						<td class="fork"><a href='https://gitlab.com/megamanlegends/JS_MML2_PC_MESH'>Fork on Gitlab</a></td>
+					</tr>
+				</table>
+			</header>
+			<section style="background-image: url('img/B6O6fjt.png')">
+
+			</section>
+			<footer>
+				<p>
+				Model and Texture Viewer for Megaman Legends 2<br>
+				Click on the import button, and import all of the files from the DAT folder. 
+				</p>
+			</footer>
+		</li>
+		</a>
+
+		<a href='tools/mml2_psx_mesh'>
+		<li>
+			<header>
+				<table>
+					<tr>
+						<td class="title">Megaman Legends 2</td>
+						<td class="platform">Platform : PSX</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Textures
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Mesh
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Animations
+						</td>
+						<td class="padding">
+				
+						</td>
+						<td class="fork"><a href='https://gitlab.com/megamanlegends/JS_MML2_PSX_MESH'>Fork on Gitlab</a></td>
+					</tr>
+				</table>
+			</header>
+			<section style="background-image: url('img/DcK88hLV4AAwCFU.jpg')">
+
+			</section>
+			<footer>
+				<p>
+				Model Viewer for Megaman Legends 2<br>
+				Click the file select input and select all of the .BIN files from the DAT folder
+				</p>
+			</footer>
+		</li>
+		</a>
+
+		<a href='tools/mml2_pc_tex'>
+		<li>
+			<header>
+				<table>
+					<tr>
+						<td class="title">Megaman Legends 2</td>
+						<td class="platform">Platform : PC</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Textures
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Mesh
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Animations
+						</td>
+						<td class="padding">
+				
+						</td>
+						<td class="fork"><a href='https://gitlab.com/megamanlegends/JS_MML2_PC_TEXTURE'>Fork on Gitlab</a></td>
+					</tr>
+				</table>
+			</header>
+			<section style="background-image: url('img/DamtnbAUQAAzOez.jpg')">
+
+			</section>
+			<footer>
+				<p>
+					Texture Viewer for Megaman Legends 2 PC<br>
+					Click file select input and select all of the DAT files from the DAT folder
+				</p>
+			</footer>
+		</li>
+		</a>
+		
+		<a href='tools/mml1_psx_anim/'>
+		<li>
+			<header>
+				<table>
+					<tr>
+						<td class="title">Megaman Legends 1</td>
+						<td class="platform">Platform : PSX</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Textures
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Mesh
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Animations
+						</td>
+						<td class="padding">
+				
+						</td>
+						<td class="fork"><a href='https://gitlab.com/megamanlegends/JS_MML1_PSX_ANIMS'>Fork on Gitlab</a></td>
+					</tr>
+				</table>
+			</header>
+			<section style="background-image: url('img/TK2YDq0.png')">
+
+			</section>
+			<footer>
+				<p>
+				Megaman Legends 1 Animation Viewer<br>
+				Rigged models can be viewed and exported in Collada (.dae) Format
+				</p>
+			</footer>
+		</li>
+		</a>
+
+		<a href='tools/mml1_psx_mesh/'>
+		<li>
+			<header>
+				<table>
+					<tr>
+						<td class="title">Megaman Legends 1</td>
+						<td class="platform">Platform : PSX</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Textures
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Mesh
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Animations
+						</td>
+						<td class="padding">
+				
+						</td>
+						<td class="fork"><a href='https://gitlab.com/megamanlegends/JS_MML1_PSX_MESH'>Fork on Gitlab</a></td>
+					</tr>
+				</table>
+			</header>
+			<section style="background-image: url('img/iunS4dZ.png')">
+
+			</section>
+			<footer>
+				<p>
+				Model and Texture Viewer for Megaman Legends 1<br>
+				Click the Upload button and select all of the BIN files from CDDATA/DAT
+				</p>
+			</footer>
+		</li>
+		</a>
+
+		<a href='tools/mml1_psx_tex/'>
+		<li>
+			<header>
+				<table>
+					<tr>
+						<td class="title">Megaman Legends 1</td>
+						<td class="platform">Platform : PSX</td>
+						<td class="checkbox">
+							<input type="checkbox" checked disabled="disabled"/> Textures
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Mesh
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" disabled="disabled"/> Animations
+						</td>
+						<td class="padding">
+				
+						</td>
+						<td class="fork"><a href='https://gitlab.com/megamanlegends/JS_MML1_PSX_TEXTURES'>Fork on Gitlab</a></td>
+					</tr>
+				</table>
+			</header>
+			<section style="background-image: url('img/TeFvbgb.png')">
+
+			</section>
+			<footer>
+				<p>
+				Texture Viewer for Megaman Legends 1<br>
+				Use the file selector to select a BIN file from CDDATA/DAT
+				</p>
+			</footer>
+		</li>
+		</a>
+	
+	</main>
+
+	<div class="global-footer">
+		
+		<p>
+		Copyright &copy; 2017, 2018 DashGL.com<br> 
+		Code for exporting Megaman Legends Assets available under GPLv3 License<br>
+		Capcom, Mega Man, and all related characters are registered trademarks of Capcom Co., Ltd. 
+		</p>
+
+	</div>
+
+</body>
+
 </html>
-
