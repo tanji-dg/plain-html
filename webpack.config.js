@@ -1,18 +1,14 @@
 const path = require("path");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const HtmlWebpackIncludeAssetsPlugin = require("html-webpack-include-assets-plugin");
-
-const DESTINATION_PATH = path.resolve(__dirname, "./public");
 
 const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
   entry: path.resolve(__dirname, "src", "index.js"),
   output: {
-    path: DESTINATION_PATH,
+    path: path.resolve(__dirname, "./public"),
     crossOriginLoading: "anonymous",
     filename: !devMode ? "[name].[contenthash].js" : "[name].js",
     chunkFilename: !devMode ? "[name].[contenthash].js" : "[name].js"
@@ -39,6 +35,17 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: devMode ? "[path][name].[ext]" : "[name].[hash].[ext]"
+            }
+          }
+        ]
+      },
       {
         test: /\.css$/,
         use: [
@@ -68,32 +75,20 @@ module.exports = {
       filename: devMode ? "[name].css" : "[name].[contenthash].css",
       chunkFilename: devMode ? "[id].css" : "[id].[contenthash].css"
     }),
-    new CopyWebpackPlugin([
-      {
-        from: "contrib/**/*",
-        to: DESTINATION_PATH,
-        flatten: true
-      },
-      {
-        from: "node_modules/odometer/themes",
-        to: "odometer/themes"
-      }
-    ]),
     new HtmlWebpackPlugin({
       inject: false,
-      template: require('html-webpack-template'),
-      appMountId: '🍻',
+      template: require("html-webpack-template"),
+      appMountId: "🍻",
       googleAnalytics: {
-        trackingId: 'UA-135007596-1',
+        trackingId: "UA-135007596-1",
         pageViewOnLoad: true
+      },
+      window: {
+        lastMfu: "2019-03-15"
       },
       title: "MFU Count",
       mobile: true,
-      lang: 'en-US',
-    }),
-    new HtmlWebpackIncludeAssetsPlugin({
-      assets: ["odometer/themes/odometer-theme-car.css"],
-      append: false
+      lang: "en-US"
     })
   ]
 };
