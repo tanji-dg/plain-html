@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+	<head>
+
+		<title>MML PSX PBD</title>
+		<meta charset='utf-8'/>
+		
+		<link rel='icon' type='image/png' href='img/leaf.png'/>
+		<link rel='stylesheet' type='text/css' href='css/layout.css'/>
+
+		<script type='text/javascript' src='lib/dexie.min.js'></script>
+		<script type='text/javascript' src='lib/async.min.js'></script>
+		<script type='text/javascript' src='lib/three.js'></script>
+		<script type='text/javascript' src='lib/spark-md5.min.js'></script>
+		<script type='text/javascript' src='lib/OrbitControls.js'></script>
+
+	</head>
+	<body>
+
+		<main>
+			
+			<header>
+				
+				<table>
+					<tr>
+						<td>
+							<h1>MML PSX PBD</h1>
+						</td>
+						<td>
+							<input type="file" id='file-input' multiple='multiple' accept='.BIN'/>
+						</td>
+						<td>
+							Copyright &copy; 2018 DashGL Project GPLv3
+						</td>
+					</tr>
+				</table>
+
+			</header>
+
+			<nav>
+				<div id='file_list'>
+					<li>ARM00L.BIN</li>
+					<li>ARM00R.BIN</li>
+					<li>ARM01R.BIN</li>
+					<li>ARM02R.BIN</li>
+					<li>ARM03R.BIN</li>
+					<li>ARM04L.BIN</li>
+					<li>ARM04R.BIN</li>
+					<li>ARM05R.BIN</li>
+					<li>ARM06R.BIN</li>
+					<li>ARM07R.BIN</li>
+					<li>ARM08R.BIN</li>
+					<li>ARM09R.BIN</li>
+					<li>ARM10R.BIN</li>
+					<li>ARM11R.BIN</li>
+					<li>ARM12R.BIN</li>
+					<li>ARM13R.BIN</li>
+					<li>HEAD00.BIN</li>
+					<li>HEAD01.BIN</li>
+					<li>LEG00.BIN</li>
+					<li>LEG01.BIN</li>
+				</div>
+			</nav>
+
+			<section id='viewport'>
+
+			</section>
+
+		</main>
+		
+		<script type='text/javascript' src='js/database.js'></script>
+		<script type='text/javascript' src='js/viewport.js'></script>
+		<script type='text/javascript' src='js/legends.js'></script>
+
+	</body>
+
+</html>

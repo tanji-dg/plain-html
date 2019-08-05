@@ -1,0 +1,44 @@
+html {
+
+	padding: 0;
+	margin: 0;
+	height: 100%;
+
+}
+
+body {
+
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background-color: #888;
+	--viewport-width: 1284px;
+	--viewport-height: 724px;
+	
+}
+
+div.padding {
+
+	height: calc(50% - var(--viewport-height) / 2);
+
+}
+
+main {
+
+	position: absolute;
+	left: calc(50% - var(--viewport-width) / 2);
+	height: calc(var(--viewport-height) - 4px);
+	width: calc(var(--viewport-width) - 4px);
+	border: 2px solid #0f3e7a;
+	background-color: #000;
+
+}
+
+footer {
+
+	position: absolute;
+	bottom: 4px;
+	width: 100%;
+	text-align: center;
+
+}
