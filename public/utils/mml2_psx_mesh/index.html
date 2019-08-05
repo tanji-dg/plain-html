@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+
+	<title>DashGL Model Viewer 2</title>
+
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+
+</head>
+<body>
+
+<header>
+	<table>
+		<tr>
+			<td>
+				<h1>DashGL Model Viewer 2</h1>
+			</td>
+			<td>
+				<button>Import</button>
+				<input type="file" id="files" multiple="multiple" accept=".BIN"/>
+			</td>
+			<td>
+				<select id="select">
+				
+				</select>
+			</td>
+		</tr>
+	</table>
+</header>
+
+<nav>
+	
+	<div class="archive_list" id="archive_list">
+		
+		<ul>
+			<!--
+			<li>ST0F00.BIN</li>
+			<li>ST0F01.BIN</li>
+			<li>ST0F02.BIN</li>
+			<li>ST0F03.BIN</li>
+			<li>ST0F04.BIN</li>
+			<li>ST0F05.BIN</li>
+			-->
+		</ul>
+
+	</div>
+
+	<div class="asset_list" id="asset_list">
+		
+		<div class="archive_name">
+			<table>
+				<tr>
+					<td id="archive_file_name">
+						ST0F00.BIN
+					</td>
+					<td class="icon">
+						<div class="back" id="back"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="model_list" id="model_list">
+			<ul>
+				<li>Roll</li>
+				<li>Rock</li>
+				<li>Barel</li>
+				<li>Data</li>
+				<li>Servbot</li>
+			</ul>
+		</div>
+
+	</div>
+
+</nav>
+
+<main id="main">
+
+</main>
+
+<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
+<script type="text/javascript" src="lib/dexie.min.js"></script>
+<script type="text/javascript" src="lib/async.min.js"></script>
+<script type="text/javascript" src="lib/three.min.js"></script>
+<script type="text/javascript" src="lib/OrbitControls.js"></script>
+
+<script type="text/javascript" src="js/files.js"></script>
+<script type="text/javascript" src="js/scene.js"></script>
+
+</body>
+</html>

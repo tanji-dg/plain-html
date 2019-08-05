@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+
+		<title>DashGL Texture Exporter</title>
+
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+
+	</head>
+	<body>
+
+		<section class="texture">
+			<header>
+				<table>
+					<tr>
+						<td>DashGL Project : Texture View</td>
+					</tr>
+				</table>
+			</header>
+			<main>
+				
+				<table>
+					<tr>
+						<td class="select">
+
+							<ul class="select" id="select">
+								<li>Click Browse... to Open</li>
+							</ul>
+
+						</td>
+						<td class="preview">
+							
+							<div class="container">
+								<canvas id="canvas"></canvas>
+							</div>
+
+						</td>
+						<td>
+						
+							<div class="pallet">
+
+								<label>Active Pallet:</label>
+								<div>
+									<select id="pallet_select">
+										<option>Pallet 0</option>
+										<option>Pallet 1</option>
+										<option>Pallet 2</option>
+										<option>Pallet 3</option>
+										<option>Pallet 4</option>
+										<option>Pallet 5</option>
+										<option>Pallet 6</option>
+										<option>Pallet 7</option>
+									</select>
+								</div>
+
+								<div class="values">
+									<table>
+										<tr>
+											<td>Pallet Coord X:</td>
+											<td id="pallet_x"></td>
+										</tr>
+										<tr>
+											<td>Pallet Coord Y:</td>
+											<td id="pallet_y"></td>
+										</tr>
+										<tr>
+											<td>Number Collors:</td>
+											<td id="nb_colors"></td>
+										</tr>
+										<tr>
+											<td>Number Pallets:</td>
+											<td id="nb_pallet"></td>
+										</tr>
+										<tr>
+											<td>Image Coord X:</td>
+											<td id="image_x"></td>
+										</tr>
+										<tr>
+											<td>Image Coord Y:</td>
+											<td id="image_y"></td>
+										</tr>
+										<tr>
+											<td>Image Width:</td>
+											<td id="width"></td>
+										</tr>
+										<tr>
+											<td>Image Height:</td>
+											<td id="height"></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+
+						</td>
+					</tr>
+				</table>
+
+			</main>
+			<nav>
+				<table>
+					<tr>
+						<td class="btn-wide">
+							<input type="file" id="file"/>
+						</td>
+						<td class="btn">
+							<button id="export">Export</button>
+						</td>
+						<td>
+							Copyright &copy 2018 DashGL Project GPLv3
+						</td>
+					</tr>
+				</table>
+			</nav>
+		</section>
+
+		<script type="text/javascript" src="js/FileSaver.js"></script>
+		<script type="text/javascript" src ="js/canvas-to-blob.min.js"></script>
+
+		<script type="text/javascript" src="js/ecma_buffer.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+
+	</body>
+
+</html>

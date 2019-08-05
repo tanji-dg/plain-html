@@ -1,0 +1,170 @@
+* {
+	
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+}
+
+html,body{
+	
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background-color: #eee;
+	--header-height: 36px;
+	--nav-width: 205px;
+	--aside-width: 230px;
+
+}
+
+header {
+
+	width: 100%;
+	height: var(--header-height);
+	background-color: #343a40;
+	color: #fff;
+
+}
+
+header table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+header table td.title {
+
+	width: 230px;
+
+}
+
+header input {
+
+	visibility: hidden;
+
+}
+
+header table td.btn {
+
+	width: 210px;
+
+}
+
+header table td.btn button {
+
+	display: block;
+	margin: auto;
+
+}
+
+header table h1 {
+
+	color: #fff;
+	font-size: 18px;
+	padding: 0;
+	margin: 0;
+	letter-spacing: 1px;
+	text-indent: 4px;
+
+}
+
+header button,
+header select {
+	
+	padding: 4px 0;
+	width: 120px;
+	border: 1px solid #fff;
+	color: #fff;
+	background-color: transparent;
+
+}
+
+header button:disabled {
+
+	pointer-events: none;
+
+}
+
+header button:hover {
+
+	cursor: pointer;
+	background-color: rgba(255,255,255,0.1);
+
+}
+
+main {
+
+	width: 100%;
+	height: calc(100% - var(--header-height));
+	position: relative;
+
+}
+
+main nav {
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: var(--nav-width);
+	height: 100%;
+	background-color: rgba(0,0,0,.8);
+	overflow-y: auto;
+
+}
+
+main nav li {
+
+	color: #fff;
+	list-style-type: none;
+	padding: 4px 0;
+	text-indent: 4px;
+	width: 100%;
+
+}
+
+main nav li.active {
+
+	color: #167c80;
+
+}
+
+main nav li:hover {
+
+	color: #eee;
+	cursor: pointer;
+
+}
+
+main aside {
+
+	position: absolute;
+	top: 0;
+	left: var(--nav-width);
+	width: calc(var(--aside-width) - 2px);
+	height: 100%;
+	overflow-y: auto;
+	border-right: 2px solid #454545;
+
+}
+
+main aside li {
+
+	padding: 4px 0;
+	font-size: 17px;
+	text-indent: 4px;
+
+}
+
+
+main section {
+
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: calc(100% - var(--aside-width) - var(--nav-width));
+	height: 100%;
+	overflow: hidden;
+
+}

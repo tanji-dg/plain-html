@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+	
+	<head>
+		
+		<title>DashGL FIle Viewer</title>
+		<meta charset="utf-8"/>
+	
+		<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+		
+		<script src="js/async.min.js"></script>
+		<script src="js/ecma_buffer.js"></script>
+		<script src="js/dexie.js"></script>
+		<script src="js/three.min.js"></script>
+		<script src="js/OrbitControls.js"></script>
+		<script src="js/GLTFExporter.js"></script>
+		<script src="js/FileSaver.js"></script>
+	
+	</head>
+
+	<body>
+
+		<header>
+			<table>
+				<tr>
+					<td class="title">
+						DashGL File Viewer
+					</td>
+					<td>
+					</td>
+					<!--
+					<td class="button">
+						<button id="json_download">Download Json</button>
+					</td>
+					-->
+					<td class="button">
+						<button id="about">About</button>
+					</td>
+				</tr>
+			</table>
+
+		</header>
+
+		<main>
+			<div class="filter">
+					<input type="file" id="files" multiple="multiple" accept=".BIN"/>
+			</div>
+				
+			<nav>
+				<article id="sidebar"></article>
+			</nav>
+
+			<aside>
+
+				<div class="types">
+						<button id="unload">Unload All</button>
+				</div>
+
+				<article id="loaded"></article>
+			</aside>
+
+			<section>
+
+				<article class="model">
+					
+					<div class="context" id="context">
+
+						<article class="texture" id="image_preview">
+							
+							<span class="close" id="cancel">Cancel</span>
+							
+							<div class="images" id="images">
+							
+							</div>
+							
+						</article>
+
+						<article class="texture" id="tim_preview">
+							
+							<span class="close" id="close">Close</span>
+
+							<table class="box">
+								<tr>
+									<td class="preview">
+
+										<canvas id="canvas" width="256" height="256" class="texture">
+										</canvas>
+
+									</td>
+									<td style="padding-right: 10px; width: 200px;">
+
+										<table class="meta">
+											<tr>
+												<td>Pallet X:</td>
+												<td id="pallet_x"></td>
+											</tr>
+											<tr>
+												<td>Pallet Y:</td>
+												<td id="pallet_y"></td>
+											</tr>
+											<tr>
+												<td>Nb Colors:</td>
+												<td id="nb_colors"></td>
+											</tr>
+											<tr>
+												<td>Nb Pallet:</td>
+												<td id="nb_pallet"></td>
+											</tr>
+											<tr>
+												<td>Image X:</td>
+												<td id="image_x"></td>
+											</tr>
+											<tr>
+												<td>Image Y:</td>
+												<td id="image_y"></td>
+											</tr>
+											<tr>
+												<td>Width:</td>
+												<td id="width"></td>
+											</tr>
+											<tr>
+												<td>Height:</td>
+												<td id="height"></td>
+											</tr>
+										</table>
+
+									</td>
+									<td rowspan="2" class="pallet_fix">
+										<div id="pallet_fix">
+										</div>
+
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<table class="pallet_select">
+											<tr>
+												<td>
+													<canvas width="224" height="18" class="pallet-canvas"></canvas>
+												</td>
+												<td>
+													<canvas width="224" height="18" class="pallet-canvas"></canvas>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<canvas width="224" height="18" class="pallet-canvas"></canvas>
+												</td>
+												<td>
+													<canvas width="224" height="18" class="pallet-canvas"></canvas>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<canvas width="224" height="18" class="pallet-canvas"></canvas>
+												</td>
+												<td>
+													<canvas width="224" height="18" class="pallet-canvas"></canvas>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<canvas width="224" height="18" class="pallet-canvas"></canvas>
+												</td>
+												<td>
+													<canvas width="224" height="18" class="pallet-canvas"></canvas>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+
+						</article>
+
+					</div>
+
+					<div class="settings">
+						
+						<div class="tabs">
+							<table>
+								<tr>
+									<td>
+										<span id="mdl_tab">Models</span>
+									</td>
+									<td>
+										<span id="tex_tab">Textures</span>
+									</td>
+									<td>
+										<span id="bone_tab">Bones</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="area">
+							
+							<div class="model-list tab active" id="model_list">
+							</div>
+							<div class="texture-list tab" id="texture_list">
+							</div>
+							<div class="bone-list tab" id="bone_list">
+							</div>
+
+						</div>
+
+					</div>
+
+				</article>
+
+			</section>
+
+		</main>
+
+		<script type="text/javascript" src="js/main.js"></script>
+
+	</body>
+
+</html>
