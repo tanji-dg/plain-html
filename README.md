@@ -26,3 +26,4 @@ ans will be listed at the top. Following that will be a list of legacy tools whi
 - Megaman Legends 1 Anim Edition
 - Megaman Legends 1 Debug Edition
 - Texture Viewer
+- DashViewer (xDaniel)
