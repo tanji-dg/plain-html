@@ -6,6 +6,7 @@
 body {
   font-family: monospace;
   text-align: center;
+  text-shadow: 2px 2px 2px pink;
 }
 
 header {
@@ -27,6 +28,24 @@ main {
 
 p {
   font-size: 1.5em;
-  text-shadow: 2px 2px 2px pink;
-  padding: 30px 80px;
+  padding: 30px 8%;
+}
+
+main p {
+  text-align: justify;
+}
+
+img {
+  width: 84%;
+  border-radius: 3px;
+  box-shadow: 0 0 2px red;
+}
+
+footer {
+  background-color: #bfca87;
+  padding-top: 20px;
+}
+
+footer a {
+  overflow: hidden;
 }
