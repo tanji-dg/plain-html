@@ -1,0 +1,183 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.parallax-container {
+    height: 90px;
+}
+h1, h2, h3, h4, h5, h6, p , nav, .content-mid {
+    font-family: Raleway;
+}
+h1.header{
+    font-size: 25px;
+    color: #222222;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 36px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.line{
+    position: relative;
+    width: 80px;
+    height: 2px;
+    margin: auto;
+    background: #35609f;
+}
+.line.lalign{
+    background: #fff;
+    margin: inherit;
+    width: 70px;
+
+}
+.check-image{
+    width: 65px;
+    margin: 60px auto 80px;
+    display: block;
+    fill: #385c91;
+}
+.content-mid{
+    color: #333300;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    line-height: 20px;
+}
+.row img {
+  max-width: 100%;
+}
+nav{
+    height: 100px;
+
+}
+nav li a{
+    color: #4a4a4a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 33px;
+    font-size: 15px;
+}
+nav ul li{
+    padding: 32px 0 25px 0;
+}
+nav ul li a:hover{
+    background-color: inherit;
+    color:#35609f;
+}
+nav i {
+    color:#8a8a8a;
+}
+.fullblue{
+    background:#385c91;
+    margin-top: 75px;
+    padding: 20px 0;
+    color: #fff;
+    margin-bottom: 290px;
+}
+.fullblue h4{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+}
+
+.fullblue h2{
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 46px;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+}
+.fullblue ul{
+    padding-left: 40px;
+}
+.fullblue ul li , .fullblue p {
+    list-style-type: disc;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 21px;
+}
+.page-footer{
+    background: #292828;
+    font-family: Raleway, sans-serif;
+    font-size: 13px;
+}
+.page-footer .footer-copyright{
+    background: #212121;
+    min-height: 60px;
+
+}
+.firstfoot{
+    min-height: 95px;
+}
+.page-footer .textwidget, .page-footer .textwidget a {
+    color:#828282 ;
+    transition-duration: 0.4s;
+    margin-top: 8px;
+}
+
+.page-footer a{
+    color:#828282 ;
+    transition-duration: 0.4s;
+}
+.page-footer a:hover{
+    color:#2897bd;
+}
+
+.footer-copyright .section{
+    padding:0 ;
+}
+.footer-copyright .row{
+    margin: 0;
+}
+.footer-copyright ul { line-height: 10px; text-transform: uppercase; font-size: 10px; }
+
+header.navbar-fixed{
+    min-height: 100px;
+}
+header nav{
+box-shadow: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.container{
+    max-width: 1100px;
+}
+
+.sidenav-overlay{
+    z-index: 990;
+}
+nav .sidenav-trigger{
+    float: right;
+    margin: 17px;
+}
+
+.topbackimage{
+
+}
+.topbackimage .timg{
+    background-image: url(../images/back-head.jpg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #fff;
+    height: 90px;
+}
+
