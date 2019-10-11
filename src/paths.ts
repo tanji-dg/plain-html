@@ -26,6 +26,10 @@ ANSWER HERE
 const paths = {
   navbarLinks: [
     {
+      text: 'Opt-in Website',
+      link: 'https://optin.dsausa.org',
+    },
+    {
       text: 'Volunteer Signup Form',
       link:
         'https://docs.google.com/forms/d/e/1FAIpQLSeDuRP62PN2yisw-4r513dYCZJFaqRKBcQjcV7JR0hjepiSzg/viewform',

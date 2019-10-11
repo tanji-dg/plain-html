@@ -1,5 +1,9 @@
 const translation = {
   'DSA National Tech Committee': 'DSA National Tech Committee',
+  'Opt-in website': 'Opt-in website',
+  'Having trouble with my account': "I'm having trouble with my account, can you help?",
+  'Try the following':
+    'If you need to get access to the Discussion Forum, or forgot your password, visit the opt-in site via the link above. From there, you can input the email you used for your DSA membership, and should get a link to sign up or reset your password.',
   'What is the NTC': 'What is the National Tech Committee?',
   'Good question':
     'Good question! The DSA National Tech Committee (NTC) is a collection of volunteer tech-workers from across the country. We research and implement tech solutions to meet the various needs of DSA’s national leadership and local chapters, particularly with respect to collaboration and communication.',

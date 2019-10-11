@@ -36234,6 +36234,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 var translation = {
   'DSA National Tech Committee': 'DSA National Tech Committee',
+  'Opt-in website': 'Opt-in website',
+  'Having trouble with my account': "I'm having trouble with my account, can you help?",
+  'Try the following': 'If you need to get access to the Discussion Forum, or forgot your password, visit the opt-in site via the link above. From there, you can input the email you used for your DSA membership, and should get a link to sign up or reset your password.',
   'What is the NTC': 'What is the National Tech Committee?',
   'Good question': 'Good question! The DSA National Tech Committee (NTC) is a collection of volunteer tech-workers from across the country. We research and implement tech solutions to meet the various needs of DSA’s national leadership and local chapters, particularly with respect to collaboration and communication.',
   'Can the NTC help my chapter': 'Can the NTC help my chapter, committee, or working group with a project?',
@@ -44573,7 +44576,7 @@ var styles_1 = require("../styles");
 var dsa_ntc_logo_svg_1 = __importDefault(require("../public/img/dsa-ntc-logo.svg"));
 
 var Wrapper = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  text-align: center;\n  margin-bottom: ", ";\n\n  h1 {\n    margin-bottom: ", ";\n  }\n"], ["\n  text-align: center;\n  margin-bottom: ", ";\n\n  h1 {\n    margin-bottom: ", ";\n  }\n"])), styles_1.spacing.xxlarge, styles_1.spacing.large);
-var Links = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  @media screen and (max-width: 900px) {\n    display: grid;\n  }\n"], ["\n  @media screen and (max-width: 900px) {\n    display: grid;\n  }\n"])));
+var Links = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: row;\n\n  @media screen and (max-width: 800px) {\n    flex-direction: column;\n  }\n"], ["\n  display: flex;\n  flex-direction: row;\n\n  @media screen and (max-width: 800px) {\n    flex-direction: column;\n  }\n"])));
 var Link = styled_components_1.default.a(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n  padding: ", " ", ";\n  margin: ", ";\n  border-radius: ", ";\n  text-decoration: none;\n"], ["\n  background-color: ", ";\n  color: ", ";\n  padding: ", " ", ";\n  margin: ", ";\n  border-radius: ", ";\n  text-decoration: none;\n"])), styles_1.colors.theme.primary, styles_1.colors.theme.bg, styles_1.spacing.medium, styles_1.spacing.large, styles_1.spacing.small, styles_1.spacing.small);
 
 var Navbar = function Navbar(_a) {
@@ -44891,6 +44894,9 @@ var emailParams = querystring_1.default.stringify({
 });
 var paths = {
   navbarLinks: [{
+    text: 'Opt-in Website',
+    link: 'https://optin.dsausa.org'
+  }, {
     text: 'Volunteer Signup Form',
     link: 'https://docs.google.com/forms/d/e/1FAIpQLSeDuRP62PN2yisw-4r513dYCZJFaqRKBcQjcV7JR0hjepiSzg/viewform'
   }, {
@@ -44946,6 +44952,9 @@ var App = function App() {
   }), react_1.default.createElement(components_1.Section, {
     title: t('Can the NTC help my chapter'),
     text: t('Sure can')
+  }), react_1.default.createElement(components_1.Section, {
+    title: t('Having trouble with my account'),
+    text: t('Try the following')
   }), react_1.default.createElement(components_1.Section, {
     title: t('I found a problem'),
     text: t('Just fill out a ticket')
@@ -45015,7 +45024,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61242" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59183" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -4,14 +4,23 @@
 
 ---
 
+This site provides some basic information about the DSA National Tech Committee.
+
 ## Development setup
 
-TBD
+First, install the Node.js version specified in [this file](.node-version). Then, install the
+[Yarn package manager](https://yarnpkg.com/en/docs/install). Once that's all set, you can install dependencies
+with:
 
-## Testing
+```sh
+$ yarn install
+```
 
-TBD
+And start the development server on [http://localhost:3000](http://localhost:3000) via `yarn serve`.
 
 ## Deployment
 
-TBD
+Before pushing your finished changes, run `yarn build`.
+
+Since this project uses [GitLab Pages](https://about.gitlab.com/product/pages/), deployments occur automatically
+whenever a change is pushed to the `master` branch.

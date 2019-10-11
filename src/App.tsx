@@ -18,6 +18,7 @@ const App = (): JSX.Element => {
         <Navbar links={paths.navbarLinks} />
         <Section title={t('What is the NTC')} text={t('Good question')} />
         <Section title={t('Can the NTC help my chapter')} text={t('Sure can')} />
+        <Section title={t('Having trouble with my account')} text={t('Try the following')} />
         <Section title={t('I found a problem')} text={t('Just fill out a ticket')} />
         <Section title={t('My email is broken')} text={t('Nope')} />
         <Section title={t('Interested in tech')} text={t('Welcome aboard')} />

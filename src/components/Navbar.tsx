@@ -15,8 +15,11 @@ const Wrapper = styled.div`
 `;
 
 const Links = styled.div`
-  @media screen and (max-width: 900px) {
-    display: grid;
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
   }
 `;
 
