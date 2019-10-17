@@ -1,67 +1,26 @@
-![Build Status](https://gitlab.com/pages/plain-html/badges/master/build.svg)
+# DSA NTC Landing Page
+
+> [https://tech.dsausa.org](https://tech.dsausa.org)
 
 ---
 
-Example plain HTML site using GitLab Pages.
+This site provides some basic information about the DSA National Tech Committee.
 
-Learn more about GitLab Pages at https://pages.gitlab.io and the official
-documentation https://docs.gitlab.com/ce/user/project/pages/.
+## Development setup
 
----
+First, install the Node.js version specified in [this file](.node-version). Then, install the
+[Yarn package manager](https://yarnpkg.com/en/docs/install). Once that's all set, you can install dependencies
+with:
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [GitLab CI](#gitlab-ci)
-- [GitLab User or Group Pages](#gitlab-user-or-group-pages)
-- [Did you fork this project?](#did-you-fork-this-project)
-- [Troubleshooting](#troubleshooting)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-## GitLab CI
-
-This project's static Pages are built by [GitLab CI][ci], following the steps
-defined in [`.gitlab-ci.yml`](.gitlab-ci.yml):
-
-```
-image: alpine:latest
-
-pages:
-  stage: deploy
-  script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
+```sh
+$ yarn install
 ```
 
-The above example expects to put all your HTML files in the `public/` directory.
+And start the development server on [http://localhost:3000](http://localhost:3000) via `yarn serve`.
 
-## GitLab User or Group Pages
+## Deployment
 
-To use this project as your user/group website, you will need one additional
-step: just rename your project to `namespace.gitlab.io`, where `namespace` is
-your `username` or `groupname`. This can be done by navigating to your
-project's **Settings**.
+Before pushing your finished changes, run `yarn build`.
 
-Read more about [user/group Pages][userpages] and [project Pages][projpages].
-
-## Did you fork this project?
-
-If you forked this project for your own use, please go to your project's
-**Settings** and remove the forking relationship, which won't be necessary
-unless you want to contribute back to the upstream project.
-
-## Troubleshooting
-
-1. CSS is missing! That means that you have wrongly set up the CSS URL in your
-   HTML files. Have a look at the [index.html] for an example.
-
-[ci]: https://about.gitlab.com/gitlab-ci/
-[index.html]: https://gitlab.com/pages/plain-html/blob/master/public/index.html
-[userpages]: https://docs.gitlab.com/ce/user/project/pages/introduction.html#user-or-group-pages
-[projpages]: https://docs.gitlab.com/ce/user/project/pages/introduction.html#project-pages
+Since this project uses [GitLab Pages](https://about.gitlab.com/product/pages/), deployments occur automatically
+whenever a change is pushed to the `master` branch.
