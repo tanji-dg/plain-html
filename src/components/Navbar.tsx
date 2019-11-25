@@ -18,6 +18,10 @@ const Links = styled.div`
   @media screen and (max-width: 800px) {
     display: grid;
   }
+
+  @media screen and (min-width: 801px) {
+    margin-bottom: 50px;
+  }
 `;
 
 const Link = styled.a`
@@ -44,8 +48,15 @@ const Navbar = ({ links }: Props): JSX.Element => {
       <img src={logo} />
       <h1>{t('DSA National Tech Committee')}</h1>
       <Links>
-        {links.map((link) => (
-          <Link key={link.text} href={link.link}>
+        {links.slice(0, 3).map((link) => (
+          <Link key={link.text} href={link.link} target="_blank">
+            {t(link.text)}
+          </Link>
+        ))}
+      </Links>
+      <Links>
+        {links.slice(3).map((link) => (
+          <Link key={link.text} href={link.link} target="_blank">
             {t(link.text)}
           </Link>
         ))}

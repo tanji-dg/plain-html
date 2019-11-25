@@ -8,15 +8,20 @@ const paths = {
     },
     {
       text: 'Volunteer Signup Form',
-      link:
-        'https://airtable.com/shrsadbAsPqiyfXGp',
+      link: 'https://airtable.com/shrsadbAsPqiyfXGp',
     },
     {
       text: 'Help Form',
-      link:
-        'https://docs.google.com/forms/d/e/1FAIpQLSejt71aXXUjH0l0Nj1SnvV1KuhJ66N9Dfih4EiLu5W151H_Uw/viewform',
+      link: 'https://airtable.com/shrbb2Ut3023aUQGU',
     },
-    { text: 'Email Us', link: `mailto:${supportEmail}` },
+    {
+      text: 'Chapter Support Mailing List',
+      link: 'https://airtable.com/shrgt6Tsheg1eLLCH',
+    },
+    {
+      text: 'Email Us',
+      link: `mailto:${supportEmail}`,
+    },
   ],
 };
 

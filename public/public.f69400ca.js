@@ -44576,7 +44576,7 @@ var styles_1 = require("../styles");
 var dsa_ntc_logo_svg_1 = __importDefault(require("../public/img/dsa-ntc-logo.svg"));
 
 var Wrapper = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  text-align: center;\n  margin-bottom: ", ";\n\n  h1 {\n    margin-bottom: ", ";\n  }\n"], ["\n  text-align: center;\n  margin-bottom: ", ";\n\n  h1 {\n    margin-bottom: ", ";\n  }\n"])), styles_1.spacing.xxlarge, styles_1.spacing.large);
-var Links = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  @media screen and (max-width: 800px) {\n    display: grid;\n  }\n"], ["\n  @media screen and (max-width: 800px) {\n    display: grid;\n  }\n"])));
+var Links = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  @media screen and (max-width: 800px) {\n    display: grid;\n  }\n\n  @media screen and (min-width: 801px) {\n    margin-bottom: 50px;\n  }\n"], ["\n  @media screen and (max-width: 800px) {\n    display: grid;\n  }\n\n  @media screen and (min-width: 801px) {\n    margin-bottom: 50px;\n  }\n"])));
 var Link = styled_components_1.default.a(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n  padding: ", " ", ";\n  margin: ", ";\n  border-radius: ", ";\n  text-decoration: none;\n"], ["\n  background-color: ", ";\n  color: ", ";\n  padding: ", " ", ";\n  margin: ", ";\n  border-radius: ", ";\n  text-decoration: none;\n"])), styles_1.colors.theme.primary, styles_1.colors.theme.bg, styles_1.spacing.medium, styles_1.spacing.large, styles_1.spacing.small, styles_1.spacing.small);
 
 var Navbar = function Navbar(_a) {
@@ -44584,10 +44584,17 @@ var Navbar = function Navbar(_a) {
   var t = react_i18next_1.useTranslation().t;
   return react_1.default.createElement(Wrapper, null, react_1.default.createElement("img", {
     src: dsa_ntc_logo_svg_1.default
-  }), react_1.default.createElement("h1", null, t('DSA National Tech Committee')), react_1.default.createElement(Links, null, links.map(function (link) {
+  }), react_1.default.createElement("h1", null, t('DSA National Tech Committee')), react_1.default.createElement(Links, null, links.slice(0, 3).map(function (link) {
     return react_1.default.createElement(Link, {
       key: link.text,
-      href: link.link
+      href: link.link,
+      target: "_blank"
+    }, t(link.text));
+  })), react_1.default.createElement(Links, null, links.slice(3).map(function (link) {
+    return react_1.default.createElement(Link, {
+      key: link.text,
+      href: link.link,
+      target: "_blank"
     }, t(link.text));
   })));
 };
@@ -44706,7 +44713,10 @@ var paths = {
     link: 'https://airtable.com/shrsadbAsPqiyfXGp'
   }, {
     text: 'Help Form',
-    link: 'https://docs.google.com/forms/d/e/1FAIpQLSejt71aXXUjH0l0Nj1SnvV1KuhJ66N9Dfih4EiLu5W151H_Uw/viewform'
+    link: 'https://airtable.com/shrbb2Ut3023aUQGU'
+  }, {
+    text: 'Chapter Support Mailing List',
+    link: 'https://airtable.com/shrgt6Tsheg1eLLCH'
   }, {
     text: 'Email Us',
     link: "mailto:" + supportEmail
@@ -44826,7 +44836,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54852" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54107" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
