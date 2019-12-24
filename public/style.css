@@ -1,24 +1,32 @@
-body {
-  font-family: sans-serif;
-  margin: auto;
-  max-width: 1280px;
+body{
+    overflow: hidden;
+    cursor: none;
+    animation: colorChange 50s;
+    -webkit-animation: colorChange 50s;
+    animation-iteration-count: infinite;
+}
+@keyframes colorChange{
+    0%   {background: black;}
+    25%  {background: #333;}
+    50%  {background: blue;}
+    75%  {background: #1b2b84;}
+    100% {background: black;}
+}
+#img-pic{
+    border-radius: 10px;
+    height: 100vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+#cur-temp{
+    color: white;
+    font-family: "Arial";
+}
+#cur-time{
+    color: white;
+    font-family: "Arial";
 }
 
-.navbar {
-  background-color: #313236;
-  border-radius: 2px;
-  max-width: 800px;
-}
 
-.navbar a {
-  color: #aaa;
-  display: inline-block;
-  font-size: 15px;
-  padding: 10px;
-  text-decoration: none;
-}
-
-.navbar a:hover {
-  color: #ffffff;
-}
 

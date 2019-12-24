@@ -5,19 +5,62 @@
     <meta name="generator" content="GitLab Pages">
     <title>Plain HTML site using GitLab Pages</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
   </head>
   <body>
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
+    <div class="content">
+      <img id='img-pic' src="">
+      <div class="footer navbar-fixed-bottom text-center" style="background: rgba(32,32,32,0.4) !important;">
+          <div id="cur-time"></div>
+          <div class="col-sm-4">
+              <h1 id="cur-temp" class="display-1" style='font-size: 10rem !important;'></h1>
+          </div>
+
+      </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var imgFileName = "";
+        var getImages = setInterval(function(){
+                $.getJSON('http://photoslider.johnlong.me/templates/', function(data) {
+                    window.imgFileName = data;
+                    console.log(data);
+                })
+                image = document.getElementById('img-pic');
+                image.src='http://photoslider.johnlong.me/templates/' + window.imgFileName;
+            }, 30000);
+        var getWeather = setInterval(function(){
+                $.getJSON('http://photoslider.johnlong.me/get_weather', function(data) {
+                    kelTemp = data.main.temp;
+                    fTemp = 9/5 * (parseInt(kelTemp) - 273) + 32;
+                    var rounded = parseInt(fTemp);
+                    document.getElementById('cur-temp').innerHTML = rounded.toString() + "&#8457;";
+                })
+            }, 100000);
+        var getTime = setInterval(function(){
+                var current = new Date();
+                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                function pad(value){
+                    if(value < 10) {
+                        return '0' + value;
+                    } else {
+                        return value;
+                    }
+                }
+                var theHour = 0;
+                if(parseInt(current.getHours()) >12){
+                    theHour = parseInt(current.getHours()) - 12;
+                }else if(parseInt(current.getHours()) == 0){
+                    theHour = 12;
+                }else{
+                    theHour = current.getHours();
+                }
+                time = "<div class='col-sm-4'><h1 class='display-1 month-day' style='font-size: 10rem !important;'>"+months[current.getMonth()] +" "+ current.getDate()+"</h1></div><div class='col-sm-4'><h1 class='display-1 theTime' style='font-size: 10rem !important;'>"+ theHour + ":" + pad(current.getMinutes())+"</h1></div>";
+                document.getElementById('cur-time').innerHTML = time;
+            }, 1000)
 
-    <h1>Hello World!</h1>
-
-    <p>
-      This is a simple plain-HTML website on GitLab Pages, without any fancy static site generator.
-    </p>
+    </script>
   </body>
 </html>
 
