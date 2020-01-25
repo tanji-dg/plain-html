@@ -1,0 +1,220 @@
+html,body {
+	padding: 0;
+	margin: 0;
+	font-family: monospace;
+
+}
+
+section.texture {
+
+	width: 630px;
+	min-height: 40px;
+	border: 1px solid #006699;
+	border-top: none;
+
+}
+
+section.texture header {
+
+	height: 18px;
+	background-color: #006699;
+
+}
+
+section.texture header table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	font-size: 10px;
+	color: #fff;
+	text-indent: 2px;
+
+}
+
+section.texture main {
+
+	padding: 2px 10px;
+	padding-top: 10px;
+
+}
+
+section.texture main table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+section.texture main table td.select {
+
+	width: 180px;
+
+}
+
+section.texture main table td.preview {
+
+	width: 268px;
+
+}
+
+section.texture main table td.preview div.container {
+
+	width: 256px;
+	height: 256px;
+	border: 1px solid #000;
+
+}
+
+section.texture main ul.select {
+
+	width: calc(100% - 12px);
+	border: 1px solid #000;
+	padding: 0;
+	margin: 0;
+	height: 256px;
+	overflow-y: auto;
+
+}
+
+section.texture main ul.select li {
+
+	list-style-type: none;
+	padding: 4px 0;
+	border-bottom: 1px solid #ccc;
+
+}
+
+section.texture main ul.select li.selected {
+
+	background-color: #006699;
+	color: #fff;
+	pointer-events: none;
+
+}
+
+section.texture main ul.select li:hover {
+
+	cursor: pointer;
+	background-color: #C3E6FC;
+
+}
+
+section.texture main div.pallet {
+
+	width: 100%;
+	height: 256px;
+	padding: 0;
+	margin: 0;
+	border: 1px solid #000;
+
+}
+
+section.texture main div.pallet select {
+
+	width: 50%;
+	display: block;
+	margin: 4px auto;
+
+}
+
+
+section.texture main div.pallet div.values {
+
+	height: 200px;
+
+}
+
+section.texture main div.pallet div.values table td:last-child {
+
+	text-align: right;
+
+}
+
+section.texture main div.pallet table td {
+
+	font-size: 12px;
+
+}
+
+section.texture main div.pallet table td:first-child{
+
+	width: 70%;
+
+}
+
+section.texture main div.pallet label {
+
+	display: block;
+	width: 100%;
+
+}
+
+section.texture nav {
+
+	padding: 2px 10px;
+
+}
+
+section.texture nav table {
+
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+section.texture nav table td.btn-wide {
+	
+	width: 180px;
+	overflow-x: hidden;
+
+}
+
+section.texture nav table td.btn-wide input {
+
+	width: 100%;
+
+}
+
+section.texture nav table td.btn {
+
+	width: 86px;
+
+}
+
+section.texture nav table td.indent {
+
+	text-indent: 10px;
+
+}
+
+section.texture nav table td:last-child {
+
+	text-align: right;
+
+}
+
+
+section.texture nav table td.btn button {
+
+	display: block;
+	width: calc(100% - 4px);
+
+}
+
+section.texture footer {
+	
+	padding: 2px 10px;
+
+}
+
+section.texture footer table {
+
+	width: 100%;
+	border-collapse: collapse;
+
+}

@@ -1,0 +1,35 @@
+html {
+
+	padding: 0;
+	margin: 0;
+	height: 100%;
+
+}
+
+body {
+
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background-color: #888;
+	--viewport-width: 1280px;
+	--viewport-height: 720px;
+
+}
+
+div.padding {
+
+	height: calc(50% - var(--viewport-height) / 2);
+
+}
+
+main {
+
+	position: absolute;
+	left: calc(50% - var(--viewport-width) / 2);
+	width: var(--viewport-width);
+	height: var(--viewport-height);
+	background-color: #ccc;
+	overflow: hidden;
+
+}

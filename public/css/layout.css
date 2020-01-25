@@ -1,0 +1,217 @@
+html {
+
+	padding : 0;
+	margin: 0;
+	height: 100%;
+	background-image: url('../img/gnome-backgrounds_3.jpg');
+	background-size: cover;
+	overflow-y: hidden;
+
+}
+
+a {
+
+	text-decoration: none;
+	color: #000;
+
+}
+
+td.fork a {
+
+	color: #00f;
+
+}
+
+td.fork a:hover {
+
+	text-decoration: underline;
+
+}
+
+body {
+
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow-y: auto;
+
+} 
+
+main {
+
+	padding-top: 100px;
+	min-height: 400px;
+	margin: auto;
+	width: 800px;
+	margin: auto;
+	max-width: 90%;
+
+} 
+
+@media only screen and (min-width:1366px){
+
+	main {
+
+		padding-left: 424px;
+
+	}
+
+	li:last-child {
+
+		margin-bottom: 90px;
+
+	}
+
+	div.global-footer {
+		
+		display: none;
+
+	}
+
+	div.fixed {
+
+		position: fixed;
+		width: 320px;
+		height: 90%;
+		top: 5%;
+		left: calc(50% - 600px);
+		color: #fff;
+
+	}
+
+	div.fixed h1 {
+
+		margin: 0;
+		font-size: 24px;
+		padding-top: 10px;
+
+	}
+
+	div.fixed p {
+
+		font-size: 14px;
+		line-height: 18px;
+
+	}
+
+}
+
+div.fixed img {
+
+	width: 100%;
+	max-height: calc(100% - 300px);
+
+}
+
+@media only screen and (max-width:1365px){
+
+	div.global-footer {
+
+		margin-top: 130px;
+		padding-top: 20px;
+		min-height: 80px;
+		background-color: #000;
+		color: #fff;
+		font-size: 14px;
+
+	}
+	
+	div.global-footer p {
+		
+		width: 800px;
+		display: block;
+		margin: auto;
+		padding: 0;
+		line-height: 22px;
+
+	}
+
+	div.fixed {
+		display: none;
+	}
+
+
+}
+
+li {
+
+	margin-bottom: 20px;
+	list-style-type: none;
+	min-height: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	overflow: hidden;
+	background-color: #F5F5F5;
+	margin-bottom: 30px;
+
+}
+
+li header {
+
+	height: 34px;
+	font-size: 10px;
+	padding: 4px 0;
+
+}
+
+li header table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+li header table td.fork {
+
+	width: 90px;
+
+}
+
+li header table td.checkbox {
+
+	width: 90px;
+
+}
+
+li header table td.title {
+
+	text-indent: 10px;
+
+}
+
+li header table td.padding {
+
+	width: 40px;
+
+}
+
+li section {
+
+	height: 210px;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+}
+
+li footer {
+
+	font-size: 14px;
+	padding: 20px 0;
+	min-height: 22px;
+
+}
+
+li footer p {
+
+	padding: 0;
+	margin: auto;
+	width: calc(100% - 20px);
+	font-size: 14px;
+
+}

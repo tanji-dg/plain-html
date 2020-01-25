@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<title>MML2 PC Mesh</title>
+	<meta charset="utf-8"/>
+
+	<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+
+</head>
+
+<body>
+
+	<header>
+		<table>
+			<tr>
+				<td>
+					<h1>MML2 PC Mesh</h1>
+					<input type="file" id="files" multiple="multiple" style="display: none" accept=".DAT"/>
+				</td>
+				<td class="select">
+					<select class="tex-select" id="anim-select" disabled="disabled">
+					</select>
+				</td>
+				<td class="select">
+					<select class="tex-select" id="tex-select" disabled="disabled">
+					</select>
+				</td>
+				<!--
+				<td>
+					<select class="tex-select" id="pal-select">
+					</select>
+				</td>
+				-->
+				<td class="float">
+					<label>
+						<input type="checkbox" id="debug_texture"/>
+						Debug
+					</label>
+				</td>
+				<td class="float import">
+					Import
+				</td>
+				<td class="float">
+					Options
+				</td>
+				<td class="float" id="export-toggle">
+					Export
+
+				</td>
+				<td class="float" id="about-toggle">
+					About
+
+					<div class="pop-over" id="about-popup">
+						
+						Copyright 2018 Dashgl Project GPL v3<br>
+						Thanks to Chiz (for notes), Sinoh, Xinus22 and xDaniel
+
+					</div>
+				</td>
+			</tr>
+		</table>
+	</header>
+
+	<main>
+		
+		<aside id="aside">
+			
+			<div id="list"></div>
+
+			<!-- 
+
+			<li class="file">
+				<table>
+					<tr>
+						<td class="name">ST0F00.BIN</td>
+						<td class="spin">
+							<img src="img/45.gif"/>
+						</td>
+					</tr>
+				</table>
+			</li><ul>
+				<li class="asset">
+					<table>
+						<tr>
+							<td class="name">name</td>
+							<td class="spin">2 bones</td>
+							<td class="spin">1 anims</td>
+						</tr>
+					</table>
+				</li>
+				<li class="asset">
+					<table>
+						<tr>
+							<td class="name">name</td>
+							<td class="spin">bone</td>
+							<td class="spin">anim</td>
+						</tr>
+					</table>
+				</li>
+				<li class="asset">
+					<table>
+						<tr>
+							<td class="name">name</td>
+							<td class="spin">bone</td>
+							<td class="spin">anim</td>
+						</tr>
+					</table>
+				</li>
+			</ul>
+			
+			-->
+			
+			<div class="no-files-message" id="message" style="display: none">
+				
+				<table>
+					<tr><td>
+				Looks like you don't have any files imported.
+
+				To use this application, click <span class="import">here</span>,
+				
+				or on the 'Import' button in the header of this page, and
+
+				select <em>all</em> of the files from the DAT
+				
+				folder from the Rockman Dash 2 PC installation.
+					</td></tr>
+				
+				</table>
+			</div>
+			
+			<div class="no-files-message" id="reading" style="display: none">
+				
+				<table>
+					<tr><td>
+
+						Reading DAT Files
+
+					</td></tr>
+				
+				</table>
+			</div>
+
+		</aside>
+
+		<section id="section">
+			<div class="asset-meta" id="meta">
+				Width: 000<br>
+				Height: 0000<br>
+				Framebuffer: 000<br>
+			</div>
+
+		</section>
+
+	</main>
+
+	<script type="text/javascript" src="lib/xml2json.min.js"></script>
+	<script type="text/javascript" src="lib/dexie.min.js"></script>
+	<script type="text/javascript" src="lib/async.min.js"></script>
+	<script type="text/javascript" src="lib/three.min.js"></script>
+	<script type="text/javascript" src="lib/jszip.min.js"></script>
+	<script type="text/javascript" src="lib/OrbitControls.js"></script>
+	<script type="text/javascript" src="lib/vkbeautify.js"></script>
+	<script type="text/javascript" src="lib/GLTFExporter.js"></script>
+	<script type="text/javascript" src="lib/FileSaver.js"></script>
+	<script type="text/javascript" src="lib/ColladaExporter.js"></script>
+
+	<script type="text/javascript" src="viewport.js"></script>
+	<script type="text/javascript" src="interface.js"></script>
+	<script type="text/javascript" src="collada.js"></script>
+
+</body>
+
+</html>

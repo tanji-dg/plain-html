@@ -1,0 +1,318 @@
+html {
+	
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background-color: #eee;
+
+}
+
+body {
+
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	font-family: 'Roboto', 'Helvetica', sans-serif;
+	--header-height: 50px;
+	
+}
+
+header {
+
+	width: 100%;
+	background-color: rgb(81, 45, 168);
+	height: var(--header-height);
+
+}
+
+header table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+header table h1 {
+
+	color: #fff;
+	font-size: 18px;
+	padding: 0;
+	margin: 0;
+	padding-left: 10px;
+	letter-spacing: 1px;
+
+}
+
+header table td.float {
+
+	width: 100px;
+	text-indent: 10px;
+	color: #fff;
+	position: relative;
+
+}
+
+header table td.float:hover {
+
+	background-color: rgba(0,0,0,0.2);
+	cursor: pointer;
+
+}
+
+main {
+
+	width: 100%;
+	height: calc(100% - var(--header-height));
+	position: relative;
+	--aside-width: 320px;
+
+}
+
+aside {
+
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: calc(var(--aside-width) - 1px);
+	border-right: 1px solid #ccc;
+	background-color: #fff;
+	overflow-y: scroll;
+
+}
+
+aside li {
+
+	list-style-type: none;
+	width: 100%;
+	color: #616161;
+
+}
+
+aside li table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+aside li.file {
+
+	font-weight: bold;
+	padding: 10px 0;
+
+}
+
+aside li.file:hover {
+
+	cursor: pointer;
+	color: rgb(255,64,129);
+
+}
+
+aside li.file.active:hover {
+	
+	color: #515151;
+
+}
+
+aside li.file.active {
+
+	background-color: #d2d2d2;
+
+}
+
+aside ul {
+
+	padding: 0;
+	margin: 0;
+	border-bottom: 1px solid #d2d2d2;
+	max-height: 0;
+	overflow-y: hidden;
+
+}
+
+aside ul.open {
+
+	max-height: 2000px;
+
+}
+
+aside li.asset {
+
+	padding: 10px 0;
+	font-size: 13px;
+
+}
+
+aside li.asset.active {
+
+	color: #00BCD4 !important;
+
+}
+
+aside li.asset:hover {
+
+	cursor: pointer;
+	color: #313131;
+	background-color: #f2f2f2;
+
+}
+
+aside li table td.spin {
+
+	width: 54px;
+	text-indent: 4px;
+
+}
+
+aside li table td.spin img {
+
+	display: none;
+	margin: auto;
+
+}
+
+aside li table td.spin img.block {
+
+	display: block;
+
+}
+
+aside li table td.name {
+
+	text-indent: 10px;
+
+}
+
+
+section {
+
+	height: 100%;
+	position: absolute;
+	left: var(--aside-width);
+	top: 0;
+	width: calc(100% - var(--aside-width));
+	overflow: hidden;
+
+}
+
+section div.asset-meta {
+
+	z-index: 10;
+	color: #fff;
+	font-size: 14px;
+	font-family: monospace;
+	line-height: 16px;
+	left: 0;
+	top: 0;
+	position: absolute;
+	padding-left: 4px;
+	padding-top: 4px;
+
+}
+
+aside div.no-files-message {
+
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: calc(100% - 42px);
+	background-color: rgb(178, 223, 219);
+	padding: 10px;
+	border: 1px solid #000;
+	border-radius: 5px;
+
+}
+
+aside div.no-files-message table {
+
+	width: 100%;
+	height: 100%;
+	font-size: 18px;
+	line-height: 32px;
+
+}
+
+div.pop-over {
+
+	width: 286px;
+	padding: 10px;
+	position: absolute;
+	top: calc(100% + 4px);
+	right: 0;
+	min-height: 50px;
+	z-index: 100;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	pointer-events: none;
+	opacity: 0;
+	color: #333;
+
+}
+
+header table td.float:hover div.pop-over {
+
+	cursor: default;
+
+}
+
+div.pop-over.open {
+
+	pointer-events: all;
+	opacity: 1.0;
+
+}
+
+div.pop-over label {
+	
+	display: block;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+
+}
+
+div.pop-over ul {
+
+	margin: 0;
+	padding: 0;
+	padding-top: 4px;
+
+}
+
+div.pop-over ul canvas {
+
+	display: block;
+	margin: auto;
+	margin-bottom: 4px;
+	border: 1px solid #ccc;
+
+}
+
+div.pop-over li {
+
+	list-style-type: none;
+	display: block;
+	padding: 0;
+	margin : 0;
+	margin-bottom: 4px;
+
+}
+
+select.tex-select {
+
+	padding: 2px;
+	width: 160px;
+
+}
+
+td.select {
+
+	width: 170px;
+
+}

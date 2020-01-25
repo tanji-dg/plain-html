@@ -1,0 +1,199 @@
+html {
+
+	padding: 0;
+	margin: 0;
+	height: 100%;
+
+}
+
+body {
+
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background-color: #eee;
+	--header-height: 44px;
+	--nav-width: 271px;
+
+}
+
+header {
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: calc(var(--header-height) - 1px);
+	border-bottom: 1px solid #555;
+
+}
+
+header table {
+
+	width: 100%;
+	height: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+
+}
+
+header table h1 {
+
+	font-size: 18px;
+	font-weight: 300;
+	padding: 0;
+	margin: 0;
+	padding-left: 15px;
+
+}
+
+nav {
+
+	position: absolute;
+	top: var(--header-height);
+	left: 0;
+	width: calc(var(--nav-width) - 1px);
+	height: calc(100% - var(--header-height));
+	border-right: 1px solid #555;
+	overflow: hidden;
+
+}
+
+nav div.asset_list,
+nav div.archive_list {
+	
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow-y: auto;
+	transition: transform 200ms linear;
+
+}
+
+nav div.asset_list {
+
+	left: 100%;
+
+}
+
+nav div.asset_list.open {
+
+	transform: translateX(-100%);
+
+}
+
+nav div.asset_list div.archive_name {
+
+	width: 100%;
+	height: calc(40px - 1px);
+
+}
+
+nav div.asset_list div.archive_name table {
+
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+}
+
+nav div.asset_list div.archive_name table td:first-child {
+
+	text-indent: 15px;
+
+}
+
+nav div.asset_list div.archive_name table td.icon {
+
+	width: 40px;
+
+}
+
+nav div.asset_list div.archive_name table td.icon div.back {
+
+	width: 30px;
+	height: 30px;
+	display: block;
+	border-radius: 40px;
+	background-image: url("ic_arrow_back_black_24dp_1x.png");
+	background-size: 80%;
+	background-position: center;
+
+}
+
+nav div.asset_list div.archive_name table td.icon div.back:hover {
+
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.1);
+
+}
+
+nav div.asset_list div.model_list {
+
+	width: 100%;
+	height: calc(100% - 40px);
+	overflow-y: auto;
+
+}
+
+nav div.asset_list div.model_list ul {
+
+	padding: 0;
+	margin: 0;
+
+}
+
+nav div.archive_list.hide {
+
+	transform: translateX(-100%);
+
+}
+
+nav div.archive_list ul {
+
+	padding: 0;
+	margin: 0;
+	width: 100%;
+
+}
+
+nav div.asset_list div.model_list ul li:first-child {
+
+	border-top: 1px dashed #555;
+
+}
+
+nav div.asset_list div.model_list ul li,
+nav div.archive_list ul li {
+	
+	list-style-type: none;
+	font-size: 16px;
+	padding: 8px 0;
+	text-indent: 10px;
+	border-bottom: 1px dashed #555;
+	width: calc(100% - 20px);
+	margin: auto;
+
+}
+
+nav div.asset_list div.model_list ul li:hover,
+nav div.archive_list ul li:hover {
+
+	cursor: pointer;
+	color: #f52b91;
+
+}
+
+main {
+
+	position: absolute;
+	top: var(--header-height);
+	left: var(--nav-width);
+	width: calc(100% - var(--nav-width));
+	height: calc(100% - var(--header-height));
+	overflow: hidden;
+
+}
