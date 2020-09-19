@@ -1,24 +1,19 @@
 body {
   font-family: sans-serif;
   margin: auto;
-  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-.navbar {
-  background-color: #313236;
-  border-radius: 2px;
-  max-width: 800px;
+img {
+  max-height: 900px;
+  max-width: 900px;
 }
 
-.navbar a {
-  color: #aaa;
-  display: inline-block;
-  font-size: 15px;
-  padding: 10px;
-  text-decoration: none;
+h1 {
+  text-align: center;
 }
-
-.navbar a:hover {
-  color: #ffffff;
-}
-
