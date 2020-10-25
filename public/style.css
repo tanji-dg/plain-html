@@ -10,7 +10,10 @@ body {
 }
 
 header {
-  background-image: url("foto-bsblork.jpg-appleii.png");
+  background-image: url("foto-bsblork_museunacionaldarepublica_brasilia7julho2019.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   height: 450px;
   margin-bottom: 30px;
 }
