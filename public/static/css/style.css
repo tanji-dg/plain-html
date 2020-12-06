@@ -27,19 +27,7 @@ h6 {
   font-size: 1rem;
 }
 
-.lead {
-  font-size: 1rem;
-}
 
-.card-img-right {
-  height: 100%;
-  border-radius: 0 3px 3px 0;
-}
-
-.flex-auto {
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
 .h-200 {
   height: 200px;
 }
@@ -51,7 +39,7 @@ h6 {
 .min-w-300 {
   min-width: 300px;
 }
-.max-h-200{
+.max-h-200 {
   max-height: 200px;
 }
 @media (min-width: 768px) {
@@ -125,31 +113,17 @@ h6 {
   list-style: none;
   padding-inline-start: 0px;
   margin-bottom: 0;
-
   display: flex;
 }
-#icon_tab .tabs-list .ui-tabs-active a:after {
-  content: ".";
-  color: rgba(0, 0, 0, 0);
-  border-bottom: 2px solid #4c758d;
-  width: 30px;
-  height: 0;
-  margin-top: 10px;
-}
-@media (max-width: 768px) {
-  #icon_tab .tabs-list .ui-tabs-active a:after {
-    visibility: hidden;
-  }
-}
+
 #icon_tab .tabs-list li {
   display: flex;
   flex: 1;
-  background: #f8f8f8;
+  background: #f8f8f8 !important;
   margin: 15px 15px 0px 15px;
   padding: 10px;
-  box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.2);
-  border-radius: 10% 10% 0 0;
-
+  box-shadow: 0px 7px 22px -10px rgba(0, 0, 0, 0.7);
+  border-radius: 5% 5% 0 0;
 }
 @media (max-width: 768px) {
   #icon_tab .tabs-list li {
@@ -159,7 +133,7 @@ h6 {
   }
 }
 #icon_tab .tabs-list li a {
-  color: #4c4c4c;
+  color: black;
   text-decoration: none;
   width: 100%;
   float: left;
@@ -169,6 +143,23 @@ h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#icon_tab .tabs-list .ui-tabs-active {
+  background: #343a40 !important;
+  box-shadow: 0px 7px 25px -12px rgba(0, 0, 0, 0.7);
+}
+#icon_tab .tabs-list .ui-tabs-active a:after {
+  content: ".";
+  color: rgba(0, 0, 0, 0);
+  border-bottom: 2px solid white;
+  width: 30px;
+  height: 0;
+  margin-top: 10px;
+}
+
+#icon_tab .tabs-list .ui-tabs-active a {
+  color: white !important;
 }
 #icon_tab .tabs-list li a img {
   display: block;
@@ -185,7 +176,16 @@ h6 {
   font-size: 15px;
 }
 
-@media (max-width: 768px) {
+#icon_tab .icon-icon-hair:before {
+  content: "\e902";
+}
+@media (max-width) {
+  #icon_tab .tabs-list {
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #343a40 !important;
+  }
   #icon_tab .tabs-list li a img {
     height: 25px;
   }
@@ -198,20 +198,12 @@ h6 {
     font-size: 16px;
   }
 }
-#icon_tab .icon-icon-hair:before {
-  content: "\e902";
-}
-@media (max-width) {
-  #icon_tab .tabs-list {
-    list-style: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: #f8f8f8;
-  }
-}
-
 
 #icon-content {
-  background: #f8f8f8;
+  background: #343a40 !important;
   padding: 20px;
+  padding-top: 30px;
+  border-radius: 5px;
+  z-index: 1;
+  position: relative;
 }

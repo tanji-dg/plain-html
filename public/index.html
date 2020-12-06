@@ -6,16 +6,25 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Çetin Insaat</title>
+    <title>Çetin İnşaat</title>
 
     <link href="static/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./static/css/swiper.css">
+
+
+
     <meta name="yandex-verification" content="8f90b3b0f0f89b7f" />
 
   </head>
   <body>
+    <!-- -------------------------- -->
+    <!-- bolum header -->
+    <!-- -------------------------- -->
     <div class="container">
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
@@ -36,6 +45,7 @@
 
       <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="#">Anasayfa</a>
           <a class="p-2 text-muted" href="#">Kurumsal</a>
           <a class="p-2 text-muted" href="#">Ürünler</a>
           <a class="p-2 text-muted" href="#">Haberler</a>
@@ -43,20 +53,51 @@
         </nav>
       </div>
 
-      <div class="jumbotron p-3 text-white rounded bg-dark">
-        <div class="row">
-          <div class="col-md-6 px-0 p-4">
-            <h2 class="display-4 font-italic">Site Yapım Asamasındadır</h2>
-            <p class="lead my-3">Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.</p>
+    </div>
 
+
+    <!-- -------------------------- -->
+    <!-- bolum swiper -->
+    <!-- -------------------------- -->
+    <div class="container p-0 main-swiper mb-5">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="m0 slide align-items-center" style="flex-wrap: inherit;">
+              <div class="img-container">
+                <img src="./static/img/slide_1.jpeg" class=" swiper"  />
+              </div>
+            </div>
           </div>
-          <div class="col-md-6">
-            <img class="w-100" src="./static/img/cetin_ins.jpeg" alt="" />
+
+          <div class="swiper-slide">
+            <div class="m0 slide align-items-center" style="flex-wrap: inherit;">
+              <div class="img-container">
+                <img src="./static/img/cetin_ins.jpeg" class=" swiper"  />
+              </div>
+            </div>
           </div>
+
+          <div class="swiper-slide">
+            <div class="m0 slide align-items-center" style="flex-wrap: inherit;">
+              <div class="img-container">
+                <img src="https://www.kamyonhaber.com/wp-content/uploads/2017/02/mercedes-kamyon-kampanya-660x400.jpg" class=" swiper"  />
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
+      <div class="container p0">
+        <div class="swiper-pagination"></div>
       </div>
     </div>
 
+
+    <!-- -------------------------- -->
+    <!-- bolum ürünler -->
+    <!-- -------------------------- -->
     <div class="container">
       <h3>Ürünler</h3>
 
@@ -166,79 +207,51 @@
       <!-- <h3>Haberler</h3> -->
     </div>
 
+    <!-- -------------------------- -->
+    <!-- bolum iletisim -->
+    <!-- -------------------------- -->
     <div class="container mt-4">
       <h3>İletisim</h3>
 
-
       <div class="row d-flex align-items-center mt-3">
-        <div class="col min-w-300">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative h-200">
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-0">Çetin Çetin</h3>
-              <div class="mb-1 text-muted"><br></div>
-              <p class="mb-auto">
-                Tel: <br>
-                <a href="tel:+905383452431">0(538) 345 24-31</a>
-              </p>
-            </div>
 
+        <div class="card col min-w-300 mx-3">
+          <div class="card-body">
+            <h4 class="card-title">Çetin Çetin</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Genel Müdür</h6>
+            <p class="card-text"></p>
+            Tel: <a class="card-link" href="tel:+905383452431">0(538) 345 24-31</a>
           </div>
         </div>
 
-        <div class="col min-w-300">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative h-200">
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-0">Halil Çetin</h3>
-              <div class="mb-1 text-muted"><br></div>
-              <p class="mb-auto">
-                Tel: <br>
-                <a href="tel:+905522491042">0(552)-249-10-42</a>
-              </p>
-            </div>
+        <div class="card col min-w-300 m-3">
+          <div class="card-body">
+            <h4 class="card-title">Halil Çetin</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Genel Müdür Yrd.</h6>
 
+            <p class="card-text"></p>
+            Tel: <a class="card-link" href="tel:+905522491042">0(552)-249-10-42</a>
           </div>
         </div>
 
-        <div class="col min-w-300">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative h-200">
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-0">Address</h3>
-              <div class="mb-1 text-muted"><br></div>
-              <p class="mb-auto">
-                Küçükkum Mahallesi Sarısu Caddesi No:99 <br> Demre/Antalya
-              </p>
-            </div>
-
+        <div class="card col min-w-300 mx-3">
+          <div class="card-body">
+            <h4 class="card-title">Address</h4>
+            <div class="card-subtitle mb-2 text-muted"></div>
+            <p class="card-text">Küçükkum Mahallesi Sarısu Caddesi No:99</p>
+            <h6 class="card-subtitle mb-2 text-muted">Demre / Antalya</h6>
           </div>
         </div>
+
       </div>
 
     </div>
 
-    <!-- <div class="container">
 
 
-         <h1>
-         Site Yapım Asamasındadır
-         <br>
-         <small>
-         Çetin Çetin İnşaat ve Ticaret LTD ŞTİ
-         </small>
-         </h1>
-
-         <p>
-         Küçükkum Mahallesi Sarısu Caddesi No:99 <br> Demre/Antalya
-         </p>
-         <p>
-         Çetin Çetin: <a href="tel:+905383452431">0(538) 345 24-31</a>
-         </p>
-         <p>
-         Halil Çetin : <a href="tel:+905522491042">0(552) 249 10-42</a>
-         </p>
-         </div>
-    -->
-
-
+    <!-- -------------------------- -->
+    <!-- bolum footer -->
+    <!-- -------------------------- -->
     <div class="container">
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
@@ -276,6 +289,11 @@
     <script src="./static/bootstrap/jquery-3.5.1.slim.min.js"  crossorigin="anonymous"></script>
     <script src="./static/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="./static/bootstrap/bootstrap.min.js"  crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="./static/js/swiper.js"></script>
   </body>
 
 </html>
