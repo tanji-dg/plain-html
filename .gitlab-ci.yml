@@ -1,11 +1,21 @@
-image: alpine:latest
+# https://gist.github.com/jesugmz/20634d1076addfd9ab0dfceb286111c4
+image: node
+
+before_script:
+  - yarn install
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .next/cache/
 
 pages:
-  stage: deploy
   script:
-  - echo 'Nothing to do...'
+    - yarn export:static
+    - mv out public
   artifacts:
     paths:
-    - public
+      - public
   only:
-  - master
+    - master
