@@ -16,11 +16,11 @@ with:
 $ yarn install
 ```
 
-And start the development server on [http://localhost:3000](http://localhost:3000) via `yarn serve`.
+And start the development server on [http://localhost:3000](http://localhost:3000) via `yarn dev`.
 
 ## Deployment
 
-Before pushing your finished changes, run `yarn build`.
+Test deployments using `yarn export:static` and `yarn serve:static`.
 
 Since this project uses [GitLab Pages](https://about.gitlab.com/product/pages/), deployments occur automatically
 whenever a change is pushed to the `master` branch.

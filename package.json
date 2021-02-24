@@ -1,87 +1,64 @@
 {
-  "name": "ntc-landing-page",
-  "version": "1.1.0",
-  "description": "Static HTML site that powers https://tech.dsausa.org",
-  "engines": {
-    "node": "12.10.0"
-  },
-  "main": "index.html",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/dsausa/ntc-landing-page.git"
-  },
-  "author": "Ty-Lucas Kelley <tylucaskelley@gmail.com>",
-  "license": "SEE LICENSE IN LICENSE",
+  "name": "nextjs-mdx-themeui-ts-starter",
   "private": true,
+  "maintainers": ["Erik Stockmeier <erikdstock@users.noreply.github.com>", "Katy Solovewicz <kwicz@users.noreply.github.com>"],
+  "description": "A nextjs blog starting built on typescript, theme-ui and mdx",
+  "version": "0.1.0",
+  "repository": "https://github.com/erikdstock/nextjs-mdx-themeui-ts-starter",
+  "license": "MIT",
   "scripts": {
-    "build": "parcel build src/public/index.html --out-dir public --public-url . --no-source-maps && cp -R src/public/.well-known public/.well-known",
-    "start": "parcel serve src/public/index.html --port 3000 --out-dir public",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:css": "stylelint 'src/**/*.ts(x)'",
-    "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx src"
-  },
-  "keywords": [
-    "node",
-    "express",
-    "react",
-    "typescript",
-    "membership",
-    "dashboard",
-    "dsa"
-  ],
-  "bugs": {
-    "url": "https://gitlab.com/dsausa/ntc-landing-page/issues"
-  },
-  "homepage": "https://gitlab.com/dsausa/ntc-landing-page#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm test"
-    }
-  },
-  "jest": {
-    "clearMocks": true,
-    "coverageDirectory": "coverage"
+    "dev": "next",
+    "start": "yarn dev",
+    "export:static": "next build && next export",
+    "serve:static": "npx serve out",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "ci": "yarn test && yarn type-check && yarn lint",
+    "deploy": "git push origin main && vercel --prod",
+    "dev:debug": "node --inspect-brk --no-lazy node_modules/.bin/next dev",
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "test": "echo 'Test: not implemented'",
+    "type-check": "tsc --pretty --noEmit"
   },
   "dependencies": {
-    "date-fns": "^1.30.1",
-    "i18next": "^14.1.1",
-    "i18next-browser-languagedetector": "^3.0.0",
-    "i18next-xhr-backend": "^2.0.0",
-    "normalize.css": "^8.0.1",
-    "polished": "^3.0.3",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-i18next": "^10.4.1",
-    "styled-components": "^4.1.3"
+    "@artsy/fresnel": "^1.3.1",
+    "@emotion/babel-plugin": "^11.1.2",
+    "@mdx-js/loader": "^1.6.22",
+    "@mdx-js/runtime": "^1.6.22",
+    "@next/mdx": "^10.0.5",
+    "disqus-react": "^1.0.10",
+    "gray-matter": "^4.0.2",
+    "next": "^10.0.5",
+    "next-images": "^1.7.0",
+    "prism-react-renderer": "^1.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-ga": "^3.3.0",
+    "theme-ui": "^0.6.0-alpha.5",
+    "typescript": "^4.1.3"
   },
   "devDependencies": {
-    "@babel/cli": "7.2.3",
-    "@babel/core": "7.3.3",
-    "@babel/preset-env": "7.3.1",
-    "@greylocklabs/eslint-config": "2.4.0",
-    "@greylocklabs/stylelint-config-styled-components": "1.0.0",
-    "@types/react": "^16.8.8",
-    "@types/react-dom": "^16.8.2",
-    "@types/styled-components": "^4.1.12",
-    "@typescript-eslint/eslint-plugin": "1.4.0",
-    "@typescript-eslint/parser": "1.4.0",
-    "@vue/eslint-config-typescript": "4.0.0",
-    "eslint": "5.14.1",
-    "eslint-plugin-import": "2.16.0",
-    "eslint-plugin-jest": "22.3.0",
-    "eslint-plugin-promise": "4.0.1",
-    "eslint-plugin-react": "7.12.4",
-    "eslint-plugin-security": "1.4.0",
-    "eslint-plugin-vue": "5.2.2",
-    "husky": "^1.3.1",
-    "jest": "^24.5.0",
-    "parcel-bundler": "^1.12.1",
-    "prettier": "^1.16.4",
-    "stylelint": "9.10.1",
-    "stylelint-config-standard": "18.2.0",
-    "stylelint-config-styled-components": "0.1.1",
-    "stylelint-processor-styled-components": "1.5.2",
-    "typescript": "^3.3.3333"
+    "@types/node": "^14.14.25",
+    "@types/react": "^17.0.1",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-react": "^7.22.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run type-check"
+    }
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "yarn lint",
+      "yarn format"
+    ]
   }
 }
