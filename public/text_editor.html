@@ -1,0 +1,54 @@
+<html>
+  <body id="body" contenteditable style="font-size:2rem;font-family:monaco;line-height:1.4;max-width:60rem;margin:0 auto;padding:4rem;" spellcheck="false">
+    <h1 id="header" hidden>.</h1>
+    <p id="text" style="border:1px solid black; padding: 20px">Start Here.</p>
+  </body>
+</html>
+
+
+<script type="text/javascript">
+ function getQueryParams() {
+   qs = document.location.search.split('+').join(' ');
+
+   var params = {},
+       tokens,
+       re = /[?&]?([^=]+)=([^&]*)/g;
+
+   while (tokens = re.exec(document.location.search)) {
+     params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+   }
+   return params;
+ }
+
+ var QUERY = getQueryParams(document.location.search);
+ var TEXT = QUERY.text
+ var HEADER = QUERY.header
+ var $HEADER = document.getElementById("header");
+ var $BODY = document.getElementById("body");
+ var $TEXT = document.getElementById("text");
+
+ function set_elements(){
+   $HEADER.innerHTML = QUERY.header.replaceAll("+", " ");
+   $TEXT.innerHTML = QUERY.text.replaceAll("+", " ");
+   console.log($TEXT.innerHTML);
+ }
+ set_elements()
+
+
+
+ $BODY.addEventListener("input", function() {
+   var queryParams = new URLSearchParams(window.location.search);
+   queryParams.set("text", $TEXT.innerHTML);
+   queryParams.set("header", $HEADER.innerHTML);
+   history.replaceState(null, null, "?"+queryParams.toString());
+
+ }, false);
+
+ $BODY.addEventListener("keydown", function(event) {
+   if (event.key === "Enter") {
+     event.preventDefault();
+     document.execCommand("insertLineBreak");
+
+   }
+ });
+</script>
