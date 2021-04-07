@@ -6,7 +6,6 @@ pages:
   - echo 'Nothing to do...'
   artifacts:
     paths:
-    - public
-    expire_in: 1 day
+    - public/
   only:
   - master
