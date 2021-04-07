@@ -1,0 +1,81 @@
+/*COLORS
+accent: 12846e
+background: #0E0E0E
+bg smoke: #282626
+text: #EFEFEF */
+
+.bg-primary {
+  background-image: url("../assets/img/bg.png") !important;
+  background-color: #282626  !important;
+   background-position: bottom; /*Positioning*/
+   background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.portfolio, .footer {
+  background-color: #0E0E0E  !important;
+}
+
+h2 {
+  font-size: 2rem  !important;
+}
+
+.divider-custom .divider-custom-icon img {
+  max-width: 12rem;
+  height: auto
+}
+
+.modal-content {
+  background-image: url("../assets/img/bg.png") !important;
+    background-color: #282626  !important;
+}
+
+.col-lg-8, .portfolio-item-caption-content {
+  margin: auto
+}
+
+.portfolio-modal .img-fluid {
+  margin: 2rem;
+  max-width: 50%;
+}
+
+.footer {
+  text-align: center;}
+
+.footer-row {
+  margin: auto;
+  margin-top: 3rem;
+}
+
+.masthead .container {
+  max-width: 66%;
+}
+
+.portfolio-card {
+flex: 25%;
+max-width: 25%;
+position: relative;
+width: 100%;
+padding: 1rem;
+}
+
+@media (max-width: 779px) {
+  .portfolio-card {
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  }
+
+  .masthead .container {
+    max-width: 100%;
+  }
+
+  .portfolio-modal .img-fluid {
+    max-width: 90%;
+  }
+}
