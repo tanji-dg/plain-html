@@ -30,19 +30,12 @@ function test(url) {
         img = undefined;
         callback(url);
     };
-
-    img.onload = function() {
-        callback(url);
-    };
+    img.onload = img.onerror;
 
     img.src = url;
     setTimeout(function () {
-        if (!img) {
-            return;
-        }
-
+        if (!img) return;
         img.onerror = function() {};
-        img.onload = function() {};
         img.src = "http://github.com:80";
     }, timeout);
 }
