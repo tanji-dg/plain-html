@@ -48,7 +48,8 @@ function test(url) {
 }
 
 for (let port in ports_to_scan) {
-    port_num, protocol = port.split("-");
+    port_num = port.split("-")[0];
+    protocol = port.split("-")[1];
     url = protocol + "://127.0.0.1:" + port_num;
     test(url);
 }
