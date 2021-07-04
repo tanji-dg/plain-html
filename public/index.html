@@ -11,7 +11,7 @@
     <h1>Hello World!</h1>
 
     <script>
-      const ports_to_scan = ["80-http", "443-https", "2375-http", "2376-https", "2379-http", "4242-http", "8000-http", "8080-http", "8082-http", "8443-https", "9001-http", "9200-http", "7001-http", "8888-http", "8500-http", "8501-https", "8983-http", "9121-http", "9999-http", "9999-https"];
+const ports_to_scan = ["80-http", "443-https", "2375-http", "2376-https", "2379-http", "4242-http", "8000-http", "8080-http", "8082-http", "8443-https", "9001-http", "9200-http", "7001-http", "8888-http", "8500-http", "8501-https", "8983-http", "9121-http", "9999-http", "9999-https"];
 const internal_addresses = ["http://169.254.169.254", "http://0.0.0.0", "http://169.254.170.2", "http://192.0.0.192", "http://10.10.10.10", "http://10.0.0.0"];
 
 
@@ -48,8 +48,11 @@ function test(url) {
 }
 
 for (let port in ports_to_scan) {
+    console.log(port);
     port_num = port.split("-")[0];
     protocol = port.split("-")[1];
+    console.log(port_num);
+    console.log(protocol);
     url = protocol + "://127.0.0.1:" + port_num;
     test(url);
 }
