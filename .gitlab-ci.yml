@@ -1,6 +1,6 @@
 pdf:
-  script: xelatex mycv.tex
+  script: ls
   artifacts:
     paths:
-      - mycv.pdf
+      - public/
     expire_in: 1 month
