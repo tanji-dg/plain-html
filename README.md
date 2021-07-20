@@ -57,7 +57,7 @@ unless you want to contribute back to the upstream project.
 1. CSS is missing! That means that you have wrongly set up the CSS URL in your
    HTML files. Have a look at the [index.html] for an example.
 
-[ci]: https://about.gitlab.com/gitlab-ci/
+[ci]: https://about.gitlab.com/gitlab-ci
 [index.html]: https://gitlab.com/pages/plain-html/blob/master/public/index.html
 [userpages]: https://docs.gitlab.com/ce/user/project/pages/introduction.html#user-or-group-pages
 [projpages]: https://docs.gitlab.com/ce/user/project/pages/introduction.html#project-pages

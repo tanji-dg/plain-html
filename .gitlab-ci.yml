@@ -1,12 +1,6 @@
-image: alpine:latest
-
-pages:
-  stage: deploy
-  script:
-  - echo 'Nothing to do...'
+pdf:
+  script: xelatex mycv.tex
   artifacts:
     paths:
-    - public
-    expire_in: 1 day
-  only:
-  - master
+      - mycv.pdf
+    expire_in: 1 month
