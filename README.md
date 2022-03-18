@@ -27,7 +27,9 @@ image: alpine:latest
 pages:
   stage: deploy
   script:
-  - echo 'Nothing to do...'
+    # gzip all content
+  - gzip -k -6 $(find public -type f)
+  - echo $CI_PAGES_URL
   artifacts:
     paths:
     - public
