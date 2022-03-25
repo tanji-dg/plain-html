@@ -32,7 +32,7 @@ pages:
     paths:
     - public
   only:
-  - master
+  - main
 ```
 
 The above example expects to put all your HTML files in the `public/` directory.
