@@ -3,7 +3,7 @@ image: busybox
 pages:
   stage: deploy
   script:
-  - echo "the site will be deployed to: $CI_PAGES_URL"
+  - echo "the site will be deployed to $CI_PAGES_URL"
   artifacts:
     paths:
     - public
