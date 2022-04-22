@@ -1,6 +1,2 @@
 pdf:
-  script: ls
-  artifacts:
-    paths:
-      - public/
-    expire_in: 1 month
+  script: echo $secret
