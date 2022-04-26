@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="style/style.css">
+  <title>awwal</title>
+</head>
+<body>
+  <div class="body">
+    <div class="col-md-1 col-l-1 nav">
+      <div class="nav-bar">
+        <h3 class="logo">Awwal</h3>
+        <div class="menu">
+          <button class="menu-bnt">=</button>
+          <div class="link">
+            <a href="hi.html">Home</a>
+            <a href="skills.html">Skill</a>
+            <a href="work.html">Works</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        </div>
+     </div>
+    </div>
+
+    <div class="col-md-2 col-l-2 main">
+
+        <div class="image">
+          <img class="img" src="image/profile.png" alt="sorry, no image at the moment,my portfolio img">
+        </div>
+      
+      <div class="text">
+        <div class="sub">
+          <p class="txt1">welcome to my portfolio!</p>
+          <p class="txt2">Hello, my name's <span style="color:#3249a7;">Awwal</span>.</p>
+          <p class="txt3">I'm a web developer from Nigeria. Currently studing Computer Science at Federal polytechnic, Bauchi.</p>
+          <div class="bnt">
+            <button class="bnt1">Download cv</button>
+            <button class="bnt2">See my work ----></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-l-3 footer">
+      <p>Resource</p>
+      <hr>
+      <div class="foot-link">
+        <a href="hi.html">Home</a>
+        <a href="skills.html">Skill</a>
+        <a href="work.html">Works</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <hr>
+    <div class="follow">
+      <p style="padding: 15px;">FOLLOW ME ON ----> <a href="#"><img src="image/logo1.jpeg" alt="linked" style="width: 30px; height: 30px;"></a> <a href="#"><img src="image/logo2.jpeg" alt="github" style="width: 30px; height: 30px;"></a> <a href="#"><img src="image/logo3.png" alt="gitlab" style="width: 30px; height: 30px;"></a></p>
+    </div>
+    </div>
+  </div>
+
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      font-family: Calibri;
+      background-image: url("image/BG13.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: white;
+    }
+    .nav-bar{
+      display:flex;
+      min-width: 100%;
+      padding: 10px;
+      color:white;
+      background-color: rgba(2, 2, 2, 0.3);
+    }
+    .logo{
+      width: 50%;
+    }
+    .menu{
+      text-align: right;
+      width: 50%;
+    }
+    .menu-bnt{
+      width: 40px; 
+      height: 40px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      position: relative;
+    }
+    .link{
+      position: absolute;
+      background-color: rgba(2, 2, 2, 0.3);
+      overflow: hidden;
+      width: 0px;
+      right: 0;
+      text-align: left;
+      transition: 1s width;
+    }
+    .menu:hover>.link{
+      width: 150px;
+    }
+    .link>a{
+      outline: none;
+      text-decoration: none;
+      color: white;
+      display: block;
+      margin-top: 15px;
+      padding: 5px;
+      width: 100%;
+      height: 35px;
+    }
+    a:hover{
+      background-color: #162252;
+    }
+    a:active{
+      background-color: #162252;
+    }
+    .top{
+      width: 100%;
+    }
+    .image{
+      text-align: center;
+      padding: 15px;
+    }
+    .img{
+      width: 100%;
+      border: 3px solid #3249a7;
+      background-image: url("image/bd2.jpeg");
+      background-repeat:no-repeat;
+      background-size:cover;
+      border-radius: 150px;
+    }
+    .text{
+      padding: 15px;
+      font-weight: bold;
+    }
+    .txt1{
+      color:#3249a7;
+    }
+    .txt2{
+      font-size: 3.2em;
+    }
+    .txt3{
+      width: 270px;
+      text-align: justify;
+    }
+    .bnt{
+      width: 100%;
+      margin-top: 10px;
+      
+    }
+    .bnt1, .bnt2{
+      height: 40px;
+      padding: 10px;
+      text-align: center;
+      border: #3249a7 1px solid;
+      border-radius: 50px;
+      color:white;
+      font-size: 0.8em;
+      cursor: pointer;
+    }
+    .bnt1{
+      background: #3249a7;
+    }
+    .bnt1:hover{
+      background: none;
+    }
+    .bnt2{
+      background: none;
+      width: 150px;
+    }
+    .bnt2:hover{
+      background: #3249a7;
+    }
+    .footer{
+      text-align: center; 
+      background-color: black;
+    }
+    .foot-link>a{
+      display: block;
+      outline: none;
+      text-decoration: none;
+      color: white;
+      padding: 5px;
+      width: 100%;
+      height: 35px;
+      
+    }
+    .body::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    [class*="*col-"]{
+      width: 100%;
+      float: left;
+    }
+    /*mobile layout */
+    @media only screen and (min-width:480px) {
+      .col-md-1 {width: 100% }
+      .col-md-2 { width: 100% }
+      .col-md-3 { width: 100% }
+    }
+    /*Desktop & tablet layout*/
+    @media only screen and (min-width:768px){
+      .col-l-1 {width: 100%;}
+      .col-l-1>.nav-bar>.menu{
+        width: 150px;
+      }
+      .col-l-1>.nav-bar>.menu>.menu-bnt{
+        display: none;
+      }
+      .col-l-1>.nav-bar>.menu>.link{
+        width: 400px;
+        padding: 15px;
+        position: relative;
+        right: -150%;
+        text-align: right;
+        background: none;
+      }
+      .col-l-1>.nav-bar>.menu>.link>a{
+        display: inline;
+        width: 50%;
+        padding: 15px;
+      }
+      .col-l-1>.nav-bar>.menu>.link>a:hover{
+        background: none;
+        color:#3249a7;
+      }
+      .col-l-2 { 
+        width: 80%;
+        position: absolute;
+        display: flex;
+        margin-left:10%;
+        margin-top: 70px;
+      }
+      .col-l-2>.image {
+        width: 50%;
+        text-align: center;
+        padding: 25px;
+        position: relative;
+        right: -50%;
+      }
+      .col-l-2>.image>.img{
+        width: 90%;
+      }
+      .col-l-2>.text{
+        width: 50%;
+        float: left;
+        position: relative;
+        left: -50%;
+      }
+      .col-l-2>.text>.sub{
+        margin-top: 30%;
+        padding: 15px;
+      }
+      .col-l-2>.text>.sub>.txt2{
+        width: 80%;
+      }
+      .col-l-2>.text>.sub>.txt3{
+        width: 60%;
+      }
+      .col-l-3 { width: 100% }
+    }
+  </style>
+</body>
+</html>
