@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="skill.css">
+    <link rel="stylesheet" href="pro-style.css">
+    <script type="text/javascript">
+        function show(){ 
+            var currentHeight = document.getElementById("link").style.height;
+            var currentContent = document.getElementById("menu-bnt").innerHTML;
+            
+            if (currentHeight == '0px' && currentContent == "=") {
+                document.getElementById("link").style.height = "310px";
+                document.getElementById("menu-bnt").innerHTML = "X";   
+            }else{
+                document.getElementById("link").style.height = "0px";
+                document.getElementById("menu-bnt").innerHTML = "="; 
+            }
+        }
+    </script>
+    <title>Awwal</title>
+</head>
+<body>
+    <div class="body">
+        <!--here is the menu bar of this page-->
+        <div class="col-md-1 col-l-1 nav">
+            <div class="nav-bar">
+                <div class="menu">
+                    <h3 class="logo"><span style="font:italic 1.5em Georgia; margin: 2em 0 2em;">Awwal</span><button class="menu-bnt" id="menu-bnt" onclick="show()">=</button></h3>
+                </div>
+                <div class="link" id="link" style="height: 0px;">
+                    <a href="#main">Home</a>
+                    <a href="#skill">Skill</a>
+                    <a href="#">Project</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+        
+        <!--Here we have our home(where the page begin),this is were our content i.e introductive text, image, e.t.c-->
+        <div class="col-md-2 col-l-2 main">
+            <div class="image">
+              <img class="img" src="image/profile.png" alt="sorry, no image at the moment,my portfolio img">
+            </div>
+            <div class="text">
+                <div class="sub">
+                    <p class="txt"><span style="color: #3249a7;">welcome to my portfolio!</span><br><span class="larg" style="font-size: 3em;">Hello, my name's <span style="color:#3249a7;">Awwal</span>.</span></p>
+                    <p class="txt3">Hello, my name is Awwal. I'm a web devloper from Nigeria, currently studing Computer science at Fedral polytechnic of Bauchi. I started my journey into web development 2-weeks ago. I start with Html(Hyper text multi language), Css(Cascading styling sheet) and Javscript, hoping to learn more in future. Till then, gracies Amigos</p>
+                <div class="bnt">
+                    <button class="bnt2">See more ---></button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-l-3 skill" id="skill" style="background-color: #ffffff; color: #3249a7;">
+          <h3 style="text-align: center; font-size: 1.6rem; font:italic 1.5em Georgia; font-weight: bold;">My Skills</h3>
+          <!--Front-End-->
+          <fieldset style="width: 80%; border: 2px solid #3249a7;">
+            <legend><h3 style="text-align: center; font-size: 1.6rem; font:italic 1.5em Georgia; font-weight: bold;">Front-end-Technology</h3></legend>
+            <div class="content">
+              <div class="container">
+                  <div class="circle-wrap" style="color: #f67726;">
+                      <div class="circle">
+                          <div class="mask half">
+                              <div class="fill" style="background-color: #f67726;"></div>
+                          </div>
+                          <div class="mask full">
+                              <div class="fill" style="background-color: #f67726;"></div>
+                          </div>
+                          <div class="inside-circle"> 75% </div>
+                      </div>
+                  </div>
+                  <div class="text"><img src="image/html.png" alt="html logo" srcset=""></div>
+                </div>
+    
+                <div class="container">
+                  <div class="circle-wrap" style="color: #018ad5;">
+                      <div class="circle">
+                          <div class="mask half">
+                              <div class="fill" style="background-color: #018ad5;"></div>
+                          </div>
+                          <div class="mask full">
+                              <div class="fill" style="background-color: #018ad5;"></div>
+                          </div>
+                          <div class="inside-circle"> 75% </div>
+                      </div>
+                  </div>
+                  <div class="text"><img src="image/css.png" alt="css logo"></div>
+                </div> 
+    
+                <div class="container">
+                  <div class="circle-wrap" style="color: #fb9921;">
+                      <div class="circle">
+                          <div class="mask half">
+                              <div class="fill" style="background-color: #fb9921;"></div>
+                          </div>
+                          <div class="mask full">
+                              <div class="fill" style="background-color: #fb9921;"></div>
+                          </div>
+                          <div class="inside-circle"> 75% </div>
+                      </div>
+                  </div>
+                  <div class="text"><img src="image/js.png" alt="js logo" srcset=""></div>
+                </div>
+              </div>
+            </fieldset>
+        </div>
+
+        <div class="col-l-4 pro cont" style="background-color: #1a1b2f;">
+            <div class="project">
+                <fieldset>
+                    <legend style="margin-top: 5%; text-align: center; font-size: 1.6rem; font:italic 1.5em Georgia; font-weight: bold;">Project</legend>
+                    <img src="image/work.png" alt="" srcset="">
+                    <h3>Please contact me if you get any project or job</h3>
+                </fieldset>
+            </div>
+            <div class="contact">
+                <fieldset>
+                    <legend style="text-align: center; font-size: 1.6rem; font:italic 1.5em Georgia; font-weight: bold;">Contact</legend>
+                    <p><a href="#">Facebook</a></p>
+                    <p><a href="tel:+2347080252095">07080252095</a></p>
+                    <p><a href="mailto:auwalabdulwahab57@gmail.com">auwalabdulwahab57@gmail.com</a></p>
+                </fieldset>
+            </div>
+        </div>
+        
+        <div class="col-l-5 footer" style="background-color: #000;">
+            <div class="resource">
+                <h3>Resource</h3>
+                <a href="#main">Home</a>
+                <a href="#skill">Skill</a>
+                <a href="#">Project</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="social">
+                <h3>Social media</h3>
+                <a href="">Facebook</a>
+                <a href="">Whatsapp</a>
+                <a href="">Linked</a>
+                <a href="">Instagram</a>
+            </div>
+        </div>
+        <div style="background-color: #3249a7; text-align: center; padding: 5px;">Design by | auwalabdulwahab57@gmail.com | All right reserved</div>
+    </div>
+</body>
+</html>
