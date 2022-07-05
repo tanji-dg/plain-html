@@ -22,7 +22,7 @@ This project's static Pages are built by [GitLab CI][ci], following the steps
 defined in [`.gitlab-ci.yml`](.gitlab-ci.yml):
 
 ```
-image: busybox
+image: alpine:latest
 
 pages:
   stage: deploy
@@ -31,9 +31,8 @@ pages:
   artifacts:
     paths:
     - public
-    expire_in: 1 day
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  only:
+  - master
 ```
 
 The above example expects to put all your HTML files in the `public/` directory.
