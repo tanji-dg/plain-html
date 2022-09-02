@@ -1903,7 +1903,7 @@ proto._manageStamps = function() {
 // update boundingLeft / Top
 proto._getBoundingRect = function() {
   // get bounding rect for container element
-  var boundingRect = this.element.getBoundingapoioRect();
+  var boundingRect = this.element.getBoundingClientRect();
   var size = this.size;
   this._boundingRect = {
     left: boundingRect.left + size.paddingLeft + size.borderLeftWidth,
@@ -1924,7 +1924,7 @@ proto._manageStamp = noop;
  * @returns {Object} offset - has left, top, right, bottom
  */
 proto._getElementOffset = function( elem ) {
-  var boundingRect = elem.getBoundingapoioRect();
+  var boundingRect = elem.getBoundingClientRect();
   var thisRect = this._boundingRect;
   var size = getSize( elem );
   var offset = {

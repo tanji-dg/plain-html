@@ -585,8 +585,8 @@ url("./fonts/bootstrap-icons.woff?a74547b2f0863226942ff8ded57db345") format("wof
 .bi-exclamation-circle::before { content: "\f333"; }
 .bi-exclamation-diamond-fill::before { content: "\f334"; }
 .bi-exclamation-diamond::before { content: "\f335"; }
-.bi-exclamation-opagesgon-fill::before { content: "\f336"; }
-.bi-exclamation-opagesgon::before { content: "\f337"; }
+.bi-exclamation-octagon-fill::before { content: "\f336"; }
+.bi-exclamation-octagon::before { content: "\f337"; }
 .bi-exclamation-square-fill::before { content: "\f338"; }
 .bi-exclamation-square::before { content: "\f339"; }
 .bi-exclamation-triangle-fill::before { content: "\f33a"; }
@@ -957,9 +957,9 @@ url("./fonts/bootstrap-icons.woff?a74547b2f0863226942ff8ded57db345") format("wof
 .bi-node-plus::before { content: "\f4a7"; }
 .bi-nut-fill::before { content: "\f4a8"; }
 .bi-nut::before { content: "\f4a9"; }
-.bi-opagesgon-fill::before { content: "\f4aa"; }
-.bi-opagesgon-half::before { content: "\f4ab"; }
-.bi-opagesgon::before { content: "\f4ac"; }
+.bi-octagon-fill::before { content: "\f4aa"; }
+.bi-octagon-half::before { content: "\f4ab"; }
+.bi-octagon::before { content: "\f4ac"; }
 .bi-option::before { content: "\f4ad"; }
 .bi-outlet::before { content: "\f4ae"; }
 .bi-paint-bucket::before { content: "\f4af"; }
@@ -1051,8 +1051,8 @@ url("./fonts/bootstrap-icons.woff?a74547b2f0863226942ff8ded57db345") format("wof
 .bi-question-circle::before { content: "\f505"; }
 .bi-question-diamond-fill::before { content: "\f506"; }
 .bi-question-diamond::before { content: "\f507"; }
-.bi-question-opagesgon-fill::before { content: "\f508"; }
-.bi-question-opagesgon::before { content: "\f509"; }
+.bi-question-octagon-fill::before { content: "\f508"; }
+.bi-question-octagon::before { content: "\f509"; }
 .bi-question-square-fill::before { content: "\f50a"; }
 .bi-question-square::before { content: "\f50b"; }
 .bi-question::before { content: "\f50c"; }
@@ -1337,8 +1337,8 @@ url("./fonts/bootstrap-icons.woff?a74547b2f0863226942ff8ded57db345") format("wof
 .bi-x-circle::before { content: "\f623"; }
 .bi-x-diamond-fill::before { content: "\f624"; }
 .bi-x-diamond::before { content: "\f625"; }
-.bi-x-opagesgon-fill::before { content: "\f626"; }
-.bi-x-opagesgon::before { content: "\f627"; }
+.bi-x-octagon-fill::before { content: "\f626"; }
+.bi-x-octagon::before { content: "\f627"; }
 .bi-x-square-fill::before { content: "\f628"; }
 .bi-x-square::before { content: "\f629"; }
 .bi-x::before { content: "\f62a"; }

@@ -1543,7 +1543,7 @@
   .bxs-confused:before {
     content: "\ea54";
   }
-  .bxs-contato:before {
+  .bxs-contact:before {
     content: "\ea55";
   }
   .bxs-conversation:before {
@@ -2434,7 +2434,7 @@
   .bxs-receipt:before {
     content: "\eb7d";
   }
-  .bxs-repagesngle:before {
+  .bxs-rectangle:before {
     content: "\eb7e";
   }
   .bxs-registered:before {
@@ -2722,7 +2722,7 @@
   .bxs-user-plus:before {
     content: "\ebdd";
   }
-  .bxs-user-repagesngle:before {
+  .bxs-user-rectangle:before {
     content: "\ebde";
   }
   .bxs-user-voice:before {
@@ -4531,7 +4531,7 @@
   .bx-receipt:before {
     content: "\ee38";
   }
-  .bx-repagesngle:before {
+  .bx-rectangle:before {
     content: "\ee39";
   }
   .bx-recycle:before {

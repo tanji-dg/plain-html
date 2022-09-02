@@ -137,13 +137,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
   /* Public */
   /* http://imakewebthings.com/waypoints/api/viewport-height */
   Waypoint.viewportHeight = function() {
-    return window.innerHeight || document.documentElement.apoioHeight
+    return window.innerHeight || document.documentElement.clientHeight
   }
 
   /* Public */
   /* http://imakewebthings.com/waypoints/api/viewport-width */
   Waypoint.viewportWidth = function() {
-    return document.documentElement.apoioWidth
+    return document.documentElement.clientWidth
   }
 
   Waypoint.adapters = []
@@ -605,12 +605,12 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
   NoFrameworkAdapter.prototype.innerHeight = function() {
     var isWin = isWindow(this.element)
-    return isWin ? this.element.innerHeight : this.element.apoioHeight
+    return isWin ? this.element.innerHeight : this.element.clientHeight
   }
 
   NoFrameworkAdapter.prototype.innerWidth = function() {
     var isWin = isWindow(this.element)
-    return isWin ? this.element.innerWidth : this.element.apoioWidth
+    return isWin ? this.element.innerWidth : this.element.clientWidth
   }
 
   NoFrameworkAdapter.prototype.off = function(event, handler) {
@@ -659,13 +659,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
       left: 0
     }
 
-    if (this.element.getBoundingapoioRect) {
-      rect = this.element.getBoundingapoioRect()
+    if (this.element.getBoundingClientRect) {
+      rect = this.element.getBoundingClientRect()
     }
 
     return {
-      top: rect.top + win.pageYOffset - documentElement.apoioTop,
-      left: rect.left + win.pageXOffset - documentElement.apoioLeft
+      top: rect.top + win.pageYOffset - documentElement.clientTop,
+      left: rect.left + win.pageXOffset - documentElement.clientLeft
     }
   }
 

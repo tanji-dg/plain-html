@@ -283,8 +283,8 @@
   }
   function windowSize() {
     return {
-      width: window.innerWidth || document.documentElement.apoioWidth || document.body.apoioWidth,
-      height: window.innerHeight || document.documentElement.apoioHeight || document.body.apoioHeight
+      width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+      height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
     };
   }
   function whichAnimationEvent() {
@@ -379,7 +379,7 @@
       }, timeout);
     }
   }
-  function injepagesssets(url, waitFor, callback) {
+  function injectAssets(url, waitFor, callback) {
     if (isNil(url)) {
       console.error('Inject assets error');
       return;
@@ -1036,10 +1036,10 @@
 
   function resetSlideMove(slide) {
     var transitionEnd = whichTransitionEvent();
-    var windowWidth = window.innerWidth || document.documentElement.apoioWidth || document.body.apoioWidth;
+    var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     var media = hasClass(slide, 'gslide-media') ? slide : slide.querySelector('.gslide-media');
     var container = closest(media, '.ginner-container');
-    var desc = slide.querySelector('.gslide-descricao');
+    var desc = slide.querySelector('.gslide-description');
 
     if (windowWidth > 769) {
       media = container;
@@ -1112,8 +1112,8 @@
           endCoords = e.targetTouches[0];
           startCoords.pageX = e.targetTouches[0].pageX;
           startCoords.pageY = e.targetTouches[0].pageY;
-          xDown = e.targetTouches[0].apoioX;
-          yDown = e.targetTouches[0].apoioY;
+          xDown = e.targetTouches[0].clientX;
+          yDown = e.targetTouches[0].clientY;
           currentSlide = instance.activeSlide;
           media = currentSlide.querySelector('.gslide-media');
           isInlined = currentSlide.querySelector('.gslide-inline');
@@ -1123,7 +1123,7 @@
             mediaImage = media.querySelector('img');
           }
 
-          var windowWidth = window.innerWidth || document.documentElement.apoioWidth || document.body.apoioWidth;
+          var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
           if (windowWidth > 769) {
             media = currentSlide.querySelector('.ginner-container');
@@ -1158,8 +1158,8 @@
         }
 
         doingMove = true;
-        var xUp = e.targetTouches[0].apoioX;
-        var yUp = e.targetTouches[0].apoioY;
+        var xUp = e.targetTouches[0].clientX;
+        var yUp = e.targetTouches[0].clientY;
         var xDiff = xDown - xUp;
         var yDiff = yDown - yUp;
 
@@ -1422,11 +1422,11 @@
         }
 
         if (e.type === 'touchstart') {
-          this.initialX = e.touches[0].apoioX - this.xOffset;
-          this.initialY = e.touches[0].apoioY - this.yOffset;
+          this.initialX = e.touches[0].clientX - this.xOffset;
+          this.initialY = e.touches[0].clientY - this.yOffset;
         } else {
-          this.initialX = e.apoioX - this.xOffset;
-          this.initialY = e.apoioY - this.yOffset;
+          this.initialX = e.clientX - this.xOffset;
+          this.initialY = e.clientY - this.yOffset;
         }
 
         if (e.target === this.img) {
@@ -1457,11 +1457,11 @@
           e.preventDefault();
 
           if (e.type === 'touchmove') {
-            this.currentX = e.touches[0].apoioX - this.initialX;
-            this.currentY = e.touches[0].apoioY - this.initialY;
+            this.currentX = e.touches[0].clientX - this.initialX;
+            this.currentY = e.touches[0].clientY - this.initialY;
           } else {
-            this.currentX = e.apoioX - this.initialX;
-            this.currentY = e.apoioY - this.initialY;
+            this.currentX = e.clientX - this.initialX;
+            this.currentY = e.clientY - this.initialY;
           }
 
           this.xOffset = this.currentX;
@@ -1478,8 +1478,8 @@
           return;
         }
 
-        var xOffset = e.apoioX - this.img.naturalWidth / 2;
-        var yOffset = e.apoioY - this.img.naturalHeight / 2;
+        var xOffset = e.clientX - this.img.naturalWidth / 2;
+        var yOffset = e.clientY - this.img.naturalHeight / 2;
         this.setTranslate(this.img, xOffset, yOffset);
       }
     }, {
@@ -1490,7 +1490,7 @@
     }, {
       key: "widowWidth",
       value: function widowWidth() {
-        return window.innerWidth || document.documentElement.apoioWidth || document.body.apoioWidth;
+        return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
       }
     }]);
 
@@ -1551,11 +1551,11 @@
         }
 
         if (e.type === 'touchstart') {
-          this.initialX = e.touches[0].apoioX - this.xOffset;
-          this.initialY = e.touches[0].apoioY - this.yOffset;
+          this.initialX = e.touches[0].clientX - this.xOffset;
+          this.initialY = e.touches[0].clientY - this.yOffset;
         } else {
-          this.initialX = e.apoioX - this.xOffset;
-          this.initialY = e.apoioY - this.yOffset;
+          this.initialX = e.clientX - this.xOffset;
+          this.initialY = e.clientY - this.yOffset;
         }
 
         var clicked = e.target.nodeName.toLowerCase();
@@ -1627,11 +1627,11 @@
           this.slide.classList.add('dragging-nav');
 
           if (e.type === 'touchmove') {
-            this.currentX = e.touches[0].apoioX - this.initialX;
-            this.currentY = e.touches[0].apoioY - this.initialY;
+            this.currentX = e.touches[0].clientX - this.initialX;
+            this.currentY = e.touches[0].clientY - this.initialY;
           } else {
-            this.currentX = e.apoioX - this.initialX;
-            this.currentY = e.apoioY - this.initialY;
+            this.currentX = e.clientX - this.initialX;
+            this.currentY = e.clientY - this.initialY;
           }
 
           this.xOffset = this.currentX;
@@ -1756,7 +1756,7 @@
       img.setAttribute('aria-labelledby', titleID);
     }
 
-    if (data.descricao !== '') {
+    if (data.description !== '') {
       img.setAttribute('aria-describedby', textID);
     }
 
@@ -1782,7 +1782,7 @@
     addClass(slideContainer, 'gvideo-container');
     slideMedia.insertBefore(createHTML('<div class="gvideo-wrapper"></div>'), slideMedia.firstChild);
     var videoWrapper = slide.querySelector('.gvideo-wrapper');
-    injepagesssets(this.settings.plyr.css, 'Plyr');
+    injectAssets(this.settings.plyr.css, 'Plyr');
     var url = data.href;
     var protocol = location.protocol.replace(':', '');
     var videoSource = '';
@@ -1794,7 +1794,7 @@
     }
 
     slideMedia.style.maxWidth = data.width;
-    injepagesssets(this.settings.plyr.js, 'Plyr', function () {
+    injectAssets(this.settings.plyr.js, 'Plyr', function () {
       if (url.match(/vimeo\.com\/([0-9]*)/)) {
         var vimeoID = /vimeo.*\/(\d+)/i.exec(url);
         videoSource = 'vimeo';
@@ -1981,7 +1981,7 @@
         srcset: '',
         title: '',
         type: '',
-        descricao: '',
+        description: '',
         alt: '',
         descPosition: 'bottom',
         effect: '',
@@ -2132,27 +2132,27 @@
           }
         }
 
-        if (data.descricao && data.descricao.substring(0, 1) === '.') {
-          var descricao;
+        if (data.description && data.description.substring(0, 1) === '.') {
+          var description;
 
           try {
-            descricao = document.querySelector(data.descricao).innerHTML;
+            description = document.querySelector(data.description).innerHTML;
           } catch (error) {
             if (!(error instanceof DOMException)) {
               throw error;
             }
           }
 
-          if (descricao) {
-            data.descricao = descricao;
+          if (description) {
+            data.description = description;
           }
         }
 
-        if (!data.descricao) {
+        if (!data.description) {
           var nodeDesc = element.querySelector('.glightbox-desc');
 
           if (nodeDesc) {
-            data.descricao = nodeDesc.innerHTML;
+            data.description = nodeDesc.innerHTML;
           }
         }
 
@@ -2252,7 +2252,7 @@
           };
         }
 
-        if (slideConfig.title == '' && slideConfig.descricao == '') {
+        if (slideConfig.title == '' && slideConfig.description == '') {
           if (slideDesc) {
             slideDesc.parentNode.parentNode.removeChild(slideDesc.parentNode);
           }
@@ -2264,22 +2264,22 @@
             slideTitle.parentNode.removeChild(slideTitle);
           }
 
-          if (slideText && slideConfig.descricao !== '') {
+          if (slideText && slideConfig.description !== '') {
             slideText.id = textID;
 
             if (isMobileDevice && settings.moreLength > 0) {
-              slideConfig.smalldescricao = this.slideShortDesc(slideConfig.descricao, settings.moreLength, settings.moreText);
-              slideText.innerHTML = slideConfig.smalldescricao;
-              this.descricaoEvents(slideText, slideConfig);
+              slideConfig.smallDescription = this.slideShortDesc(slideConfig.description, settings.moreLength, settings.moreText);
+              slideText.innerHTML = slideConfig.smallDescription;
+              this.descriptionEvents(slideText, slideConfig);
             } else {
-              slideText.innerHTML = slideConfig.descricao;
+              slideText.innerHTML = slideConfig.description;
             }
           } else {
             slideText.parentNode.removeChild(slideText);
           }
 
           addClass(slideMedia.parentNode, "desc-".concat(position));
-          addClass(slideDesc.parentNode, "descricao-".concat(position));
+          addClass(slideDesc.parentNode, "description-".concat(position));
         }
 
         addClass(slideMedia, "gslide-".concat(type));
@@ -2368,8 +2368,8 @@
         return subString + '... <a href="#" class="desc-more">' + wordBoundary + '</a>';
       }
     }, {
-      key: "descricaoEvents",
-      value: function descricaoEvents(desc, data) {
+      key: "descriptionEvents",
+      value: function descriptionEvents(desc, data) {
         var _this2 = this;
 
         var moreLink = desc.querySelector('.desc-more');
@@ -2389,17 +2389,17 @@
               return false;
             }
 
-            desc.innerHTML = data.descricao;
+            desc.innerHTML = data.description;
             addClass(body, 'gdesc-open');
             var shortEvent = addEvent('click', {
-              onElement: [body, closest(desc, '.gslide-descricao')],
+              onElement: [body, closest(desc, '.gslide-description')],
               withCallback: function withCallback(event, target) {
                 if (event.target.nodeName.toLowerCase() !== 'a') {
                   removeClass(body, 'gdesc-open');
                   addClass(body, 'gdesc-closed');
-                  desc.innerHTML = data.smalldescricao;
+                  desc.innerHTML = data.smallDescription;
 
-                  _this2.descricaoEvents(desc, data);
+                  _this2.descriptionEvents(desc, data);
 
                   setTimeout(function () {
                     removeClass(body, 'gdesc-closed');
@@ -2530,7 +2530,7 @@
       prev: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 477.175 477.175" xml:space="preserve"><g><path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"/></g></svg>'
     }
   };
-  defaults.slideHTML = "<div class=\"gslide\">\n    <div class=\"gslide-inner-content\">\n        <div class=\"ginner-container\">\n            <div class=\"gslide-media\">\n            </div>\n            <div class=\"gslide-descricao\">\n                <div class=\"gdesc-inner\">\n                    <h4 class=\"gslide-title\"></h4>\n                    <div class=\"gslide-desc\"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+  defaults.slideHTML = "<div class=\"gslide\">\n    <div class=\"gslide-inner-content\">\n        <div class=\"ginner-container\">\n            <div class=\"gslide-media\">\n            </div>\n            <div class=\"gslide-description\">\n                <div class=\"gdesc-inner\">\n                    <h4 class=\"gslide-title\"></h4>\n                    <div class=\"gslide-desc\"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
   defaults.lightboxHTML = "<div id=\"glightbox-body\" class=\"glightbox-container\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"false\">\n    <div class=\"gloader visible\"></div>\n    <div class=\"goverlay\"></div>\n    <div class=\"gcontainer\">\n    <div id=\"glightbox-slider\" class=\"gslider\"></div>\n    <button class=\"gclose gbtn\" aria-label=\"Close\" data-taborder=\"3\">{closeSVG}</button>\n    <button class=\"gprev gbtn\" aria-label=\"Previous\" data-taborder=\"2\">{prevSVG}</button>\n    <button class=\"gnext gbtn\" aria-label=\"Next\" data-taborder=\"1\">{nextSVG}</button>\n</div>\n</div>";
 
   var GlightboxInit = function () {
@@ -2608,7 +2608,7 @@
         animateElement(this.overlay, this.settings.openEffect == 'none' ? 'none' : this.settings.cssEfects.fade["in"]);
 
         var body = document.body;
-        var scrollBar = window.innerWidth - document.documentElement.apoioWidth;
+        var scrollBar = window.innerWidth - document.documentElement.clientWidth;
 
         if (scrollBar > 0) {
           var styleSheet = document.createElement('style');
@@ -2712,8 +2712,8 @@
           });
         }
 
-        this.slidedescricao = slideNode.querySelector('.gslide-descricao');
-        this.slidedescricaoContained = this.slidedescricao && hasClass(this.slidedescricao.parentNode, 'gslide-media');
+        this.slideDescription = slideNode.querySelector('.gslide-description');
+        this.slideDescriptionContained = this.slideDescription && hasClass(this.slideDescription.parentNode, 'gslide-media');
 
         if (this.settings.preload) {
           this.preloadSlide(index + 1);
@@ -2897,7 +2897,7 @@
         var _this4 = this;
 
         var slideMedia = slide.querySelector('.gslide-media');
-        var slideDesc = slide.querySelector('.gslide-descricao');
+        var slideDesc = slide.querySelector('.gslide-description');
         var prevData = {
           index: this.prevActiveSlideIndex,
           slide: this.prevActiveSlide,
@@ -3028,7 +3028,7 @@
         animateElement(prevSlide, animOut, function () {
           var container = prevSlide.querySelector('.ginner-container');
           var media = prevSlide.querySelector('.gslide-media');
-          var desc = prevSlide.querySelector('.gslide-descricao');
+          var desc = prevSlide.querySelector('.gslide-description');
           container.style.transform = '';
           media.style.transform = '';
 
@@ -3404,7 +3404,7 @@
 
         var video = slide.querySelector('.gvideo-wrapper');
         var image = slide.querySelector('.gslide-image');
-        var descricao = this.slidedescricao;
+        var description = this.slideDescription;
         var winWidth = winSize.width;
         var winHeight = winSize.height;
 
@@ -3418,23 +3418,23 @@
           return;
         }
 
-        var descricaoResize = false;
+        var descriptionResize = false;
 
-        if (descricao && (hasClass(descricao, 'descricao-bottom') || hasClass(descricao, 'descricao-top')) && !hasClass(descricao, 'gabsolute')) {
-          descricaoResize = true;
+        if (description && (hasClass(description, 'description-bottom') || hasClass(description, 'description-top')) && !hasClass(description, 'gabsolute')) {
+          descriptionResize = true;
         }
 
         if (image) {
           if (winWidth <= 768) {
             var imgNode = image.querySelector('img');
-          } else if (descricaoResize) {
-            var descHeight = descricao.offsetHeight;
+          } else if (descriptionResize) {
+            var descHeight = description.offsetHeight;
 
             var _imgNode = image.querySelector('img');
 
             _imgNode.setAttribute('style', "max-height: calc(100vh - ".concat(descHeight, "px)"));
 
-            descricao.setAttribute('style', "max-width: ".concat(_imgNode.offsetWidth, "px;"));
+            description.setAttribute('style', "max-width: ".concat(_imgNode.offsetWidth, "px;"));
           }
         }
 
@@ -3442,8 +3442,8 @@
           var ratio = has(this.settings.plyr.config, 'ratio') ? this.settings.plyr.config.ratio : '';
 
           if (!ratio) {
-            var containerWidth = video.apoioWidth;
-            var containerHeight = video.apoioHeight;
+            var containerWidth = video.clientWidth;
+            var containerHeight = video.clientHeight;
             var divisor = containerWidth / containerHeight;
             ratio = "".concat(containerWidth / divisor, ":").concat(containerHeight / divisor);
           }
@@ -3462,15 +3462,15 @@
             } else if (videoWidth.indexOf('%') !== -1) {
               maxWidth = winWidth * parseInt(videoWidth) / 100;
             } else {
-              maxWidth = parseInt(video.apoioWidth);
+              maxWidth = parseInt(video.clientWidth);
             }
           }
 
           var maxHeight = maxWidth / (parseInt(videoRatio[0]) / parseInt(videoRatio[1]));
           maxHeight = Math.floor(maxHeight);
 
-          if (descricaoResize) {
-            winHeight = winHeight - descricao.offsetHeight;
+          if (descriptionResize) {
+            winHeight = winHeight - description.offsetHeight;
           }
 
           if (maxWidth > winWidth || maxHeight > winHeight || winHeight < maxHeight && winWidth > maxWidth) {
@@ -3485,14 +3485,14 @@
             };
             video.parentNode.setAttribute('style', "max-width: ".concat(vsize.width, "px"));
 
-            if (descricaoResize) {
-              descricao.setAttribute('style', "max-width: ".concat(vsize.width, "px;"));
+            if (descriptionResize) {
+              description.setAttribute('style', "max-width: ".concat(vsize.width, "px;"));
             }
           } else {
             video.parentNode.style.maxWidth = "".concat(videoWidth);
 
-            if (descricaoResize) {
-              descricao.setAttribute('style', "max-width: ".concat(videoWidth, ";"));
+            if (descriptionResize) {
+              description.setAttribute('style', "max-width: ".concat(videoWidth, ";"));
             }
           }
         }

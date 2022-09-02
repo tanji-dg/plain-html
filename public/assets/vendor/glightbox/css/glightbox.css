@@ -285,33 +285,33 @@
   flex-direction: column;
 }
 
-.gslide-descricao {
+.gslide-description {
   position: relative;
   -webkit-box-flex: 1;
   -ms-flex: 1 0 100%;
   flex: 1 0 100%;
 }
 
-.gslide-descricao.descricao-left,
-    .gslide-descricao.descricao-right {
+.gslide-description.description-left,
+    .gslide-description.description-right {
   max-width: 100%;
 }
 
-.gslide-descricao.descricao-bottom,
-    .gslide-descricao.descricao-top {
+.gslide-description.description-bottom,
+    .gslide-description.description-top {
   margin: 0 auto;
   width: 100%;
 }
 
-.gslide-descricao p {
+.gslide-description p {
   margin-bottom: 12px;
 }
 
-.gslide-descricao p:last-child {
+.gslide-description p:last-child {
   margin-bottom: 0;
 }
 
-.zoomed .gslide-descricao {
+.zoomed .gslide-description {
   display: none;
 }
 
@@ -321,12 +321,12 @@
 
 
 /*
- * descricao for mobiles
- * something like facebook does the descricao
+ * Description for mobiles
+ * something like facebook does the description
  * for the photos
 */
 
-.glightbox-mobile .glightbox-container .gslide-descricao {
+.glightbox-mobile .glightbox-container .gslide-description {
   height: auto !important;
   width: 100%;
   background: transparent;
@@ -503,7 +503,7 @@ iframe.wait-autoplay {
 
 /*Skin */
 
-.glightbox-clean .gslide-descricao {
+.glightbox-clean .gslide-description {
   background: #fff;
 }
 
@@ -851,7 +851,7 @@ iframe.wait-autoplay {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  .glightbox-container .ginner-container.desc-top .gslide-descricao {
+  .glightbox-container .ginner-container.desc-top .gslide-description {
     -webkit-box-ordinal-group: 1;
     -ms-flex-order: 0;
     order: 0;
@@ -862,7 +862,7 @@ iframe.wait-autoplay {
     -ms-flex-order: 1;
     order: 1;
   }
-  .glightbox-container .ginner-container.desc-left .gslide-descricao {
+  .glightbox-container .ginner-container.desc-left .gslide-description {
     -webkit-box-ordinal-group: 1;
     -ms-flex-order: 0;
     order: 0;
@@ -890,8 +890,8 @@ iframe.wait-autoplay {
   .gslide-external {
     max-height: 100vh;
   }
-  .gslide-descricao.descricao-left,
-    .gslide-descricao.descricao-right {
+  .gslide-description.description-left,
+    .gslide-description.description-right {
     max-width: 275px;
   }
   .glightbox-open {
@@ -904,8 +904,8 @@ iframe.wait-autoplay {
     -webkit-box-shadow: 1px 2px 9px 0px rgba(0, 0, 0, 0.65);
     box-shadow: 1px 2px 9px 0px rgba(0, 0, 0, 0.65);
   }
-  .glightbox-clean .descricao-left .gdesc-inner,
-.glightbox-clean .descricao-right .gdesc-inner {
+  .glightbox-clean .description-left .gdesc-inner,
+.glightbox-clean .description-right .gdesc-inner {
     position: absolute;
     height: 100%;
     overflow-y: auto;
