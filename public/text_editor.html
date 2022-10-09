@@ -1,15 +1,57 @@
 <html>
-  <body id="body" contenteditable style="font-size:2rem;font-family:monaco;line-height:1.4;max-width:60rem;margin:0 auto;padding:4rem;" spellcheck="false">
-    <h1 id="header" hidden>.</h1>
-    <p id="text" style="border:1px solid black; padding: 20px">Start Here.</p>
+
+  <head>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>K</text></svg>">
+  </head>
+  <body
+    id="body"
+    spellcheck="false"
+    style="
+        font-size: 2rem;
+        font-family: monaco;
+        line-height: 1.4;
+        max-width:89rem;
+        margin:0 auto;
+        padding:4rem;
+        "
+  >
+
+    <h1
+      id="header"
+      contenteditable
+      style="
+          border:1px solid gray;
+          padding: 20px
+          "
+    >
+      title...
+    </h1>
+
+    <p
+      contenteditable
+      id="text"
+      style=
+          "
+          border:1px solid black;
+          padding: 20px;
+          font-size: 1.2rem;
+          "
+    >
+      content...
+    </p>
   </body>
 </html>
 
 
 <script type="text/javascript">
+ var $HEADER = document.getElementById("header");
+ var $BODY = document.getElementById("body");
+ var $TEXT = document.getElementById("text");
+
+ //////////////////////////////////////////////////////////////////////
+ // HELPER FUNCTIONS
  function getQueryParams() {
    qs = document.location.search.split('+').join(' ');
-
    var params = {},
        tokens,
        re = /[?&]?([^=]+)=([^&]*)/g;
@@ -20,35 +62,42 @@
    return params;
  }
 
- var QUERY = getQueryParams(document.location.search);
- var TEXT = QUERY.text
- var HEADER = QUERY.header
- var $HEADER = document.getElementById("header");
- var $BODY = document.getElementById("body");
- var $TEXT = document.getElementById("text");
+ function html_title_fix(){
+   document.title = " ↪ " + $HEADER.innerHTML.replaceAll('<br>', ' ');
+ }
 
- function set_elements(){
+
+ //////////////////////////////////////////////////////////////////////
+ // BASE FUNCTIONS
+ function query_params_to_dom(){
+   var QUERY = getQueryParams(document.location.search);
    $HEADER.innerHTML = QUERY.header.replaceAll("+", " ");
    $TEXT.innerHTML = QUERY.text.replaceAll("+", " ");
-   console.log($TEXT.innerHTML);
  }
- set_elements()
-
-
-
- $BODY.addEventListener("input", function() {
+ function dom_to_query_params() {
    var queryParams = new URLSearchParams(window.location.search);
    queryParams.set("text", $TEXT.innerHTML);
    queryParams.set("header", $HEADER.innerHTML);
-   history.replaceState(null, null, "?"+queryParams.toString());
 
+   history.replaceState(null, null, "?" + queryParams.toString());
+ }
+
+
+ //////////////////////////////////////////////////////////////////////
+ // KEY STROKE LISTENERS
+ $BODY.addEventListener("input", function() {
+   dom_to_query_params();
+   html_title_fix();
  }, false);
-
  $BODY.addEventListener("keydown", function(event) {
    if (event.key === "Enter") {
      event.preventDefault();
      document.execCommand("insertLineBreak");
-
    }
  });
+
+ //////////////////////////////////////////////////////////////////////
+ // RUN
+ query_params_to_dom();
+ html_title_fix();
 </script>
