@@ -530,17 +530,17 @@ section {
   }
 }
 
-.servicos .icon-box {
+.downloads .icon-box {
   padding: 50px 20px;
   margin-top: 35px;
   margin-bottom: 25px;
   text-align: center;
   border: 1px solid #ebe6e4;
-  height: 200px;
+  height: 250px;
   position: relative;
   background: #faf9f8;
 }
-.servicos .icon {
+.downloads .icon {
   transition: 0.2s;
   border-radius: 50%;
   border: 6px solid #fff;
@@ -548,35 +548,37 @@ section {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 72px;
-  height: 72px;
+  width: 50px;
+  height: 50px;
   background: #8761AB;
+  margin-left: 45%;
+  margin-top: 15px;
 }
-.servicos .icon i {
+.downloads .icon i {
   color: #fff;
   font-size: 24px;
   line-height: 0;
 }
-.servicos .title {
+.downloads .title {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
   text-transform: uppercase;
 }
-.servicos .title a {
+.downloads .title a {
   color: #343a40;
 }
-.servicos .icon-box:hover .icon {
+.downloads .icon-box:hover .icon {
   background: #fff;
   border: 2px solid #8761AB;
 }
-.servicos .icon-box:hover .icon i {
+.downloads .icon-box:hover .icon i {
   color: #8761AB;
 }
-.servicos .icon-box:hover .title a {
+.downloads .icon-box:hover .title a {
   color: #8761AB;
 }
-.servicos .descricao {
+.downloads .descricao {
   line-height: 24px;
   font-size: 14px;
 }
