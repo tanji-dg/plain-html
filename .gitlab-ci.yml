@@ -1,6 +1,20 @@
 # This file is a template, and might need editing before it works on your project.
 # Full project: https://gitlab.com/pages/plain-html
 
+pages:
+    stage: deploy
+    script:
+      - mkdir .public
+      - cp -r * .public
+      - mv .public public
+    artifacts:
+      paths:
+        - public
+    only:
+      master 
+          
+
+'''
 image: busybox
 
 pages:
@@ -12,3 +26,4 @@ pages:
       - public
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+'''
