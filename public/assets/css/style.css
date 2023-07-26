@@ -624,6 +624,11 @@ section {
   color: #fff;
 }
 
+.pages .espacamento {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
 @media (max-width: 1024px) {
   .pages {
     background-attachment: scroll;
