@@ -29,10 +29,30 @@
 
   <!-- template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    .video-container {
+      width: 230px;
+      height: 180px;
+      margin: 1%;
+      float: left;
+    }
+    .video-container :hover {
+      width: 240px;
+      height: 190px;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
 
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  </style>
 </head>
-
-<body>
+<body style="background-image: url(assets/img/sky.png); background-repeat: repeat;">
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex justify-content-between">
 
@@ -76,121 +96,82 @@
       </nav>
     </div>
   </header>
-  <section id="pages" class="pages">
+  <section id="apoios" class="apoios" style="background: rgb(250 249 248 / 10%) !important; border: 0 !important;">
     <div class="container">
       <div class="row">
-        <div class="text-center text-lg-left">
+        <div class="text-center text-lg-left branco">
           <h2>2022 - RPG-Ópera CAoHTiCCa: Série em 5 atos.</h2>
           <p>
-            CAoHTiCca - Cáustica Anti-ode Holofractal ao Tecno-Imperialismoo Comunista e Capitalista é uma
-            AlgoÓpera
-            em mini-série interativa de ficção documental contando a história de 5 personagens distintos que
-            buscam
-            obter respostas e/ou a solução de seus problemas a partir de uma Holocápsula encontrada no
+            CAoHTiCca - Cáustica Anti-ode Holofractal ao Tecno-Imperialismo Comunista e Capitalista é uma
+            AlgorÓpera
+            em formato de mini-série interativa de ficção documental contando a história de 5 personagens alienígenas que
+            buscam respostas ou soluções para seus problemas a partir de uma Holocápsula encontrada no
             espaço,
-            contendo todos os dados da história de um planeta chamado Sdruws, onde acreditam estar contido o
+            contendo dados da história de um planeta chamado Sdruws, onde crêem existir o
             conhecimento de que precisam.
           </p>
-          <div class="espacamento">
+          <div class="text-center text-lg-left espacamento">
             <p><b>Esse projeto foi realizado com recursos do Fundo de Apoio à Cultura do Distrito Federal.</b></p>
           </div>
         </div>
       </div>
-      <section id="template">
-        <div id="templateCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="false">
-          <div class="carousel-inner" role="listbox">
-
-            <div class="carousel-item" style="background-image: url(assets/img/slide/sdruws_caohticca.jpg);">
-              <div class="carousel-container">
-                  <iframe width="666" height="425" src="https://www.youtube.com/embed/XXGemSNIfjk?feature=share" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="carousel-item" style="background-image: url(assets/img/slide/sdruws_caohticca.jpg);">
-              <div class="carousel-container">
-                  <iframe width="666" height="425" src="https://www.youtube.com/embed/YI4dOsvu12E?feature=share" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="carousel-item" style="background-image: url(assets/img/slide/sdruws_caohticca.jpg);">
-              <div class="carousel-container">
-                  <iframe width="666" height="425" src="https://www.youtube.com/embed/XB5eXiHpgMY?feature=share" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="carousel-item" style="background-image: url(assets/img/slide/sdruws_caohticca.jpg);">
-              <div class="carousel-container">
-                  <iframe width="666" height="425" src="https://www.youtube.com/embed/ANC-xqdo3ec?feature=share" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="carousel-item" style="background-image: url(assets/img/slide/sdruws_caohticca.jpg);">
-              <div class="carousel-container">
-                  <iframe width="666" height="425" src="https://www.youtube.com/embed/EFZeystc80s?feature=share" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#templateCarousel" role="button" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon bx bx-left-arrow" aria-hidden="true"></span>
-            </a>
-            <a class="carousel-control-next" href="#templateCarousel" role="button" data-bs-slide="next">
-              <span class="carousel-control-next-icon bx bx-right-arrow" aria-hidden="true"></span>
-            </a>
-            <!-- <ol class="carousel-indicators" id="template-carousel-indicators"></ol> -->
-          </div>
-        </div>
-      </section>
+      <div class="align-items-center">
+        <div id="videoList" class="clearfix"></div>
+      </div>
+      <!-- colocar menor a fonte -->
+      <div class="text-center text-lg-left branco">
+        <p style="font-size: 14px"><i>Ordem randômica: recarregue a página para reordenar.</i></p>
+      </div>
       <script>
-        // Global variable to store the previous random index
-        let previousRandomIndex = -1;
-      
-        // Function to get a random index that is different from the previous one
-        function getRandomIndex(totalItems) {
-          let randomIndex;
-          do {
-            randomIndex = Math.floor(Math.random() * totalItems);
-          } while (randomIndex === previousRandomIndex);
-          return randomIndex;
+        function shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+          }
         }
-      
-        // Function to change the active carousel item randomly without repetition
-        function changeCarouselItemRandomlyWithoutRepetition() {
-          const carouselItems = document.querySelectorAll("#templateCarousel .carousel-item");
-          const totalItems = carouselItems.length;
-      
-          const randomIndex = getRandomIndex(totalItems);
-      
-          // Remove the 'active' class from all items
-          carouselItems.forEach(item => {
-            item.classList.remove("active");
-          });
-      
-          // Set the randomly selected item as active
-          carouselItems[randomIndex].classList.add("active");
-      
-          // Update the previous random index
-          previousRandomIndex = randomIndex;
+
+        function generateRandomVideos() {
+          const videoIds = [
+            'XXGemSNIfjk?feature=share',
+            'YI4dOsvu12E?feature=share',
+            'XB5eXiHpgMY?feature=share',
+            'ANC-xqdo3ec?feature=share',
+            'EFZeystc80s?feature=share'
+          ];
+
+          shuffleArray(videoIds);
+
+          const videoListElement = document.getElementById('videoList');
+          videoListElement.innerHTML = '';
+
+          for (let i = 0; i < videoIds.length; i++) {
+            const videoId = videoIds[i];
+            const videoUrl = `https://www.youtube.com/embed/${videoId}`;
+            const videoContainer = document.createElement('div');
+            videoContainer.className = 'video-container';
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', videoUrl);
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allowfullscreen', 'true');
+            videoContainer.appendChild(iframe);
+            videoListElement.appendChild(videoContainer);
+          }
         }
-      
-        // Call the function when the DOM content is loaded
-        document.addEventListener("DOMContentLoaded", changeCarouselItemRandomlyWithoutRepetition);
-      
-        // Event listener for the 'prev' carousel button
-        document.querySelector("#templateCarousel .carousel-control-prev").addEventListener("click", changeCarouselItemRandomlyWithoutRepetition);
-      
-        // Event listener for the 'next' carousel button
-        document.querySelector("#templateCarousel .carousel-control-next").addEventListener("click", changeCarouselItemRandomlyWithoutRepetition);
+        generateRandomVideos();
       </script>
     </div>
   </section>
   <section id="downloads" class="downloads">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
-        <h2>Download</h2>
-        <p>Programas desenvolvidos e utilizados pela orquestra em suas apresentações.</p>
-        <div class="col-lg-6 col-md-8 primeiro">
-          <div class="icon-box" data-aos="fade-up">
+        <div class="branco">
+          <h2>Download</h2>
+          <p>Programas desenvolvidos e utilizados pela orquestra em suas apresentações.</p>
+        </div>
+        <div class="col-lg-6 col-md-8 offset-md-3">
+          <div class="icon-box branco backBrancoTranslucido" data-aos="fade-up">
             <div>
-              <h4 class="title"><a href="https://gitlab.com/eufraktusX/hits/-/archive/main/hits-main.zip">Suíte
+              <h4 class="titleBranco"><a href="https://gitlab.com/eufraktusX/hits/-/archive/main/hits-main.zip">Suíte
                   Holofractal Interativa de Transdução Sonora - HITS</a></h4>
             </div>
             <div>
@@ -204,16 +185,18 @@
 
       <div class="row">
         <div class="section-title" data-aos="fade-up">
+          <div class="branco">
           <p>Programas desenvolvidos com recursos do Fundo de Apoio à Cultura do Distrito Federal no projeto CAoHTiCCa
             <!-- -
                 Cáustica Anti-ode Holofractal ao Tecno-imperialismo Comunista e Capitalista  -->
             (2022).
+            </div>
           </p>
         </div>
         <div class="col-lg-6 col-md-8">
-          <div class="icon-box" data-aos="fade-up">
+          <div class="icon-box branco backBrancoTranslucido" data-aos="fade-up">
             <div>
-              <h4 class="title"><a
+              <h4 class="titleBranco"><a
                   href="https://gitlab.com/eufraktusX/hits/-/raw/main/FrakMSP4.1.maxpat?inline=false">FrakMSP Fraktal
                   Movement
                   Sound Player</a></h4>
@@ -226,9 +209,9 @@
           </div>
         </div>
         <div class="col-lg-6 col-md-8">
-          <div class="icon-box" data-aos="fade-up">
+          <div class="icon-box branco backBrancoTranslucido" data-aos="fade-up">
             <div>
-              <h4 class="title"><a
+              <h4 class="titleBranco"><a
                   href="https://gitlab.com/eufraktusX/hits/-/archive/main/hits-main.zip?path=Vocoder">FraKontrol</a>
               </h4>
             </div>
@@ -240,9 +223,9 @@
           </div>
         </div>
         <div class="col-lg-6 col-md-8">
-          <div class="icon-box" data-aos="fade-up">
+          <div class="icon-box branco backBrancoTranslucido" data-aos="fade-up">
             <div>
-              <h4 class="title"><a
+              <h4 class="titleBranco"><a
                   href="https://gitlab.com/eufraktusX/hits/-/archive/main/hits-main.zip?path=Escape">Fraktal Glass
                   Bead Escape Room</a></h4>
             </div>
@@ -254,9 +237,9 @@
           </div>
         </div>
         <div class="col-lg-6 col-md-8">
-          <div class="icon-box" data-aos="fade-up">
+          <div class="icon-box branco backBrancoTranslucido" data-aos="fade-up">
             <div>
-              <h4 class="title"><a
+              <h4 class="titleBranco"><a
                   href="https://gitlab.com/eufraktusX/hits/-/archive/main/hits-main.zip?path=ChuvaRadioativa">Fallout
                   Chuva Radioativa</a></h4>
             </div>

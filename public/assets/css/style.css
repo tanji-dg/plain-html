@@ -22,6 +22,15 @@ h6 {
   font-family: "Muli", sans-serif;
 }
 
+.branco {
+  color: white !important;
+}
+
+.backBrancoTranslucido {
+  background: rgb(250 249 248 / 20%) !important; 
+  border: 0 !important;
+}
+
 .voltaTopo {
   position: fixed;
   visibility: hidden;
@@ -521,7 +530,6 @@ section {
   font-weight: 300;
   margin-bottom: 20px;
   padding-bottom: 0;
-  color: #65534c;
 }
 
 .section-title h2 strong {
@@ -643,17 +651,6 @@ section {
   }
 }
 
-.primeiro {
-  margin: 0 25%;
-}
-
-/* max device width */
-@media screen and (max-device-width: 480px) {
-	.primeiro {
-		margin: 0;
-  }
-}
-
 .downloads .icon-box {
   padding: 50px 20px;
   margin-top: 35px;
@@ -695,6 +692,21 @@ section {
 
 .downloads .title a {
   color: #343a40;
+}
+
+.downloads .titleBranco {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.downloads .titleBranco a {
+  color: white;
+}
+
+.downloads .icon-box:hover .title a {
+  color: #8761AB;
 }
 
 .downloads .icon-box:hover .icon {
