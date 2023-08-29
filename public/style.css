@@ -1,24 +1,129 @@
-body {
-  font-family: sans-serif;
-  margin: auto;
-  max-width: 1280px;
-}
-
-.navbar {
-  background-color: #313236;
-  border-radius: 2px;
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
   max-width: 800px;
+  margin: auto;
+  padding: 20px;
 }
 
-.navbar a {
-  color: #aaa;
-  display: inline-block;
+.menu {
+  width: 200px;
+  height: 200px;
+  background-color: whitesmoke;
+  opacity: 0.7;
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   font-size: 15px;
-  padding: 10px;
+}
+
+.menu:hover {
+  opacity: 0.90;
+}
+.menu h2 {
+  margin-top: 20px;
+  color: black;
+  text-decoration: underline;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li {
+  margin-bottom: 10px;
+}
+
+.menu ul li a {
+  color: #333;
   text-decoration: none;
 }
 
-.navbar a:hover {
-  color: #ffffff;
+.menu ul li a:hover {
+  color: #007bff;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+  height: 40px;
+}
+.selector {
+  padding: 14px;
+}
+.selector {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 20px;
+}
+.selector.option[value="duckduckgo"] {
+    background-image: url('./images/duckduckgo.ico');
+
+}
+.selector.option[value="google"] {
+    background-image: url('./images/google.ico');
+
+}
+.selector.option[value="wolframalpha"] {
+    background-image: url('./images/wolframalpha.ico');
+
+}
+body {
+  background-image: url("./fondo1.jpg");
+  background-repeat: no-repeat;
+}
+
+input[type="text"] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 5px 5px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+  width: 50%;
+}
+
+button[type="submit"] {
+  background-image: url(./images/search.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+footer {
+  text-align: center;
+  margin-top: 20px;
 }
 
