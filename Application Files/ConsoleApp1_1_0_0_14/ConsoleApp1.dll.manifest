@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="ConsoleApp1.exe" version="1.0.0.14" publicKeyToken="dc9828f57886b202" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Launcher" version="7.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Launcher.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="4" minorVersion="10" buildNumber="0" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Launcher.exe" size="18320">
+      <assemblyIdentity name="Launcher" version="7.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ZqH6DE/25uCLNf3hArAvoyVA1txBNMEi6D/hBx6YEyc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="ConsoleApp1.deps.json" size="478">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+XMsss/Q8RmIbpono3NbgOPdQMZj/Z/2BnIfqztvWN4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ConsoleApp1.dll" size="7056">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>J1bGj+E9uPWdgPX6Luy6JTlCtip7RiGm1B0VJr+90NY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ConsoleApp1.exe" size="156560">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xTpz5/COhoaE+6mgOaP6e2okJs5Ja2YfayXOi/FdhIg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ConsoleApp1.runtimeconfig.json" size="253">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>SJqSw3Qit+XOIS+XAbeggdiHuJX4i5GwAJdhMfkPgj8=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="E=ibrahimtopbasi@usa.com, OU=Rakort, O=Rakort, L=Cankaya, S=Ankara, C=TR" issuerKeyHash="486379145b2d10750639f5c62a4f05fdfa7b5179" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>uJF1fD5hEmC6/sXrgAYiK/Jl95tY1TfFFWcpj/eRkXA=</DigestValue></Reference></SignedInfo><SignatureValue>qgx9HR+7PmgLa70LAKyqr+X/WP0JlrDob2qwtZtwweJDIQKyDjkNJXGvV+/b6MUYOSTIM5+jbmTbWLBACwaZofoXD+kR2e55l4S4Oxg34b7hOSVgCi1+8d86GHCEGBaAa0nGtnbc1CKuKX2d3pSJ/LGyQTvo/eqTi+bj4NEFq6BVmy2SWBewMbaeW9nnFJH2ytsV4JYi7gQduS/2b/ps/oXhTFJj/yqkiIlO2NA1F24cBLlRXRp0Ul+F7zddu8GqAqOx4GvDBRBvjc0k/vO6GdZ1akVPtyP6aEbwNbvRNTuV8RmqWLrWOdTgNpMUUgu2nmxJ1AqrkzTgWVYJuTnIXeXvWrRTilKL5wIGGFF+X2op/qOUNW3RSHZ/m88CvE8EjoMYXJXZRvkUYsKjuvsKc6mYc78QnJVyZwZnAMZWeWOagQ8hu8NIVAbpfCpaPHTresPiYqOcnKFAH3aQQNNTHhycxZWyzpNlnCJxTyenoZhT3htXH/WaBdEfGpFD2RTFu+XKUVuiXb9GexeX8R//MzOkjlf1+BdDkj1ZwBenSdOFy858XE2AuBRKU7GKAu2gfi3ZWR8MtLIzGXL1X2KCXHANkzqiYDKaqmr1tuXSTKMxvoZr3SpF2opCgQ+C0CerU4213rBVA3uRnewrxnvFK1bpPfyooTZaFJupp7rb+rw=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>7U5BgRU9PrzM70RAsYfHMdDsVtuWKUxQjcNWTgSqGUs6mGoehD1JjJsfxaUjw16h3FJa7cqfxJ/lObHI0AE/jRXQkPNBQSHXCtZuZsSKZeYOaQsi5WKqe3/0aLnNLndjWmOt+n0SZITuVHr9VvfFHXKggZPYOZuOiVro31Gw/RpwBrGaJzojY8Fm9XNfLJpZdDHQTQFzm+rBHLtXo21CPnP+8LjjPsjONS6GG3IDfh+6BnhE42dSLqwcWDg+KhMHkjiF6X1gdLAPqT7OPRKXZ1unqMetnb5otzlan0oKsLTu0S/RIzGM6tDlgqA018+2vtaK7cM7E5FXIo+FWoRZFHpUitBaen/floaaE+UW1clUfqnwqgqZS7wiq0XssDEZ3MClaxH/dzaAxaGIgQJs8gO/tMoLnK7nwH0kccSouDBQqNCSCgpY9CN5gm/nghW2efatB6dZ+nsEd/vSkXuEaR352UWs29aFIe7T4nolBG7QHS72FRvDjIgKVxpcAJqlhdvVGHlREBOocLQQcQSZq3sS3pldBL/xaVPi2Zx1uQEPpGhW+rdIoULCAN/npD3HDfa+JQKXk0ffq2ic/GZ1u9/cr+zgESSDljaDS65Y8gQWUNrfLc2pxZfWVikaURfrkPwoz5JUd7Ge/SD4TL1SNaR7oxSJD2Ut3Cff0uovt4E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="709191f78f296715c537d5589bf765f22b220680ebc5feba6012613e7c7591b8" Description="" Url=""><as:assemblyIdentity name="ConsoleApp1.exe" version="1.0.0.14" publicKeyToken="dc9828f57886b202" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>E=ibrahimtopbasi@usa.com, OU=Rakort, O=Rakort, L=Cankaya, S=Ankara, C=TR</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>5xJHh0YGCTscxsFlJuyCiIfV7JarzQ6x986hmIZC+bs=</DigestValue></Reference></SignedInfo><SignatureValue>R3T9TcQqqppFFO6Tazhi0MJ1dPYgLkBECGDArSNq+DBlT9Zn9VBVomuJJzK9LJUDwOSsrpoNHZi5hUsY7dpWWZopTisDfO9h0Eq2q6Nd8bZuN2vG3FXCgUC2hTvrhpWsoQO0nDK5gdoL/ICfu9Pb2lb7ov4Smv56sFz4jBkPcpC+Fxx/T7oqsX1ESv3pNrXm13uplnOi8cfkri8/Mm2b4/ZN9JcIs/1F8c9bu0rwQ0O6Pe08P2enHig69RoJMhYx5QYpMkD47df4sKyckGNHRyLV7gFRdaXDiKqgRfQqFnpTIYUb0ivpppuKjj39jnOoHFjO07EKtrSShqhMmNXDEjbY+RXUjgdryQri8hI8BnwTiNX/IucBXVcTeNQGs+n5yIUwC71u4i6Jl3UjFv+rp0f4P1XrSSyDVH+q4ow1H4xsPV+csO1tU4Di9/csAANdvvFXWd92sDfmxHSqoOgzTilP6HlATcLMm4emy7KluJCqDQcsTP7XiZYBOMI+uwyugUDe7ImTFLXa6r/pjCIOmcF95b5h+Hl/ZYAXxUjScO1lQi7GF9hqcNLJzLANJ27J3QueXlHcfLkGEJu3rx5qiD5CSJnk+Wacna5ul5xu19n4HOvdq7sUWsRmv5yKXw0U3nrxA6PTY8HJqsVJsfoG26Z5zRXrmo2lf041fAWH41I=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>7U5BgRU9PrzM70RAsYfHMdDsVtuWKUxQjcNWTgSqGUs6mGoehD1JjJsfxaUjw16h3FJa7cqfxJ/lObHI0AE/jRXQkPNBQSHXCtZuZsSKZeYOaQsi5WKqe3/0aLnNLndjWmOt+n0SZITuVHr9VvfFHXKggZPYOZuOiVro31Gw/RpwBrGaJzojY8Fm9XNfLJpZdDHQTQFzm+rBHLtXo21CPnP+8LjjPsjONS6GG3IDfh+6BnhE42dSLqwcWDg+KhMHkjiF6X1gdLAPqT7OPRKXZ1unqMetnb5otzlan0oKsLTu0S/RIzGM6tDlgqA018+2vtaK7cM7E5FXIo+FWoRZFHpUitBaen/floaaE+UW1clUfqnwqgqZS7wiq0XssDEZ3MClaxH/dzaAxaGIgQJs8gO/tMoLnK7nwH0kccSouDBQqNCSCgpY9CN5gm/nghW2efatB6dZ+nsEd/vSkXuEaR352UWs29aFIe7T4nolBG7QHS72FRvDjIgKVxpcAJqlhdvVGHlREBOocLQQcQSZq3sS3pldBL/xaVPi2Zx1uQEPpGhW+rdIoULCAN/npD3HDfa+JQKXk0ffq2ic/GZ1u9/cr+zgESSDljaDS65Y8gQWUNrfLc2pxZfWVikaURfrkPwoz5JUd7Ge/SD4TL1SNaR7oxSJD2Ut3Cff0uovt4E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF0zCCA7ugAwIBAgIUTpsW3gNRYY+zsPPh1+p9a9KyxRswDQYJKoZIhvcNAQENBQAweTELMAkGA1UEBhMCVFIxDzANBgNVBAgMBkFua2FyYTEQMA4GA1UEBwwHQ2Fua2F5YTEPMA0GA1UECgwGUmFrb3J0MQ8wDQYDVQQLDAZSYWtvcnQxJTAjBgkqhkiG9w0BCQEWFmlicmFoaW10b3BiYXNpQHVzYS5jb20wHhcNMjIxMDA4MTAwNzIyWhcNMzIwNTEzMTAwNzIyWjB5MQswCQYDVQQGEwJUUjEPMA0GA1UECAwGQW5rYXJhMRAwDgYDVQQHDAdDYW5rYXlhMQ8wDQYDVQQKDAZSYWtvcnQxDzANBgNVBAsMBlJha29ydDElMCMGCSqGSIb3DQEJARYWaWJyYWhpbXRvcGJhc2lAdXNhLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAO1OQYEVPT68zO9EQLGHxzHQ7FbblilMUI3DVk4EqhlLOphqHoQ9SYybH8WlI8NeodxSWu3Kn8Sf5TmxyNABP40V0JDzQUEh1wrWbmbEimXmDmkLIuViqnt/9Gi5zS53Y1pjrfp9EmSE7lR6/Vb3xR1yoIGT2Dmbjola6N9RsP0acAaxmic6I2PBZvVzXyyaWXQx0E0Bc5vqwRy7V6NtQj5z/vC44z7IzjUuhhtyA34fugZ4RONnUi6sHFg4PioTB5I4hel9YHSwD6k+zj0Sl2dbp6jHrZ2+aLc5Wp9KCrC07tEv0SMxjOrQ5YKgNNfPtr7Wiu3DOxORVyKPhVqEWRR6VIrQWnp/35aGmhPlFtXJVH6p8KoKmUu8IqtF7LAxGdzApWsR/3c2gMWhiIECbPIDv7TKC5yu58B9JHHEqLgwUKjQkgoKWPQjeYJv54IVtnn2rQenWfp7BHf70pF7hGkd+dlFrNvWhSHu0+J6JQRu0B0u9hUbw4yIClcaXACapYXb1Rh5URATqHC0EHEEmat7Et6ZXQS/8WlT4tmcdbkBD6RoVvq3SKFCwgDf56Q9xw32viUCl5NH36tonPxmdbvf3K/s4BEkg5Y2g0uuWPIEFlDa3y3NqcWX1lYpGlEX65D8KM+SVHexnv0g+Ey9UjWke6MUiQ9lLdwn39LqL7eBAgMBAAGjUzBRMB0GA1UdDgQWBBRIY3kUWy0QdQY59cYqTwX9+ntReTAfBgNVHSMEGDAWgBRIY3kUWy0QdQY59cYqTwX9+ntReTAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBDQUAA4ICAQBeqaANfB8/CKbZJPxLdNjUnwOOajNhEwMQpO/E3K5F7HHAvpgwZLUS7fZJBdTo+nktwCT7bWcghaQqf2YZPjm0I8hbBQQpQhIacc4C+O11fc6QXur/qMfgLtVflIkBbgCuFNHsCMgYdMupP5FluA7XGD/VHgSdcO6kSyTGd/B3K7UjvF/v8G0D9SkoRTvJpz70+l3qV5v/KCRTcZZ7mFuSGqml3t962Iibq87GdrLmVQOyf3WybBioa0vwDnCFIHX/PVJetXroOcae1+6m5TXzmkWMt78GUkKKVLd3ukmPKrQos3FkPXdItp5eImyQaV0IUClzCYurtlyWhZaMH8KOAnYHinfmwepB20xlWZKcKqIHKPHnsFiDsBW0iaQo4wCcnftp5Jp+EYU03Je2YHRMWIEoi8XV0dFZGW5290ITmtVeXGuUhg57SEYpoHyteRcZBq1rmIWVVZBQ/cA/a5+sMBTKM9/1TzVoC8NA0lB5okKLXU6b31k+JJVO4/OUmS/wnl16rm197+1dlNoL1K2f9BNT7iip22lK4iQtUYVeEks3useY3aliW5r1gm8mriqYiMTz8F4iV20/R9I5Mcs+li5VP3xE/k9eiGDwD61Lurg4jjjNKcObBtcVO1QxWWRyIFaMF2Ojk603q/pVywzSPM4v0Tzviqsd3Yw8U0MSxA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
