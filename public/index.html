@@ -1,23 +1,135 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="GitLab Pages">
-    <title>Plain HTML site using GitLab Pages</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
-    </div>
+    <head>
+        <title> Homepage </title>
+        <link rel="icon" href="./images/house.png"></link>
+        <link rel="stylesheet" type="text/css" href="homepage_3.css">
+        <script>
+            function submitted(event) {
+                event.preventDefault();
+                const searchEngine = document.getElementById("search-engine").value;
+                const query = document.getElementById("search-query").value;
+                let url;
 
-    <h1>Hello World!</h1>
+                switch (searchEngine) {
+                    case "google":
+                        url = "https://www.google.com/search?q=" + encodeURIComponent(query);
+                        break;
+                    case "duckduckgo":
+                        url = "https://duckduckgo.com/?q=" + encodeURIComponent(query);
+                        break;
+                    case "wolframalpha":
+                        url = "https://www.wolframalpha.com/input/?i=" + encodeURIComponent(query);
+                        break;
+                    default:
+                        break;
+                }
 
-    <p>
-      This is a simple plain-HTML website on GitLab Pages, without any fancy static site generator.
-    </p>
-  </body>
+                if (url) {
+                    const win = window.open(url, '_blank');
+                    win.focus();
+                }
+            }
+
+            window.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('search-form');
+                form.addEventListener('submit', submitted);
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1> Homepage </h1>
+        </header>
+        <main>
+            <form id="search-form" class="search-form" action="https://duckduckgo.com" method="get">
+                <select id="search-engine" class="selector">
+                    <option value="duckduckgo"></option>
+                    <option value="google"></option>
+                    <option value="wolframalpha"></option>
+                </select>
+                <input id="search-query" type="text" name="q" placeholder="Buscar">
+                <button type="submit"></button>
+            </form>
+            <div class="container">
+            <div class="menu">
+                <span><h2>Search Engines</h2></span>
+                <ul>
+                    <li><a href="https://duckduckgo.com">DuckDuckGo</a></li>
+                    <li><a href="https://www.google.com">Google</a></li>
+                    <li><a href="https://www.bing.com">Bing</a></li>
+                    <li><a href="https://searx.org">SearX</a></li>
+                </ul>
+            </div>
+
+            <div class="menu">
+                <span><h2>Social</h2></span>
+                <ul>
+                    <li class="menu-item"><a href="https://www.scrolller.com">Scrolller</a></li>
+                    <li class="menu-item"> <a herf="https://gmail.com">Gmail </a></li>
+                    <li class="menu-item"><a href="https://inv.makerlab.tech/search">Invidious</a></li>
+                </ul>
+            </div>
+
+            <div class="menu">
+                <span><a href="./code.html"><h2><<span>Code</span>/></h2></a><span>
+                <ul>
+            <li class="menu-item"><a href="https://github.com/">GitHub</a></li>
+            <li class="menu-item"><a href="https://docs.python.org/3/">Python</a></li>
+            <li class="menu-item"><a href="https://kubernetes.io/docs/home/">Kubernetes</a></li>
+	    <li> <a href="https://www.w3schools.com/">Wschools</a></li>
+        </ul>
+            </div>
+            <div class="menu">
+                <span><h2>AI</h2></span>
+                        <ul>
+            <li class="menu-item"><a href="https://wwww.phind.com"> Phind </a></li>
+            <li class="menu-item"><a href="#">OpenAI</a></li>
+            <li class="menu-item"><a href="#">TensorFlow</a></li>
+            <li class="menu-item"><a href="#">IBM Watson</a></li>
+        </ul>
+            </div>
+            <div class="menu">
+                <span><h2>Cloud</h2></span>
+                <ul>
+            <li class="menu-item"><a href="http://localhost:8080">NextCloud</a></li>
+            <li class="menu-item"><a href="#">Google Drive</a></li>
+            <li class="menu-item"><a href="#">s</a></li>
+            <li class="menu-item"><a href="#"></a></li>
+        </ul>
+            </div>
+            <div class="menu">
+                <span><h2>Science</h2></span>
+                        <ul>
+            <li class="menu-item"><a href="https:wikipedia.org">Wikipedia</a></li>
+            <li class="menu-item"><a href="#">arXiv</a></li>
+            <li class="menu-item"><a href="#">Nature</a></li>
+            <li class="menu-item"><a href="#">ScienceDirect</a></li>
+        </ul>
+            </div>
+            <div class="menu">
+                <span><h2>Technology</h2></span>
+                        <ul>
+            <li class="menu-item"><a href="#">TechCrunch</a></li>
+            <li class="menu-item"><a href="#">The Verge</a></li>
+            <li class="menu-item"><a href="#">Wired</a></li>
+            <li class="menu-item"><a href="#">TechRadar</a></li>
+        </ul>
+            </div>
+            <div class="menu">
+                <span><h2>Firefox</h2></span>
+		<ul>
+            <li class="menu-itm"><a href="about:config">config</a></li>
+            <li class="menu-item"><a href="about:performance">performance</a></li>
+            <li class="menu-item"><a href="/home/ndk"></a>Home</li>
+            <li class="menu-item"><a href="/home/ndk/Documents">Documents</a></li>
+		</ul>
+            </div>
+        </div>
+        </main>
+        <footer>
+            <p> Home, sweet home <p> 
+        </footer>
+    </body>
 </html>
 
