@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="Es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paginainvestigacion</title>
+    <link rel="stylesheet" type="text/css" href="cssinvestigacion.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--<style>
+      body {
+          background-image: url('');
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+  </style>-->
+</head>
+<body>
+<!-- Codigo de pestanhas-->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item" role="presentation">
+  <button class="nav-link active" id="pestana1-tab" data-bs-toggle="tab" data-bs-target="#pestana1" type="button" role="tab" aria-controls="pestana1" aria-selected="true" onclick="setBackgroundImage('./ciber.jpg')">
+      Pestaña 1
+  </button>
+</li>
+<li class="nav-item" role="presentation">
+  <button class="nav-link" id="pestana2-tab" data-bs-toggle="tab" data-bs-target="#pestana2" type="button" role="tab" aria-controls="pestana2" aria-selected="false" onclick="setBackgroundImage('./ciberseguridad.jpg')">
+      Pestaña 2
+  </button>
+</li>
+<li class="nav-item" role="presentation">
+  <button class="nav-link" id="pestana3-tab" data-bs-toggle="tab" data-bs-target="#pestana3" type="button" role="tab" aria-controls="pestana3" aria-selected="false" onclick="setBackgroundImage('./cib.jpg')">
+      Pestaña 3
+  </button>
+</li>
+</ul>
+<!-- Contenido de las pestanhas-->
+<div class="tab-content" id="myTabContent">
+<div class="tab-pane fade show active" id="pestana1" role="tabpanel" aria-labelledby="pestana1-tab">
+  <p>La ciberseguridad o seguridad informática consiste en establecer una estrategia (serie de procesos, controles y herramientas) que ayudan a proteger información confidencial, sistemas o plataformas de negocio y cualquier otro activo digital. También llamada seguridad de tecnología de información (TI) o seguridad cibernética, se trata de una práctica cada vez más necesaria en un mundo cada vez más digitalizado y, por ello, cada vez más vulnerable a ataques informáticos.
+    Actualmente, existe una tendencia hacia la automatización de la ciberseguridad. Contar con un sistema automatizado capaz de reconocer y evitar amenazas, como nuestra plataforma Apolo, puede optimizar estos procesos. Sin embargo, es imprescindible que haya un componente humano en toda estrategia de ciberseguridad para que esta abarque todos los aspectos necesarios.</p>
+</div>
+<div class="tab-pane fade" id="pestana2" role="tabpanel" aria-labelledby="pestana2-tab">
+  <p>La ciberseguridad o seguridad informática consiste en establecer una estrategia (serie de procesos, controles y herramientas) que ayudan a proteger información confidencial, sistemas o plataformas de negocio y cualquier otro activo digital. También llamada seguridad de tecnología de información (TI) o seguridad cibernética, se trata de una práctica cada vez más necesaria en un mundo cada vez más digitalizado y, por ello, cada vez más vulnerable a ataques informáticos.
+    Actualmente, existe una tendencia hacia la automatización de la ciberseguridad. Contar con un sistema automatizado capaz de reconocer y evitar amenazas, como nuestra plataforma Apolo, puede optimizar estos procesos. Sin embargo, es imprescindible que haya un componente humano en toda estrategia de ciberseguridad para que esta abarque todos los aspectos necesarios.</p>
+</div>
+<div class="tab-pane fade" id="pestana3" role="tabpanel" aria-labelledby="pestana3-tab">
+  <p>La ciberseguridad o seguridad informática consiste en establecer una estrategia (serie de procesos, controles y herramientas) que ayudan a proteger información confidencial, sistemas o plataformas de negocio y cualquier otro activo digital. También llamada seguridad de tecnología de información (TI) o seguridad cibernética, se trata de una práctica cada vez más necesaria en un mundo cada vez más digitalizado y, por ello, cada vez más vulnerable a ataques informáticos.
+    Actualmente, existe una tendencia hacia la automatización de la ciberseguridad. Contar con un sistema automatizado capaz de reconocer y evitar amenazas, como nuestra plataforma Apolo, puede optimizar estos procesos. Sin embargo, es imprescindible que haya un componente humano en toda estrategia de ciberseguridad para que esta abarque todos los aspectos necesarios.</p>
+</div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      setBackgroundImage('./ciber.jpg');
+  });
+  function setBackgroundImage(imageUrl) {
+      $('body').css('background-image', 'url(' + imageUrl + ')');
+  }
+</script>
+</body>
+</html>
